@@ -75,7 +75,7 @@ export const tickeCreate = (query) => {
 // 已添加人员列表
 export const tickeDetail = (query) => {
 	return apiResquest({
-		url: '/manager/ticket/'+query.id+'/detail',
+		url: '/manager/ticket/'+query.id+'/worker/list',
 		method: 'get',
 	})
 }
@@ -179,6 +179,48 @@ export const terminalDetail = (query) => {
 		method: 'get',
 	})
 }
+// 未审核列表
+export const registerUncheckList = (query) => {
+	return apiResquest({
+		url: '/manager/register/uncheck/list',
+		method: 'get',
+	})
+}
+// 已审核列表
+export const registerCheckedList = (query) => {
+	return apiResquest({
+		url: '/manager/register/checked/list',
+		method: 'get',
+	})
+}
+// 机器人员添加
+export const registerApprove = (query) => {
+	return apiResquest({
+		url: '/manager/register/user/'+query.id+'/approve',
+		method: 'post'
+	})
+}
+// 机器人员移除
+export const registerReject = (query) => {
+	return apiResquest({
+		url: '/manager/register/user/'+query.id+'/reject',
+		method: 'post'
+	})
+}
+export const terminalSyncWorker = (query) => {
+	return apiResquest({
+		url: '/manager/terminal/'+query.sn+'/syncWorker',
+		method: 'post'
+	})
+}
+
+// export const registerReject = (query) => {
+// 	return apiResquest({
+// 		url: '/manager/terminal/'+query.sn+'/workerst',
+// 		method: 'post'
+// 	})
+// }
+
 // // 获取用户信息
 // export const getUserImformation = (query) => {
 // 	return apiResquest({

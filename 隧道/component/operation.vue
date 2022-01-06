@@ -60,10 +60,10 @@
 					id: this.id
 				})
 				.then(res => {
-					console.log(res.data.detail.users[0].id)
-					if (res.data.detail.users) {
-						for (let i = 0; i < res.data.detail.users.length; i++) {
-							this.user.push(res.data.detail.users[i].id)
+					// console.log(res.data.detail.users[0].id)
+					if (res.data.detail.workers) {
+						for (let i = 0; i < res.data.detail.workers.length; i++) {
+							this.user.push(res.data.detail.workers[i].id)
 						}
 					}
 
@@ -101,7 +101,7 @@
 					tickeAppend({
 							id: this.id,
 							data: {
-								users: e3
+								workers: e3
 							}
 						})
 						.then(res => {
@@ -119,7 +119,7 @@
 					tickeRemove({
 							id: this.id,
 							data: {
-								users: e3
+								workers: e3
 							}
 						})
 						.then(res => {

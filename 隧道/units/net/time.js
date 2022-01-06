@@ -28,6 +28,10 @@ export default {
 	transformTo(time) {
 		return Date.parse(time)
 	},
+	transformData(time){
+		var date = (new Date(Date.parse(time.replace(/-/g,"/")))).getTime();
+		return date
+	},
 	transformMD(time1, time2) {
 		var date1 = new Date(time1); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
 		var M1 = (date1.getMonth() + 1 < 10 ? '0' + (date1.getMonth() + 1) : date1.getMonth() + 1) + '月';

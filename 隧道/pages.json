@@ -53,6 +53,25 @@
             }
             
         }
+        ,{
+            "path" : "pages/examine/examine",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+        ,{
+            "path" : "pages/examined/examined",
+            "style" :                                                                                    
+            {
+                "navigationBarTitleText": "",
+                "enablePullDownRefresh": false
+            }
+            
+        }
+
     ],
 	//#ifdef MP-WEIXIN
 	"tabBar": {
