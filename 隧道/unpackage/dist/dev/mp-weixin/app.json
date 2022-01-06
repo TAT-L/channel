@@ -1,15 +1,39 @@
 {
   "pages": [
+    "pages/updata/updata",
+    "pages/index/index",
     "pages/work/work",
-    "pages/index/index"
+    "pages/check/check",
+    "pages/rigister/rigister",
+    "pages/user/user",
+    "subPage2/pcIndex/pcIndex",
+    "subPage3/userInfoEdit/userInfoEdit",
+    "pages/equipment/equipment"
   ],
   "subPackages": [],
   "window": {
-    "navigationStyle": "custom",
     "navigationBarTextStyle": "black",
-    "backgroundColor": "#F8F8F8"
+    "navigationBarTitleText": "uni-app",
+    "rpxCalcMaxDeviceWidth": 960,
+    "rpxCalcBaseDeviceWidth": 375,
+    "rpxCalcIncludeWidth": 750,
+    "navigationBarBackgroundColor": "#409EFF",
+    "backgroundColor": "#409EFF"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "个人"
+      }
+    ]
   },
   "permission": {},
-
-  "sitemapLocation": "sitemap.json"
+  "usingComponents": {
+    "download-excel": "/node-modules/vue-json-excel/dist/vue-json-excel.esm"
+  }
 }

@@ -1,0 +1,69 @@
+
+.title {
+	text-align: center;
+	font-weight: 900;
+	font-size: 60rpx;
+}
+.marTop {
+	margin-top: 20rpx;
+}
+.table {
+	/* width: 100vw; */
+}
+.paging {
+	/* 		position: fixed;
+	bottom: 80rpx; */
+	margin-top: 60rpx;
+}
+.box {
+	margin-top: 60rpx;
+	width: 80%;
+	display: flex;
+}
+.navigation {
+	/* flex: 1; */
+	height: 500px;
+	background-color: #E2F7F7;
+	margin-right: 60px;
+}
+.Warehousing {
+	flex: 2;
+	border: 1px solid #c5c5c5;
+	box-sizing: border-box;
+	box-shadow: 1px 2px 8px #C8CBC8;
+	/* padding: 20rpx  40rpx; */
+	padding-left: 40rpx;
+	padding-right: 40rpx;
+	padding-top: 20rpx;
+	padding-bottom: 240rpx;
+	position: relative;
+	min-height: 1200rpx;
+}
+.icon {
+	/* width: 60px;
+	height: 60px;
+	background-color: #409EFF;
+	border-radius: 50%; */
+	/* position: fixed;
+	bottom: 100rpx; */
+	color: #FFFFFF;
+	font-size: 100rpx;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	right: 40rpx;
+}
+.bottom {
+	display: flex;
+	justify-content: space-around;
+}
+.button {
+	display: flex;
+	justify-content: center;
+}
+.fixed {
+	position: absolute;
+	bottom: 40rpx;
+	width: 100%;
+}
+

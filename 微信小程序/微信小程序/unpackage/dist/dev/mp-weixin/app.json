@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/create/create",
     "pages/register/register",
+    "pages/create/create",
     "pages/index/index",
     "pages/user/user",
     "pages/Warehousing/Warehousing",
@@ -16,8 +16,24 @@
   "window": {
     "navigationBarTextStyle": "black",
     "navigationBarTitleText": "uni-app",
-    "navigationBarBackgroundColor": "#F8F8F8",
-    "backgroundColor": "#F8F8F8"
+    "rpxCalcMaxDeviceWidth": 960,
+    "rpxCalcBaseDeviceWidth": 375,
+    "rpxCalcIncludeWidth": 750,
+    "navigationBarBackgroundColor": "#409EFF",
+    "backgroundColor": "#409EFF"
   },
-  "usingComponents": {}
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "个人"
+      }
+    ]
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
 }

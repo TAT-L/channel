@@ -11,6 +11,13 @@ export const registerApi = (query) => {
 		query: query
 	})
 }
+// 获取管理员列表
+export const getManagerList = (query) => {
+	return apiResquest({
+		url: '/user/manager/list',
+		method: 'GET'
+	})
+}
 // 登陆
 export const loginApi = (query) => {
 	return apiResquest({

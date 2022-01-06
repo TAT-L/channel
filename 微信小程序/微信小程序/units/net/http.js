@@ -7,8 +7,8 @@ export const apiResquest = (prams) => { //prams 为我们需要调用的接口AP
 	// 判断请求类型
 	let headerData = {
 		'content-type': 'application/json',
-		 // uni.getStorageSync('cookie').cookie+
-		'Authorization':"Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDM3NzU1MDEsInVpZCI6MywidGFncyI6WyJtYW5hZ2VyIiwid29ya2VyIl19.PESuOGNLNRTAZAzVSKjbFmubUYw2_jHFMcrisOKh5yuUvoDihuOwoF7kB8GpOwDo-0L_uZBUMuSBRjX3w7BV2Q"
+		
+		'Authorization': uni.getStorageSync('cookie').cookie
 	}
 
 	let dataObj = null

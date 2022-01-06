@@ -17,7 +17,13 @@ export const loginApi = (query) => {
 		query: query
 	})
 }
-
+// 获取管理员列表
+export const getManagerList = (query) => {
+	return apiResquest({
+		url: '/user/manager/list',
+		method: 'GET'
+	})
+}
 //PC端判断二维码扫描状态
 export const pcLogin = (query) => {
 	return apiResquest({

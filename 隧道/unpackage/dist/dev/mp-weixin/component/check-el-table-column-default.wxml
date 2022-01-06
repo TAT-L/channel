@@ -1,0 +1,1 @@
+<block wx:if="{{scope.row.flag}}"><view class="el-icon-success _i"></view></block><block wx:else><view class="el-icon-error _i"></view></block>

@@ -1,0 +1,1 @@
+<view><block wx:if="{{page==0}}"><check vue-id="ac2d09a4-1" bind:__l="__l"></check></block><block wx:else><totalchck vue-id="ac2d09a4-2" bind:__l="__l"></totalchck></block></view>

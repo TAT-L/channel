@@ -1,0 +1,1 @@
+<el-button vue-id="5967fd16-6" type="text" size="small" data-event-opts="{{[['^click',[['handleClick',['$0'],['scope.row']]]]]}}" bind:click="__e" bind:__l="__l" vue-slots="{{['default']}}">删除</el-button>

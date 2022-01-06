@@ -324,7 +324,7 @@ var promiseInterceptor = {
 
 
 var SYNC_API_RE =
-/^\$|Window$|WindowStyle$|sendNativeEvent|restoreGlobal|getCurrentSubNVue|getMenuButtonBoundingClientRect|^report|interceptors|Interceptor$|getSubNVueById|requireNativePlugin|upx2px|hideKeyboard|canIUse|^create|Sync$|Manager$|base64ToArrayBuffer|arrayBufferToBase64|getLocale|setLocale/;
+/^\$|Window$|WindowStyle$|sendHostEvent|sendNativeEvent|restoreGlobal|getCurrentSubNVue|getMenuButtonBoundingClientRect|^report|interceptors|Interceptor$|getSubNVueById|requireNativePlugin|upx2px|hideKeyboard|canIUse|^create|Sync$|Manager$|base64ToArrayBuffer|arrayBufferToBase64|getLocale|setLocale/;
 
 var CONTEXT_API_RE = /^create|Manager$/;
 
@@ -1380,11 +1380,33 @@ function handleEvent(event) {var _this = this;
   }
 }
 
+var messages = {};
+
 var locale;
 
 {
   locale = wx.getSystemInfoSync().language;
 }
+
+function initI18nMessages() {
+  if (!isEnableLocale()) {
+    return;
+  }
+  var localeKeys = Object.keys(__uniConfig.locales);
+  if (localeKeys.length) {
+    localeKeys.forEach(function (locale) {
+      var curMessages = messages[locale];
+      var userMessages = __uniConfig.locales[locale];
+      if (curMessages) {
+        Object.assign(curMessages, userMessages);
+      } else {
+        messages[locale] = userMessages;
+      }
+    });
+  }
+}
+
+initI18nMessages();
 
 var i18n = (0, _uniI18n.initVueI18n)(
 locale,
@@ -1427,6 +1449,19 @@ function initAppLocale(Vue, appVm, locale) {
     } });
 
 }
+
+function isEnableLocale() {
+  return typeof __uniConfig !== 'undefined' && __uniConfig.locales && !!Object.keys(__uniConfig.locales).length;
+}
+
+// export function initI18n() {
+//   const localeKeys = Object.keys(__uniConfig.locales || {})
+//   if (localeKeys.length) {
+//     localeKeys.forEach((locale) =>
+//       i18n.add(locale, __uniConfig.locales[locale])
+//     )
+//   }
+// }
 
 var eventChannels = {};
 
@@ -2051,14 +2086,14 @@ uni$1;exports.default = _default;
 /***/ }),
 
 /***/ 10:
-/*!****************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/qd/薪火/微信小程序/微信小程序/models/baseModel.js ***!
-  \****************************************************************************/
+/*!*******************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/微信小程序/微信小程序/models/baseModel.js ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.workerTime = exports.terminalList = exports.attendanceTimeWork = exports.attendanceTime = exports.attendanceList = exports.invitationRemove = exports.invitationList = exports.invitationAppend = exports.tickeRemove = exports.tickeAppend = exports.tickeDetail = exports.tickeCreate = exports.ticketList = exports.workList = exports.confirmPcLogin = exports.scanQRcode = exports.pcLogin = exports.loginApi = exports.registerApi = void 0;var _http = __webpack_require__(/*! ../units/net/http.js */ 11);
+Object.defineProperty(exports, "__esModule", { value: true });exports.workerTime = exports.terminalList = exports.attendanceTimeWork = exports.attendanceTime = exports.attendanceList = exports.invitationRemove = exports.invitationList = exports.invitationAppend = exports.tickeRemove = exports.tickeAppend = exports.tickeDetail = exports.tickeCreate = exports.ticketList = exports.workList = exports.confirmPcLogin = exports.scanQRcode = exports.pcLogin = exports.getManagerList = exports.loginApi = exports.registerApi = void 0;var _http = __webpack_require__(/*! ../units/net/http.js */ 11);
 
 
 
@@ -2077,9 +2112,15 @@ exports.registerApi = registerApi;var loginApi = function loginApi(query) {
     query: query });
 
 };
+// 获取管理员列表
+exports.loginApi = loginApi;var getManagerList = function getManagerList(query) {
+  return (0, _http.apiResquest)({
+    url: '/user/manager/list',
+    method: 'GET' });
 
+};
 //PC端判断二维码扫描状态
-exports.loginApi = loginApi;var pcLogin = function pcLogin(query) {
+exports.getManagerList = getManagerList;var pcLogin = function pcLogin(query) {
   return (0, _http.apiResquest)({
     url: '/login/qrcode/check',
     method: 'POST',
@@ -2207,9 +2248,9 @@ var workerTime = function workerTime(query) {
 /***/ }),
 
 /***/ 11:
-/*!**************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/qd/薪火/微信小程序/微信小程序/units/net/http.js ***!
-  \**************************************************************************/
+/*!*****************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/微信小程序/微信小程序/units/net/http.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2223,8 +2264,8 @@ var apiResquest = function apiResquest(prams) {//prams 为我们需要调用的�
   // 判断请求类型
   var headerData = {
     'content-type': 'application/json',
-    // uni.getStorageSync('cookie').cookie+
-    'Authorization': "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDM3NzU1MDEsInVpZCI6MywidGFncyI6WyJtYW5hZ2VyIiwid29ya2VyIl19.PESuOGNLNRTAZAzVSKjbFmubUYw2_jHFMcrisOKh5yuUvoDihuOwoF7kB8GpOwDo-0L_uZBUMuSBRjX3w7BV2Q" };
+
+    'Authorization': uni.getStorageSync('cookie').cookie };
 
 
   var dataObj = null;
@@ -2288,9 +2329,9 @@ var apiResquest = function apiResquest(prams) {//prams 为我们需要调用的�
 /***/ }),
 
 /***/ 111:
-/*!*************************************************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/qd/薪火/微信小程序/微信小程序/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/index.js ***!
-  \*************************************************************************************************************************************/
+/*!****************************************************************************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/微信小程序/微信小程序/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/index.js ***!
+  \****************************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2306,9 +2347,9 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 1
 /***/ }),
 
 /***/ 112:
-/*!************************************************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/qd/薪火/微信小程序/微信小程序/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/en.json ***!
-  \************************************************************************************************************************************/
+/*!***************************************************************************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/微信小程序/微信小程序/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/en.json ***!
+  \***************************************************************************************************************************************************************/
 /*! exports provided: uni-datetime-picker.selectDate, uni-datetime-picker.selectTime, uni-datetime-picker.selectDateTime, uni-datetime-picker.startDate, uni-datetime-picker.endDate, uni-datetime-picker.startTime, uni-datetime-picker.endTime, uni-datetime-picker.ok, uni-datetime-picker.clear, uni-datetime-picker.cancel, uni-calender.MON, uni-calender.TUE, uni-calender.WED, uni-calender.THU, uni-calender.FRI, uni-calender.SAT, uni-calender.SUN, default */
 /***/ (function(module) {
 
@@ -2317,9 +2358,9 @@ module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"select date\"
 /***/ }),
 
 /***/ 113:
-/*!*****************************************************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/qd/薪火/微信小程序/微信小程序/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hans.json ***!
-  \*****************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/微信小程序/微信小程序/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hans.json ***!
+  \********************************************************************************************************************************************************************/
 /*! exports provided: uni-datetime-picker.selectDate, uni-datetime-picker.selectTime, uni-datetime-picker.selectDateTime, uni-datetime-picker.startDate, uni-datetime-picker.endDate, uni-datetime-picker.startTime, uni-datetime-picker.endTime, uni-datetime-picker.ok, uni-datetime-picker.clear, uni-datetime-picker.cancel, uni-calender.SUN, uni-calender.MON, uni-calender.TUE, uni-calender.WED, uni-calender.THU, uni-calender.FRI, uni-calender.SAT, default */
 /***/ (function(module) {
 
@@ -2328,9 +2369,9 @@ module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"选择日期\
 /***/ }),
 
 /***/ 114:
-/*!*****************************************************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/qd/薪火/微信小程序/微信小程序/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hant.json ***!
-  \*****************************************************************************************************************************************/
+/*!********************************************************************************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/微信小程序/微信小程序/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hant.json ***!
+  \********************************************************************************************************************************************************************/
 /*! exports provided: uni-datetime-picker.selectDate, uni-datetime-picker.selectTime, uni-datetime-picker.selectDateTime, uni-datetime-picker.startDate, uni-datetime-picker.endDate, uni-datetime-picker.startTime, uni-datetime-picker.endTime, uni-datetime-picker.ok, uni-datetime-picker.clear, uni-datetime-picker.cancel, uni-calender.SUN, uni-calender.MON, uni-calender.TUE, uni-calender.WED, uni-calender.THU, uni-calender.FRI, uni-calender.SAT, default */
 /***/ (function(module) {
 
@@ -2339,9 +2380,9 @@ module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"選擇日期\
 /***/ }),
 
 /***/ 12:
-/*!****************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/qd/薪火/微信小程序/微信小程序/units/net/config.js ***!
-  \****************************************************************************/
+/*!*******************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/微信小程序/微信小程序/units/net/config.js ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -2354,9 +2395,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.config = v
 /***/ }),
 
 /***/ 136:
-/*!************************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/qd/薪火/微信小程序/微信小程序/uni_modules/uni-icons/components/uni-icons/icons.js ***!
-  \************************************************************************************************************/
+/*!***************************************************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/微信小程序/微信小程序/uni_modules/uni-icons/components/uni-icons/icons.js ***!
+  \***************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3606,9 +3647,9 @@ function normalizeComponent (
 /***/ }),
 
 /***/ 151:
-/*!****************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/qd/薪火/微信小程序/微信小程序/models/userModel.js ***!
-  \****************************************************************************/
+/*!*******************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/微信小程序/微信小程序/models/userModel.js ***!
+  \*******************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -3635,9 +3676,9 @@ var getAvatar = function getAvatar(query) {
 /***/ }),
 
 /***/ 173:
-/*!*******************************************************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/qd/薪火/微信小程序/微信小程序/uni_modules/uni-datetime-picker/components/uni-datetime-picker/util.js ***!
-  \*******************************************************************************************************************************/
+/*!**********************************************************************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/微信小程序/微信小程序/uni_modules/uni-datetime-picker/components/uni-datetime-picker/util.js ***!
+  \**********************************************************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -8177,10 +8218,10 @@ function updateChildComponent (
     // keep a copy of raw propsData
     vm.$options.propsData = propsData;
   }
-  
+
   // fixed by xxxxxx update properties(mp runtime)
   vm._$updateProperties && vm._$updateProperties(vm);
-  
+
   // update listeners
   listeners = listeners || emptyObject;
   var oldListeners = vm.$options._parentListeners;
@@ -8711,7 +8752,7 @@ function initProps (vm, propsOptions) {
             }
             //fixed by xxxxxx __next_tick_pending,uni://form-field 时不告警
             if(
-                key === 'value' && 
+                key === 'value' &&
                 Array.isArray(vm.$options.behaviors) &&
                 vm.$options.behaviors.indexOf('uni://form-field') !== -1
               ){
@@ -8723,7 +8764,7 @@ function initProps (vm, propsOptions) {
             var $parent = vm.$parent;
             while($parent){
               if($parent.__next_tick_pending){
-                return  
+                return
               }
               $parent = $parent.$parent;
             }
@@ -9051,10 +9092,10 @@ function initMixin (Vue) {
     initEvents(vm);
     initRender(vm);
     callHook(vm, 'beforeCreate');
-    !vm._$fallback && initInjections(vm); // resolve injections before data/props  
+    !vm._$fallback && initInjections(vm); // resolve injections before data/props
     initState(vm);
     !vm._$fallback && initProvide(vm); // resolve provide after data/props
-    !vm._$fallback && callHook(vm, 'created');      
+    !vm._$fallback && callHook(vm, 'created');
 
     /* istanbul ignore if */
     if ( true && config.performance && mark) {
@@ -9780,7 +9821,7 @@ function mountComponent$1(
       }
     }
   }
-  
+
   !vm._$fallback && callHook(vm, 'beforeMount');
 
   var updateComponent = function () {
@@ -9979,14 +10020,16 @@ function internalMixin(Vue) {
     if (!target) {
       target = this;
     }
-    target[key] = value;
+    // 解决动态属性添加
+    Vue.set(target, key, value)
   };
 
   Vue.prototype.__set_sync = function(target, key, value) {
     if (!target) {
       target = this;
     }
-    target[key] = value;
+    // 解决动态属性添加
+    Vue.set(target, key, value)
   };
 
   Vue.prototype.__get_orig = function(item) {
@@ -10119,7 +10162,7 @@ Vue.prototype.__patch__ = patch;
 // public mount method
 Vue.prototype.$mount = function(
     el ,
-    hydrating 
+    hydrating
 ) {
     return mountComponent$1(this, el, hydrating)
 };
@@ -10600,9 +10643,9 @@ function resolveLocaleChain(locale) {
 /***/ }),
 
 /***/ 5:
-/*!*******************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/qd/薪火/微信小程序/微信小程序/pages.json ***!
-  \*******************************************************************/
+/*!**********************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/微信小程序/微信小程序/pages.json ***!
+  \**********************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -10611,9 +10654,9 @@ function resolveLocaleChain(locale) {
 /***/ }),
 
 /***/ 78:
-/*!**************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/qd/薪火/微信小程序/微信小程序/units/net/time.js ***!
-  \**************************************************************************/
+/*!*****************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/微信小程序/微信小程序/units/net/time.js ***!
+  \*****************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10651,9 +10694,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /***/ }),
 
 /***/ 9:
-/*!***********************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/qd/薪火/微信小程序/微信小程序/units/login.js ***!
-  \***********************************************************************/
+/*!**************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/微信小程序/微信小程序/units/login.js ***!
+  \**************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -10661,32 +10704,44 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _baseModel = __webpack_require__(/*! ../models/baseModel.js */ 10);
 
 // 登陆函数
-var _default = function _default(prams) {
+var _default = function _default() {
   // 获取code
-  uni.login({
-    provider: 'weixin',
-    success: function success(res) {
-      // 获取cookie
-      (0, _baseModel.loginApi)({
-        code: res.code }).
-      then(function (res) {
-        console.log(res);
+  return new Promise(function (resolve, reject) {
+    uni.login({
+      provider: 'weixin',
+      success: function success(res) {
+        // 获取cookie
+        (0, _baseModel.loginApi)({
+          code: res.code }).
+        then(function (res) {
+          resolve(res);
+          console.log(res);
+          // 存储cookie
+          uni.setStorage({
+            key: 'cookie',
+            data: {
+              cookie: 'Bearer ' + res.data.detail.token },
 
-        // 存储cookie
-        uni.setStorage({
-          key: 'cookie',
-          data: {
-            cookie: 'Bearer ' + res.data.detail.token },
+            success: function success() {
+              // console.log(uni.getStorageSync('cookie'))
+            },
+            fail: function fail() {} });
 
-          success: function success() {
-            console.log(uni.getStorageSync('cookie'));
-          },
-          fail: function fail() {} });
+          //存储登陆状态
+          uni.setStorage({
+            key: 'status',
+            data: res.data.detail.status,
+            success: function success() {
 
-      }).catch(function (err) {
-        console.log('登陆失败', err);
-      });
-    } });
+            },
+            fail: function fail() {} });
+
+        }).catch(function (err) {
+          console.log('登陆失败', err);
+        });
+      } });
+
+  });
 
 
 };exports.default = _default;
@@ -10695,9 +10750,9 @@ var _default = function _default(prams) {
 /***/ }),
 
 /***/ 95:
-/*!******************************************************************************************!*\
-  !*** C:/Users/Administrator/Desktop/qd/薪火/微信小程序/微信小程序/node_modules/image-tools/index.js ***!
-  \******************************************************************************************/
+/*!*********************************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/微信小程序/微信小程序/node_modules/image-tools/index.js ***!
+  \*********************************************************************************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
