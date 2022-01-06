@@ -50,7 +50,6 @@
 		name: "checks",
 		created() {
 			console.log(this.value2)
-
 		},
 		components:{
 			lists
@@ -62,6 +61,13 @@
 						console.log(time.parseTime(1640361600000))
 						console.log(time.parseTime(1640361600000+86400000))
 			// dateTime=dateTime.setDate(dateTime.getDate()+1);
+			           // this.getdata()
+			let data=new Date()
+			console.log(time.transformTo(data))
+			console.log(time.parseTimes(time.transformTo(data)))
+			console.log(time.transformData(time.parseTimes(time.transformTo(data))))
+			this.value2=time.transformData(time.parseTimes(time.transformTo(data)))
+			 this.getdata()
 		},
 		data() {
 			return {
@@ -111,13 +117,9 @@
 
 				}
 			},
-			changeTime(e) {
-				// this.endTime=this.value2
-				let data = this.value2
-				console.log(time.transformTo(data)) 
-				console.log(time.transformTo(this.value2)+86400000)
+			getdata(){
 				attendanceTime({
-					time:time.transformTo(this.value2)
+					time:this.value2
 					// end:time.transformTo(this.value2)+86400000
 				})
 				.then(res=>{
@@ -135,9 +137,9 @@
 							}
 						}
 					}
-                    let newArray = [];
+				    let newArray = [];
 					// let data=this.checked
-                    for(let item in res.data.detail.users){
+				    for(let item in res.data.detail.users){
 						console.log(item)
 						let flag=true;
 						for( let items in res.data.detail.attendees){
@@ -154,7 +156,7 @@
 					this.nocheck=res.data.detail.users
 					// this.allPeople=res.data.detail.users
 					this.checked=res.data.detail.attendees
-                    console.log(newArray);
+				    console.log(newArray);
 					this.nocheck=newArray;
 					// this.allPeople=this.checked
 					console.log(this.checked)
@@ -170,11 +172,78 @@
 					}
 					this.allPeople=data
 					this.tableData=this.allPeople
-                   
+				   
 				})
 				.catch(err=>{
 					console.log(err)
 				})
+			},
+			changeTime(e) {
+				// this.endTime=this.value2
+				let data = this.value2
+				console.log(time.transformTo(data)) 
+				console.log(time.transformTo(this.value2)+86400000)
+				this.value2=time.transformTo(this.value2)
+				this.getdata()
+				// attendanceTime({
+				// 	time:time.transformTo(this.value2)
+				// 	// end:time.transformTo(this.value2)+86400000
+				// })
+				// .then(res=>{
+				// 	console.log(res.data)
+				// 	// this.nocheck=res.data.detail.users
+				// 	// this.checked=res.data.detail.attendees
+				// 	// this.tableData=this.checked
+					
+				// 		for(let j=0;j<res.data.detail.attendees.length;j++){
+				// 			res.data.detail.attendees[j].flag=true
+				// 			 for(let i=0;i<res.data.detail.users.length;i++){
+				// 			if(res.data.detail.attendees[j].id==res.data.detail.users[i].id){
+				// 				res.data.detail.attendees[j].user=res.data.detail.users[i].user
+				// 				break
+				// 			}
+				// 		}
+				// 	}
+    //                 let newArray = [];
+				// 	// let data=this.checked
+    //                 for(let item in res.data.detail.users){
+				// 		console.log(item)
+				// 		let flag=true;
+				// 		for( let items in res.data.detail.attendees){
+				// 			if(res.data.detail.users[item].id==res.data.detail.attendees[items].id){
+				// 				res.data.detail.users[item].flag=false
+				// 				flag=false
+				// 				break;
+				// 			}
+				// 		}
+				// 		 if(flag){
+				// 			 newArray.push(res.data.detail.users[item])
+				// 		 }
+				// 	}
+				// 	this.nocheck=res.data.detail.users
+				// 	// this.allPeople=res.data.detail.users
+				// 	this.checked=res.data.detail.attendees
+    //                 console.log(newArray);
+				// 	this.nocheck=newArray;
+				// 	// this.allPeople=this.checked
+				// 	console.log(this.checked)
+				// 	let data=[]
+				// 	console.log(data)
+				// 	for(let item in this.nocheck){
+				// 		console.log(this.nocheck[item])
+				// 		data.push(this.nocheck[item])
+				// 	}
+				// 	for(let item in this.checked){
+				// 		console.log(this.checked[item])
+				// 		data.push(this.checked[item])
+				// 	}
+				// 	this.allPeople=data
+				// 	this.tableData=this.allPeople
+                   
+				// })
+				// .catch(err=>{
+				// 	console.log(err)
+				// })
 				// 86400000
 				// console.log(time.parseTime(time.transformTo(this.value2)))
 			},

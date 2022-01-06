@@ -1,6 +1,7 @@
 <template>
 	<view class="box marginTop">
 		<popup v-if="show" @back="back" :show="show"></popup>
+		<detail v-if="shows" @back="backs" :show="shows" :sn="sn"></detail>
 		<operation v-if="flag" :id="whichId" @goBack="goBack"></operation>
 		<view class="title">
 			设备处理
@@ -26,7 +27,7 @@
 				</el-table-column>
 				<el-table-column fixed="right" label="操作">
 					<template slot-scope="scope">
-						<el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+						<el-button @click="detail(scope.row)" type="text" size="small">查看</el-button>
 						<el-button @click="handleClick(scope.row)" type="text" size="small">添加</el-button>
 						<el-button @click="delate(scope.row)" type="text" size="small">解绑</el-button>
 					</template>
@@ -44,10 +45,12 @@
 	import popup from './terminalInput.vue'
 	import operation from './equipmentOperation.vue'
 	import {terminalUnbind} from '../models/baseModel.js'
+	import detail from './details.vue'
 	export default {
 		components: {
 			popup,
-			operation
+			operation,
+			detail
 		},
 		data() {
 			return {
@@ -55,6 +58,8 @@
 				flag:false,
 				whichId:-1,
 				tableData: [],
+				shows:false,
+				sn:''
 			}
 		},
 		methods: {
@@ -63,8 +68,22 @@
 				console.log(this.show)
 				this.show = e
 			},
+			backs(e){
+				console.log(e)
+				console.log(this.show)
+				this.shows = e
+			},
 			goBack(e){
 				this.flag=e
+			},
+			detail(e){
+				console.log(e)
+				this.sn=e.sn
+				this.$emit("back", {sn:this.sn,flag:true});
+				uni.navigateTo({
+					url:'../pages/detail/detail'
+				})
+				// this.shows=true
 			},
 			handleClick(row) {
 				console.log(row);
