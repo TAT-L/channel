@@ -1,0 +1,51 @@
+{
+  "pages": [
+    "pages/register/register",
+    "pages/create/create",
+    "pages/index/index",
+    "pages/user/user",
+    "pages/Warehousing/Warehousing",
+    "pages/work/work",
+    "pages/increase/increase",
+    "pages/attendance/attendance",
+    "pages/enter/enter",
+    "subPage3/userInfoEdit/userInfoEdit"
+  ],
+  "subPackages": [
+    {
+      "root": "subPage1",
+      "pages": [
+        "pcLogin/pcLogin"
+      ]
+    },
+    {
+      "root": "subPage2",
+      "pages": [
+        "pcIndex/pcIndex"
+      ]
+    }
+  ],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#409EFF",
+    "backgroundColor": "#409EFF"
+  },
+  "tabBar": {
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "static/首页no.png",
+        "selectedIconPath": "static/首页.png"
+      },
+      {
+        "pagePath": "pages/user/user",
+        "text": "个人",
+        "iconPath": "static/个人(未选中).png",
+        "selectedIconPath": "static/个人.png"
+      }
+    ]
+  },
+  "usingComponents": {}
+}

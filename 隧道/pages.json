@@ -1,15 +1,15 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
+			"path": "pages/index/index"
+		},{
 			"path": "pages/updata/updata",
 			"style": {
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
 
-		}, {
-			"path": "pages/index/index"
-		},
+		}, 
 		{
 			"path": "pages/work/work"
 		}, {
@@ -73,6 +73,27 @@
         }
 
     ],
+	"subPackages": [{
+			"root": "subPage1",
+			"pages": [{
+				"path": "pcLogin/pcLogin",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": false
+				}
+			}]
+		}
+		//{
+		//      "root": "subPage2",
+		//      "pages": [{
+		//          "path": "detail/detail",
+		//          "style": { 
+		// 	"navigationBarTitleText": "",
+		// 	"enablePullDownRefresh": false
+		// }
+		//      }]
+		//  }
+	],
 	//#ifdef MP-WEIXIN
 	"tabBar": {
 	

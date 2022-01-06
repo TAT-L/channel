@@ -1,1 +1,0 @@
-<view class="content data-v-fcb68b5e"><block wx:if="{{current===0}}"><index-main class="indexMain data-v-fcb68b5e" vue-id="9a19de56-1" bind:__l="__l"></index-main></block><block wx:else><user-main class="userMain data-v-fcb68b5e" vue-id="9a19de56-2" bind:__l="__l"></user-main></block></view>
