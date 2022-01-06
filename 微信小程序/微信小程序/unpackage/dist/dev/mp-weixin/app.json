@@ -1,0 +1,23 @@
+{
+  "pages": [
+    "pages/create/create",
+    "pages/register/register",
+    "pages/index/index",
+    "pages/user/user",
+    "pages/Warehousing/Warehousing",
+    "pages/work/work",
+    "pages/increase/increase",
+    "pages/check/check",
+    "subPage2/pcIndex/pcIndex",
+    "subPage3/userInfoEdit/userInfoEdit",
+    "pages/enter/enter"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "uni-app",
+    "navigationBarBackgroundColor": "#F8F8F8",
+    "backgroundColor": "#F8F8F8"
+  },
+  "usingComponents": {}
+}

@@ -1,0 +1,1 @@
+<view class="content"><view class="text"><text>操作票处理</text></view><view class="button"><button class="btn" type="default" data-event-opts="{{[['tap',[['create',['$event']]]]]}}" bindtap="__e">新建</button></view><view class="page"><tab vue-id="7f9163c0-1" tableData="{{data}}" title="{{title}}" headers="{{headers}}" name="{{name}}" bind:__l="__l"></tab></view></view>

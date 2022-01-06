@@ -1,0 +1,146 @@
+import {
+	apiResquest
+} from '../units/net/http.js'
+
+export const registerApi = (query) => {
+	return apiResquest({
+		url: '/user/register',
+		method: 'POST',
+		query: query
+	})
+}
+// 登陆
+export const loginApi = (query) => {
+	return apiResquest({
+		url: '/login/wechat',
+		method: 'POST',
+		query: query
+	})
+}
+
+//PC端判断二维码扫描状态
+export const pcLogin = (query) => {
+	return apiResquest({
+		url: '/login/qrcode/check',
+		method: 'POST',
+		query: query
+	})
+}
+
+//手机扫描二维码
+export const scanQRcode = (query) => {
+	return apiResquest({
+		url: '/user/qrcode/information',
+		method: 'POST',
+		query: query
+	})
+}
+
+//手机扫描二维码,确认登陆
+export const confirmPcLogin = (query) => {
+	return apiResquest({
+		url: '/user/qrcode/confirm',
+		method: 'POST',
+		query: query
+	})
+}
+// 用户注册
+
+export const workList = (query) => {
+	return apiResquest({
+		url: '/manager/worker/list',
+		method: 'get'
+	})
+}
+export const ticketList = (query) => {
+	return apiResquest({
+		url: '/manager/ticket/list',
+		method: 'get'
+	})
+}
+export const tickeCreate = (query) => {
+	return apiResquest({
+		url: '/manager/ticket/create',
+		method: 'POST',
+		query: query
+	})
+}
+export const tickeDetail = (query) => {
+	return apiResquest({
+		url: '/manager/ticket/'+query.id+'/detail',
+		method: 'get',
+	})
+}
+export const tickeAppend = (query) => {
+	return apiResquest({
+		url: '/manager/ticket/'+query.id+'/append',
+		method: 'post',
+		query: query.data
+	})
+}
+export const tickeRemove = (query) => {
+	return apiResquest({
+		url: '/manager/ticket/'+query.id+'/remove',
+		method: 'post',
+		query: query.data
+	})
+}
+export const invitationAppend = (query) => {
+	return apiResquest({
+		url: '/manager/invitation/append',
+		method: 'post',
+		query: query
+	})
+}
+export const invitationList = (query) => {
+	return apiResquest({
+		url: '/manager/invitation/list',
+		method: 'get'
+	})
+}
+export const invitationRemove = (query) => {
+	return apiResquest({
+		url: '/manager/invitation/'+query.id+'/delete',
+		method: 'delete'
+	})
+}
+export const attendanceList = (query) => {
+	return apiResquest({
+		url: '/manager/attendance/list?start='+query.start+"&end="+query.end,
+		method: 'get'
+	})
+}
+
+// // 获取用户信息
+// export const getUserImformation = (query) => {
+// 	return apiResquest({
+// 		url: '/user',
+// 		method: 'GET',
+// 		query: query
+// 	})
+// }
+export const attendanceTime = (query) => {
+	return apiResquest({
+		url: '/manager/attendance/time/'+query.time,
+		method: 'get'
+	})
+}
+export const attendanceTimeWork = (query) => {
+	return apiResquest({
+		url: '/manager/attendance/time/'+query.time+'/worker/'+query.id,
+		method: 'get'
+	})
+}
+export const terminalList = (query) => {
+	return apiResquest({
+		url: '/manager/terminal/list',
+		method: 'get'
+	})
+}
+export const workerTime = (query) => {
+	return apiResquest({
+		url: '/worker/attendance/time/'+query.time,
+		method: 'get'
+	})
+}
+

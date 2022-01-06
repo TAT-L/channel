@@ -1,0 +1,171 @@
+@charset "UTF-8";
+/**
+ * 这里是uni-app内置的常用样式变量
+ *
+ * uni-app 官方扩展插件及插件市场（https://ext.dcloud.net.cn）上很多三方插件均使用了这些样式变量
+ * 如果你是插件开发者，建议你使用scss预处理，并在插件代码中直接使用这些变量（无需 import 这个文件），方便用户通过搭积木的方式开发整体风格一致的App
+ *
+ */
+/**
+ * 如果你是App开发者（插件使用者），你可以通过修改这些变量来定制自己的插件主题，实现自定义主题功能
+ *
+ * 如果你的项目同样使用了scss预处理，你也可以直接在你的 scss 代码中使用如下变量，同时无需 import 这个文件
+ */
+/* 颜色变量 */
+/* 行为相关颜色 */
+/* 文字基本颜色 */
+/* 背景颜色 */
+/* 边框颜色 */
+/* 尺寸变量 */
+/* 文字尺寸 */
+/* 图片尺寸 */
+/* Border Radius */
+/* 水平间距 */
+/* 垂直间距 */
+/* 透明度 */
+/* 文章场景相关 */
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+.view {
+  border: 1px solid #409EFF;
+  border-radius: 20rpx;
+}
+.text {
+  display: flex;
+  font-weight: 600;
+  align-items: center;
+  justify-content: center;
+  padding: 20rpx 40rpx;
+  font-size: 42rpx;
+}
+.table {
+  width: 94%;
+  /* background-color: palegoldenrod; */
+  margin-top: 20rpx;
+}
+/* .table {
+  border: 1px solid #dadada;
+} */
+.tr {
+  background: white;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  height: 3rem;
+  align-items: center;
+  font-size: 32rpx;
+}
+.td {
+  width: 40%;
+  justify-content: center;
+  text-align: center;
+  border-bottom: 1px solid #666565;
+  border-right: 1px solid #666565;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.th {
+  width: 40%;
+  justify-content: center;
+  background: white;
+  color: black;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+  border-bottom: 1px solid #666565;
+  border-right: 1px solid #666565;
+  border-top: 1px solid #666565;
+  font-size: 32rpx;
+  font-weight: 800;
+}
+.mytd {
+  border-left: 1px solid #666565;
+}
+.s_table {
+  display: inline-flex;
+  flex-direction: column;
+  border-bottom: 0;
+  min-width: 100%;
+  font-size: 30rpx;
+}
+.s_table-border {
+  border: solid 2rpx #dfdfdf;
+}
+.s_table-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+  font-weight: bold;
+  background-color: #f3f0f0;
+}
+.s_table-header-column {
+  padding: 6rpx 10rpx;
+  flex-shrink: 0;
+  word-break: break-all;
+  word-wrap: break-word;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.last-column {
+  flex-grow: 1;
+}
+.s_table-header-column-border {
+  border-right: solid 2rpx #dfdfdf;
+}
+.s_table-header-column-border:last-child {
+  border-right: solid 0rpx #dfdfdf;
+}
+.s_table-content-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: stretch;
+}
+.s_table-row-white {
+  background-color: #ffffff;
+}
+.s_table-row-gray {
+  background-color: #efefef;
+}
+.s_table-content-column {
+  padding: 6rpx 10rpx;
+  flex-shrink: 0;
+  word-break: break-all;
+  word-wrap: break-word;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.s_table-content-column-border {
+  border-top: solid 2rpx #dfdfdf;
+  border-right: solid 2rpx #dfdfdf;
+}
+.s_table-content-column-border:last-child {
+  border-right: solid 0rpx #dfdfdf;
+}
+.nodata {
+  text-align: center;
+  padding: 30rpx;
+  color: #999;
+}
+.btn {
+  margin: 0 !important;
+  width: 100rpx !important;
+  padding-left: 0;
+  padding-right: 0;
+  font-size: 25rpx;
+  border: none !important;
+  padding: none !important;
+  background-color: #E43D33 !important;
+  color: #FFFFFF !important;
+}
+
