@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "warehousing": "/component/Warehousing",
-    "warehouse-list": "/component/WarehouseList"
-  }
-}

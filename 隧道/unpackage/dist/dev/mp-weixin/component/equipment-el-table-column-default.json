@@ -1,9 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "equipment-el-table-column-default": "/component/equipment-el-table-column-default",
-    "equipment-el-table-column-default1": "/component/equipment-el-table-column-default1",
-    "popup": "/component/terminalInput",
-    "operation": "/component/equipmentOperation"
-  }
-}

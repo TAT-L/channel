@@ -1,8 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "check-el-table-column-default": "/component/check-el-table-column-default",
-    "check-el-table-column-default1": "/component/check-el-table-column-default1",
-    "lists": "/component/TimeList"
-  }
-}

@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "WarehouseList-el-table-column-default": "/component/WarehouseList-el-table-column-default"
-  }
-}

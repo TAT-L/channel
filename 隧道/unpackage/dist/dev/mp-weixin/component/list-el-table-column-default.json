@@ -1,8 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "list-el-table-column-default": "/component/list-el-table-column-default",
-    "popup": "/component/popup",
-    "operation": "/component/operation"
-  }
-}

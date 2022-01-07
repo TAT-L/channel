@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "check": "/component/check",
-    "totalchck": "/component/totalCheck"
-  }
-}
