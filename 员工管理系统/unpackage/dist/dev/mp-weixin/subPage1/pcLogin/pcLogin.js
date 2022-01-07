@@ -93,6 +93,29 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "recyclableRender", function() { return recyclableRender; });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "components", function() { return components; });
 var components
+try {
+  components = {
+    uniIcons: function() {
+      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 295))
+    }
+  }
+} catch (e) {
+  if (
+    e.message.indexOf("Cannot find module") !== -1 &&
+    e.message.indexOf(".vue") !== -1
+  ) {
+    console.error(e.message)
+    console.error("1. 排查组件名称拼写是否正确")
+    console.error(
+      "2. 排查组件是否符合 easycom 规范，文档：https://uniapp.dcloud.net.cn/collocation/pages?id=easycom"
+    )
+    console.error(
+      "3. 若组件不符合 easycom 规范，需手动引入，并在 components 中注册该组件"
+    )
+  } else {
+    throw e
+  }
+}
 var render = function() {
   var _vm = this
   var _h = _vm.$createElement
@@ -146,6 +169,13 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
+
+
+
+
+
+
+
 var _baseModel = __webpack_require__(/*! ../../models/baseModel.js */ 10); //
 //
 //
@@ -160,11 +190,26 @@ var _baseModel = __webpack_require__(/*! ../../models/baseModel.js */ 10); //
 //
 //
 //
-var QRcodeToken = '';var _default = { data: function data() {return { QRcodeStatus: 0, resultTipsContent: '', QRcode: '' };}, onLoad: function onLoad() {this.loadQRcode();
+//
+//
+//
+//
+//
+//
+var QRcodeToken = '';var timer = null;var _default = { data: function data() {return { QRcodeStatus: 0, resultTipsContent: '二维码已过期，请刷新', QRcode: '', animationData: {}, animation: '' };}, onLoad: function onLoad() {var animation = uni.createAnimation({ duration: 2000, transformOrigin: "50% 0 50%", timingFunction: 'ease', delay: 200 });this.animation = animation;
+    console.log("???", this.animation);
+
+    this.loadQRcode();
   },
+
 
   methods: {
     loadQRcode: function loadQRcode() {var _this = this;
+      // 动画
+      this.animation.rotate(360).step();
+      this.animation.rotate(-360).step({ timingFunction: 'step-end' });
+      console.log(this.animation);
+      this.animationData = this.animation.export();
       uni.request({
         url: 'https://device.torchcqs.cn/api/login/qrcode',
         method: 'GET',
@@ -181,7 +226,10 @@ var QRcodeToken = '';var _default = { data: function data() {return { QRcodeStat
 
     },
     checkQRcode: function checkQRcode() {var _this2 = this;
-      var timer = setInterval(function () {
+      if (timer) {
+        clearInterval(timer);
+      }
+      timer = setInterval(function () {
         console.log("检查二维码是否被扫描");
         uni.request({
           url: 'https://device.torchcqs.cn/api/login/qrcode/check',
@@ -189,7 +237,9 @@ var QRcodeToken = '';var _default = { data: function data() {return { QRcodeStat
             token: QRcodeToken },
 
           method: 'POST',
-          header: { 'content-type': 'application/json' },
+          header: {
+            'content-type': 'application/json' },
+
           success: function success(res) {
             console.log(res.data.detail.status);
             _this2.QRcodeStatus = res.data.detail.status;
@@ -213,26 +263,8 @@ var QRcodeToken = '';var _default = { data: function data() {return { QRcodeStat
           },
           complete: function complete() {} });
 
-        // pcLogin({
-        // 	token: QRcodeToken
-        // }).then(res => {
-        // 	console.log(res.data.detail.status)
-        // 	this.QRcodeStatus = res.data.detail.status
-        // 	if (res.data.detail.status === 2) {
-        // 		clearInterval(timer)
-        // 		console.log("登陆成功")
-        // 		this.resultTipsContent = '登陆成功'
-        // 		uni.switchTab({
-        // 			url: '../../pages/index/index'
-        // 		})
-        // 	} else if (res.data.detail.status === 1) {
-        // 		this.resultTipsContent = '请点击确认'
-        // 	} else if (res.data.detail.status === -1) {
-        // 		this.resultTipsContent = '二维码已过期，请刷新'
-        // 		clearInterval(timer)
-        // 	}
-        // })
-      }, 2000);
+
+      }, 3000);
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 5)["default"]))
 

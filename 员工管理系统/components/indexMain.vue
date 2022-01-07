@@ -2,7 +2,7 @@
 	<view class="main">
 		<view class="abilitis">
 			<view class="ability" v-for="(item,key) in assembly" @click="jump(item)">
-				<image :src="item.ruls" class="img" mode="aspectFill"></image>
+				<image :src="item.ruls" class="img" mode="aspectFit"></image>
 				<view class="title">
 					<text class="text">{{item.label}}</text>
 				</view>
@@ -112,34 +112,50 @@
 		.abilitis {
 			background-color: $uni-bg-color;
 			display: flex;
-			justify-content: flex-start;
+			justify-content: space-around;
+			align-items: center;
 			flex-wrap: wrap;
-			width: 90%;
+			box-sizing: border-box;
+			//#ifdef MP
+			justify-content: flex-start;
+			width: 673rpx;
+			//#endif
+			width: 90vw;
 			border-radius: 10px;
 			box-shadow: 3px 3px 7px 7px #eee;
 			padding-bottom: 40rpx;
-			max-height: 500rpx;
+			max-height: 300rpx;
 			overflow: scroll;
-			
+			padding: 20rpx ;
 			.ability {
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				margin: 30rpx 10rpx;
-				height: 140rpx;
-				width: 140rpx;
+				// height: 160rpx;
+				width: 200rpx;
+				
+				//#ifdef MP
+				height: 100rpx;
+				width: 155rpx;
+				margin-bottom: 20rpx;
+				//#endif
 				border-radius: 50%;
 				position: relative;
 				cursor: pointer;
-				margin-left: 130rpx;
-
+				.img {
+					//#ifdef MP
+					width: 100rpx;
+					height: 60rpx;
+					//#endif
+					width: 150rpx;
+					height: 80rpx;
+				}
 				.title {
 					width: 140rpx;
-					position: absolute;
-					top: 130rpx;
+					margin-top: 10rpx;
 					text-align: center;
 					.text {
-						font-size: 34rpx;
+						font-size: 25rpx;
 					}
 				}
 

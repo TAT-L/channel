@@ -12,7 +12,7 @@ export const apiResquest = (prams) => { //prams 为我们需要调用的接口AP
 	}
 
 	let dataObj = null
-	//因为我们的GET和POST请求结构不同这里我们做处理，大家根据自己后台接口所需结构灵活做调整吧
+	
 	if (prams.method === "GET") {
 		headerData = {
 			'content-type': 'application/json',

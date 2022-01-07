@@ -8,6 +8,7 @@
 			<view class="QRcode" @click="scanQRcode">
 				<uni-icons type="scan" size="23"></uni-icons>
 			</view>
+			
 
 		</view>
 		<!-- #endif -->
