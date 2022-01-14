@@ -23,23 +23,23 @@
 				// 小程序
 				//#ifdef MP
 				assembly: [{
-					value: '/pages/Warehousing/Warehousing',
+					value: '/subPages1_WX/Warehousing/Warehousing',
 					label: "注册查看",
 					ruls: require("../static/采集盒列表.png")
 				}, {
-					value: "/pages/attendance/attendance",
+					value: "/subPages1_WX/attendance/attendance",
 					label: "当日考勤",
 					ruls: require("../static/考勤.png")
 				}, {
-					value: "/pages/create/create",
+					value: "/subPages1_WX/create/create",
 					label: "考勤总览",
 					ruls: require("../static/考勤.png")
 				}, {
-					value: "/pages/work/work",
+					value: "/subPages1_WX/work/work",
 					label: "操作票",
 					ruls: require("../static/操作票.png")
 				}, {
-					value: '/pages/enter/enter',
+					value: '/subPages1_WX/enter/enter',
 					label: "人员录入",
 					ruls: require("../static/注册灰色.png")
 				}],
@@ -49,31 +49,31 @@
 				// PC
 				//#ifndef MP
 				assembly: [{
-					value: '/pages/registrationAudit/registrationAudit?page=0',
+					value: '/subPages_PC/registrationAudit/registrationAudit?page=0',
 					label: "注册查看",
 					ruls: require("../static/采集盒列表.png")
 				}, {
-					value: '/pages/addWorker/addWorker?page=1',
+					value: '/subPages_PC/addWorker/addWorker?page=1',
 					label: "人员录入",
 					ruls: require("../static/注册灰色.png")
 				}, {
-					value: '/pages/registrationAudit/registrationAudit',
+					value: '/subPages_PC/registrationAudit/registrationAudit',
 					label: "注册审核",
 					ruls: require("../static/审核.png")
 				}, {
-					value: "/pages/attendancePC/attendancePC",
+					value: "/subPages_PC/attendancePC/attendancePC",
 					label: "当日考勤",
 					ruls: require("../static/考勤.png")
 				}, {
-					value: "/pages/workerView/workerView",
+					value: "/subPages_PC/workerView/workerView",
 					label: "人员总览",
 					ruls: require("../static/预设人员.png")
 				}, {
-					value: "/pages/operationTicket/operationTicket",
+					value: "/subPages_PC/operationTicket/operationTicket",
 					label: "操作票",
 					ruls: require("../static/操作票.png")
 				}, {
-					value: '/pages/equipmentManage/equipmentManage',
+					value: '/subPages_PC/equipmentManage/equipmentManage',
 					label: "设备处理",
 					ruls: require("../static/设备状态.png")
 				}],
@@ -81,6 +81,9 @@
 
 
 			};
+		},
+		onLoad() {
+			
 		},
 		methods: {
 			jump(e) {

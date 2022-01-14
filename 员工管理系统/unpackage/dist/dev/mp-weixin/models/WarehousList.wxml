@@ -1,1 +1,0 @@
-<view class="content"><view class="text"><text>人员录入系统</text></view><view class="page"><tab vue-id="4bfef13f-1" tableData="{{data}}" title="{{title}}" headers="{{headers}}" name="{{name}}" data-event-opts="{{[['^back',[['back']]]]}}" bind:back="__e" bind:__l="__l" vue-slots="{{['default']}}"><button class="btn" type="default">删除</button></tab></view></view>

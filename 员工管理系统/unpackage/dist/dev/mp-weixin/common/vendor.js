@@ -1,2395 +1,6 @@
 (global["webpackJsonp"] = global["webpackJsonp"] || []).push([["common/vendor"],{
 
 /***/ 1:
-/*!*****************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/pages.json ***!
-  \*****************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
-/***/ 10:
-/*!**************************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/models/baseModel.js ***!
-  \**************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.terminalSyncWorker = exports.registerReject = exports.registerApprove = exports.registerCheckedList = exports.registerUncheckList = exports.terminalDetail = exports.terminalRemove = exports.terminalAppend = exports.terminalUnbind = exports.terminalBind = exports.terminalList = exports.attendanceTimeWork = exports.invitationRemove = exports.invitationList = exports.invitationAppend = exports.tickeRemove = exports.tickeAppend = exports.tickeDetail = exports.tickeCreate = exports.ticketList = exports.workList = exports.confirmPcLogin = exports.scanQRcode = exports.pcLogin = exports.loginApi = exports.getManagerList = exports.registerApi = exports.workerTime = exports.attendanceTime = exports.attendanceList = void 0;var _http = __webpack_require__(/*! ../units/net/http.js */ 11);
-
-
-
-var attendanceList = function attendanceList(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/attendance/list?start=' + query.start + "&end=" + query.end,
-    method: 'get' });
-
-};exports.attendanceList = attendanceList;
-
-
-var attendanceTime = function attendanceTime(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/attendance/time/' + query.time,
-    method: 'get' });
-
-};exports.attendanceTime = attendanceTime;
-
-
-var workerTime = function workerTime(query) {
-  return (0, _http.apiResquest)({
-    url: '/worker/attendance/time/' + query.time,
-    method: 'get' });
-
-};
-
-// 用户注册
-exports.workerTime = workerTime;var registerApi = function registerApi(query) {
-  return (0, _http.apiResquest)({
-    url: '/user/register',
-    method: 'POST',
-    query: query });
-
-};
-// 获取管理员列表
-exports.registerApi = registerApi;var getManagerList = function getManagerList(query) {
-  return (0, _http.apiResquest)({
-    url: '/user/manager/list',
-    method: 'GET' });
-
-};
-// 登陆
-exports.getManagerList = getManagerList;var loginApi = function loginApi(query) {
-  return (0, _http.apiResquest)({
-    url: '/login/wechat',
-    method: 'POST',
-    query: query });
-
-};
-
-//PC端判断二维码扫描状态
-exports.loginApi = loginApi;var pcLogin = function pcLogin(query) {
-  return (0, _http.apiResquest)({
-    url: '/login/qrcode/check',
-    method: 'POST',
-    query: query });
-
-};
-
-//手机扫描二维码
-exports.pcLogin = pcLogin;var scanQRcode = function scanQRcode(query) {
-  return (0, _http.apiResquest)({
-    url: '/user/qrcode/information',
-    method: 'POST',
-    query: query });
-
-};
-
-//手机扫描二维码,确认登陆
-exports.scanQRcode = scanQRcode;var confirmPcLogin = function confirmPcLogin(query) {
-  return (0, _http.apiResquest)({
-    url: '/user/qrcode/confirm',
-    method: 'POST',
-    query: query });
-
-};exports.confirmPcLogin = confirmPcLogin;
-var workList = function workList(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/worker/list',
-    method: 'get' });
-
-};exports.workList = workList;
-var ticketList = function ticketList(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/ticket/list',
-    method: 'get' });
-
-};exports.ticketList = ticketList;
-var tickeCreate = function tickeCreate(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/ticket/create',
-    method: 'POST',
-    query: query });
-
-};
-// 已添加人员列表
-exports.tickeCreate = tickeCreate;var tickeDetail = function tickeDetail(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/ticket/' + query.id + '/worker/list',
-    method: 'get' });
-
-};
-// 操作票添加人员
-exports.tickeDetail = tickeDetail;var tickeAppend = function tickeAppend(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/ticket/' + query.id + '/append',
-    method: 'post',
-    query: query.data });
-
-};
-// 操作票移除人员
-exports.tickeAppend = tickeAppend;var tickeRemove = function tickeRemove(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/ticket/' + query.id + '/remove',
-    method: 'post',
-    query: query.data });
-
-};exports.tickeRemove = tickeRemove;
-var invitationAppend = function invitationAppend(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/invitation/append',
-    method: 'post',
-    query: query });
-
-};exports.invitationAppend = invitationAppend;
-var invitationList = function invitationList(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/invitation/list',
-    method: 'get' });
-
-};exports.invitationList = invitationList;
-var invitationRemove = function invitationRemove(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/invitation/' + query.id + '/delete',
-    method: 'delete' });
-
-};exports.invitationRemove = invitationRemove;
-
-
-var attendanceTimeWork = function attendanceTimeWork(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/attendance/time/' + query.time + '/worker/' + query.id,
-    method: 'get' });
-
-};exports.attendanceTimeWork = attendanceTimeWork;
-var terminalList = function terminalList(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/terminal/list',
-    method: 'get' });
-
-};exports.terminalList = terminalList;
-var terminalBind = function terminalBind(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/terminal/bind',
-    method: 'post',
-    query: {
-      sn: query.sn } });
-
-
-};exports.terminalBind = terminalBind;
-var terminalUnbind = function terminalUnbind(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/terminal/unbind',
-    method: 'delete',
-    query: {
-      sn: query.sn } });
-
-
-};
-// 设备人员添加
-exports.terminalUnbind = terminalUnbind;var terminalAppend = function terminalAppend(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/terminal/' + query.sn + '/append/worker',
-    method: 'post',
-    query: query.data });
-
-};
-// 设备人员移除
-exports.terminalAppend = terminalAppend;var terminalRemove = function terminalRemove(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/terminal/' + query.sn + '/remove/worker',
-    method: 'post',
-    query: query.data });
-
-};
-// 设备已添加人员
-exports.terminalRemove = terminalRemove;var terminalDetail = function terminalDetail(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/terminal/' + query.sn + '/worker/list',
-    method: 'get' });
-
-};
-// 未审核列表
-exports.terminalDetail = terminalDetail;var registerUncheckList = function registerUncheckList(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/register/uncheck/list',
-    method: 'get' });
-
-};
-// 已审核列表
-exports.registerUncheckList = registerUncheckList;var registerCheckedList = function registerCheckedList(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/register/checked/list',
-    method: 'get' });
-
-};
-// 机器人员添加
-exports.registerCheckedList = registerCheckedList;var registerApprove = function registerApprove(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/register/user/' + query.id + '/approve',
-    method: 'post' });
-
-};
-// 机器人员移除
-exports.registerApprove = registerApprove;var registerReject = function registerReject(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/register/user/' + query.id + '/reject',
-    method: 'post' });
-
-};exports.registerReject = registerReject;
-var terminalSyncWorker = function terminalSyncWorker(query) {
-  return (0, _http.apiResquest)({
-    url: '/manager/terminal/' + query.sn + '/syncWorker',
-    method: 'post' });
-
-};exports.terminalSyncWorker = terminalSyncWorker;
-
-/***/ }),
-
-/***/ 11:
-/*!************************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/units/net/http.js ***!
-  \************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.apiResquest = void 0;var _config = __webpack_require__(/*! ./config.js */ 12);
-
-
-var _login = _interopRequireDefault(__webpack_require__(/*! ../login.js */ 9));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
-var apiResquest = function apiResquest(prams) {//prams 为我们需要调用的接口API的参数 下面会贴具体代码
-
-  // 判断请求类型
-  var headerData = {
-    'content-type': 'application/json',
-
-    'Authorization': uni.getStorageSync('cookie').cookie };
-
-
-  var dataObj = null;
-
-  if (prams.method === "GET") {
-    headerData = {
-      'content-type': 'application/json',
-      'Authorization': uni.getStorageSync('cookie').cookie };
-
-  } else {
-    dataObj = prams.query;
-  }
-  return new Promise(function (resolve, reject) {
-    var url = _config.config.base_url + prams.url; //请求的网络地址和局地的api地址组合
-    uni.showLoading({
-      title: '加载中',
-      mask: true });
-
-    if (prams.method === '') {
-
-    } else {
-      return uni.request({
-        url: url,
-        data: dataObj,
-        method: prams.method,
-        header: headerData,
-        success: function success(res) {
-          uni.hideLoading();
-          if (res.statusCode === 401) {
-            console.log("登陆过期");
-            uni.showLoading({
-              title: "正在重新登陆",
-              mask: true,
-              success: function success() {
-                (0, _login.default)();
-              } });
-
-
-
-          }
-
-          resolve(res);
-        },
-        fail: function fail(err) {
-          reject(err);
-          console.log(err);
-          console.log("调用失败");
-          uni.hideLoading();
-        },
-        complete: function complete() {
-          // console.log('请求完成')
-          uni.hideLoading();
-        } });
-
-    }
-
-  });
-};exports.apiResquest = apiResquest;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 5)["default"]))
-
-/***/ }),
-
-/***/ 12:
-/*!**************************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/units/net/config.js ***!
-  \**************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.config = void 0;var config = {
-  base_url: 'https://device.torchcqs.cn/api'
-  // base_url: 'http://139.186.170.118:8002/api'
-};exports.config = config;
-
-/***/ }),
-
-/***/ 15:
-/*!**********************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \**********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode, /* vue-cli only */
-  components, // fixed by xxxxxx auto components
-  renderjs // fixed by xxxxxx renderjs
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // fixed by xxxxxx auto components
-  if (components) {
-    if (!options.components) {
-      options.components = {}
-    }
-    var hasOwn = Object.prototype.hasOwnProperty
-    for (var name in components) {
-      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
-        options.components[name] = components[name]
-      }
-    }
-  }
-  // fixed by xxxxxx renderjs
-  if (renderjs) {
-    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
-      this[renderjs.__module] = this
-    });
-    (options.mixins || (options.mixins = [])).push(renderjs)
-  }
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
-
-/***/ }),
-
-/***/ 16:
-/*!***********************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/采集盒列表.png ***!
-  \***********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,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"
-
-/***/ }),
-
-/***/ 17:
-/*!********************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/考勤.png ***!
-  \********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,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"
-
-/***/ }),
-
-/***/ 18:
-/*!*********************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/操作票.png ***!
-  \*********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAJS0lEQVR4nO2dW3EzvRJFB0IgfBACIRACYSAEgt+mpvMwEAIhEAwhEAzBEHweLP/lk/LIF22pW/FaVfs1kUbeunTrMgwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0Jxpmt7med6Y2Y+ZHRD6Y9qZ2beZjXcZY1mWl8/PzyVABRBqpZ9pmv7dZA4z2wYoMEKttb9qEEYO9OT6XjXHNE3/AhQQIVetTrXmeX73LhxC3prn+X3NIB/ehUPIW/M8b9YMsvEuHELewiAIZYRBEMoIgyCUEQZBKCMMglBGGAShjDAIQhm1Msh2nucNQq3UlUFW/wlAJTAIQAYMApABgwBkwCAAGTAIQAYMApABgwBkwCAAGTAIQAYMApABgwBkwCCdk26tfJ2P1yuN8/EWmXGaprebrr2ELBikI5ZleUkG2Nrx8u/9Hd9vZ2bf8zxvMM7tYJDgpNGhxm342/R3X73rGBkMEpA0UrxXMEVudBm96x0RDBKMaZreGhrjt34wyv+DQYKQjLF1MsYlozD1GjCIO2cPC92z4G6lL+/v4w0GcSSFaL8DGCGn215J+qNgECfM7NWOi2NvA9yivT3plKsrg5jZblmWl7afSE+KUEWcUl1r5A/vb9eSWfh0RyuDHMzsp+1n0qL86E4m2Xh/wxaY2WjCTixnkBovTG3bfi4NvZvjTKP3t6yJHae/6hF+vPjP0kK0RiN1FWGp9NE99SfXJOlNTXk7ZQMdVm8xOjb7cgWkTqLWN/DS/q9Ft1I71UjS5p+CTkmwKg01rz2OGIROQrmPquv14DmV22m8WgA7Lnpq/PPQPVnFN+L3dtyd+5E6oNdlWV5+b383sy+rO7VbfwO8IyoEkw5mdvj8/FzcC2FB1yMVRs69HXu513vD3ckwX5W+f9frkVrrjrvMcaKiScI1kmn3Vm0VdbRjsEBtlK6nWjVG+aJwuNWZboUK/QrD2/sa6ywTR9WirwXXqLE+luSKKhUsTCOZZvSoug9KHLXZ1SpnTUTtdK5RVrgKScR8OK0RonptW22rEf5IxhblVaFO3FbZZaB2cIT9QlbeK/+03nMmKHOYDupWTJubqtOhVci0uzaSHef2ReU3h4BDaofiNUnkkPs54tlL3TZTT7U8G6l02PZcRynWhb1sZjRhUrBJnU071XLLixTWwz0SJ/jhhJ9mifMebdaK4qmWSyOV1mGapjePcp+TfjxF3z/6NMuEaYambWbCRZNHIxVOr8Js2bDCRGKEQEkO002v2iZIlc72aKSSDx8phyNYE4Yx+yVUHXHz9ZZ4mtW8kQo+/D7aUWIrm6OHXYdYeZTxvzq6TCVNt0+oeSMV/KjC9bil7eBd/jWEEVOfNlOGfFv2yiWL24ihUSuc7kYbEU+osuduU2LxNKtZws0Khu5I648Tgo4q3O7qYdAt0F0jdaaLUY+tylySZIsQ3v1Nabg3oumHQZdv866EZIdpy0iWFUxJIuYNSkfyqKFe00SwfHcuq1zespFK5ratyngvhd9+413+S4gM4ntATHXCq2UjlczZI44gginWxrsOlzDN9N33iLfqWG5HBnlrVc5bsfJ8wehdh0soDPLQWXNxJb4UBmnZSIU9brNy3krpzt7Ai3TFCOKbtzJRKK5lI5UsaiMuaK0wDxJxVBwGWQDId9e16TYtNo3FF/ROETPpRZ1UxHXVMPyRk5Mqg7RupJJyR8s8F7ZB5L1YktmJWwUU5xG8KmFl4emxdXnXEJwsdD/4tYYqAOQ2QgqvA2qezLGyeXuYy9dKw+zuUZ4Mwr1+o0sFTBfBav6DE2Sf3SM/iuOoEeqxhnCvX/tciOpmDc9ezMrm7u6Xrwk6qHBnW36j+o01n2Ypt7p79WKl0xPPkK9oehsuIvcbQSfg01amu9nELYqiGMI9cgiqmz6i5j/OMd3R7nYjvumOQh7Mea+MlYepmx7nTKZWdE5hAg05lGeOmrWTaS/ycl0kinqoJtePph/Ll+i7b2qXV4WqztYipC2+RDjEItE0yc6qV1qKnx0L8d1vRdSJnTRWK2iF131CLBLF16mO6vKlBbnCxAezvkaPE8L615sSC3uwg1msRaJpX0yVvBWyLMtLirQpO6VdT6PHCdOOIvqplvp9BgsyepwwbeDhYHbM7zzSCUzT9FbBGCeN+q/XBnEnNioLNooby+XZgGtYxSeg0w9+nKbp7TS6LMvykqatr/M8v6e9RzXe/v5PPU6vTlR46WwsLlQaOaQ9WeRGqv0DDaKwGxSvYfpObHy4MDXMYcHnwMotNMHVpUkqPOL0WJa9wprj8cI0psajpUHV/Pk4BTWeJ7/rd1nLHNZRr1Xh0dKo2lnA9WAO8Yu/5xqv/vPUe9aYYnTXW9V4tD6oQgZNciST7NTf4mrUscY/7dEcJyqOpuEUKS91C8oTreedRet/KEmaeWLHHMkzLNwP1lmepMZ6cfX3WmHevevdHCdS5/EMIeAuAinnqE2yWn9xdODPmOMc0+0sDa3IuapLKKfCq3VXGqS3D3wPdpxy7bx/xHac9n2l8tQY3bqJOg5D2QXeGKQCdtyC42WUrZ1FniqGPrs4WDUMGCQslXYcXNLezLa5aJPV2U/WRRQSgwTnbMPhTv0Dned5c+uarlL+xv0Wl2tgkI6YpuktjSxbu3902ZvZd2qPhxJ4NbZjmPdbG1fAIJ0zTdO/ZJx3Mxvned4kE40pVPn6qCEuYdpDRgcLfI/vMGAQeABxjgCDYJC/h+l2AoReh2AQeBjT5G5C50UwCBQhyJWM3nXIgUGgmIKbGUOPHsOAQUCI3ZdQ7GJfHQYBKTcmFLswxzBgEKiA5feTffdijmHAIFCRs+Tlxylp6V2me8EgABkwCEAGDAKQAYMAZMAgABkwCECGrgxiZtt03gGhJurNIAh1KQyCUEYYBKGMMAhCGWEQhDLCIAhlhEEQygiDIJQRBkEoIwyCUEY5gzzLy64IrWqe5/eLBhmGYbDneYsPoYvKnsN/oqePEbqk71VznI0iT/FYJUK/tL/poaB0+95XgAIj1Eo/du9NLun6ly9jXYL+pvZ2PLf00cMTcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMH4H3Zq+h4o65lFAAAAAElFTkSuQmCC"
-
-/***/ }),
-
-/***/ 19:
-/*!**********************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/注册灰色.png ***!
-  \**********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,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"
-
-/***/ }),
-
-/***/ 230:
-/*!************************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/units/net/time.js ***!
-  \************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
-{
-  parseTime: function parseTime(timestamp) {
-    var date = new Date(timestamp); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
-    var Y = date.getFullYear() + '-';
-    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
-    var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ';
-    var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
-    var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
-    var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
-
-    var strDate = Y + M + D + h + m + s;
-    console.log(strDate); //2020-05-08 17:44:56　
-    return strDate;
-  },
-  transformTo: function transformTo(time) {
-    return Date.parse(time);
-  },
-  transformMD: function transformMD(time1, time2) {
-    var date1 = new Date(time1); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
-    var M1 = (date1.getMonth() + 1 < 10 ? '0' + (date1.getMonth() + 1) : date1.getMonth() + 1) + '月';
-    var D1 = (date1.getDate() < 10 ? '0' + date1.getDate() : date1.getDate()) + '日';
-    var date2 = new Date(time2); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
-    var M2 = (date2.getMonth() + 1 < 10 ? '0' + (date2.getMonth() + 1) : date2.getMonth() + 1) + '月';
-    var D2 = (date2.getDate() < 10 ? '0' + date2.getDate() : date2.getDate()) + '日';
-
-    var strDate = M1 + D1 + "——" + M2 + D2;
-    return strDate;
-  } };exports.default = _default;
-
-/***/ }),
-
-/***/ 247:
-/*!****************************************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/node_modules/image-tools/index.js ***!
-  \****************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.pathToBase64 = pathToBase64;exports.base64ToPath = base64ToPath;function getLocalFilePath(path) {
-  if (path.indexOf('_www') === 0 || path.indexOf('_doc') === 0 || path.indexOf('_documents') === 0 || path.indexOf('_downloads') === 0) {
-    return path;
-  }
-  if (path.indexOf('file://') === 0) {
-    return path;
-  }
-  if (path.indexOf('/storage/emulated/0/') === 0) {
-    return path;
-  }
-  if (path.indexOf('/') === 0) {
-    var localFilePath = plus.io.convertAbsoluteFileSystem(path);
-    if (localFilePath !== path) {
-      return localFilePath;
-    } else {
-      path = path.substr(1);
-    }
-  }
-  return '_www/' + path;
-}
-
-function dataUrlToBase64(str) {
-  var array = str.split(',');
-  return array[array.length - 1];
-}
-
-var index = 0;
-function getNewFileId() {
-  return Date.now() + String(index++);
-}
-
-function biggerThan(v1, v2) {
-  var v1Array = v1.split('.');
-  var v2Array = v2.split('.');
-  var update = false;
-  for (var index = 0; index < v2Array.length; index++) {
-    var diff = v1Array[index] - v2Array[index];
-    if (diff !== 0) {
-      update = diff > 0;
-      break;
-    }
-  }
-  return update;
-}
-
-function pathToBase64(path) {
-  return new Promise(function (resolve, reject) {
-    if (typeof window === 'object' && 'document' in window) {
-      if (typeof FileReader === 'function') {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', path, true);
-        xhr.responseType = 'blob';
-        xhr.onload = function () {
-          if (this.status === 200) {
-            var fileReader = new FileReader();
-            fileReader.onload = function (e) {
-              resolve(e.target.result);
-            };
-            fileReader.onerror = reject;
-            fileReader.readAsDataURL(this.response);
-          }
-        };
-        xhr.onerror = reject;
-        xhr.send();
-        return;
-      }
-      var canvas = document.createElement('canvas');
-      var c2x = canvas.getContext('2d');
-      var img = new Image();
-      img.onload = function () {
-        canvas.width = img.width;
-        canvas.height = img.height;
-        c2x.drawImage(img, 0, 0);
-        resolve(canvas.toDataURL());
-        canvas.height = canvas.width = 0;
-      };
-      img.onerror = reject;
-      img.src = path;
-      return;
-    }
-    if (typeof plus === 'object') {
-      plus.io.resolveLocalFileSystemURL(getLocalFilePath(path), function (entry) {
-        entry.file(function (file) {
-          var fileReader = new plus.io.FileReader();
-          fileReader.onload = function (data) {
-            resolve(data.target.result);
-          };
-          fileReader.onerror = function (error) {
-            reject(error);
-          };
-          fileReader.readAsDataURL(file);
-        }, function (error) {
-          reject(error);
-        });
-      }, function (error) {
-        reject(error);
-      });
-      return;
-    }
-    if (typeof wx === 'object' && wx.canIUse('getFileSystemManager')) {
-      wx.getFileSystemManager().readFile({
-        filePath: path,
-        encoding: 'base64',
-        success: function success(res) {
-          resolve('data:image/png;base64,' + res.data);
-        },
-        fail: function fail(error) {
-          reject(error);
-        } });
-
-      return;
-    }
-    reject(new Error('not support'));
-  });
-}
-
-function base64ToPath(base64) {
-  return new Promise(function (resolve, reject) {
-    if (typeof window === 'object' && 'document' in window) {
-      base64 = base64.split(',');
-      var type = base64[0].match(/:(.*?);/)[1];
-      var str = atob(base64[1]);
-      var n = str.length;
-      var array = new Uint8Array(n);
-      while (n--) {
-        array[n] = str.charCodeAt(n);
-      }
-      return resolve((window.URL || window.webkitURL).createObjectURL(new Blob([array], { type: type })));
-    }
-    var extName = base64.split(',')[0].match(/data\:\S+\/(\S+);/);
-    if (extName) {
-      extName = extName[1];
-    } else {
-      reject(new Error('base64 error'));
-    }
-    var fileName = getNewFileId() + '.' + extName;
-    if (typeof plus === 'object') {
-      var basePath = '_doc';
-      var dirPath = 'uniapp_temp';
-      var filePath = basePath + '/' + dirPath + '/' + fileName;
-      if (!biggerThan(plus.os.name === 'Android' ? '1.9.9.80627' : '1.9.9.80472', plus.runtime.innerVersion)) {
-        plus.io.resolveLocalFileSystemURL(basePath, function (entry) {
-          entry.getDirectory(dirPath, {
-            create: true,
-            exclusive: false },
-          function (entry) {
-            entry.getFile(fileName, {
-              create: true,
-              exclusive: false },
-            function (entry) {
-              entry.createWriter(function (writer) {
-                writer.onwrite = function () {
-                  resolve(filePath);
-                };
-                writer.onerror = reject;
-                writer.seek(0);
-                writer.writeAsBinary(dataUrlToBase64(base64));
-              }, reject);
-            }, reject);
-          }, reject);
-        }, reject);
-        return;
-      }
-      var bitmap = new plus.nativeObj.Bitmap(fileName);
-      bitmap.loadBase64Data(base64, function () {
-        bitmap.save(filePath, {}, function () {
-          bitmap.clear();
-          resolve(filePath);
-        }, function (error) {
-          bitmap.clear();
-          reject(error);
-        });
-      }, function (error) {
-        bitmap.clear();
-        reject(error);
-      });
-      return;
-    }
-    if (typeof wx === 'object' && wx.canIUse('getFileSystemManager')) {
-      var filePath = wx.env.USER_DATA_PATH + '/' + fileName;
-      wx.getFileSystemManager().writeFile({
-        filePath: filePath,
-        data: dataUrlToBase64(base64),
-        encoding: 'base64',
-        success: function success() {
-          resolve(filePath);
-        },
-        fail: function fail(error) {
-          reject(error);
-        } });
-
-      return;
-    }
-    reject(new Error('not support'));
-  });
-}
-
-/***/ }),
-
-/***/ 275:
-/*!***********************************************************************************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/index.js ***!
-  \***********************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 276));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 277));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 278));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
-{
-  en: _en.default,
-  'zh-Hans': _zhHans.default,
-  'zh-Hant': _zhHant.default };exports.default = _default;
-
-/***/ }),
-
-/***/ 276:
-/*!**********************************************************************************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/en.json ***!
-  \**********************************************************************************************************************************************************/
-/*! exports provided: uni-datetime-picker.selectDate, uni-datetime-picker.selectTime, uni-datetime-picker.selectDateTime, uni-datetime-picker.startDate, uni-datetime-picker.endDate, uni-datetime-picker.startTime, uni-datetime-picker.endTime, uni-datetime-picker.ok, uni-datetime-picker.clear, uni-datetime-picker.cancel, uni-calender.MON, uni-calender.TUE, uni-calender.WED, uni-calender.THU, uni-calender.FRI, uni-calender.SAT, uni-calender.SUN, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"select date\",\"uni-datetime-picker.selectTime\":\"select time\",\"uni-datetime-picker.selectDateTime\":\"select datetime\",\"uni-datetime-picker.startDate\":\"start date\",\"uni-datetime-picker.endDate\":\"end date\",\"uni-datetime-picker.startTime\":\"start time\",\"uni-datetime-picker.endTime\":\"end time\",\"uni-datetime-picker.ok\":\"ok\",\"uni-datetime-picker.clear\":\"clear\",\"uni-datetime-picker.cancel\":\"cancel\",\"uni-calender.MON\":\"MON\",\"uni-calender.TUE\":\"TUE\",\"uni-calender.WED\":\"WED\",\"uni-calender.THU\":\"THU\",\"uni-calender.FRI\":\"FRI\",\"uni-calender.SAT\":\"SAT\",\"uni-calender.SUN\":\"SUN\"}");
-
-/***/ }),
-
-/***/ 277:
-/*!***************************************************************************************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hans.json ***!
-  \***************************************************************************************************************************************************************/
-/*! exports provided: uni-datetime-picker.selectDate, uni-datetime-picker.selectTime, uni-datetime-picker.selectDateTime, uni-datetime-picker.startDate, uni-datetime-picker.endDate, uni-datetime-picker.startTime, uni-datetime-picker.endTime, uni-datetime-picker.ok, uni-datetime-picker.clear, uni-datetime-picker.cancel, uni-calender.SUN, uni-calender.MON, uni-calender.TUE, uni-calender.WED, uni-calender.THU, uni-calender.FRI, uni-calender.SAT, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"选择日期\",\"uni-datetime-picker.selectTime\":\"选择时间\",\"uni-datetime-picker.selectDateTime\":\"选择日期时间\",\"uni-datetime-picker.startDate\":\"开始日期\",\"uni-datetime-picker.endDate\":\"结束日期\",\"uni-datetime-picker.startTime\":\"开始时间\",\"uni-datetime-picker.endTime\":\"结束时间\",\"uni-datetime-picker.ok\":\"确定\",\"uni-datetime-picker.clear\":\"清除\",\"uni-datetime-picker.cancel\":\"取消\",\"uni-calender.SUN\":\"日\",\"uni-calender.MON\":\"一\",\"uni-calender.TUE\":\"二\",\"uni-calender.WED\":\"三\",\"uni-calender.THU\":\"四\",\"uni-calender.FRI\":\"五\",\"uni-calender.SAT\":\"六\"}");
-
-/***/ }),
-
-/***/ 278:
-/*!***************************************************************************************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hant.json ***!
-  \***************************************************************************************************************************************************************/
-/*! exports provided: uni-datetime-picker.selectDate, uni-datetime-picker.selectTime, uni-datetime-picker.selectDateTime, uni-datetime-picker.startDate, uni-datetime-picker.endDate, uni-datetime-picker.startTime, uni-datetime-picker.endTime, uni-datetime-picker.ok, uni-datetime-picker.clear, uni-datetime-picker.cancel, uni-calender.SUN, uni-calender.MON, uni-calender.TUE, uni-calender.WED, uni-calender.THU, uni-calender.FRI, uni-calender.SAT, default */
-/***/ (function(module) {
-
-module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"選擇日期\",\"uni-datetime-picker.selectTime\":\"選擇時間\",\"uni-datetime-picker.selectDateTime\":\"選擇日期時間\",\"uni-datetime-picker.startDate\":\"開始日期\",\"uni-datetime-picker.endDate\":\"結束日期\",\"uni-datetime-picker.startTime\":\"開始时间\",\"uni-datetime-picker.endTime\":\"結束时间\",\"uni-datetime-picker.ok\":\"確定\",\"uni-datetime-picker.clear\":\"清除\",\"uni-datetime-picker.cancel\":\"取消\",\"uni-calender.SUN\":\"日\",\"uni-calender.MON\":\"一\",\"uni-calender.TUE\":\"二\",\"uni-calender.WED\":\"三\",\"uni-calender.THU\":\"四\",\"uni-calender.FRI\":\"五\",\"uni-calender.SAT\":\"六\"}");
-
-/***/ }),
-
-/***/ 300:
-/*!**********************************************************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-icons/components/uni-icons/icons.js ***!
-  \**********************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
-  "id": "2852637",
-  "name": "uniui图标库",
-  "font_family": "uniicons",
-  "css_prefix_text": "uniui-",
-  "description": "",
-  "glyphs": [
-  {
-    "icon_id": "25027049",
-    "name": "yanse",
-    "font_class": "color",
-    "unicode": "e6cf",
-    "unicode_decimal": 59087 },
-
-  {
-    "icon_id": "25027048",
-    "name": "wallet",
-    "font_class": "wallet",
-    "unicode": "e6b1",
-    "unicode_decimal": 59057 },
-
-  {
-    "icon_id": "25015720",
-    "name": "settings-filled",
-    "font_class": "settings-filled",
-    "unicode": "e6ce",
-    "unicode_decimal": 59086 },
-
-  {
-    "icon_id": "25015434",
-    "name": "shimingrenzheng-filled",
-    "font_class": "auth-filled",
-    "unicode": "e6cc",
-    "unicode_decimal": 59084 },
-
-  {
-    "icon_id": "24934246",
-    "name": "shop-filled",
-    "font_class": "shop-filled",
-    "unicode": "e6cd",
-    "unicode_decimal": 59085 },
-
-  {
-    "icon_id": "24934159",
-    "name": "staff-filled-01",
-    "font_class": "staff-filled",
-    "unicode": "e6cb",
-    "unicode_decimal": 59083 },
-
-  {
-    "icon_id": "24932461",
-    "name": "VIP-filled",
-    "font_class": "vip-filled",
-    "unicode": "e6c6",
-    "unicode_decimal": 59078 },
-
-  {
-    "icon_id": "24932462",
-    "name": "plus_circle_fill",
-    "font_class": "plus-filled",
-    "unicode": "e6c7",
-    "unicode_decimal": 59079 },
-
-  {
-    "icon_id": "24932463",
-    "name": "folder_add-filled",
-    "font_class": "folder-add-filled",
-    "unicode": "e6c8",
-    "unicode_decimal": 59080 },
-
-  {
-    "icon_id": "24932464",
-    "name": "yanse-filled",
-    "font_class": "color-filled",
-    "unicode": "e6c9",
-    "unicode_decimal": 59081 },
-
-  {
-    "icon_id": "24932465",
-    "name": "tune-filled",
-    "font_class": "tune-filled",
-    "unicode": "e6ca",
-    "unicode_decimal": 59082 },
-
-  {
-    "icon_id": "24932455",
-    "name": "a-rilidaka-filled",
-    "font_class": "calendar-filled",
-    "unicode": "e6c0",
-    "unicode_decimal": 59072 },
-
-  {
-    "icon_id": "24932456",
-    "name": "notification-filled",
-    "font_class": "notification-filled",
-    "unicode": "e6c1",
-    "unicode_decimal": 59073 },
-
-  {
-    "icon_id": "24932457",
-    "name": "wallet-filled",
-    "font_class": "wallet-filled",
-    "unicode": "e6c2",
-    "unicode_decimal": 59074 },
-
-  {
-    "icon_id": "24932458",
-    "name": "paihangbang-filled",
-    "font_class": "medal-filled",
-    "unicode": "e6c3",
-    "unicode_decimal": 59075 },
-
-  {
-    "icon_id": "24932459",
-    "name": "gift-filled",
-    "font_class": "gift-filled",
-    "unicode": "e6c4",
-    "unicode_decimal": 59076 },
-
-  {
-    "icon_id": "24932460",
-    "name": "fire-filled",
-    "font_class": "fire-filled",
-    "unicode": "e6c5",
-    "unicode_decimal": 59077 },
-
-  {
-    "icon_id": "24928001",
-    "name": "refreshempty",
-    "font_class": "refreshempty",
-    "unicode": "e6bf",
-    "unicode_decimal": 59071 },
-
-  {
-    "icon_id": "24926853",
-    "name": "location-ellipse",
-    "font_class": "location-filled",
-    "unicode": "e6af",
-    "unicode_decimal": 59055 },
-
-  {
-    "icon_id": "24926735",
-    "name": "person-filled",
-    "font_class": "person-filled",
-    "unicode": "e69d",
-    "unicode_decimal": 59037 },
-
-  {
-    "icon_id": "24926703",
-    "name": "personadd-filled",
-    "font_class": "personadd-filled",
-    "unicode": "e698",
-    "unicode_decimal": 59032 },
-
-  {
-    "icon_id": "24923351",
-    "name": "back",
-    "font_class": "back",
-    "unicode": "e6b9",
-    "unicode_decimal": 59065 },
-
-  {
-    "icon_id": "24923352",
-    "name": "forward",
-    "font_class": "forward",
-    "unicode": "e6ba",
-    "unicode_decimal": 59066 },
-
-  {
-    "icon_id": "24923353",
-    "name": "arrowthinright",
-    "font_class": "arrow-right",
-    "unicode": "e6bb",
-    "unicode_decimal": 59067 },
-
-  {
-    "icon_id": "24923354",
-    "name": "arrowthinleft",
-    "font_class": "arrow-left",
-    "unicode": "e6bc",
-    "unicode_decimal": 59068 },
-
-  {
-    "icon_id": "24923355",
-    "name": "arrowthinup",
-    "font_class": "arrow-up",
-    "unicode": "e6bd",
-    "unicode_decimal": 59069 },
-
-  {
-    "icon_id": "24923356",
-    "name": "arrowthindown",
-    "font_class": "arrow-down",
-    "unicode": "e6be",
-    "unicode_decimal": 59070 },
-
-  {
-    "icon_id": "24923349",
-    "name": "arrowdown",
-    "font_class": "bottom",
-    "unicode": "e6b8",
-    "unicode_decimal": 59064 },
-
-  {
-    "icon_id": "24923346",
-    "name": "arrowright",
-    "font_class": "right",
-    "unicode": "e6b5",
-    "unicode_decimal": 59061 },
-
-  {
-    "icon_id": "24923347",
-    "name": "arrowup",
-    "font_class": "top",
-    "unicode": "e6b6",
-    "unicode_decimal": 59062 },
-
-  {
-    "icon_id": "24923348",
-    "name": "arrowleft",
-    "font_class": "left",
-    "unicode": "e6b7",
-    "unicode_decimal": 59063 },
-
-  {
-    "icon_id": "24923334",
-    "name": "eye",
-    "font_class": "eye",
-    "unicode": "e651",
-    "unicode_decimal": 58961 },
-
-  {
-    "icon_id": "24923335",
-    "name": "eye-filled",
-    "font_class": "eye-filled",
-    "unicode": "e66a",
-    "unicode_decimal": 58986 },
-
-  {
-    "icon_id": "24923336",
-    "name": "eye-slash",
-    "font_class": "eye-slash",
-    "unicode": "e6b3",
-    "unicode_decimal": 59059 },
-
-  {
-    "icon_id": "24923337",
-    "name": "eye-slash-filled",
-    "font_class": "eye-slash-filled",
-    "unicode": "e6b4",
-    "unicode_decimal": 59060 },
-
-  {
-    "icon_id": "24923305",
-    "name": "info-filled",
-    "font_class": "info-filled",
-    "unicode": "e649",
-    "unicode_decimal": 58953 },
-
-  {
-    "icon_id": "24923299",
-    "name": "reload-01",
-    "font_class": "reload",
-    "unicode": "e6b2",
-    "unicode_decimal": 59058 },
-
-  {
-    "icon_id": "24923195",
-    "name": "mic_slash_fill",
-    "font_class": "micoff-filled",
-    "unicode": "e6b0",
-    "unicode_decimal": 59056 },
-
-  {
-    "icon_id": "24923165",
-    "name": "map-pin-ellipse",
-    "font_class": "map-pin-ellipse",
-    "unicode": "e6ac",
-    "unicode_decimal": 59052 },
-
-  {
-    "icon_id": "24923166",
-    "name": "map-pin",
-    "font_class": "map-pin",
-    "unicode": "e6ad",
-    "unicode_decimal": 59053 },
-
-  {
-    "icon_id": "24923167",
-    "name": "location",
-    "font_class": "location",
-    "unicode": "e6ae",
-    "unicode_decimal": 59054 },
-
-  {
-    "icon_id": "24923064",
-    "name": "starhalf",
-    "font_class": "starhalf",
-    "unicode": "e683",
-    "unicode_decimal": 59011 },
-
-  {
-    "icon_id": "24923065",
-    "name": "star",
-    "font_class": "star",
-    "unicode": "e688",
-    "unicode_decimal": 59016 },
-
-  {
-    "icon_id": "24923066",
-    "name": "star-filled",
-    "font_class": "star-filled",
-    "unicode": "e68f",
-    "unicode_decimal": 59023 },
-
-  {
-    "icon_id": "24899646",
-    "name": "a-rilidaka",
-    "font_class": "calendar",
-    "unicode": "e6a0",
-    "unicode_decimal": 59040 },
-
-  {
-    "icon_id": "24899647",
-    "name": "fire",
-    "font_class": "fire",
-    "unicode": "e6a1",
-    "unicode_decimal": 59041 },
-
-  {
-    "icon_id": "24899648",
-    "name": "paihangbang",
-    "font_class": "medal",
-    "unicode": "e6a2",
-    "unicode_decimal": 59042 },
-
-  {
-    "icon_id": "24899649",
-    "name": "font",
-    "font_class": "font",
-    "unicode": "e6a3",
-    "unicode_decimal": 59043 },
-
-  {
-    "icon_id": "24899650",
-    "name": "gift",
-    "font_class": "gift",
-    "unicode": "e6a4",
-    "unicode_decimal": 59044 },
-
-  {
-    "icon_id": "24899651",
-    "name": "link",
-    "font_class": "link",
-    "unicode": "e6a5",
-    "unicode_decimal": 59045 },
-
-  {
-    "icon_id": "24899652",
-    "name": "notification",
-    "font_class": "notification",
-    "unicode": "e6a6",
-    "unicode_decimal": 59046 },
-
-  {
-    "icon_id": "24899653",
-    "name": "staff",
-    "font_class": "staff",
-    "unicode": "e6a7",
-    "unicode_decimal": 59047 },
-
-  {
-    "icon_id": "24899654",
-    "name": "VIP",
-    "font_class": "vip",
-    "unicode": "e6a8",
-    "unicode_decimal": 59048 },
-
-  {
-    "icon_id": "24899655",
-    "name": "folder_add",
-    "font_class": "folder-add",
-    "unicode": "e6a9",
-    "unicode_decimal": 59049 },
-
-  {
-    "icon_id": "24899656",
-    "name": "tune",
-    "font_class": "tune",
-    "unicode": "e6aa",
-    "unicode_decimal": 59050 },
-
-  {
-    "icon_id": "24899657",
-    "name": "shimingrenzheng",
-    "font_class": "auth",
-    "unicode": "e6ab",
-    "unicode_decimal": 59051 },
-
-  {
-    "icon_id": "24899565",
-    "name": "person",
-    "font_class": "person",
-    "unicode": "e699",
-    "unicode_decimal": 59033 },
-
-  {
-    "icon_id": "24899566",
-    "name": "email-filled",
-    "font_class": "email-filled",
-    "unicode": "e69a",
-    "unicode_decimal": 59034 },
-
-  {
-    "icon_id": "24899567",
-    "name": "phone-filled",
-    "font_class": "phone-filled",
-    "unicode": "e69b",
-    "unicode_decimal": 59035 },
-
-  {
-    "icon_id": "24899568",
-    "name": "phone",
-    "font_class": "phone",
-    "unicode": "e69c",
-    "unicode_decimal": 59036 },
-
-  {
-    "icon_id": "24899570",
-    "name": "email",
-    "font_class": "email",
-    "unicode": "e69e",
-    "unicode_decimal": 59038 },
-
-  {
-    "icon_id": "24899571",
-    "name": "personadd",
-    "font_class": "personadd",
-    "unicode": "e69f",
-    "unicode_decimal": 59039 },
-
-  {
-    "icon_id": "24899558",
-    "name": "chatboxes-filled",
-    "font_class": "chatboxes-filled",
-    "unicode": "e692",
-    "unicode_decimal": 59026 },
-
-  {
-    "icon_id": "24899559",
-    "name": "contact",
-    "font_class": "contact",
-    "unicode": "e693",
-    "unicode_decimal": 59027 },
-
-  {
-    "icon_id": "24899560",
-    "name": "chatbubble-filled",
-    "font_class": "chatbubble-filled",
-    "unicode": "e694",
-    "unicode_decimal": 59028 },
-
-  {
-    "icon_id": "24899561",
-    "name": "contact-filled",
-    "font_class": "contact-filled",
-    "unicode": "e695",
-    "unicode_decimal": 59029 },
-
-  {
-    "icon_id": "24899562",
-    "name": "chatboxes",
-    "font_class": "chatboxes",
-    "unicode": "e696",
-    "unicode_decimal": 59030 },
-
-  {
-    "icon_id": "24899563",
-    "name": "chatbubble",
-    "font_class": "chatbubble",
-    "unicode": "e697",
-    "unicode_decimal": 59031 },
-
-  {
-    "icon_id": "24881290",
-    "name": "upload-filled",
-    "font_class": "upload-filled",
-    "unicode": "e68e",
-    "unicode_decimal": 59022 },
-
-  {
-    "icon_id": "24881292",
-    "name": "upload",
-    "font_class": "upload",
-    "unicode": "e690",
-    "unicode_decimal": 59024 },
-
-  {
-    "icon_id": "24881293",
-    "name": "weixin",
-    "font_class": "weixin",
-    "unicode": "e691",
-    "unicode_decimal": 59025 },
-
-  {
-    "icon_id": "24881274",
-    "name": "compose",
-    "font_class": "compose",
-    "unicode": "e67f",
-    "unicode_decimal": 59007 },
-
-  {
-    "icon_id": "24881275",
-    "name": "qq",
-    "font_class": "qq",
-    "unicode": "e680",
-    "unicode_decimal": 59008 },
-
-  {
-    "icon_id": "24881276",
-    "name": "download-filled",
-    "font_class": "download-filled",
-    "unicode": "e681",
-    "unicode_decimal": 59009 },
-
-  {
-    "icon_id": "24881277",
-    "name": "pengyouquan",
-    "font_class": "pyq",
-    "unicode": "e682",
-    "unicode_decimal": 59010 },
-
-  {
-    "icon_id": "24881279",
-    "name": "sound",
-    "font_class": "sound",
-    "unicode": "e684",
-    "unicode_decimal": 59012 },
-
-  {
-    "icon_id": "24881280",
-    "name": "trash-filled",
-    "font_class": "trash-filled",
-    "unicode": "e685",
-    "unicode_decimal": 59013 },
-
-  {
-    "icon_id": "24881281",
-    "name": "sound-filled",
-    "font_class": "sound-filled",
-    "unicode": "e686",
-    "unicode_decimal": 59014 },
-
-  {
-    "icon_id": "24881282",
-    "name": "trash",
-    "font_class": "trash",
-    "unicode": "e687",
-    "unicode_decimal": 59015 },
-
-  {
-    "icon_id": "24881284",
-    "name": "videocam-filled",
-    "font_class": "videocam-filled",
-    "unicode": "e689",
-    "unicode_decimal": 59017 },
-
-  {
-    "icon_id": "24881285",
-    "name": "spinner-cycle",
-    "font_class": "spinner-cycle",
-    "unicode": "e68a",
-    "unicode_decimal": 59018 },
-
-  {
-    "icon_id": "24881286",
-    "name": "weibo",
-    "font_class": "weibo",
-    "unicode": "e68b",
-    "unicode_decimal": 59019 },
-
-  {
-    "icon_id": "24881288",
-    "name": "videocam",
-    "font_class": "videocam",
-    "unicode": "e68c",
-    "unicode_decimal": 59020 },
-
-  {
-    "icon_id": "24881289",
-    "name": "download",
-    "font_class": "download",
-    "unicode": "e68d",
-    "unicode_decimal": 59021 },
-
-  {
-    "icon_id": "24879601",
-    "name": "help",
-    "font_class": "help",
-    "unicode": "e679",
-    "unicode_decimal": 59001 },
-
-  {
-    "icon_id": "24879602",
-    "name": "navigate-filled",
-    "font_class": "navigate-filled",
-    "unicode": "e67a",
-    "unicode_decimal": 59002 },
-
-  {
-    "icon_id": "24879603",
-    "name": "plusempty",
-    "font_class": "plusempty",
-    "unicode": "e67b",
-    "unicode_decimal": 59003 },
-
-  {
-    "icon_id": "24879604",
-    "name": "smallcircle",
-    "font_class": "smallcircle",
-    "unicode": "e67c",
-    "unicode_decimal": 59004 },
-
-  {
-    "icon_id": "24879605",
-    "name": "minus-filled",
-    "font_class": "minus-filled",
-    "unicode": "e67d",
-    "unicode_decimal": 59005 },
-
-  {
-    "icon_id": "24879606",
-    "name": "micoff",
-    "font_class": "micoff",
-    "unicode": "e67e",
-    "unicode_decimal": 59006 },
-
-  {
-    "icon_id": "24879588",
-    "name": "closeempty",
-    "font_class": "closeempty",
-    "unicode": "e66c",
-    "unicode_decimal": 58988 },
-
-  {
-    "icon_id": "24879589",
-    "name": "clear",
-    "font_class": "clear",
-    "unicode": "e66d",
-    "unicode_decimal": 58989 },
-
-  {
-    "icon_id": "24879590",
-    "name": "navigate",
-    "font_class": "navigate",
-    "unicode": "e66e",
-    "unicode_decimal": 58990 },
-
-  {
-    "icon_id": "24879591",
-    "name": "minus",
-    "font_class": "minus",
-    "unicode": "e66f",
-    "unicode_decimal": 58991 },
-
-  {
-    "icon_id": "24879592",
-    "name": "image",
-    "font_class": "image",
-    "unicode": "e670",
-    "unicode_decimal": 58992 },
-
-  {
-    "icon_id": "24879593",
-    "name": "mic",
-    "font_class": "mic",
-    "unicode": "e671",
-    "unicode_decimal": 58993 },
-
-  {
-    "icon_id": "24879594",
-    "name": "paperplane",
-    "font_class": "paperplane",
-    "unicode": "e672",
-    "unicode_decimal": 58994 },
-
-  {
-    "icon_id": "24879595",
-    "name": "close",
-    "font_class": "close",
-    "unicode": "e673",
-    "unicode_decimal": 58995 },
-
-  {
-    "icon_id": "24879596",
-    "name": "help-filled",
-    "font_class": "help-filled",
-    "unicode": "e674",
-    "unicode_decimal": 58996 },
-
-  {
-    "icon_id": "24879597",
-    "name": "plus-filled",
-    "font_class": "paperplane-filled",
-    "unicode": "e675",
-    "unicode_decimal": 58997 },
-
-  {
-    "icon_id": "24879598",
-    "name": "plus",
-    "font_class": "plus",
-    "unicode": "e676",
-    "unicode_decimal": 58998 },
-
-  {
-    "icon_id": "24879599",
-    "name": "mic-filled",
-    "font_class": "mic-filled",
-    "unicode": "e677",
-    "unicode_decimal": 58999 },
-
-  {
-    "icon_id": "24879600",
-    "name": "image-filled",
-    "font_class": "image-filled",
-    "unicode": "e678",
-    "unicode_decimal": 59000 },
-
-  {
-    "icon_id": "24855900",
-    "name": "locked-filled",
-    "font_class": "locked-filled",
-    "unicode": "e668",
-    "unicode_decimal": 58984 },
-
-  {
-    "icon_id": "24855901",
-    "name": "info",
-    "font_class": "info",
-    "unicode": "e669",
-    "unicode_decimal": 58985 },
-
-  {
-    "icon_id": "24855903",
-    "name": "locked",
-    "font_class": "locked",
-    "unicode": "e66b",
-    "unicode_decimal": 58987 },
-
-  {
-    "icon_id": "24855884",
-    "name": "camera-filled",
-    "font_class": "camera-filled",
-    "unicode": "e658",
-    "unicode_decimal": 58968 },
-
-  {
-    "icon_id": "24855885",
-    "name": "chat-filled",
-    "font_class": "chat-filled",
-    "unicode": "e659",
-    "unicode_decimal": 58969 },
-
-  {
-    "icon_id": "24855886",
-    "name": "camera",
-    "font_class": "camera",
-    "unicode": "e65a",
-    "unicode_decimal": 58970 },
-
-  {
-    "icon_id": "24855887",
-    "name": "circle",
-    "font_class": "circle",
-    "unicode": "e65b",
-    "unicode_decimal": 58971 },
-
-  {
-    "icon_id": "24855888",
-    "name": "checkmarkempty",
-    "font_class": "checkmarkempty",
-    "unicode": "e65c",
-    "unicode_decimal": 58972 },
-
-  {
-    "icon_id": "24855889",
-    "name": "chat",
-    "font_class": "chat",
-    "unicode": "e65d",
-    "unicode_decimal": 58973 },
-
-  {
-    "icon_id": "24855890",
-    "name": "circle-filled",
-    "font_class": "circle-filled",
-    "unicode": "e65e",
-    "unicode_decimal": 58974 },
-
-  {
-    "icon_id": "24855891",
-    "name": "flag",
-    "font_class": "flag",
-    "unicode": "e65f",
-    "unicode_decimal": 58975 },
-
-  {
-    "icon_id": "24855892",
-    "name": "flag-filled",
-    "font_class": "flag-filled",
-    "unicode": "e660",
-    "unicode_decimal": 58976 },
-
-  {
-    "icon_id": "24855893",
-    "name": "gear-filled",
-    "font_class": "gear-filled",
-    "unicode": "e661",
-    "unicode_decimal": 58977 },
-
-  {
-    "icon_id": "24855894",
-    "name": "home",
-    "font_class": "home",
-    "unicode": "e662",
-    "unicode_decimal": 58978 },
-
-  {
-    "icon_id": "24855895",
-    "name": "home-filled",
-    "font_class": "home-filled",
-    "unicode": "e663",
-    "unicode_decimal": 58979 },
-
-  {
-    "icon_id": "24855896",
-    "name": "gear",
-    "font_class": "gear",
-    "unicode": "e664",
-    "unicode_decimal": 58980 },
-
-  {
-    "icon_id": "24855897",
-    "name": "smallcircle-filled",
-    "font_class": "smallcircle-filled",
-    "unicode": "e665",
-    "unicode_decimal": 58981 },
-
-  {
-    "icon_id": "24855898",
-    "name": "map-filled",
-    "font_class": "map-filled",
-    "unicode": "e666",
-    "unicode_decimal": 58982 },
-
-  {
-    "icon_id": "24855899",
-    "name": "map",
-    "font_class": "map",
-    "unicode": "e667",
-    "unicode_decimal": 58983 },
-
-  {
-    "icon_id": "24855825",
-    "name": "refresh-filled",
-    "font_class": "refresh-filled",
-    "unicode": "e656",
-    "unicode_decimal": 58966 },
-
-  {
-    "icon_id": "24855826",
-    "name": "refresh",
-    "font_class": "refresh",
-    "unicode": "e657",
-    "unicode_decimal": 58967 },
-
-  {
-    "icon_id": "24855808",
-    "name": "cloud-upload",
-    "font_class": "cloud-upload",
-    "unicode": "e645",
-    "unicode_decimal": 58949 },
-
-  {
-    "icon_id": "24855809",
-    "name": "cloud-download-filled",
-    "font_class": "cloud-download-filled",
-    "unicode": "e646",
-    "unicode_decimal": 58950 },
-
-  {
-    "icon_id": "24855810",
-    "name": "cloud-download",
-    "font_class": "cloud-download",
-    "unicode": "e647",
-    "unicode_decimal": 58951 },
-
-  {
-    "icon_id": "24855811",
-    "name": "cloud-upload-filled",
-    "font_class": "cloud-upload-filled",
-    "unicode": "e648",
-    "unicode_decimal": 58952 },
-
-  {
-    "icon_id": "24855813",
-    "name": "redo",
-    "font_class": "redo",
-    "unicode": "e64a",
-    "unicode_decimal": 58954 },
-
-  {
-    "icon_id": "24855814",
-    "name": "images-filled",
-    "font_class": "images-filled",
-    "unicode": "e64b",
-    "unicode_decimal": 58955 },
-
-  {
-    "icon_id": "24855815",
-    "name": "undo-filled",
-    "font_class": "undo-filled",
-    "unicode": "e64c",
-    "unicode_decimal": 58956 },
-
-  {
-    "icon_id": "24855816",
-    "name": "more",
-    "font_class": "more",
-    "unicode": "e64d",
-    "unicode_decimal": 58957 },
-
-  {
-    "icon_id": "24855817",
-    "name": "more-filled",
-    "font_class": "more-filled",
-    "unicode": "e64e",
-    "unicode_decimal": 58958 },
-
-  {
-    "icon_id": "24855818",
-    "name": "undo",
-    "font_class": "undo",
-    "unicode": "e64f",
-    "unicode_decimal": 58959 },
-
-  {
-    "icon_id": "24855819",
-    "name": "images",
-    "font_class": "images",
-    "unicode": "e650",
-    "unicode_decimal": 58960 },
-
-  {
-    "icon_id": "24855821",
-    "name": "paperclip",
-    "font_class": "paperclip",
-    "unicode": "e652",
-    "unicode_decimal": 58962 },
-
-  {
-    "icon_id": "24855822",
-    "name": "settings",
-    "font_class": "settings",
-    "unicode": "e653",
-    "unicode_decimal": 58963 },
-
-  {
-    "icon_id": "24855823",
-    "name": "search",
-    "font_class": "search",
-    "unicode": "e654",
-    "unicode_decimal": 58964 },
-
-  {
-    "icon_id": "24855824",
-    "name": "redo-filled",
-    "font_class": "redo-filled",
-    "unicode": "e655",
-    "unicode_decimal": 58965 },
-
-  {
-    "icon_id": "24841702",
-    "name": "list",
-    "font_class": "list",
-    "unicode": "e644",
-    "unicode_decimal": 58948 },
-
-  {
-    "icon_id": "24841489",
-    "name": "mail-open-filled",
-    "font_class": "mail-open-filled",
-    "unicode": "e63a",
-    "unicode_decimal": 58938 },
-
-  {
-    "icon_id": "24841491",
-    "name": "hand-thumbsdown-filled",
-    "font_class": "hand-down-filled",
-    "unicode": "e63c",
-    "unicode_decimal": 58940 },
-
-  {
-    "icon_id": "24841492",
-    "name": "hand-thumbsdown",
-    "font_class": "hand-down",
-    "unicode": "e63d",
-    "unicode_decimal": 58941 },
-
-  {
-    "icon_id": "24841493",
-    "name": "hand-thumbsup-filled",
-    "font_class": "hand-up-filled",
-    "unicode": "e63e",
-    "unicode_decimal": 58942 },
-
-  {
-    "icon_id": "24841494",
-    "name": "hand-thumbsup",
-    "font_class": "hand-up",
-    "unicode": "e63f",
-    "unicode_decimal": 58943 },
-
-  {
-    "icon_id": "24841496",
-    "name": "heart-filled",
-    "font_class": "heart-filled",
-    "unicode": "e641",
-    "unicode_decimal": 58945 },
-
-  {
-    "icon_id": "24841498",
-    "name": "mail-open",
-    "font_class": "mail-open",
-    "unicode": "e643",
-    "unicode_decimal": 58947 },
-
-  {
-    "icon_id": "24841488",
-    "name": "heart",
-    "font_class": "heart",
-    "unicode": "e639",
-    "unicode_decimal": 58937 },
-
-  {
-    "icon_id": "24839963",
-    "name": "loop",
-    "font_class": "loop",
-    "unicode": "e633",
-    "unicode_decimal": 58931 },
-
-  {
-    "icon_id": "24839866",
-    "name": "pulldown",
-    "font_class": "pulldown",
-    "unicode": "e632",
-    "unicode_decimal": 58930 },
-
-  {
-    "icon_id": "24813798",
-    "name": "scan",
-    "font_class": "scan",
-    "unicode": "e62a",
-    "unicode_decimal": 58922 },
-
-  {
-    "icon_id": "24813786",
-    "name": "bars",
-    "font_class": "bars",
-    "unicode": "e627",
-    "unicode_decimal": 58919 },
-
-  {
-    "icon_id": "24813788",
-    "name": "cart-filled",
-    "font_class": "cart-filled",
-    "unicode": "e629",
-    "unicode_decimal": 58921 },
-
-  {
-    "icon_id": "24813790",
-    "name": "checkbox",
-    "font_class": "checkbox",
-    "unicode": "e62b",
-    "unicode_decimal": 58923 },
-
-  {
-    "icon_id": "24813791",
-    "name": "checkbox-filled",
-    "font_class": "checkbox-filled",
-    "unicode": "e62c",
-    "unicode_decimal": 58924 },
-
-  {
-    "icon_id": "24813794",
-    "name": "shop",
-    "font_class": "shop",
-    "unicode": "e62f",
-    "unicode_decimal": 58927 },
-
-  {
-    "icon_id": "24813795",
-    "name": "headphones",
-    "font_class": "headphones",
-    "unicode": "e630",
-    "unicode_decimal": 58928 },
-
-  {
-    "icon_id": "24813796",
-    "name": "cart",
-    "font_class": "cart",
-    "unicode": "e631",
-    "unicode_decimal": 58929 }] };exports.default = _default;
-
-/***/ }),
-
-/***/ 315:
-/*!**************************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/models/userModel.js ***!
-  \**************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.getAvatar = exports.postAvatar = void 0;var _http = __webpack_require__(/*! ../units/net/http.js */ 11);
-
-
-
-var postAvatar = function postAvatar(query) {
-  return (0, _http.apiResquest)({
-    url: '/worker/face',
-    method: 'POST',
-    query: query });
-
-};exports.postAvatar = postAvatar;
-
-var getAvatar = function getAvatar(query) {
-  return (0, _http.apiResquest)({
-    url: '/worker/face',
-    method: 'GET' });
-
-};exports.getAvatar = getAvatar;
-
-/***/ }),
-
-/***/ 337:
-/*!*****************************************************************************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/util.js ***!
-  \*****************************************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var Calendar = /*#__PURE__*/function () {
-  function Calendar()
-
-
-
-
-
-
-  {var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},date = _ref.date,selected = _ref.selected,startDate = _ref.startDate,endDate = _ref.endDate,range = _ref.range;_classCallCheck(this, Calendar);
-    // 当前日期
-    this.date = this.getDate(new Date()); // 当前初入日期
-    // 打点信息
-    this.selected = selected || [];
-    // 范围开始
-    this.startDate = startDate;
-    // 范围结束
-    this.endDate = endDate;
-    this.range = range;
-    // 多选状态
-    this.cleanMultipleStatus();
-    // 每周日期
-    this.weeks = {};
-    // this._getWeek(this.date.fullDate)
-    // this.multipleStatus = multipleStatus
-    this.lastHover = false;
-  }
-  /**
-     * 设置日期
-     * @param {Object} date
-     */_createClass(Calendar, [{ key: "setDate", value: function setDate(
-    date) {
-      this.selectDate = this.getDate(date);
-      this._getWeek(this.selectDate.fullDate);
-    }
-
-    /**
-       * 清理多选状态
-       */ }, { key: "cleanMultipleStatus", value: function cleanMultipleStatus()
-    {
-      this.multipleStatus = {
-        before: '',
-        after: '',
-        data: [] };
-
-    }
-
-    /**
-       * 重置开始日期
-       */ }, { key: "resetSatrtDate", value: function resetSatrtDate(
-    startDate) {
-      // 范围开始
-      this.startDate = startDate;
-
-    }
-
-    /**
-       * 重置结束日期
-       */ }, { key: "resetEndDate", value: function resetEndDate(
-    endDate) {
-      // 范围结束
-      this.endDate = endDate;
-    }
-
-    /**
-       * 获取任意时间
-       */ }, { key: "getDate", value: function getDate(
-    date) {var AddDayCount = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;var str = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'day';
-      if (!date) {
-        date = new Date();
-      }
-      if (typeof date !== 'object') {
-        date = date.replace(/-/g, '/');
-      }
-      var dd = new Date(date);
-      switch (str) {
-        case 'day':
-          dd.setDate(dd.getDate() + AddDayCount); // 获取AddDayCount天后的日期
-          break;
-        case 'month':
-          if (dd.getDate() === 31) {
-            dd.setDate(dd.getDate() + AddDayCount);
-          } else {
-            dd.setMonth(dd.getMonth() + AddDayCount); // 获取AddDayCount天后的日期
-          }
-          break;
-        case 'year':
-          dd.setFullYear(dd.getFullYear() + AddDayCount); // 获取AddDayCount天后的日期
-          break;}
-
-      var y = dd.getFullYear();
-      var m = dd.getMonth() + 1 < 10 ? '0' + (dd.getMonth() + 1) : dd.getMonth() + 1; // 获取当前月份的日期，不足10补0
-      var d = dd.getDate() < 10 ? '0' + dd.getDate() : dd.getDate(); // 获取当前几号，不足10补0
-      return {
-        fullDate: y + '-' + m + '-' + d,
-        year: y,
-        month: m,
-        date: d,
-        day: dd.getDay() };
-
-    }
-
-
-    /**
-       * 获取上月剩余天数
-       */ }, { key: "_getLastMonthDays", value: function _getLastMonthDays(
-    firstDay, full) {
-      var dateArr = [];
-      for (var i = firstDay; i > 0; i--) {
-        var beforeDate = new Date(full.year, full.month - 1, -i + 1).getDate();
-        dateArr.push({
-          date: beforeDate,
-          month: full.month - 1,
-          disable: true });
-
-      }
-      return dateArr;
-    }
-    /**
-       * 获取本月天数
-       */ }, { key: "_currentMonthDys", value: function _currentMonthDys(
-    dateData, full) {var _this = this;
-      var dateArr = [];
-      var fullDate = this.date.fullDate;var _loop = function _loop(
-      i) {
-        var isinfo = false;
-        var nowDate = full.year + '-' + (full.month < 10 ?
-        full.month : full.month) + '-' + (i < 10 ?
-        '0' + i : i);
-        // 是否今天
-        var isDay = fullDate === nowDate;
-        // 获取打点信息
-        var info = _this.selected && _this.selected.find(function (item) {
-          if (_this.dateEqual(nowDate, item.date)) {
-            return item;
-          }
-        });
-
-        // 日期禁用
-        var disableBefore = true;
-        var disableAfter = true;
-        if (_this.startDate) {
-          // let dateCompBefore = this.dateCompare(this.startDate, fullDate)
-          // disableBefore = this.dateCompare(dateCompBefore ? this.startDate : fullDate, nowDate)
-          disableBefore = _this.dateCompare(_this.startDate, nowDate);
-        }
-
-        if (_this.endDate) {
-          // let dateCompAfter = this.dateCompare(fullDate, this.endDate)
-          // disableAfter = this.dateCompare(nowDate, dateCompAfter ? this.endDate : fullDate)
-          disableAfter = _this.dateCompare(nowDate, _this.endDate);
-        }
-        var multiples = _this.multipleStatus.data;
-        var checked = false;
-        var multiplesStatus = -1;
-        if (_this.range) {
-          if (multiples) {
-            multiplesStatus = multiples.findIndex(function (item) {
-              return _this.dateEqual(item, nowDate);
-            });
-          }
-          if (multiplesStatus !== -1) {
-            checked = true;
-          }
-        }
-        var data = {
-          fullDate: nowDate,
-          year: full.year,
-          date: i,
-          multiple: _this.range ? checked : false,
-          beforeMultiple: _this.isLogicBefore(nowDate, _this.multipleStatus.before, _this.multipleStatus.after),
-          afterMultiple: _this.isLogicAfter(nowDate, _this.multipleStatus.before, _this.multipleStatus.after),
-          month: full.month,
-          disable: !(disableBefore && disableAfter),
-          isDay: isDay,
-          userChecked: false };
-
-        if (info) {
-          data.extraInfo = info;
-        }
-
-        dateArr.push(data);};for (var i = 1; i <= dateData; i++) {_loop(i);
-      }
-      return dateArr;
-    }
-    /**
-       * 获取下月天数
-       */ }, { key: "_getNextMonthDays", value: function _getNextMonthDays(
-    surplus, full) {
-      var dateArr = [];
-      for (var i = 1; i < surplus + 1; i++) {
-        dateArr.push({
-          date: i,
-          month: Number(full.month) + 1,
-          disable: true });
-
-      }
-      return dateArr;
-    }
-
-    /**
-       * 获取当前日期详情
-       * @param {Object} date
-       */ }, { key: "getInfo", value: function getInfo(
-    date) {var _this2 = this;
-      if (!date) {
-        date = new Date();
-      }
-      var dateInfo = this.canlender.find(function (item) {return item.fullDate === _this2.getDate(date).fullDate;});
-      return dateInfo;
-    }
-
-    /**
-       * 比较时间大小
-       */ }, { key: "dateCompare", value: function dateCompare(
-    startDate, endDate) {
-      // 计算截止时间
-      startDate = new Date(startDate.replace('-', '/').replace('-', '/'));
-      // 计算详细项的截止时间
-      endDate = new Date(endDate.replace('-', '/').replace('-', '/'));
-      if (startDate <= endDate) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-
-    /**
-       * 比较时间是否相等
-       */ }, { key: "dateEqual", value: function dateEqual(
-    before, after) {
-      // 计算截止时间
-      before = new Date(before.replace('-', '/').replace('-', '/'));
-      // 计算详细项的截止时间
-      after = new Date(after.replace('-', '/').replace('-', '/'));
-      if (before.getTime() - after.getTime() === 0) {
-        return true;
-      } else {
-        return false;
-      }
-    }
-
-    /**
-       *  比较真实起始日期
-       */ }, { key: "isLogicBefore", value: function isLogicBefore(
-
-    currentDay, before, after) {
-      var logicBefore = before;
-      if (before && after) {
-        logicBefore = this.dateCompare(before, after) ? before : after;
-      }
-      return this.dateEqual(logicBefore, currentDay);
-    } }, { key: "isLogicAfter", value: function isLogicAfter(
-
-    currentDay, before, after) {
-      var logicAfter = after;
-      if (before && after) {
-        logicAfter = this.dateCompare(before, after) ? after : before;
-      }
-      return this.dateEqual(logicAfter, currentDay);
-    }
-
-    /**
-       * 获取日期范围内所有日期
-       * @param {Object} begin
-       * @param {Object} end
-       */ }, { key: "geDateAll", value: function geDateAll(
-    begin, end) {
-      var arr = [];
-      var ab = begin.split('-');
-      var ae = end.split('-');
-      var db = new Date();
-      db.setFullYear(ab[0], ab[1] - 1, ab[2]);
-      var de = new Date();
-      de.setFullYear(ae[0], ae[1] - 1, ae[2]);
-      var unixDb = db.getTime() - 24 * 60 * 60 * 1000;
-      var unixDe = de.getTime() - 24 * 60 * 60 * 1000;
-      for (var k = unixDb; k <= unixDe;) {
-        k = k + 24 * 60 * 60 * 1000;
-        arr.push(this.getDate(new Date(parseInt(k))).fullDate);
-      }
-      return arr;
-    }
-
-    /**
-       *  获取多选状态
-       */ }, { key: "setMultiple", value: function setMultiple(
-    fullDate) {var _this$multipleStatus =
-
-
-
-      this.multipleStatus,before = _this$multipleStatus.before,after = _this$multipleStatus.after;
-      if (!this.range) return;
-      if (before && after) {
-        if (!this.lastHover) {
-          this.lastHover = true;
-          return;
-        }
-        this.multipleStatus.before = fullDate;
-        this.multipleStatus.after = '';
-        this.multipleStatus.data = [];
-        this.multipleStatus.fulldate = '';
-        this.lastHover = false;
-      } else {
-        if (!before) {
-          this.multipleStatus.before = fullDate;
-          this.lastHover = false;
-        } else {
-          this.multipleStatus.after = fullDate;
-          if (this.dateCompare(this.multipleStatus.before, this.multipleStatus.after)) {
-            this.multipleStatus.data = this.geDateAll(this.multipleStatus.before, this.multipleStatus.
-            after);
-          } else {
-            this.multipleStatus.data = this.geDateAll(this.multipleStatus.after, this.multipleStatus.
-            before);
-          }
-          this.lastHover = true;
-        }
-      }
-      this._getWeek(fullDate);
-    }
-
-    /**
-       *  鼠标 hover 更新多选状态
-       */ }, { key: "setHoverMultiple", value: function setHoverMultiple(
-    fullDate) {var _this$multipleStatus2 =
-
-
-
-      this.multipleStatus,before = _this$multipleStatus2.before,after = _this$multipleStatus2.after;
-
-      if (!this.range) return;
-      if (this.lastHover) return;
-
-      if (!before) {
-        this.multipleStatus.before = fullDate;
-      } else {
-        this.multipleStatus.after = fullDate;
-        if (this.dateCompare(this.multipleStatus.before, this.multipleStatus.after)) {
-          this.multipleStatus.data = this.geDateAll(this.multipleStatus.before, this.multipleStatus.after);
-        } else {
-          this.multipleStatus.data = this.geDateAll(this.multipleStatus.after, this.multipleStatus.before);
-        }
-      }
-      this._getWeek(fullDate);
-    }
-
-    /**
-       * 更新默认值多选状态
-       */ }, { key: "setDefaultMultiple", value: function setDefaultMultiple(
-    before, after) {
-      this.multipleStatus.before = before;
-      this.multipleStatus.after = after;
-      if (before && after) {
-        if (this.dateCompare(before, after)) {
-          this.multipleStatus.data = this.geDateAll(before, after);
-          this._getWeek(after);
-        } else {
-          this.multipleStatus.data = this.geDateAll(after, before);
-          this._getWeek(before);
-        }
-      }
-    }
-
-    /**
-       * 获取每周数据
-       * @param {Object} dateData
-       */ }, { key: "_getWeek", value: function _getWeek(
-    dateData) {var _this$getDate =
-
-
-
-
-
-
-      this.getDate(dateData),fullDate = _this$getDate.fullDate,year = _this$getDate.year,month = _this$getDate.month,date = _this$getDate.date,day = _this$getDate.day;
-      var firstDay = new Date(year, month - 1, 1).getDay();
-      var currentDay = new Date(year, month, 0).getDate();
-      var dates = {
-        lastMonthDays: this._getLastMonthDays(firstDay, this.getDate(dateData)), // 上个月末尾几天
-        currentMonthDys: this._currentMonthDys(currentDay, this.getDate(dateData)), // 本月天数
-        nextMonthDays: [], // 下个月开始几天
-        weeks: [] };
-
-      var canlender = [];
-      var surplus = 42 - (dates.lastMonthDays.length + dates.currentMonthDys.length);
-      dates.nextMonthDays = this._getNextMonthDays(surplus, this.getDate(dateData));
-      canlender = canlender.concat(dates.lastMonthDays, dates.currentMonthDys, dates.nextMonthDays);
-      var weeks = {};
-      // 拼接数组  上个月开始几天 + 本月天数+ 下个月开始几天
-      for (var i = 0; i < canlender.length; i++) {
-        if (i % 7 === 0) {
-          weeks[parseInt(i / 7)] = new Array(7);
-        }
-        weeks[parseInt(i / 7)][i % 7] = canlender[i];
-      }
-      this.canlender = canlender;
-      this.weeks = weeks;
-    }
-
-    //静态方法
-    // static init(date) {
-    // 	if (!this.instance) {
-    // 		this.instance = new Calendar(date);
-    // 	}
-    // 	return this.instance;
-    // }
-  }]);return Calendar;}();var _default =
-
-
-Calendar;exports.default = _default;
-
-/***/ }),
-
-/***/ 5:
 /*!************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js ***!
   \************************************************************/
@@ -2397,8 +8,8 @@ Calendar;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(global) {Object.defineProperty(exports, "__esModule", { value: true });exports.createApp = createApp;exports.createComponent = createComponent;exports.createPage = createPage;exports.createPlugin = createPlugin;exports.createSubpackageApp = createSubpackageApp;exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 7));
-var _uniI18n = __webpack_require__(/*! @dcloudio/uni-i18n */ 8);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
+/* WEBPACK VAR INJECTION */(function(global) {Object.defineProperty(exports, "__esModule", { value: true });exports.createApp = createApp;exports.createComponent = createComponent;exports.createPage = createPage;exports.createPlugin = createPlugin;exports.createSubpackageApp = createSubpackageApp;exports.default = void 0;var _vue = _interopRequireDefault(__webpack_require__(/*! vue */ 3));
+var _uniI18n = __webpack_require__(/*! @dcloudio/uni-i18n */ 4);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}function ownKeys(object, enumerableOnly) {var keys = Object.keys(object);if (Object.getOwnPropertySymbols) {var symbols = Object.getOwnPropertySymbols(object);if (enumerableOnly) symbols = symbols.filter(function (sym) {return Object.getOwnPropertyDescriptor(object, sym).enumerable;});keys.push.apply(keys, symbols);}return keys;}function _objectSpread(target) {for (var i = 1; i < arguments.length; i++) {var source = arguments[i] != null ? arguments[i] : {};if (i % 2) {ownKeys(Object(source), true).forEach(function (key) {_defineProperty(target, key, source[key]);});} else if (Object.getOwnPropertyDescriptors) {Object.defineProperties(target, Object.getOwnPropertyDescriptors(source));} else {ownKeys(Object(source)).forEach(function (key) {Object.defineProperty(target, key, Object.getOwnPropertyDescriptor(source, key));});}}return target;}function _slicedToArray(arr, i) {return _arrayWithHoles(arr) || _iterableToArrayLimit(arr, i) || _unsupportedIterableToArray(arr, i) || _nonIterableRest();}function _nonIterableRest() {throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _iterableToArrayLimit(arr, i) {if (typeof Symbol === "undefined" || !(Symbol.iterator in Object(arr))) return;var _arr = [];var _n = true;var _d = false;var _e = undefined;try {for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) {_arr.push(_s.value);if (i && _arr.length === i) break;}} catch (err) {_d = true;_e = err;} finally {try {if (!_n && _i["return"] != null) _i["return"]();} finally {if (_d) throw _e;}}return _arr;}function _arrayWithHoles(arr) {if (Array.isArray(arr)) return arr;}function _defineProperty(obj, key, value) {if (key in obj) {Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true });} else {obj[key] = value;}return obj;}function _toConsumableArray(arr) {return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread();}function _nonIterableSpread() {throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");}function _unsupportedIterableToArray(o, minLen) {if (!o) return;if (typeof o === "string") return _arrayLikeToArray(o, minLen);var n = Object.prototype.toString.call(o).slice(8, -1);if (n === "Object" && o.constructor) n = o.constructor.name;if (n === "Map" || n === "Set") return Array.from(o);if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen);}function _iterableToArray(iter) {if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter);}function _arrayWithoutHoles(arr) {if (Array.isArray(arr)) return _arrayLikeToArray(arr);}function _arrayLikeToArray(arr, len) {if (len == null || len > arr.length) len = arr.length;for (var i = 0, arr2 = new Array(len); i < len; i++) {arr2[i] = arr[i];}return arr2;}
 
 var realAtob;
 
@@ -3330,7 +941,7 @@ function initData(vueOptions, context) {
     try {
       data = data.call(context); // 支持 Vue.prototype 上挂的数据
     } catch (e) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.warn('根据 Vue 的 data 函数初始化小程序 data 失败，请尽量确保 data 函数中不访问 vm 对象，否则可能影响首次数据渲染速度。', data);
       }
     }
@@ -4470,11 +2081,1019 @@ wx.createPlugin = createPlugin;
 var uni$1 = uni;var _default =
 
 uni$1;exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../webpack/buildin/global.js */ 6)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../webpack/buildin/global.js */ 2)))
 
 /***/ }),
 
-/***/ 6:
+/***/ 10:
+/*!**************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/models/baseModel.js ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.terminalSyncWorker = exports.registerReject = exports.registerApprove = exports.registerCheckedList = exports.registerUncheckList = exports.terminalDetail = exports.terminalRemove = exports.terminalAppend = exports.terminalUnbind = exports.terminalBind = exports.terminalList = exports.attendanceTimeWork = exports.invitationRemove = exports.invitationList = exports.invitationAppend = exports.tickeRemove = exports.tickeAppend = exports.tickeDetail = exports.tickeCreate = exports.ticketList = exports.workList = exports.confirmPcLogin = exports.scanQRcode = exports.pcLogin = exports.loginApi = exports.getManagerList = exports.registerApi = exports.workerTime = exports.attendanceTime = exports.attendanceList = void 0;var _http = __webpack_require__(/*! ../units/net/http.js */ 11);
+
+
+
+var attendanceList = function attendanceList(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/attendance/list?start=' + query.start + "&end=" + query.end,
+    method: 'get' });
+
+};exports.attendanceList = attendanceList;
+
+
+var attendanceTime = function attendanceTime(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/attendance/time/' + query.time,
+    method: 'get' });
+
+};exports.attendanceTime = attendanceTime;
+
+
+var workerTime = function workerTime(query) {
+  return (0, _http.apiResquest)({
+    url: '/worker/attendance/time/' + query.time,
+    method: 'get' });
+
+};
+
+// 用户注册
+exports.workerTime = workerTime;var registerApi = function registerApi(query) {
+  return (0, _http.apiResquest)({
+    url: '/user/register',
+    method: 'POST',
+    query: query });
+
+};
+// 获取管理员列表
+exports.registerApi = registerApi;var getManagerList = function getManagerList(query) {
+  return (0, _http.apiResquest)({
+    url: '/user/manager/list',
+    method: 'GET' });
+
+};
+// 登陆
+exports.getManagerList = getManagerList;var loginApi = function loginApi(query) {
+  return (0, _http.apiResquest)({
+    url: '/login/wechat',
+    method: 'POST',
+    query: query });
+
+};
+
+//PC端判断二维码扫描状态
+exports.loginApi = loginApi;var pcLogin = function pcLogin(query) {
+  return (0, _http.apiResquest)({
+    url: '/login/qrcode/check',
+    method: 'POST',
+    query: query });
+
+};
+
+//手机扫描二维码
+exports.pcLogin = pcLogin;var scanQRcode = function scanQRcode(query) {
+  return (0, _http.apiResquest)({
+    url: '/user/qrcode/information',
+    method: 'POST',
+    query: query });
+
+};
+
+//手机扫描二维码,确认登陆
+exports.scanQRcode = scanQRcode;var confirmPcLogin = function confirmPcLogin(query) {
+  return (0, _http.apiResquest)({
+    url: '/user/qrcode/confirm',
+    method: 'POST',
+    query: query });
+
+};exports.confirmPcLogin = confirmPcLogin;
+var workList = function workList(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/worker/list',
+    method: 'get' });
+
+};exports.workList = workList;
+var ticketList = function ticketList(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/ticket/list',
+    method: 'get' });
+
+};exports.ticketList = ticketList;
+var tickeCreate = function tickeCreate(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/ticket/create',
+    method: 'POST',
+    query: query });
+
+};
+// 已添加人员列表
+exports.tickeCreate = tickeCreate;var tickeDetail = function tickeDetail(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/ticket/' + query.id + '/worker/list',
+    method: 'get' });
+
+};
+// 操作票添加人员
+exports.tickeDetail = tickeDetail;var tickeAppend = function tickeAppend(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/ticket/' + query.id + '/append',
+    method: 'post',
+    query: query.data });
+
+};
+// 操作票移除人员
+exports.tickeAppend = tickeAppend;var tickeRemove = function tickeRemove(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/ticket/' + query.id + '/remove',
+    method: 'post',
+    query: query.data });
+
+};exports.tickeRemove = tickeRemove;
+var invitationAppend = function invitationAppend(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/invitation/append',
+    method: 'post',
+    query: query });
+
+};exports.invitationAppend = invitationAppend;
+var invitationList = function invitationList(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/invitation/list',
+    method: 'get' });
+
+};exports.invitationList = invitationList;
+var invitationRemove = function invitationRemove(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/invitation/' + query.id + '/delete',
+    method: 'delete' });
+
+};exports.invitationRemove = invitationRemove;
+
+
+var attendanceTimeWork = function attendanceTimeWork(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/attendance/time/' + query.time + '/worker/' + query.id,
+    method: 'get' });
+
+};exports.attendanceTimeWork = attendanceTimeWork;
+var terminalList = function terminalList(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/terminal/list',
+    method: 'get' });
+
+};exports.terminalList = terminalList;
+var terminalBind = function terminalBind(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/terminal/bind',
+    method: 'post',
+    query: {
+      sn: query.sn } });
+
+
+};exports.terminalBind = terminalBind;
+var terminalUnbind = function terminalUnbind(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/terminal/unbind',
+    method: 'delete',
+    query: {
+      sn: query.sn } });
+
+
+};
+// 设备人员添加
+exports.terminalUnbind = terminalUnbind;var terminalAppend = function terminalAppend(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/terminal/' + query.sn + '/append/worker',
+    method: 'post',
+    query: query.data });
+
+};
+// 设备人员移除
+exports.terminalAppend = terminalAppend;var terminalRemove = function terminalRemove(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/terminal/' + query.sn + '/remove/worker',
+    method: 'post',
+    query: query.data });
+
+};
+// 设备已添加人员
+exports.terminalRemove = terminalRemove;var terminalDetail = function terminalDetail(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/terminal/' + query.sn + '/worker/list',
+    method: 'get' });
+
+};
+// 未审核列表
+exports.terminalDetail = terminalDetail;var registerUncheckList = function registerUncheckList(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/register/uncheck/list',
+    method: 'get' });
+
+};
+// 已审核列表
+exports.registerUncheckList = registerUncheckList;var registerCheckedList = function registerCheckedList(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/register/checked/list',
+    method: 'get' });
+
+};
+// 机器人员添加
+exports.registerCheckedList = registerCheckedList;var registerApprove = function registerApprove(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/register/user/' + query.id + '/approve',
+    method: 'post' });
+
+};
+// 机器人员移除
+exports.registerApprove = registerApprove;var registerReject = function registerReject(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/register/user/' + query.id + '/reject',
+    method: 'post' });
+
+};exports.registerReject = registerReject;
+var terminalSyncWorker = function terminalSyncWorker(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/terminal/' + query.sn + '/syncWorker',
+    method: 'post' });
+
+};exports.terminalSyncWorker = terminalSyncWorker;
+
+/***/ }),
+
+/***/ 103:
+/*!***********************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/采集盒列表.png ***!
+  \***********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ 104:
+/*!********************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/考勤.png ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ 105:
+/*!*********************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/操作票.png ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ 106:
+/*!**********************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/注册灰色.png ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAALVklEQVR4nO2dPY4ruRWFtYReQi+hN2BAS+glVOyol9AZwVNBLaGXoNBhDeDAdmAoMIwx4MEIEzkyCoYX0A7qyqNpSGreS5b4dz6AyUsexa7D+0tytyOEEEIIIYQQQghpnWmanpxzzwBeALx471+9968ABgCD9/7VObcH8OKce849X0I2YZqmJxHBMI7jBOAIYAHwaRgnAIdxHCfv/Ztzbp/79xGixjm3996/R4pBMw7y/73k/u2EXOWLKLYWxL2xjOM40S0j2XHOPYvbdMosiltjBjDkXifSGQBeRBiPcJ+SjHEcp9zrRhrHObevTRjXhEL3iyRF0rEfNQuDFoVsAta6RDPC+DKO3vvX3GtMKgRr7eJQwEf8EGsyTdNT7jUnFTBN05P3/q1hq3FrLCw8krtI1TuH1ViwpoqPWFOz53GUf3+YWL33b7n/DqRAsLpUpwcIYT63igB40bg2zrln6dl6FwFtNd95y7UmlSFNgVvt0kdJre638PMvXMI59bwZl5DdRvHGgjUt/NDeqA3Esjz6N5CCEFclqTC8928l7LxiFT8oEmJCdtqkFqPECjXW2CqFUCiSXkgsjrmGjwfxSQhakh6QDyVFzDHXWDeI3ByWEtxHshGpxFF75VnWwXpu5Zh7/mQDpOEwxsU4uxlD7t+SCulMNlnP3HMnCZEK+RwrjhYb+6yZPFbcGyJBUH4sMUOVCkkJW9aFQXvtJIg75prjjVCM67TknjeJIIFr9dGDOM6ISNRrlHvexEhkpbzLXiSju0VXqzYiXauui2Jyw6NmvU6550yURLhWTWartBis75B7ziSQiKwM05cXKDeZpeVMX1NYrQdv+vgtkuTQbC7vuedMviHCepx6DMq/QxmPMO1bOhGxx5B77qUCxTl9uqgFE2E92Ft0B6WrRStSKpqd7nLU2Lb+aJSNjUPu+ZIvyC5nqXsccs+9BpRWhGtaGobiFq2HEiiO7jLlWxhG94o7nQKNFWGwXhAR7lW37SRWFFaE7SelYHSvaD0MQNHxSzerECzuFV0AOwg/ujzknivZqf5g58G+oQgUKV+eFcmNxuTTvUqDXIARtBHlnmv3YH0BSuteveeed+2EWm1a6sxYTg2y9hFPqJvFszWZMQToNPsJCL0phsmQzBgCdDYmJkCRWme8lwtLgM5DUWlQVNV5VWkujO3tQ+55t0Kg9aZLmwuLQBg0piM0/uNJzUzAkOJl2jEdCOzLokAyYblzlwJJh6KizqbQHFgEwt0sHYoaFAWSA8v7Frnn3BKhGxQLs5kI9YGZUdmG0BiQiZFM0ILkRVFNp0ByYOnDYgySDrpYhcMgPS+hFpyZw0xYjtryj5WO0BiQa54Jo0D2uefdCmAlvWyMrSZsv04E2ItVNtrr+UUg77nn3QLs5q0E6O/D4vmEBCD8qAEvbsgJgKNSIDT5CQjNIPL8TWYsxUJmVeJBYAaLRcLMWDJZDNTjCQzQuRnlxhKoMw6JQxF/8H7eEjAE6oxDIlC0+DBALwHY3iUccs+7VkLdK65xIcBw9JZulg2Fe8X4oxSMcQj/gAYU7hULhCUB2wtT9JEVaB4qYsdCYRjdLFoRBZrzN1zXwrC6WYxFwlA+c8c1LRHoz6ifB2/d+AaN9WAhtlBge0znE7zQ+i5K67Hw/EfBQN+8eN712DN0A41lZnBeOMYXbz/BtoirQJf8oPWoAasVYWv2b9G+P0/rUQkRVoSu1gXQ1Zb4cnBNWK2IjO6zWtorlWg9KsP4uA596d3/4w5Nh/Sp5/WqFstpw4vRZS8R1lS56vgAr1KqGOgf+bwcXVWELeLobY2aI9LV6uYDEHFoNxO6Vi0Q6Wp9Aji2/CHIJqK1HMz4tQTislqfsrs2l92SbJVaHKwZNYZz7tnyIXwdLQWklucjZMwtW9RuSRCPnF2LqrtVpUJuOWD2CeDEgmDDpBIJgLnGDwX6GsflWFp0M8kXLA/v3PPFaxAK1iyV1Wp8AlgYlHcE7Ierbgol92+6hnPuWbJ4MfEXxdEjCdK/11yQIffv2u1WVzKBMCiO3onI5BTnek3T9CQx1kcCYVAcZCVh4H5tzCLCTYLbaZqepL3/kEgU58FsFfkV2PqQLOPgvX93zu21H+DZQnjv38R9Om405yozdGRjpD4QW3G3jH977/8J4CcAf5c5/Cj/9guAnwH8y3v/363nMo7jxCIguctWcUnho5gEA6kArC5XDmuSY9ClIjZSFhULHLQaJB4AvwPwtwI+6JTjF+/97xlvEBMb1BRKHufM2nPudScFcxZFogp0rWOuvVuZJGaapicRxamAD7SYUWp/GXkQF8Lo1VoEC4XuV0dQGObxQaE0DIWRbBxaOnrcPYUK4z/SSvIzgD+P4/hHAD+M4zgD+BOAvwD4K9Zi5RHAP7C2nZT0G3g2vWYyC2MBcBzHcfLev0nK+GWapqcUH5Vz7tl7/yptMR/IV/XnMdwakQ/y9MAP5QSpJ5yFkON3Y22RGWQe86NEwtikEh5oNRasQeu+dDdDzot8bLkerJ1UgFiNLV2NBWsh7bV0UdzCe/+60QbSxRWtVbKx1TiL4q1WUdxCDl+9I40r2uVt+MWD7drSmxTFLaRrOUYotCAlIWexTffKBgij24sKJF5Rbzg9r1lxRF6dSYsRwEUn87drx2O6BSGXUM8UxmMQF/aeUD64doUA2yMvt8aRwgjn4obGWVywA9evIKyPvFwZC/+wpCkkcEwhDl5OQNoiUaaKVoO0R6L7qWawmY60hKRxg1KMtBqkO1K8SkurUT/c3K6Q4KI2HuKpHKzPxF1ezH1gt/Au+v08VnQrJ6BDot+GSEQ+P8ArauonMCnTX1Nk5BvmC81v/Wg2yK5qWZFvcvDy5UaQYnDQ372bDTGyK5fv5zWEJjnjvX/PPd+HAHutg+/nNYamKNxFvBmRzl14aVl7UCAXaAIyulV9QIEIEnfMFuvRTXDWIRSIYG1AbHpRCAWy20W5VjzW2TgUyG63M7pWR4qjfboXiDFrdaI4+qBrgRhbSZjO7YiuBWJxrbqplpLdbtexQIyuFeOOzuhSIFLzoGtFvqVLgVhqHs38eKKiO4EYrQddq07pTiAW60HXql+6EohYjxNdKxJKVwIxWA8WBDunG4FYrAe7dEk3AjHUPWg9SB8CMVqP99zzJvnpQiBYL36j9SBqehGI6voeWo96mKbpSZ6NfttiAPiD4tv5Yat5OOf2m2zaWA9DaazHQutRPhdv0Gv+ti2MtIf0tKldWo/yscSUjY0l2fVSyoWk9aiATi3H1zFHLySU7hWtR/mI9cj9cRYxoq2I1r3irYjlI68KZ/84CxlD1GJC5171+8ZDRWguk+5gDOaFBN2rJqGL9euI8njoXrUL7M9StDROsYt4UvxndK8qQm6jyf2BZh1RZ5RA96p55G+s2QRbGfEXpWs7d+le1QuAQdzpw0bjR8W39NNW8xjHcfLevyWp00H3OhTdK3KTJpsVoTC9dK/IPZoTiCGAe8k9Z1IuzQlEW0hi7xW5R4sC0QTojD/IXZoTiCZAr+IHkay0KJDgAB2xzV6keZoSCAN0kpqmBMIAnaSmNYEwQCdJaUogDNBJaloTyMwAnaSkNYEEZ7CiOyJJF7QmkOAAnW9+kBCaEQhTvGQLmhEIlIekeAaEhNCMQLTXwbAGQkLoViC550vqoBmBKKvocTdCkG6gQAi5QzMCge6RHLaZkCB6FUj8zdikC5oRiMbFKvqHkKLQbLxFXwCivLN1yD1fUgeaAnTx7UsI6+blA51EBcLuAj4W/12JFVnu/Ij4axtJdwRYkaWa3j4RyTVLcqQ4iBWsrUzXLMmMGvv6nHPP3vtXOWX4Urz5I1Ug1mTgd0UIIYQQQgghhJBv+R889UFFi9Q3tQAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ 11:
+/*!************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/units/net/http.js ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.apiResquest = void 0;var _config = __webpack_require__(/*! ./config.js */ 12);
+
+
+var _login = _interopRequireDefault(__webpack_require__(/*! ../login.js */ 9));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}
+var apiResquest = function apiResquest(prams) {//prams 为我们需要调用的接口API的参数 下面会贴具体代码
+
+  // 判断请求类型
+  var headerData = {
+    'content-type': 'application/json',
+
+    'Authorization': uni.getStorageSync('cookie').cookie };
+
+
+  var dataObj = null;
+
+  if (prams.method === "GET") {
+    headerData = {
+      'content-type': 'application/json',
+      'Authorization': uni.getStorageSync('cookie').cookie };
+
+  } else {
+    dataObj = prams.query;
+  }
+  return new Promise(function (resolve, reject) {
+    var url = _config.config.base_url + prams.url; //请求的网络地址和局地的api地址组合
+    uni.showLoading({
+      title: '加载中',
+      mask: true });
+
+    if (prams.method === '') {
+
+    } else {
+      return uni.request({
+        url: url,
+        data: dataObj,
+        method: prams.method,
+        header: headerData,
+        success: function success(res) {
+          uni.hideLoading();
+          if (res.statusCode === 401) {
+            console.log("登陆过期");
+            uni.showLoading({
+              title: "正在重新登陆",
+              mask: true,
+              success: function success() {
+                (0, _login.default)();
+              } });
+
+
+
+          }
+
+          resolve(res);
+        },
+        fail: function fail(err) {
+          reject(err);
+          console.log(err);
+          console.log("调用失败");
+          uni.hideLoading();
+        },
+        complete: function complete() {
+          // console.log('请求完成')
+          uni.hideLoading();
+        } });
+
+    }
+
+  });
+};exports.apiResquest = apiResquest;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 114:
+/*!**************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/models/userModel.js ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.getAvatar = exports.postAvatar = void 0;var _http = __webpack_require__(/*! ../units/net/http.js */ 11);
+
+
+
+var postAvatar = function postAvatar(query) {
+  return (0, _http.apiResquest)({
+    url: '/worker/face',
+    method: 'POST',
+    query: query });
+
+};exports.postAvatar = postAvatar;
+
+var getAvatar = function getAvatar(query) {
+  return (0, _http.apiResquest)({
+    url: '/worker/face',
+    method: 'GET' });
+
+};exports.getAvatar = getAvatar;
+
+/***/ }),
+
+/***/ 12:
+/*!**************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/units/net/config.js ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.config = void 0;var config = {
+  base_url: 'https://device.torchcqs.cn/api'
+  // base_url: 'http://139.186.170.118:8002/api'
+};exports.config = config;
+
+/***/ }),
+
+/***/ 122:
+/*!***********************************************************************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/index.js ***!
+  \***********************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 123));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 124));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 125));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+{
+  en: _en.default,
+  'zh-Hans': _zhHans.default,
+  'zh-Hant': _zhHant.default };exports.default = _default;
+
+/***/ }),
+
+/***/ 123:
+/*!**********************************************************************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/en.json ***!
+  \**********************************************************************************************************************************************************/
+/*! exports provided: uni-datetime-picker.selectDate, uni-datetime-picker.selectTime, uni-datetime-picker.selectDateTime, uni-datetime-picker.startDate, uni-datetime-picker.endDate, uni-datetime-picker.startTime, uni-datetime-picker.endTime, uni-datetime-picker.ok, uni-datetime-picker.clear, uni-datetime-picker.cancel, uni-calender.MON, uni-calender.TUE, uni-calender.WED, uni-calender.THU, uni-calender.FRI, uni-calender.SAT, uni-calender.SUN, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"select date\",\"uni-datetime-picker.selectTime\":\"select time\",\"uni-datetime-picker.selectDateTime\":\"select datetime\",\"uni-datetime-picker.startDate\":\"start date\",\"uni-datetime-picker.endDate\":\"end date\",\"uni-datetime-picker.startTime\":\"start time\",\"uni-datetime-picker.endTime\":\"end time\",\"uni-datetime-picker.ok\":\"ok\",\"uni-datetime-picker.clear\":\"clear\",\"uni-datetime-picker.cancel\":\"cancel\",\"uni-calender.MON\":\"MON\",\"uni-calender.TUE\":\"TUE\",\"uni-calender.WED\":\"WED\",\"uni-calender.THU\":\"THU\",\"uni-calender.FRI\":\"FRI\",\"uni-calender.SAT\":\"SAT\",\"uni-calender.SUN\":\"SUN\"}");
+
+/***/ }),
+
+/***/ 124:
+/*!***************************************************************************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hans.json ***!
+  \***************************************************************************************************************************************************************/
+/*! exports provided: uni-datetime-picker.selectDate, uni-datetime-picker.selectTime, uni-datetime-picker.selectDateTime, uni-datetime-picker.startDate, uni-datetime-picker.endDate, uni-datetime-picker.startTime, uni-datetime-picker.endTime, uni-datetime-picker.ok, uni-datetime-picker.clear, uni-datetime-picker.cancel, uni-calender.SUN, uni-calender.MON, uni-calender.TUE, uni-calender.WED, uni-calender.THU, uni-calender.FRI, uni-calender.SAT, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"选择日期\",\"uni-datetime-picker.selectTime\":\"选择时间\",\"uni-datetime-picker.selectDateTime\":\"选择日期时间\",\"uni-datetime-picker.startDate\":\"开始日期\",\"uni-datetime-picker.endDate\":\"结束日期\",\"uni-datetime-picker.startTime\":\"开始时间\",\"uni-datetime-picker.endTime\":\"结束时间\",\"uni-datetime-picker.ok\":\"确定\",\"uni-datetime-picker.clear\":\"清除\",\"uni-datetime-picker.cancel\":\"取消\",\"uni-calender.SUN\":\"日\",\"uni-calender.MON\":\"一\",\"uni-calender.TUE\":\"二\",\"uni-calender.WED\":\"三\",\"uni-calender.THU\":\"四\",\"uni-calender.FRI\":\"五\",\"uni-calender.SAT\":\"六\"}");
+
+/***/ }),
+
+/***/ 125:
+/*!***************************************************************************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hant.json ***!
+  \***************************************************************************************************************************************************************/
+/*! exports provided: uni-datetime-picker.selectDate, uni-datetime-picker.selectTime, uni-datetime-picker.selectDateTime, uni-datetime-picker.startDate, uni-datetime-picker.endDate, uni-datetime-picker.startTime, uni-datetime-picker.endTime, uni-datetime-picker.ok, uni-datetime-picker.clear, uni-datetime-picker.cancel, uni-calender.SUN, uni-calender.MON, uni-calender.TUE, uni-calender.WED, uni-calender.THU, uni-calender.FRI, uni-calender.SAT, default */
+/***/ (function(module) {
+
+module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"選擇日期\",\"uni-datetime-picker.selectTime\":\"選擇時間\",\"uni-datetime-picker.selectDateTime\":\"選擇日期時間\",\"uni-datetime-picker.startDate\":\"開始日期\",\"uni-datetime-picker.endDate\":\"結束日期\",\"uni-datetime-picker.startTime\":\"開始时间\",\"uni-datetime-picker.endTime\":\"結束时间\",\"uni-datetime-picker.ok\":\"確定\",\"uni-datetime-picker.clear\":\"清除\",\"uni-datetime-picker.cancel\":\"取消\",\"uni-calender.SUN\":\"日\",\"uni-calender.MON\":\"一\",\"uni-calender.TUE\":\"二\",\"uni-calender.WED\":\"三\",\"uni-calender.THU\":\"四\",\"uni-calender.FRI\":\"五\",\"uni-calender.SAT\":\"六\"}");
+
+/***/ }),
+
+/***/ 147:
+/*!*****************************************************************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/util.js ***!
+  \*****************************************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;function _classCallCheck(instance, Constructor) {if (!(instance instanceof Constructor)) {throw new TypeError("Cannot call a class as a function");}}function _defineProperties(target, props) {for (var i = 0; i < props.length; i++) {var descriptor = props[i];descriptor.enumerable = descriptor.enumerable || false;descriptor.configurable = true;if ("value" in descriptor) descriptor.writable = true;Object.defineProperty(target, descriptor.key, descriptor);}}function _createClass(Constructor, protoProps, staticProps) {if (protoProps) _defineProperties(Constructor.prototype, protoProps);if (staticProps) _defineProperties(Constructor, staticProps);return Constructor;}var Calendar = /*#__PURE__*/function () {
+  function Calendar()
+
+
+
+
+
+
+  {var _ref = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : {},date = _ref.date,selected = _ref.selected,startDate = _ref.startDate,endDate = _ref.endDate,range = _ref.range;_classCallCheck(this, Calendar);
+    // 当前日期
+    this.date = this.getDate(new Date()); // 当前初入日期
+    // 打点信息
+    this.selected = selected || [];
+    // 范围开始
+    this.startDate = startDate;
+    // 范围结束
+    this.endDate = endDate;
+    this.range = range;
+    // 多选状态
+    this.cleanMultipleStatus();
+    // 每周日期
+    this.weeks = {};
+    // this._getWeek(this.date.fullDate)
+    // this.multipleStatus = multipleStatus
+    this.lastHover = false;
+  }
+  /**
+     * 设置日期
+     * @param {Object} date
+     */_createClass(Calendar, [{ key: "setDate", value: function setDate(
+    date) {
+      this.selectDate = this.getDate(date);
+      this._getWeek(this.selectDate.fullDate);
+    }
+
+    /**
+       * 清理多选状态
+       */ }, { key: "cleanMultipleStatus", value: function cleanMultipleStatus()
+    {
+      this.multipleStatus = {
+        before: '',
+        after: '',
+        data: [] };
+
+    }
+
+    /**
+       * 重置开始日期
+       */ }, { key: "resetSatrtDate", value: function resetSatrtDate(
+    startDate) {
+      // 范围开始
+      this.startDate = startDate;
+
+    }
+
+    /**
+       * 重置结束日期
+       */ }, { key: "resetEndDate", value: function resetEndDate(
+    endDate) {
+      // 范围结束
+      this.endDate = endDate;
+    }
+
+    /**
+       * 获取任意时间
+       */ }, { key: "getDate", value: function getDate(
+    date) {var AddDayCount = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;var str = arguments.length > 2 && arguments[2] !== undefined ? arguments[2] : 'day';
+      if (!date) {
+        date = new Date();
+      }
+      if (typeof date !== 'object') {
+        date = date.replace(/-/g, '/');
+      }
+      var dd = new Date(date);
+      switch (str) {
+        case 'day':
+          dd.setDate(dd.getDate() + AddDayCount); // 获取AddDayCount天后的日期
+          break;
+        case 'month':
+          if (dd.getDate() === 31) {
+            dd.setDate(dd.getDate() + AddDayCount);
+          } else {
+            dd.setMonth(dd.getMonth() + AddDayCount); // 获取AddDayCount天后的日期
+          }
+          break;
+        case 'year':
+          dd.setFullYear(dd.getFullYear() + AddDayCount); // 获取AddDayCount天后的日期
+          break;}
+
+      var y = dd.getFullYear();
+      var m = dd.getMonth() + 1 < 10 ? '0' + (dd.getMonth() + 1) : dd.getMonth() + 1; // 获取当前月份的日期，不足10补0
+      var d = dd.getDate() < 10 ? '0' + dd.getDate() : dd.getDate(); // 获取当前几号，不足10补0
+      return {
+        fullDate: y + '-' + m + '-' + d,
+        year: y,
+        month: m,
+        date: d,
+        day: dd.getDay() };
+
+    }
+
+
+    /**
+       * 获取上月剩余天数
+       */ }, { key: "_getLastMonthDays", value: function _getLastMonthDays(
+    firstDay, full) {
+      var dateArr = [];
+      for (var i = firstDay; i > 0; i--) {
+        var beforeDate = new Date(full.year, full.month - 1, -i + 1).getDate();
+        dateArr.push({
+          date: beforeDate,
+          month: full.month - 1,
+          disable: true });
+
+      }
+      return dateArr;
+    }
+    /**
+       * 获取本月天数
+       */ }, { key: "_currentMonthDys", value: function _currentMonthDys(
+    dateData, full) {var _this = this;
+      var dateArr = [];
+      var fullDate = this.date.fullDate;var _loop = function _loop(
+      i) {
+        var isinfo = false;
+        var nowDate = full.year + '-' + (full.month < 10 ?
+        full.month : full.month) + '-' + (i < 10 ?
+        '0' + i : i);
+        // 是否今天
+        var isDay = fullDate === nowDate;
+        // 获取打点信息
+        var info = _this.selected && _this.selected.find(function (item) {
+          if (_this.dateEqual(nowDate, item.date)) {
+            return item;
+          }
+        });
+
+        // 日期禁用
+        var disableBefore = true;
+        var disableAfter = true;
+        if (_this.startDate) {
+          // let dateCompBefore = this.dateCompare(this.startDate, fullDate)
+          // disableBefore = this.dateCompare(dateCompBefore ? this.startDate : fullDate, nowDate)
+          disableBefore = _this.dateCompare(_this.startDate, nowDate);
+        }
+
+        if (_this.endDate) {
+          // let dateCompAfter = this.dateCompare(fullDate, this.endDate)
+          // disableAfter = this.dateCompare(nowDate, dateCompAfter ? this.endDate : fullDate)
+          disableAfter = _this.dateCompare(nowDate, _this.endDate);
+        }
+        var multiples = _this.multipleStatus.data;
+        var checked = false;
+        var multiplesStatus = -1;
+        if (_this.range) {
+          if (multiples) {
+            multiplesStatus = multiples.findIndex(function (item) {
+              return _this.dateEqual(item, nowDate);
+            });
+          }
+          if (multiplesStatus !== -1) {
+            checked = true;
+          }
+        }
+        var data = {
+          fullDate: nowDate,
+          year: full.year,
+          date: i,
+          multiple: _this.range ? checked : false,
+          beforeMultiple: _this.isLogicBefore(nowDate, _this.multipleStatus.before, _this.multipleStatus.after),
+          afterMultiple: _this.isLogicAfter(nowDate, _this.multipleStatus.before, _this.multipleStatus.after),
+          month: full.month,
+          disable: !(disableBefore && disableAfter),
+          isDay: isDay,
+          userChecked: false };
+
+        if (info) {
+          data.extraInfo = info;
+        }
+
+        dateArr.push(data);};for (var i = 1; i <= dateData; i++) {_loop(i);
+      }
+      return dateArr;
+    }
+    /**
+       * 获取下月天数
+       */ }, { key: "_getNextMonthDays", value: function _getNextMonthDays(
+    surplus, full) {
+      var dateArr = [];
+      for (var i = 1; i < surplus + 1; i++) {
+        dateArr.push({
+          date: i,
+          month: Number(full.month) + 1,
+          disable: true });
+
+      }
+      return dateArr;
+    }
+
+    /**
+       * 获取当前日期详情
+       * @param {Object} date
+       */ }, { key: "getInfo", value: function getInfo(
+    date) {var _this2 = this;
+      if (!date) {
+        date = new Date();
+      }
+      var dateInfo = this.canlender.find(function (item) {return item.fullDate === _this2.getDate(date).fullDate;});
+      return dateInfo;
+    }
+
+    /**
+       * 比较时间大小
+       */ }, { key: "dateCompare", value: function dateCompare(
+    startDate, endDate) {
+      // 计算截止时间
+      startDate = new Date(startDate.replace('-', '/').replace('-', '/'));
+      // 计算详细项的截止时间
+      endDate = new Date(endDate.replace('-', '/').replace('-', '/'));
+      if (startDate <= endDate) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    /**
+       * 比较时间是否相等
+       */ }, { key: "dateEqual", value: function dateEqual(
+    before, after) {
+      // 计算截止时间
+      before = new Date(before.replace('-', '/').replace('-', '/'));
+      // 计算详细项的截止时间
+      after = new Date(after.replace('-', '/').replace('-', '/'));
+      if (before.getTime() - after.getTime() === 0) {
+        return true;
+      } else {
+        return false;
+      }
+    }
+
+    /**
+       *  比较真实起始日期
+       */ }, { key: "isLogicBefore", value: function isLogicBefore(
+
+    currentDay, before, after) {
+      var logicBefore = before;
+      if (before && after) {
+        logicBefore = this.dateCompare(before, after) ? before : after;
+      }
+      return this.dateEqual(logicBefore, currentDay);
+    } }, { key: "isLogicAfter", value: function isLogicAfter(
+
+    currentDay, before, after) {
+      var logicAfter = after;
+      if (before && after) {
+        logicAfter = this.dateCompare(before, after) ? after : before;
+      }
+      return this.dateEqual(logicAfter, currentDay);
+    }
+
+    /**
+       * 获取日期范围内所有日期
+       * @param {Object} begin
+       * @param {Object} end
+       */ }, { key: "geDateAll", value: function geDateAll(
+    begin, end) {
+      var arr = [];
+      var ab = begin.split('-');
+      var ae = end.split('-');
+      var db = new Date();
+      db.setFullYear(ab[0], ab[1] - 1, ab[2]);
+      var de = new Date();
+      de.setFullYear(ae[0], ae[1] - 1, ae[2]);
+      var unixDb = db.getTime() - 24 * 60 * 60 * 1000;
+      var unixDe = de.getTime() - 24 * 60 * 60 * 1000;
+      for (var k = unixDb; k <= unixDe;) {
+        k = k + 24 * 60 * 60 * 1000;
+        arr.push(this.getDate(new Date(parseInt(k))).fullDate);
+      }
+      return arr;
+    }
+
+    /**
+       *  获取多选状态
+       */ }, { key: "setMultiple", value: function setMultiple(
+    fullDate) {var _this$multipleStatus =
+
+
+
+      this.multipleStatus,before = _this$multipleStatus.before,after = _this$multipleStatus.after;
+      if (!this.range) return;
+      if (before && after) {
+        if (!this.lastHover) {
+          this.lastHover = true;
+          return;
+        }
+        this.multipleStatus.before = fullDate;
+        this.multipleStatus.after = '';
+        this.multipleStatus.data = [];
+        this.multipleStatus.fulldate = '';
+        this.lastHover = false;
+      } else {
+        if (!before) {
+          this.multipleStatus.before = fullDate;
+          this.lastHover = false;
+        } else {
+          this.multipleStatus.after = fullDate;
+          if (this.dateCompare(this.multipleStatus.before, this.multipleStatus.after)) {
+            this.multipleStatus.data = this.geDateAll(this.multipleStatus.before, this.multipleStatus.
+            after);
+          } else {
+            this.multipleStatus.data = this.geDateAll(this.multipleStatus.after, this.multipleStatus.
+            before);
+          }
+          this.lastHover = true;
+        }
+      }
+      this._getWeek(fullDate);
+    }
+
+    /**
+       *  鼠标 hover 更新多选状态
+       */ }, { key: "setHoverMultiple", value: function setHoverMultiple(
+    fullDate) {var _this$multipleStatus2 =
+
+
+
+      this.multipleStatus,before = _this$multipleStatus2.before,after = _this$multipleStatus2.after;
+
+      if (!this.range) return;
+      if (this.lastHover) return;
+
+      if (!before) {
+        this.multipleStatus.before = fullDate;
+      } else {
+        this.multipleStatus.after = fullDate;
+        if (this.dateCompare(this.multipleStatus.before, this.multipleStatus.after)) {
+          this.multipleStatus.data = this.geDateAll(this.multipleStatus.before, this.multipleStatus.after);
+        } else {
+          this.multipleStatus.data = this.geDateAll(this.multipleStatus.after, this.multipleStatus.before);
+        }
+      }
+      this._getWeek(fullDate);
+    }
+
+    /**
+       * 更新默认值多选状态
+       */ }, { key: "setDefaultMultiple", value: function setDefaultMultiple(
+    before, after) {
+      this.multipleStatus.before = before;
+      this.multipleStatus.after = after;
+      if (before && after) {
+        if (this.dateCompare(before, after)) {
+          this.multipleStatus.data = this.geDateAll(before, after);
+          this._getWeek(after);
+        } else {
+          this.multipleStatus.data = this.geDateAll(after, before);
+          this._getWeek(before);
+        }
+      }
+    }
+
+    /**
+       * 获取每周数据
+       * @param {Object} dateData
+       */ }, { key: "_getWeek", value: function _getWeek(
+    dateData) {var _this$getDate =
+
+
+
+
+
+
+      this.getDate(dateData),fullDate = _this$getDate.fullDate,year = _this$getDate.year,month = _this$getDate.month,date = _this$getDate.date,day = _this$getDate.day;
+      var firstDay = new Date(year, month - 1, 1).getDay();
+      var currentDay = new Date(year, month, 0).getDate();
+      var dates = {
+        lastMonthDays: this._getLastMonthDays(firstDay, this.getDate(dateData)), // 上个月末尾几天
+        currentMonthDys: this._currentMonthDys(currentDay, this.getDate(dateData)), // 本月天数
+        nextMonthDays: [], // 下个月开始几天
+        weeks: [] };
+
+      var canlender = [];
+      var surplus = 42 - (dates.lastMonthDays.length + dates.currentMonthDys.length);
+      dates.nextMonthDays = this._getNextMonthDays(surplus, this.getDate(dateData));
+      canlender = canlender.concat(dates.lastMonthDays, dates.currentMonthDys, dates.nextMonthDays);
+      var weeks = {};
+      // 拼接数组  上个月开始几天 + 本月天数+ 下个月开始几天
+      for (var i = 0; i < canlender.length; i++) {
+        if (i % 7 === 0) {
+          weeks[parseInt(i / 7)] = new Array(7);
+        }
+        weeks[parseInt(i / 7)][i % 7] = canlender[i];
+      }
+      this.canlender = canlender;
+      this.weeks = weeks;
+    }
+
+    //静态方法
+    // static init(date) {
+    // 	if (!this.instance) {
+    // 		this.instance = new Calendar(date);
+    // 	}
+    // 	return this.instance;
+    // }
+  }]);return Calendar;}();var _default =
+
+
+Calendar;exports.default = _default;
+
+/***/ }),
+
+/***/ 15:
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode, /* vue-cli only */
+  components, // fixed by xxxxxx auto components
+  renderjs // fixed by xxxxxx renderjs
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // fixed by xxxxxx auto components
+  if (components) {
+    if (!options.components) {
+      options.components = {}
+    }
+    var hasOwn = Object.prototype.hasOwnProperty
+    for (var name in components) {
+      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
+        options.components[name] = components[name]
+      }
+    }
+  }
+  // fixed by xxxxxx renderjs
+  if (renderjs) {
+    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
+      this[renderjs.__module] = this
+    });
+    (options.mixins || (options.mixins = [])).push(renderjs)
+  }
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+
+/***/ 2:
 /*!***********************************!*\
   !*** (webpack)/buildin/global.js ***!
   \***********************************/
@@ -4505,7 +3124,7 @@ module.exports = g;
 
 /***/ }),
 
-/***/ 7:
+/***/ 3:
 /*!******************************************************************************************!*\
   !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/mp-vue/dist/mp.runtime.esm.js ***!
   \******************************************************************************************/
@@ -10032,7 +8651,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -10053,14 +8672,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -10146,7 +8765,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -10552,11 +9171,11 @@ internalMixin(Vue);
 
 /* harmony default export */ __webpack_exports__["default"] = (Vue);
 
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 6)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 2)))
 
 /***/ }),
 
-/***/ 8:
+/***/ 4:
 /*!*************************************************************!*\
   !*** ./node_modules/@dcloudio/uni-i18n/dist/uni-i18n.es.js ***!
   \*************************************************************/
@@ -11016,7 +9635,265 @@ function resolveLocaleChain(locale) {
   }
   return chain;
 }
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 5)["default"], __webpack_require__(/*! ./../../../webpack/buildin/global.js */ 6)))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"], __webpack_require__(/*! ./../../../webpack/buildin/global.js */ 2)))
+
+/***/ }),
+
+/***/ 46:
+/*!****************************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/node_modules/image-tools/index.js ***!
+  \****************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.pathToBase64 = pathToBase64;exports.base64ToPath = base64ToPath;function getLocalFilePath(path) {
+  if (path.indexOf('_www') === 0 || path.indexOf('_doc') === 0 || path.indexOf('_documents') === 0 || path.indexOf('_downloads') === 0) {
+    return path;
+  }
+  if (path.indexOf('file://') === 0) {
+    return path;
+  }
+  if (path.indexOf('/storage/emulated/0/') === 0) {
+    return path;
+  }
+  if (path.indexOf('/') === 0) {
+    var localFilePath = plus.io.convertAbsoluteFileSystem(path);
+    if (localFilePath !== path) {
+      return localFilePath;
+    } else {
+      path = path.substr(1);
+    }
+  }
+  return '_www/' + path;
+}
+
+function dataUrlToBase64(str) {
+  var array = str.split(',');
+  return array[array.length - 1];
+}
+
+var index = 0;
+function getNewFileId() {
+  return Date.now() + String(index++);
+}
+
+function biggerThan(v1, v2) {
+  var v1Array = v1.split('.');
+  var v2Array = v2.split('.');
+  var update = false;
+  for (var index = 0; index < v2Array.length; index++) {
+    var diff = v1Array[index] - v2Array[index];
+    if (diff !== 0) {
+      update = diff > 0;
+      break;
+    }
+  }
+  return update;
+}
+
+function pathToBase64(path) {
+  return new Promise(function (resolve, reject) {
+    if (typeof window === 'object' && 'document' in window) {
+      if (typeof FileReader === 'function') {
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', path, true);
+        xhr.responseType = 'blob';
+        xhr.onload = function () {
+          if (this.status === 200) {
+            var fileReader = new FileReader();
+            fileReader.onload = function (e) {
+              resolve(e.target.result);
+            };
+            fileReader.onerror = reject;
+            fileReader.readAsDataURL(this.response);
+          }
+        };
+        xhr.onerror = reject;
+        xhr.send();
+        return;
+      }
+      var canvas = document.createElement('canvas');
+      var c2x = canvas.getContext('2d');
+      var img = new Image();
+      img.onload = function () {
+        canvas.width = img.width;
+        canvas.height = img.height;
+        c2x.drawImage(img, 0, 0);
+        resolve(canvas.toDataURL());
+        canvas.height = canvas.width = 0;
+      };
+      img.onerror = reject;
+      img.src = path;
+      return;
+    }
+    if (typeof plus === 'object') {
+      plus.io.resolveLocalFileSystemURL(getLocalFilePath(path), function (entry) {
+        entry.file(function (file) {
+          var fileReader = new plus.io.FileReader();
+          fileReader.onload = function (data) {
+            resolve(data.target.result);
+          };
+          fileReader.onerror = function (error) {
+            reject(error);
+          };
+          fileReader.readAsDataURL(file);
+        }, function (error) {
+          reject(error);
+        });
+      }, function (error) {
+        reject(error);
+      });
+      return;
+    }
+    if (typeof wx === 'object' && wx.canIUse('getFileSystemManager')) {
+      wx.getFileSystemManager().readFile({
+        filePath: path,
+        encoding: 'base64',
+        success: function success(res) {
+          resolve('data:image/png;base64,' + res.data);
+        },
+        fail: function fail(error) {
+          reject(error);
+        } });
+
+      return;
+    }
+    reject(new Error('not support'));
+  });
+}
+
+function base64ToPath(base64) {
+  return new Promise(function (resolve, reject) {
+    if (typeof window === 'object' && 'document' in window) {
+      base64 = base64.split(',');
+      var type = base64[0].match(/:(.*?);/)[1];
+      var str = atob(base64[1]);
+      var n = str.length;
+      var array = new Uint8Array(n);
+      while (n--) {
+        array[n] = str.charCodeAt(n);
+      }
+      return resolve((window.URL || window.webkitURL).createObjectURL(new Blob([array], { type: type })));
+    }
+    var extName = base64.split(',')[0].match(/data\:\S+\/(\S+);/);
+    if (extName) {
+      extName = extName[1];
+    } else {
+      reject(new Error('base64 error'));
+    }
+    var fileName = getNewFileId() + '.' + extName;
+    if (typeof plus === 'object') {
+      var basePath = '_doc';
+      var dirPath = 'uniapp_temp';
+      var filePath = basePath + '/' + dirPath + '/' + fileName;
+      if (!biggerThan(plus.os.name === 'Android' ? '1.9.9.80627' : '1.9.9.80472', plus.runtime.innerVersion)) {
+        plus.io.resolveLocalFileSystemURL(basePath, function (entry) {
+          entry.getDirectory(dirPath, {
+            create: true,
+            exclusive: false },
+          function (entry) {
+            entry.getFile(fileName, {
+              create: true,
+              exclusive: false },
+            function (entry) {
+              entry.createWriter(function (writer) {
+                writer.onwrite = function () {
+                  resolve(filePath);
+                };
+                writer.onerror = reject;
+                writer.seek(0);
+                writer.writeAsBinary(dataUrlToBase64(base64));
+              }, reject);
+            }, reject);
+          }, reject);
+        }, reject);
+        return;
+      }
+      var bitmap = new plus.nativeObj.Bitmap(fileName);
+      bitmap.loadBase64Data(base64, function () {
+        bitmap.save(filePath, {}, function () {
+          bitmap.clear();
+          resolve(filePath);
+        }, function (error) {
+          bitmap.clear();
+          reject(error);
+        });
+      }, function (error) {
+        bitmap.clear();
+        reject(error);
+      });
+      return;
+    }
+    if (typeof wx === 'object' && wx.canIUse('getFileSystemManager')) {
+      var filePath = wx.env.USER_DATA_PATH + '/' + fileName;
+      wx.getFileSystemManager().writeFile({
+        filePath: filePath,
+        data: dataUrlToBase64(base64),
+        encoding: 'base64',
+        success: function success() {
+          resolve(filePath);
+        },
+        fail: function fail(error) {
+          reject(error);
+        } });
+
+      return;
+    }
+    reject(new Error('not support'));
+  });
+}
+
+/***/ }),
+
+/***/ 5:
+/*!*****************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/pages.json ***!
+  \*****************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ 63:
+/*!************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/units/net/time.js ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default =
+{
+  parseTime: function parseTime(timestamp) {
+    var date = new Date(timestamp); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+    var Y = date.getFullYear() + '-';
+    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+    var D = (date.getDate() < 10 ? '0' + date.getDate() : date.getDate()) + ' ';
+    var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+    var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+    var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+
+    var strDate = Y + M + D + h + m + s;
+    console.log(strDate); //2020-05-08 17:44:56　
+    return strDate;
+  },
+  transformTo: function transformTo(time) {
+    return Date.parse(time);
+  },
+  transformMD: function transformMD(time1, time2) {
+    var date1 = new Date(time1); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+    var M1 = (date1.getMonth() + 1 < 10 ? '0' + (date1.getMonth() + 1) : date1.getMonth() + 1) + '月';
+    var D1 = (date1.getDate() < 10 ? '0' + date1.getDate() : date1.getDate()) + '日';
+    var date2 = new Date(time2); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+    var M2 = (date2.getMonth() + 1 < 10 ? '0' + (date2.getMonth() + 1) : date2.getMonth() + 1) + '月';
+    var D2 = (date2.getDate() < 10 ? '0' + date2.getDate() : date2.getDate()) + '日';
+
+    var strDate = M1 + D1 + "——" + M2 + D2;
+    return strDate;
+  } };exports.default = _default;
 
 /***/ }),
 
@@ -11072,7 +9949,1130 @@ var _default = function _default() {
 
 
 };exports.default = _default;
-/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 5)["default"]))
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
+
+/***/ }),
+
+/***/ 95:
+/*!**********************************************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-icons/components/uni-icons/icons.js ***!
+  \**********************************************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  "id": "2852637",
+  "name": "uniui图标库",
+  "font_family": "uniicons",
+  "css_prefix_text": "uniui-",
+  "description": "",
+  "glyphs": [
+  {
+    "icon_id": "25027049",
+    "name": "yanse",
+    "font_class": "color",
+    "unicode": "e6cf",
+    "unicode_decimal": 59087 },
+
+  {
+    "icon_id": "25027048",
+    "name": "wallet",
+    "font_class": "wallet",
+    "unicode": "e6b1",
+    "unicode_decimal": 59057 },
+
+  {
+    "icon_id": "25015720",
+    "name": "settings-filled",
+    "font_class": "settings-filled",
+    "unicode": "e6ce",
+    "unicode_decimal": 59086 },
+
+  {
+    "icon_id": "25015434",
+    "name": "shimingrenzheng-filled",
+    "font_class": "auth-filled",
+    "unicode": "e6cc",
+    "unicode_decimal": 59084 },
+
+  {
+    "icon_id": "24934246",
+    "name": "shop-filled",
+    "font_class": "shop-filled",
+    "unicode": "e6cd",
+    "unicode_decimal": 59085 },
+
+  {
+    "icon_id": "24934159",
+    "name": "staff-filled-01",
+    "font_class": "staff-filled",
+    "unicode": "e6cb",
+    "unicode_decimal": 59083 },
+
+  {
+    "icon_id": "24932461",
+    "name": "VIP-filled",
+    "font_class": "vip-filled",
+    "unicode": "e6c6",
+    "unicode_decimal": 59078 },
+
+  {
+    "icon_id": "24932462",
+    "name": "plus_circle_fill",
+    "font_class": "plus-filled",
+    "unicode": "e6c7",
+    "unicode_decimal": 59079 },
+
+  {
+    "icon_id": "24932463",
+    "name": "folder_add-filled",
+    "font_class": "folder-add-filled",
+    "unicode": "e6c8",
+    "unicode_decimal": 59080 },
+
+  {
+    "icon_id": "24932464",
+    "name": "yanse-filled",
+    "font_class": "color-filled",
+    "unicode": "e6c9",
+    "unicode_decimal": 59081 },
+
+  {
+    "icon_id": "24932465",
+    "name": "tune-filled",
+    "font_class": "tune-filled",
+    "unicode": "e6ca",
+    "unicode_decimal": 59082 },
+
+  {
+    "icon_id": "24932455",
+    "name": "a-rilidaka-filled",
+    "font_class": "calendar-filled",
+    "unicode": "e6c0",
+    "unicode_decimal": 59072 },
+
+  {
+    "icon_id": "24932456",
+    "name": "notification-filled",
+    "font_class": "notification-filled",
+    "unicode": "e6c1",
+    "unicode_decimal": 59073 },
+
+  {
+    "icon_id": "24932457",
+    "name": "wallet-filled",
+    "font_class": "wallet-filled",
+    "unicode": "e6c2",
+    "unicode_decimal": 59074 },
+
+  {
+    "icon_id": "24932458",
+    "name": "paihangbang-filled",
+    "font_class": "medal-filled",
+    "unicode": "e6c3",
+    "unicode_decimal": 59075 },
+
+  {
+    "icon_id": "24932459",
+    "name": "gift-filled",
+    "font_class": "gift-filled",
+    "unicode": "e6c4",
+    "unicode_decimal": 59076 },
+
+  {
+    "icon_id": "24932460",
+    "name": "fire-filled",
+    "font_class": "fire-filled",
+    "unicode": "e6c5",
+    "unicode_decimal": 59077 },
+
+  {
+    "icon_id": "24928001",
+    "name": "refreshempty",
+    "font_class": "refreshempty",
+    "unicode": "e6bf",
+    "unicode_decimal": 59071 },
+
+  {
+    "icon_id": "24926853",
+    "name": "location-ellipse",
+    "font_class": "location-filled",
+    "unicode": "e6af",
+    "unicode_decimal": 59055 },
+
+  {
+    "icon_id": "24926735",
+    "name": "person-filled",
+    "font_class": "person-filled",
+    "unicode": "e69d",
+    "unicode_decimal": 59037 },
+
+  {
+    "icon_id": "24926703",
+    "name": "personadd-filled",
+    "font_class": "personadd-filled",
+    "unicode": "e698",
+    "unicode_decimal": 59032 },
+
+  {
+    "icon_id": "24923351",
+    "name": "back",
+    "font_class": "back",
+    "unicode": "e6b9",
+    "unicode_decimal": 59065 },
+
+  {
+    "icon_id": "24923352",
+    "name": "forward",
+    "font_class": "forward",
+    "unicode": "e6ba",
+    "unicode_decimal": 59066 },
+
+  {
+    "icon_id": "24923353",
+    "name": "arrowthinright",
+    "font_class": "arrow-right",
+    "unicode": "e6bb",
+    "unicode_decimal": 59067 },
+
+  {
+    "icon_id": "24923354",
+    "name": "arrowthinleft",
+    "font_class": "arrow-left",
+    "unicode": "e6bc",
+    "unicode_decimal": 59068 },
+
+  {
+    "icon_id": "24923355",
+    "name": "arrowthinup",
+    "font_class": "arrow-up",
+    "unicode": "e6bd",
+    "unicode_decimal": 59069 },
+
+  {
+    "icon_id": "24923356",
+    "name": "arrowthindown",
+    "font_class": "arrow-down",
+    "unicode": "e6be",
+    "unicode_decimal": 59070 },
+
+  {
+    "icon_id": "24923349",
+    "name": "arrowdown",
+    "font_class": "bottom",
+    "unicode": "e6b8",
+    "unicode_decimal": 59064 },
+
+  {
+    "icon_id": "24923346",
+    "name": "arrowright",
+    "font_class": "right",
+    "unicode": "e6b5",
+    "unicode_decimal": 59061 },
+
+  {
+    "icon_id": "24923347",
+    "name": "arrowup",
+    "font_class": "top",
+    "unicode": "e6b6",
+    "unicode_decimal": 59062 },
+
+  {
+    "icon_id": "24923348",
+    "name": "arrowleft",
+    "font_class": "left",
+    "unicode": "e6b7",
+    "unicode_decimal": 59063 },
+
+  {
+    "icon_id": "24923334",
+    "name": "eye",
+    "font_class": "eye",
+    "unicode": "e651",
+    "unicode_decimal": 58961 },
+
+  {
+    "icon_id": "24923335",
+    "name": "eye-filled",
+    "font_class": "eye-filled",
+    "unicode": "e66a",
+    "unicode_decimal": 58986 },
+
+  {
+    "icon_id": "24923336",
+    "name": "eye-slash",
+    "font_class": "eye-slash",
+    "unicode": "e6b3",
+    "unicode_decimal": 59059 },
+
+  {
+    "icon_id": "24923337",
+    "name": "eye-slash-filled",
+    "font_class": "eye-slash-filled",
+    "unicode": "e6b4",
+    "unicode_decimal": 59060 },
+
+  {
+    "icon_id": "24923305",
+    "name": "info-filled",
+    "font_class": "info-filled",
+    "unicode": "e649",
+    "unicode_decimal": 58953 },
+
+  {
+    "icon_id": "24923299",
+    "name": "reload-01",
+    "font_class": "reload",
+    "unicode": "e6b2",
+    "unicode_decimal": 59058 },
+
+  {
+    "icon_id": "24923195",
+    "name": "mic_slash_fill",
+    "font_class": "micoff-filled",
+    "unicode": "e6b0",
+    "unicode_decimal": 59056 },
+
+  {
+    "icon_id": "24923165",
+    "name": "map-pin-ellipse",
+    "font_class": "map-pin-ellipse",
+    "unicode": "e6ac",
+    "unicode_decimal": 59052 },
+
+  {
+    "icon_id": "24923166",
+    "name": "map-pin",
+    "font_class": "map-pin",
+    "unicode": "e6ad",
+    "unicode_decimal": 59053 },
+
+  {
+    "icon_id": "24923167",
+    "name": "location",
+    "font_class": "location",
+    "unicode": "e6ae",
+    "unicode_decimal": 59054 },
+
+  {
+    "icon_id": "24923064",
+    "name": "starhalf",
+    "font_class": "starhalf",
+    "unicode": "e683",
+    "unicode_decimal": 59011 },
+
+  {
+    "icon_id": "24923065",
+    "name": "star",
+    "font_class": "star",
+    "unicode": "e688",
+    "unicode_decimal": 59016 },
+
+  {
+    "icon_id": "24923066",
+    "name": "star-filled",
+    "font_class": "star-filled",
+    "unicode": "e68f",
+    "unicode_decimal": 59023 },
+
+  {
+    "icon_id": "24899646",
+    "name": "a-rilidaka",
+    "font_class": "calendar",
+    "unicode": "e6a0",
+    "unicode_decimal": 59040 },
+
+  {
+    "icon_id": "24899647",
+    "name": "fire",
+    "font_class": "fire",
+    "unicode": "e6a1",
+    "unicode_decimal": 59041 },
+
+  {
+    "icon_id": "24899648",
+    "name": "paihangbang",
+    "font_class": "medal",
+    "unicode": "e6a2",
+    "unicode_decimal": 59042 },
+
+  {
+    "icon_id": "24899649",
+    "name": "font",
+    "font_class": "font",
+    "unicode": "e6a3",
+    "unicode_decimal": 59043 },
+
+  {
+    "icon_id": "24899650",
+    "name": "gift",
+    "font_class": "gift",
+    "unicode": "e6a4",
+    "unicode_decimal": 59044 },
+
+  {
+    "icon_id": "24899651",
+    "name": "link",
+    "font_class": "link",
+    "unicode": "e6a5",
+    "unicode_decimal": 59045 },
+
+  {
+    "icon_id": "24899652",
+    "name": "notification",
+    "font_class": "notification",
+    "unicode": "e6a6",
+    "unicode_decimal": 59046 },
+
+  {
+    "icon_id": "24899653",
+    "name": "staff",
+    "font_class": "staff",
+    "unicode": "e6a7",
+    "unicode_decimal": 59047 },
+
+  {
+    "icon_id": "24899654",
+    "name": "VIP",
+    "font_class": "vip",
+    "unicode": "e6a8",
+    "unicode_decimal": 59048 },
+
+  {
+    "icon_id": "24899655",
+    "name": "folder_add",
+    "font_class": "folder-add",
+    "unicode": "e6a9",
+    "unicode_decimal": 59049 },
+
+  {
+    "icon_id": "24899656",
+    "name": "tune",
+    "font_class": "tune",
+    "unicode": "e6aa",
+    "unicode_decimal": 59050 },
+
+  {
+    "icon_id": "24899657",
+    "name": "shimingrenzheng",
+    "font_class": "auth",
+    "unicode": "e6ab",
+    "unicode_decimal": 59051 },
+
+  {
+    "icon_id": "24899565",
+    "name": "person",
+    "font_class": "person",
+    "unicode": "e699",
+    "unicode_decimal": 59033 },
+
+  {
+    "icon_id": "24899566",
+    "name": "email-filled",
+    "font_class": "email-filled",
+    "unicode": "e69a",
+    "unicode_decimal": 59034 },
+
+  {
+    "icon_id": "24899567",
+    "name": "phone-filled",
+    "font_class": "phone-filled",
+    "unicode": "e69b",
+    "unicode_decimal": 59035 },
+
+  {
+    "icon_id": "24899568",
+    "name": "phone",
+    "font_class": "phone",
+    "unicode": "e69c",
+    "unicode_decimal": 59036 },
+
+  {
+    "icon_id": "24899570",
+    "name": "email",
+    "font_class": "email",
+    "unicode": "e69e",
+    "unicode_decimal": 59038 },
+
+  {
+    "icon_id": "24899571",
+    "name": "personadd",
+    "font_class": "personadd",
+    "unicode": "e69f",
+    "unicode_decimal": 59039 },
+
+  {
+    "icon_id": "24899558",
+    "name": "chatboxes-filled",
+    "font_class": "chatboxes-filled",
+    "unicode": "e692",
+    "unicode_decimal": 59026 },
+
+  {
+    "icon_id": "24899559",
+    "name": "contact",
+    "font_class": "contact",
+    "unicode": "e693",
+    "unicode_decimal": 59027 },
+
+  {
+    "icon_id": "24899560",
+    "name": "chatbubble-filled",
+    "font_class": "chatbubble-filled",
+    "unicode": "e694",
+    "unicode_decimal": 59028 },
+
+  {
+    "icon_id": "24899561",
+    "name": "contact-filled",
+    "font_class": "contact-filled",
+    "unicode": "e695",
+    "unicode_decimal": 59029 },
+
+  {
+    "icon_id": "24899562",
+    "name": "chatboxes",
+    "font_class": "chatboxes",
+    "unicode": "e696",
+    "unicode_decimal": 59030 },
+
+  {
+    "icon_id": "24899563",
+    "name": "chatbubble",
+    "font_class": "chatbubble",
+    "unicode": "e697",
+    "unicode_decimal": 59031 },
+
+  {
+    "icon_id": "24881290",
+    "name": "upload-filled",
+    "font_class": "upload-filled",
+    "unicode": "e68e",
+    "unicode_decimal": 59022 },
+
+  {
+    "icon_id": "24881292",
+    "name": "upload",
+    "font_class": "upload",
+    "unicode": "e690",
+    "unicode_decimal": 59024 },
+
+  {
+    "icon_id": "24881293",
+    "name": "weixin",
+    "font_class": "weixin",
+    "unicode": "e691",
+    "unicode_decimal": 59025 },
+
+  {
+    "icon_id": "24881274",
+    "name": "compose",
+    "font_class": "compose",
+    "unicode": "e67f",
+    "unicode_decimal": 59007 },
+
+  {
+    "icon_id": "24881275",
+    "name": "qq",
+    "font_class": "qq",
+    "unicode": "e680",
+    "unicode_decimal": 59008 },
+
+  {
+    "icon_id": "24881276",
+    "name": "download-filled",
+    "font_class": "download-filled",
+    "unicode": "e681",
+    "unicode_decimal": 59009 },
+
+  {
+    "icon_id": "24881277",
+    "name": "pengyouquan",
+    "font_class": "pyq",
+    "unicode": "e682",
+    "unicode_decimal": 59010 },
+
+  {
+    "icon_id": "24881279",
+    "name": "sound",
+    "font_class": "sound",
+    "unicode": "e684",
+    "unicode_decimal": 59012 },
+
+  {
+    "icon_id": "24881280",
+    "name": "trash-filled",
+    "font_class": "trash-filled",
+    "unicode": "e685",
+    "unicode_decimal": 59013 },
+
+  {
+    "icon_id": "24881281",
+    "name": "sound-filled",
+    "font_class": "sound-filled",
+    "unicode": "e686",
+    "unicode_decimal": 59014 },
+
+  {
+    "icon_id": "24881282",
+    "name": "trash",
+    "font_class": "trash",
+    "unicode": "e687",
+    "unicode_decimal": 59015 },
+
+  {
+    "icon_id": "24881284",
+    "name": "videocam-filled",
+    "font_class": "videocam-filled",
+    "unicode": "e689",
+    "unicode_decimal": 59017 },
+
+  {
+    "icon_id": "24881285",
+    "name": "spinner-cycle",
+    "font_class": "spinner-cycle",
+    "unicode": "e68a",
+    "unicode_decimal": 59018 },
+
+  {
+    "icon_id": "24881286",
+    "name": "weibo",
+    "font_class": "weibo",
+    "unicode": "e68b",
+    "unicode_decimal": 59019 },
+
+  {
+    "icon_id": "24881288",
+    "name": "videocam",
+    "font_class": "videocam",
+    "unicode": "e68c",
+    "unicode_decimal": 59020 },
+
+  {
+    "icon_id": "24881289",
+    "name": "download",
+    "font_class": "download",
+    "unicode": "e68d",
+    "unicode_decimal": 59021 },
+
+  {
+    "icon_id": "24879601",
+    "name": "help",
+    "font_class": "help",
+    "unicode": "e679",
+    "unicode_decimal": 59001 },
+
+  {
+    "icon_id": "24879602",
+    "name": "navigate-filled",
+    "font_class": "navigate-filled",
+    "unicode": "e67a",
+    "unicode_decimal": 59002 },
+
+  {
+    "icon_id": "24879603",
+    "name": "plusempty",
+    "font_class": "plusempty",
+    "unicode": "e67b",
+    "unicode_decimal": 59003 },
+
+  {
+    "icon_id": "24879604",
+    "name": "smallcircle",
+    "font_class": "smallcircle",
+    "unicode": "e67c",
+    "unicode_decimal": 59004 },
+
+  {
+    "icon_id": "24879605",
+    "name": "minus-filled",
+    "font_class": "minus-filled",
+    "unicode": "e67d",
+    "unicode_decimal": 59005 },
+
+  {
+    "icon_id": "24879606",
+    "name": "micoff",
+    "font_class": "micoff",
+    "unicode": "e67e",
+    "unicode_decimal": 59006 },
+
+  {
+    "icon_id": "24879588",
+    "name": "closeempty",
+    "font_class": "closeempty",
+    "unicode": "e66c",
+    "unicode_decimal": 58988 },
+
+  {
+    "icon_id": "24879589",
+    "name": "clear",
+    "font_class": "clear",
+    "unicode": "e66d",
+    "unicode_decimal": 58989 },
+
+  {
+    "icon_id": "24879590",
+    "name": "navigate",
+    "font_class": "navigate",
+    "unicode": "e66e",
+    "unicode_decimal": 58990 },
+
+  {
+    "icon_id": "24879591",
+    "name": "minus",
+    "font_class": "minus",
+    "unicode": "e66f",
+    "unicode_decimal": 58991 },
+
+  {
+    "icon_id": "24879592",
+    "name": "image",
+    "font_class": "image",
+    "unicode": "e670",
+    "unicode_decimal": 58992 },
+
+  {
+    "icon_id": "24879593",
+    "name": "mic",
+    "font_class": "mic",
+    "unicode": "e671",
+    "unicode_decimal": 58993 },
+
+  {
+    "icon_id": "24879594",
+    "name": "paperplane",
+    "font_class": "paperplane",
+    "unicode": "e672",
+    "unicode_decimal": 58994 },
+
+  {
+    "icon_id": "24879595",
+    "name": "close",
+    "font_class": "close",
+    "unicode": "e673",
+    "unicode_decimal": 58995 },
+
+  {
+    "icon_id": "24879596",
+    "name": "help-filled",
+    "font_class": "help-filled",
+    "unicode": "e674",
+    "unicode_decimal": 58996 },
+
+  {
+    "icon_id": "24879597",
+    "name": "plus-filled",
+    "font_class": "paperplane-filled",
+    "unicode": "e675",
+    "unicode_decimal": 58997 },
+
+  {
+    "icon_id": "24879598",
+    "name": "plus",
+    "font_class": "plus",
+    "unicode": "e676",
+    "unicode_decimal": 58998 },
+
+  {
+    "icon_id": "24879599",
+    "name": "mic-filled",
+    "font_class": "mic-filled",
+    "unicode": "e677",
+    "unicode_decimal": 58999 },
+
+  {
+    "icon_id": "24879600",
+    "name": "image-filled",
+    "font_class": "image-filled",
+    "unicode": "e678",
+    "unicode_decimal": 59000 },
+
+  {
+    "icon_id": "24855900",
+    "name": "locked-filled",
+    "font_class": "locked-filled",
+    "unicode": "e668",
+    "unicode_decimal": 58984 },
+
+  {
+    "icon_id": "24855901",
+    "name": "info",
+    "font_class": "info",
+    "unicode": "e669",
+    "unicode_decimal": 58985 },
+
+  {
+    "icon_id": "24855903",
+    "name": "locked",
+    "font_class": "locked",
+    "unicode": "e66b",
+    "unicode_decimal": 58987 },
+
+  {
+    "icon_id": "24855884",
+    "name": "camera-filled",
+    "font_class": "camera-filled",
+    "unicode": "e658",
+    "unicode_decimal": 58968 },
+
+  {
+    "icon_id": "24855885",
+    "name": "chat-filled",
+    "font_class": "chat-filled",
+    "unicode": "e659",
+    "unicode_decimal": 58969 },
+
+  {
+    "icon_id": "24855886",
+    "name": "camera",
+    "font_class": "camera",
+    "unicode": "e65a",
+    "unicode_decimal": 58970 },
+
+  {
+    "icon_id": "24855887",
+    "name": "circle",
+    "font_class": "circle",
+    "unicode": "e65b",
+    "unicode_decimal": 58971 },
+
+  {
+    "icon_id": "24855888",
+    "name": "checkmarkempty",
+    "font_class": "checkmarkempty",
+    "unicode": "e65c",
+    "unicode_decimal": 58972 },
+
+  {
+    "icon_id": "24855889",
+    "name": "chat",
+    "font_class": "chat",
+    "unicode": "e65d",
+    "unicode_decimal": 58973 },
+
+  {
+    "icon_id": "24855890",
+    "name": "circle-filled",
+    "font_class": "circle-filled",
+    "unicode": "e65e",
+    "unicode_decimal": 58974 },
+
+  {
+    "icon_id": "24855891",
+    "name": "flag",
+    "font_class": "flag",
+    "unicode": "e65f",
+    "unicode_decimal": 58975 },
+
+  {
+    "icon_id": "24855892",
+    "name": "flag-filled",
+    "font_class": "flag-filled",
+    "unicode": "e660",
+    "unicode_decimal": 58976 },
+
+  {
+    "icon_id": "24855893",
+    "name": "gear-filled",
+    "font_class": "gear-filled",
+    "unicode": "e661",
+    "unicode_decimal": 58977 },
+
+  {
+    "icon_id": "24855894",
+    "name": "home",
+    "font_class": "home",
+    "unicode": "e662",
+    "unicode_decimal": 58978 },
+
+  {
+    "icon_id": "24855895",
+    "name": "home-filled",
+    "font_class": "home-filled",
+    "unicode": "e663",
+    "unicode_decimal": 58979 },
+
+  {
+    "icon_id": "24855896",
+    "name": "gear",
+    "font_class": "gear",
+    "unicode": "e664",
+    "unicode_decimal": 58980 },
+
+  {
+    "icon_id": "24855897",
+    "name": "smallcircle-filled",
+    "font_class": "smallcircle-filled",
+    "unicode": "e665",
+    "unicode_decimal": 58981 },
+
+  {
+    "icon_id": "24855898",
+    "name": "map-filled",
+    "font_class": "map-filled",
+    "unicode": "e666",
+    "unicode_decimal": 58982 },
+
+  {
+    "icon_id": "24855899",
+    "name": "map",
+    "font_class": "map",
+    "unicode": "e667",
+    "unicode_decimal": 58983 },
+
+  {
+    "icon_id": "24855825",
+    "name": "refresh-filled",
+    "font_class": "refresh-filled",
+    "unicode": "e656",
+    "unicode_decimal": 58966 },
+
+  {
+    "icon_id": "24855826",
+    "name": "refresh",
+    "font_class": "refresh",
+    "unicode": "e657",
+    "unicode_decimal": 58967 },
+
+  {
+    "icon_id": "24855808",
+    "name": "cloud-upload",
+    "font_class": "cloud-upload",
+    "unicode": "e645",
+    "unicode_decimal": 58949 },
+
+  {
+    "icon_id": "24855809",
+    "name": "cloud-download-filled",
+    "font_class": "cloud-download-filled",
+    "unicode": "e646",
+    "unicode_decimal": 58950 },
+
+  {
+    "icon_id": "24855810",
+    "name": "cloud-download",
+    "font_class": "cloud-download",
+    "unicode": "e647",
+    "unicode_decimal": 58951 },
+
+  {
+    "icon_id": "24855811",
+    "name": "cloud-upload-filled",
+    "font_class": "cloud-upload-filled",
+    "unicode": "e648",
+    "unicode_decimal": 58952 },
+
+  {
+    "icon_id": "24855813",
+    "name": "redo",
+    "font_class": "redo",
+    "unicode": "e64a",
+    "unicode_decimal": 58954 },
+
+  {
+    "icon_id": "24855814",
+    "name": "images-filled",
+    "font_class": "images-filled",
+    "unicode": "e64b",
+    "unicode_decimal": 58955 },
+
+  {
+    "icon_id": "24855815",
+    "name": "undo-filled",
+    "font_class": "undo-filled",
+    "unicode": "e64c",
+    "unicode_decimal": 58956 },
+
+  {
+    "icon_id": "24855816",
+    "name": "more",
+    "font_class": "more",
+    "unicode": "e64d",
+    "unicode_decimal": 58957 },
+
+  {
+    "icon_id": "24855817",
+    "name": "more-filled",
+    "font_class": "more-filled",
+    "unicode": "e64e",
+    "unicode_decimal": 58958 },
+
+  {
+    "icon_id": "24855818",
+    "name": "undo",
+    "font_class": "undo",
+    "unicode": "e64f",
+    "unicode_decimal": 58959 },
+
+  {
+    "icon_id": "24855819",
+    "name": "images",
+    "font_class": "images",
+    "unicode": "e650",
+    "unicode_decimal": 58960 },
+
+  {
+    "icon_id": "24855821",
+    "name": "paperclip",
+    "font_class": "paperclip",
+    "unicode": "e652",
+    "unicode_decimal": 58962 },
+
+  {
+    "icon_id": "24855822",
+    "name": "settings",
+    "font_class": "settings",
+    "unicode": "e653",
+    "unicode_decimal": 58963 },
+
+  {
+    "icon_id": "24855823",
+    "name": "search",
+    "font_class": "search",
+    "unicode": "e654",
+    "unicode_decimal": 58964 },
+
+  {
+    "icon_id": "24855824",
+    "name": "redo-filled",
+    "font_class": "redo-filled",
+    "unicode": "e655",
+    "unicode_decimal": 58965 },
+
+  {
+    "icon_id": "24841702",
+    "name": "list",
+    "font_class": "list",
+    "unicode": "e644",
+    "unicode_decimal": 58948 },
+
+  {
+    "icon_id": "24841489",
+    "name": "mail-open-filled",
+    "font_class": "mail-open-filled",
+    "unicode": "e63a",
+    "unicode_decimal": 58938 },
+
+  {
+    "icon_id": "24841491",
+    "name": "hand-thumbsdown-filled",
+    "font_class": "hand-down-filled",
+    "unicode": "e63c",
+    "unicode_decimal": 58940 },
+
+  {
+    "icon_id": "24841492",
+    "name": "hand-thumbsdown",
+    "font_class": "hand-down",
+    "unicode": "e63d",
+    "unicode_decimal": 58941 },
+
+  {
+    "icon_id": "24841493",
+    "name": "hand-thumbsup-filled",
+    "font_class": "hand-up-filled",
+    "unicode": "e63e",
+    "unicode_decimal": 58942 },
+
+  {
+    "icon_id": "24841494",
+    "name": "hand-thumbsup",
+    "font_class": "hand-up",
+    "unicode": "e63f",
+    "unicode_decimal": 58943 },
+
+  {
+    "icon_id": "24841496",
+    "name": "heart-filled",
+    "font_class": "heart-filled",
+    "unicode": "e641",
+    "unicode_decimal": 58945 },
+
+  {
+    "icon_id": "24841498",
+    "name": "mail-open",
+    "font_class": "mail-open",
+    "unicode": "e643",
+    "unicode_decimal": 58947 },
+
+  {
+    "icon_id": "24841488",
+    "name": "heart",
+    "font_class": "heart",
+    "unicode": "e639",
+    "unicode_decimal": 58937 },
+
+  {
+    "icon_id": "24839963",
+    "name": "loop",
+    "font_class": "loop",
+    "unicode": "e633",
+    "unicode_decimal": 58931 },
+
+  {
+    "icon_id": "24839866",
+    "name": "pulldown",
+    "font_class": "pulldown",
+    "unicode": "e632",
+    "unicode_decimal": 58930 },
+
+  {
+    "icon_id": "24813798",
+    "name": "scan",
+    "font_class": "scan",
+    "unicode": "e62a",
+    "unicode_decimal": 58922 },
+
+  {
+    "icon_id": "24813786",
+    "name": "bars",
+    "font_class": "bars",
+    "unicode": "e627",
+    "unicode_decimal": 58919 },
+
+  {
+    "icon_id": "24813788",
+    "name": "cart-filled",
+    "font_class": "cart-filled",
+    "unicode": "e629",
+    "unicode_decimal": 58921 },
+
+  {
+    "icon_id": "24813790",
+    "name": "checkbox",
+    "font_class": "checkbox",
+    "unicode": "e62b",
+    "unicode_decimal": 58923 },
+
+  {
+    "icon_id": "24813791",
+    "name": "checkbox-filled",
+    "font_class": "checkbox-filled",
+    "unicode": "e62c",
+    "unicode_decimal": 58924 },
+
+  {
+    "icon_id": "24813794",
+    "name": "shop",
+    "font_class": "shop",
+    "unicode": "e62f",
+    "unicode_decimal": 58927 },
+
+  {
+    "icon_id": "24813795",
+    "name": "headphones",
+    "font_class": "headphones",
+    "unicode": "e630",
+    "unicode_decimal": 58928 },
+
+  {
+    "icon_id": "24813796",
+    "name": "cart",
+    "font_class": "cart",
+    "unicode": "e631",
+    "unicode_decimal": 58929 }] };exports.default = _default;
 
 /***/ })
 

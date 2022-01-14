@@ -1,27 +1,19 @@
 {
   "pages": [
     "pages/register/register",
-    "pages/create/create",
     "pages/index/index",
     "pages/user/user",
-    "pages/Warehousing/Warehousing",
-    "pages/work/work",
-    "pages/increase/increase",
-    "pages/attendance/attendance",
-    "pages/enter/enter",
-    "subPage3/userInfoEdit/userInfoEdit"
+    "pages/userInfoEdit/userInfoEdit"
   ],
   "subPackages": [
     {
-      "root": "subPage1",
+      "root": "subPages1_WX",
       "pages": [
-        "pcLogin/pcLogin"
-      ]
-    },
-    {
-      "root": "subPage2",
-      "pages": [
-        "pcIndex/pcIndex"
+        "addWorker/addWorker",
+        "attendance/attendance",
+        "create/create",
+        "work/work",
+        "enter/enter"
       ]
     }
   ],

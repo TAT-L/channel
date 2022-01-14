@@ -13,7 +13,7 @@
 					年龄：{{age}}
 				</view>
 				<view class="birthday">
-					生日：{{birthday}}
+					工号：{{birthday}}
 				</view>
 
 			</view>
@@ -41,7 +41,7 @@
 				avartar: '',
 				name: "小张",
 				age: '23',
-				birthday: '2000.1.1'
+				birthday: '110'
 			};
 		},
 		mounted() {
@@ -52,7 +52,7 @@
 			goUserInfoPage() {
 
 				uni.navigateTo({
-					url: '/subPage3/userInfoEdit/userInfoEdit',
+					url: '/pages/userInfoEdit/userInfoEdit',
 					success() {
 
 					}
@@ -60,9 +60,8 @@
 			},
 			getAvatar() {
 				getAvatar().then(res => {
-					
-					this.avartar = res.data.detail.user.face
-					console.log('touxiag',res)
+					this.avartar = res.data.detail.worker.face
+					// console.log('touxiang', res)
 				})
 			},
 			changeAvatar() {
@@ -74,27 +73,28 @@
 						uni.compressImage({
 							src: tempFilePaths[0],
 							quality: 50,
-							success: res => {
-								console.log(res.tempFilePath)
-								// 转Base64
-								pathToBase64(res.tempFilePath)
-									.then(base64 => {
-										console.log(base64)
-
-										// 上传头像
-										postAvatar({
-											face: base64
-										}).then(res => {
-											console.log(res)
-											// 获取头像
-
-											// this.avartar = res.data.detail.face
-										})
-
-									})
-									.catch(error => {
-										console.error(error)
-									})
+							success: compressImageRes => {
+								const tempFilePaths = chooseImageRes.tempFilePaths;
+								// console.log('compressImageRes',tempFilePaths)
+								 uni.uploadFile({
+								            url: 'https://static.torchcqs.cn/upload', //仅为示例，非真实的接口地址
+								            filePath: tempFilePaths[0],
+								            name: 'file',
+								            formData: {},
+								            success: (uploadFileRes) => {
+											let	avatarUrl = JSON.parse(uploadFileRes.data).detail.file.path
+												postAvatar({
+															face: avatarUrl
+														}).then(res => {
+															console.log(res)
+															// 获取头像
+															this.getAvatar()
+														})
+												
+								            }
+								        });
+							
+								
 							}
 						})
 

@@ -8,14 +8,7 @@
 				"enablePullDownRefresh": true
 			}
 		},
-		{
-			"path": "pages/create/create",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
 
-		},
 		{
 			"path": "pages/index/index",
 			"style": {
@@ -30,54 +23,14 @@
 			}
 		},
 		{
-			"path": "pages/Warehousing/Warehousing",
+			"path": "pages/userInfoEdit/userInfoEdit",
 			"style": {
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
-
-		},
-		{
-			"path": "pages/work/work",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-
-		},
-		{
-			"path": "pages/increase/increase",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-
-		},
-
-		{
-			"path": "pages/attendance/attendance",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-
-		},
-		{
-			"path": "pages/enter/enter",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-
-		},
-		{
-			"path": "subPage3/userInfoEdit/userInfoEdit",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-
+		
 		}
+
 	],
 	//#endif
 
@@ -85,81 +38,142 @@
 	// PC页面
 	//#ifdef H5
 	"pages": [{
-			"path": "subPage2/pcIndex/pcIndex"
-		},
-		{
-			"path": "pages/addWorker/addWorker" //人员录入
-		},
-		{
-			"path": "pages/registrationAudit/registrationAudit" //注册审核
-		},
-		{
-			"path": "pages/workerView/workerView" //人员查看
-		},
-		{
-			"path": "pages/equipmentManage/equipmentManage" //设备管理
-		},
-		{
-			"path": "pages/operationTicket/operationTicket" //操作票
-		},
-		{
-			"path": "pages/attendancePC/attendancePC" //考勤管理
-		}
-
-
-		, {
-			"path": "subPage3/userInfoEdit/userInfoEdit",
+			"path": "subPages_PC/pcIndex/pcIndex",
 			"style": {
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
-
+		},
+		{
+			"path": "pages/userInfoEdit/userInfoEdit",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		
 		}
 
 	],
 	//#endif
 
 
-
+	//#ifdef MP
 	"subPackages": [{
-			"root": "subPage1",
+			"root": "subPages1_WX",
 			"pages": [{
-				"path": "pcLogin/pcLogin",
-				"style": {
-					"navigationBarTitleText": "",
-					"enablePullDownRefresh": false
+					"path": "addWorker/addWorker",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				},
+				
+				{
+					"path": "attendance/attendance",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "create/create",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "work/work",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "enter/enter",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
 				}
-			}]
-		},
-		{
-			"root": "subPage2",
-			"pages": [{
-				"path": "pcIndex/pcIndex",
-				"style": {
-					"navigationBarTitleText": "",
-					"enablePullDownRefresh": false
-				}
-			}]
+			]
 		}
+
 	],
-	
+	//#endif
+	//#ifdef H5
+	"subPackages": [{
+			"root": "subPages_PC",
+			"pages": [{
+					"path": "pcIndex/pcIndex",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				},
+				 {
+					"path": "registrationAudit/registrationAudit",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "pcLogin/pcLogin",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "addWorker/addWorker",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "attendancePC/attendancePC",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "workerView/workerView",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "operationTicket/operationTicket",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "equipmentManage/equipmentManage",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}
+			]
+		}
+
+
+	],
+	//#endif
 	//#ifdef MP-WEIXIN
 	"tabBar": {
 		"list": [{
 			"pagePath": "pages/index/index",
 			"text": "首页",
-			"iconPath":"static/首页no.png",
-			"selectedIconPath":"static/首页.png"
+			"iconPath": "static/首页no.png",
+			"selectedIconPath": "static/首页.png"
 		}, {
 			"pagePath": "pages/user/user",
 			"text": "个人",
-			"iconPath":"static/个人(未选中).png",
-			"selectedIconPath":"static/个人.png"
+			"iconPath": "static/个人(未选中).png",
+			"selectedIconPath": "static/个人.png"
 		}]
 	},
 	//#endif
 	"globalStyle": {
-		
+
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		// "rpxCalcMaxDeviceWidth": 960, // rpx 计算所支持的最大设备宽度，单位 px，默认值为 960
@@ -167,7 +181,7 @@
 		// "rpxCalcIncludeWidth": 750, // rpx 计算特殊处理的值，始终按实际的设备宽度计算，单位 rpx，默认值为 750
 		"navigationBarBackgroundColor": "#409EFF",
 		//#ifndef MP-WEIXIN
-		"navigationStyle": "custom",      //取消导航栏
+		"navigationStyle": "custom", //取消导航栏
 		//#endif
 		"backgroundColor": "#409EFF"
 

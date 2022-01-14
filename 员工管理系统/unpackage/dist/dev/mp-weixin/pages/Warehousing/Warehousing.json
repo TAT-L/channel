@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "warehousing": "/models/Warehousing",
-    "warehous-list": "/models/WarehousList"
-  }
-}
