@@ -1,7 +1,7 @@
 <template>
 	<view class="content">
 		<view class="text">
-			<text>人员录入系统</text>
+			<text>注册查看</text>
 		</view>
 		<view class="page">
 			<!-- <table :tableData="data"></table> -->
