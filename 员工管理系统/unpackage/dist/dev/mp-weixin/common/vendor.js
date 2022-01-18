@@ -2323,7 +2323,7 @@ var terminalSyncWorker = function terminalSyncWorker(query) {
 
 /***/ }),
 
-/***/ 103:
+/***/ 102:
 /*!***********************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/采集盒列表.png ***!
   \***********************************************************************************************/
@@ -2334,7 +2334,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 
 /***/ }),
 
-/***/ 104:
+/***/ 103:
 /*!********************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/考勤.png ***!
   \********************************************************************************************/
@@ -2345,7 +2345,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 
 /***/ }),
 
-/***/ 105:
+/***/ 104:
 /*!*********************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/操作票.png ***!
   \*********************************************************************************************/
@@ -2356,7 +2356,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 
 /***/ }),
 
-/***/ 106:
+/***/ 105:
 /*!**********************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/注册灰色.png ***!
   \**********************************************************************************************/
@@ -2448,7 +2448,7 @@ var apiResquest = function apiResquest(prams) {//prams 为我们需要调用的�
 
 /***/ }),
 
-/***/ 114:
+/***/ 113:
 /*!**************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/models/userModel.js ***!
   \**************************************************************************************************/
@@ -2492,7 +2492,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.config = v
 
 /***/ }),
 
-/***/ 122:
+/***/ 121:
 /*!***********************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/index.js ***!
   \***********************************************************************************************************************************************************/
@@ -2500,9 +2500,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.config = v
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 123));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 124));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 125));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 122));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 123));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 124));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -2510,7 +2510,7 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 1
 
 /***/ }),
 
-/***/ 123:
+/***/ 122:
 /*!**********************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/en.json ***!
   \**********************************************************************************************************************************************************/
@@ -2521,7 +2521,7 @@ module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"select date\"
 
 /***/ }),
 
-/***/ 124:
+/***/ 123:
 /*!***************************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hans.json ***!
   \***************************************************************************************************************************************************************/
@@ -2532,7 +2532,7 @@ module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"选择日期\
 
 /***/ }),
 
-/***/ 125:
+/***/ 124:
 /*!***************************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hant.json ***!
   \***************************************************************************************************************************************************************/
@@ -2543,7 +2543,136 @@ module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"選擇日期\
 
 /***/ }),
 
-/***/ 147:
+/***/ 15:
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode, /* vue-cli only */
+  components, // fixed by xxxxxx auto components
+  renderjs // fixed by xxxxxx renderjs
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // fixed by xxxxxx auto components
+  if (components) {
+    if (!options.components) {
+      options.components = {}
+    }
+    var hasOwn = Object.prototype.hasOwnProperty
+    for (var name in components) {
+      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
+        options.components[name] = components[name]
+      }
+    }
+  }
+  // fixed by xxxxxx renderjs
+  if (renderjs) {
+    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
+      this[renderjs.__module] = this
+    });
+    (options.mixins || (options.mixins = [])).push(renderjs)
+  }
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+
+/***/ 153:
 /*!*****************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/util.js ***!
   \*****************************************************************************************************************************************************/
@@ -2961,135 +3090,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 Calendar;exports.default = _default;
-
-/***/ }),
-
-/***/ 15:
-/*!**********************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \**********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode, /* vue-cli only */
-  components, // fixed by xxxxxx auto components
-  renderjs // fixed by xxxxxx renderjs
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // fixed by xxxxxx auto components
-  if (components) {
-    if (!options.components) {
-      options.components = {}
-    }
-    var hasOwn = Object.prototype.hasOwnProperty
-    for (var name in components) {
-      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
-        options.components[name] = components[name]
-      }
-    }
-  }
-  // fixed by xxxxxx renderjs
-  if (renderjs) {
-    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
-      this[renderjs.__module] = this
-    });
-    (options.mixins || (options.mixins = [])).push(renderjs)
-  }
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
 
 /***/ }),
 
@@ -9639,213 +9639,6 @@ function resolveLocaleChain(locale) {
 
 /***/ }),
 
-/***/ 46:
-/*!****************************************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/node_modules/image-tools/index.js ***!
-  \****************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.pathToBase64 = pathToBase64;exports.base64ToPath = base64ToPath;function getLocalFilePath(path) {
-  if (path.indexOf('_www') === 0 || path.indexOf('_doc') === 0 || path.indexOf('_documents') === 0 || path.indexOf('_downloads') === 0) {
-    return path;
-  }
-  if (path.indexOf('file://') === 0) {
-    return path;
-  }
-  if (path.indexOf('/storage/emulated/0/') === 0) {
-    return path;
-  }
-  if (path.indexOf('/') === 0) {
-    var localFilePath = plus.io.convertAbsoluteFileSystem(path);
-    if (localFilePath !== path) {
-      return localFilePath;
-    } else {
-      path = path.substr(1);
-    }
-  }
-  return '_www/' + path;
-}
-
-function dataUrlToBase64(str) {
-  var array = str.split(',');
-  return array[array.length - 1];
-}
-
-var index = 0;
-function getNewFileId() {
-  return Date.now() + String(index++);
-}
-
-function biggerThan(v1, v2) {
-  var v1Array = v1.split('.');
-  var v2Array = v2.split('.');
-  var update = false;
-  for (var index = 0; index < v2Array.length; index++) {
-    var diff = v1Array[index] - v2Array[index];
-    if (diff !== 0) {
-      update = diff > 0;
-      break;
-    }
-  }
-  return update;
-}
-
-function pathToBase64(path) {
-  return new Promise(function (resolve, reject) {
-    if (typeof window === 'object' && 'document' in window) {
-      if (typeof FileReader === 'function') {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', path, true);
-        xhr.responseType = 'blob';
-        xhr.onload = function () {
-          if (this.status === 200) {
-            var fileReader = new FileReader();
-            fileReader.onload = function (e) {
-              resolve(e.target.result);
-            };
-            fileReader.onerror = reject;
-            fileReader.readAsDataURL(this.response);
-          }
-        };
-        xhr.onerror = reject;
-        xhr.send();
-        return;
-      }
-      var canvas = document.createElement('canvas');
-      var c2x = canvas.getContext('2d');
-      var img = new Image();
-      img.onload = function () {
-        canvas.width = img.width;
-        canvas.height = img.height;
-        c2x.drawImage(img, 0, 0);
-        resolve(canvas.toDataURL());
-        canvas.height = canvas.width = 0;
-      };
-      img.onerror = reject;
-      img.src = path;
-      return;
-    }
-    if (typeof plus === 'object') {
-      plus.io.resolveLocalFileSystemURL(getLocalFilePath(path), function (entry) {
-        entry.file(function (file) {
-          var fileReader = new plus.io.FileReader();
-          fileReader.onload = function (data) {
-            resolve(data.target.result);
-          };
-          fileReader.onerror = function (error) {
-            reject(error);
-          };
-          fileReader.readAsDataURL(file);
-        }, function (error) {
-          reject(error);
-        });
-      }, function (error) {
-        reject(error);
-      });
-      return;
-    }
-    if (typeof wx === 'object' && wx.canIUse('getFileSystemManager')) {
-      wx.getFileSystemManager().readFile({
-        filePath: path,
-        encoding: 'base64',
-        success: function success(res) {
-          resolve('data:image/png;base64,' + res.data);
-        },
-        fail: function fail(error) {
-          reject(error);
-        } });
-
-      return;
-    }
-    reject(new Error('not support'));
-  });
-}
-
-function base64ToPath(base64) {
-  return new Promise(function (resolve, reject) {
-    if (typeof window === 'object' && 'document' in window) {
-      base64 = base64.split(',');
-      var type = base64[0].match(/:(.*?);/)[1];
-      var str = atob(base64[1]);
-      var n = str.length;
-      var array = new Uint8Array(n);
-      while (n--) {
-        array[n] = str.charCodeAt(n);
-      }
-      return resolve((window.URL || window.webkitURL).createObjectURL(new Blob([array], { type: type })));
-    }
-    var extName = base64.split(',')[0].match(/data\:\S+\/(\S+);/);
-    if (extName) {
-      extName = extName[1];
-    } else {
-      reject(new Error('base64 error'));
-    }
-    var fileName = getNewFileId() + '.' + extName;
-    if (typeof plus === 'object') {
-      var basePath = '_doc';
-      var dirPath = 'uniapp_temp';
-      var filePath = basePath + '/' + dirPath + '/' + fileName;
-      if (!biggerThan(plus.os.name === 'Android' ? '1.9.9.80627' : '1.9.9.80472', plus.runtime.innerVersion)) {
-        plus.io.resolveLocalFileSystemURL(basePath, function (entry) {
-          entry.getDirectory(dirPath, {
-            create: true,
-            exclusive: false },
-          function (entry) {
-            entry.getFile(fileName, {
-              create: true,
-              exclusive: false },
-            function (entry) {
-              entry.createWriter(function (writer) {
-                writer.onwrite = function () {
-                  resolve(filePath);
-                };
-                writer.onerror = reject;
-                writer.seek(0);
-                writer.writeAsBinary(dataUrlToBase64(base64));
-              }, reject);
-            }, reject);
-          }, reject);
-        }, reject);
-        return;
-      }
-      var bitmap = new plus.nativeObj.Bitmap(fileName);
-      bitmap.loadBase64Data(base64, function () {
-        bitmap.save(filePath, {}, function () {
-          bitmap.clear();
-          resolve(filePath);
-        }, function (error) {
-          bitmap.clear();
-          reject(error);
-        });
-      }, function (error) {
-        bitmap.clear();
-        reject(error);
-      });
-      return;
-    }
-    if (typeof wx === 'object' && wx.canIUse('getFileSystemManager')) {
-      var filePath = wx.env.USER_DATA_PATH + '/' + fileName;
-      wx.getFileSystemManager().writeFile({
-        filePath: filePath,
-        data: dataUrlToBase64(base64),
-        encoding: 'base64',
-        success: function success() {
-          resolve(filePath);
-        },
-        fail: function fail(error) {
-          reject(error);
-        } });
-
-      return;
-    }
-    reject(new Error('not support'));
-  });
-}
-
-/***/ }),
-
 /***/ 5:
 /*!*****************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/pages.json ***!
@@ -9857,7 +9650,7 @@ function base64ToPath(base64) {
 
 /***/ }),
 
-/***/ 63:
+/***/ 62:
 /*!************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/units/net/time.js ***!
   \************************************************************************************************/
@@ -9953,7 +9746,7 @@ var _default = function _default() {
 
 /***/ }),
 
-/***/ 95:
+/***/ 94:
 /*!**********************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \**********************************************************************************************************************************/

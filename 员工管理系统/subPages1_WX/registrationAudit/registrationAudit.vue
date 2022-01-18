@@ -1,28 +1,14 @@
 <template>
-	<view class="content">
-		<view class="text">
-			<text>人员录入系统</text>
-		</view>
-	<view class="page">
-		<view class="name">
-			<label>姓名：</label>
-			<view class="view">
-				<input class="nameInput input" type="text" v-model="Name" />
-			</view>
-		</view>
-		<view class="phoneNumber">
-			<label>电话：</label>
-			<view class="view">
-				<input class="phoneNumberInput input" type="text" v-model="PhoneNumber" />
-			</view>
-		</view>
-		<button class="registerButton" type="default" @click="register">提交</button>
-	</view>
+	<view class="i">
+		<!-- <Warehousing></Warehousing> -->
+		<WarehousList></WarehousList>
 	</view>
 </template>
 
 <script>
-	import {invitationAppend} from './baseModel.js'
+	// import {invitationAppend} from '../../models/baseModel.js'
+	// import Warehousing from '../../models/Warehousing.vue'
+	import WarehousList from '../../components/WarehousList.vue'
 	export default {
 		data() {
 			return {
@@ -31,6 +17,10 @@
 				Name:'',
 				PhoneNumber:''
 			}
+		},
+		components:{
+			// Warehousing,
+			WarehousList
 		},
 		onLoad() {
 
@@ -41,12 +31,9 @@
 			  console.log(this.PhoneNumber)
 			  let data=[{name:this.Name,phone:this.PhoneNumber}]
 			  console.log(data)
-			  invitationAppend({
-			  	users:data
-			  })
-			  .then(res=>{
-				  console.log(res)
-			  })
+			  // invitationAppend({
+			  // 	users:data
+			  // })
 		  }
 		}
 	}
@@ -54,8 +41,8 @@
 
 <style lang="scss">
 	.page {
-		margin-top: 15vh;
-		height: 50vh;
+		// margin-top: 15vh;
+		// height: 50vh;
 		display: flex;
 		flex-direction: column;
 		justify-content:space-around;

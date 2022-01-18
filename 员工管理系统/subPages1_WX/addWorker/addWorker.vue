@@ -1,68 +1,81 @@
 <template>
-	<view class="i">
-		<!-- <Warehousing></Warehousing> -->
-		<WarehousList></WarehousList>
+	<view class="box">
+		<view class="text">
+			<text>人员录入系统</text>
+		</view>
+		<view class="page">
+			<view class="name">
+				<label>姓名：</label>
+				<view class="inputView">
+					<input class="nameInput input" type="text" v-model="userName" />
+				</view>
+			</view>
+			<view class="phoneNumber">
+				<label>电话：</label>
+				<view class="inputView">
+					<input class="phoneNumberInput input" type="text" v-model="userPhoneNumber" />
+				</view>
+			</view>
+		</view>
+		<view class="button">
+			<button  class="registerButton btn" type="default" @click="register">录入</button>
+		</view>
 	</view>
 </template>
 
 <script>
-	// import {invitationAppend} from '../../models/baseModel.js'
-	// import Warehousing from '../../models/Warehousing.vue'
-	import WarehousList from '../../components/WarehousList.vue'
+	import {registerApi} from '../../models/baseModel.js'
+	import {invitationAppend} from '../../models/baseModel.js'
 	export default {
 		data() {
 			return {
-				title: 'Hello',
-				input:"",
-				Name:'',
-				PhoneNumber:''
+				userName:'李贤杰',
+				userPhoneNumber:'18786684382',
+				status: uni.getStorageSync('status')
+			};
+		},
+		methods:{
+			register(){
+                  invitationAppend({
+                  	users:[{
+						name:this.userName,
+						phone:this.userPhoneNumber
+					}]
+                  })
+				  .then(res=>{
+					  console.log(res)
+				  })
 			}
-		},
-		components:{
-			// Warehousing,
-			WarehousList
-		},
-		onLoad() {
-
-		},
-		methods: {
-          register(){
-			  console.log(this.Name)
-			  console.log(this.PhoneNumber)
-			  let data=[{name:this.Name,phone:this.PhoneNumber}]
-			  console.log(data)
-			  // invitationAppend({
-			  // 	users:data
-			  // })
-		  }
 		}
 	}
 </script>
 
 <style lang="scss">
+	.text {
+		display: flex;
+		font-weight: 600;
+		align-items: center;
+		justify-content: center;
+		padding: 20rpx 40rpx;
+		font-size: 42rpx;
+	}
 	.page {
-		// margin-top: 15vh;
-		// height: 50vh;
+		margin-top: 15vh;
+		min-height: 20vh;
 		display: flex;
 		flex-direction: column;
-		justify-content:space-around;
+		justify-content: space-between;
 		align-items: center;
-		.registerButton{
-			margin-top: 100rpx;
-			background-color: $main-color;
-			color: $uni-text-color;
-			width: 300rpx;
-		}
-		
+		padding: 40rpx 80rpx;	
 	}
-	.view{
+	.inputView{
 		border: 1px solid $main-color;
-		// height: 50rpx;
-		border-radius: 20rpx;
+		border-radius: 10rpx;
 	}
 	.input {
-		// display: inline-block;
-		border:none;
+		display: inline-block;
+		border: none;
+		height: 20rpx;
 		padding: 10rpx 10rpx;
 	}
 	.name {
@@ -78,12 +91,24 @@
 		display: flex;
 		align-items: center;
 	}
-	.text{
+	.btn {
+		margin: 0 !important;
+		width: 200rpx !important;
+		padding-left: 0;
+		padding-right: 0;
+		font-size: 30rpx;
+		border-color: #409EFF;
+		padding: none !important;
+		background-color: #409eff !important;
+		color: #FFFFFF !important;
+		border-radius: 20rpx;
+	}
+	.button{
+		margin-top: 5vh;
 		display: flex;
-		font-weight: 600;
-		align-items: center;
+		flex-direction: row;
 		justify-content: center;
-		padding: 20rpx 40rpx;
-		font-size: 42rpx;
 	}
 </style>
+
+

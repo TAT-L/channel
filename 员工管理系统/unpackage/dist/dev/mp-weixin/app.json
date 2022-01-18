@@ -11,9 +11,9 @@
       "pages": [
         "addWorker/addWorker",
         "attendance/attendance",
-        "create/create",
-        "work/work",
-        "enter/enter"
+        "attendanceView/attendanceView",
+        "operationTicket/operationTicket",
+        "registrationAudit/registrationAudit"
       ]
     }
   ],

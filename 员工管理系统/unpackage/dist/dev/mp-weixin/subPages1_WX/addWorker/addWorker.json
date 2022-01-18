@@ -1,7 +1,5 @@
 {
   "navigationBarTitleText": "",
   "enablePullDownRefresh": false,
-  "usingComponents": {
-    "warehous-list": "/components/WarehousList"
-  }
+  "usingComponents": {}
 }

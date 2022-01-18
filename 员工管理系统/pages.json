@@ -1,5 +1,5 @@
 {
-	// 小程序进入注册页
+	// 小程序
 	//#ifdef MP-WEIXIN
 	"pages": [{
 			"path": "pages/register/register",
@@ -37,7 +37,14 @@
 
 	// PC页面
 	//#ifdef H5
-	"pages": [{
+	"pages": [
+		{
+			"path": "subPages_PC/pcLogin/pcLogin",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},{
 			"path": "subPages_PC/pcIndex/pcIndex",
 			"style": {
 				"navigationBarTitleText": "",
@@ -75,19 +82,19 @@
 						"enablePullDownRefresh": false
 					}
 				}, {
-					"path": "create/create",
+					"path": "attendanceView/attendanceView",
 					"style": {
 						"navigationBarTitleText": "",
 						"enablePullDownRefresh": false
 					}
 				}, {
-					"path": "work/work",
+					"path": "operationTicket/operationTicket",
 					"style": {
 						"navigationBarTitleText": "",
 						"enablePullDownRefresh": false
 					}
 				}, {
-					"path": "enter/enter",
+					"path": "registrationAudit/registrationAudit",
 					"style": {
 						"navigationBarTitleText": "",
 						"enablePullDownRefresh": false

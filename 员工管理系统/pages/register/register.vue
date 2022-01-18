@@ -31,9 +31,9 @@
 	} from '../../models/baseModel.js'
 	export default {
 		data() {
-			return {
-				userName: '李贤杰',
-				userPhoneNumber: '18786684382',
+			return {A
+				userName: '',
+				userPhoneNumber: '',
 				status: uni.getStorageSync('status'),
 				managerList:[{
 					name:"请选择管理员",

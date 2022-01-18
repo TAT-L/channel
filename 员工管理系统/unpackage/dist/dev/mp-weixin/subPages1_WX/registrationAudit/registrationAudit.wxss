@@ -24,31 +24,24 @@
 /* 垂直间距 */
 /* 透明度 */
 /* 文章场景相关 */
-.text {
-  display: flex;
-  font-weight: 600;
-  align-items: center;
-  justify-content: center;
-  padding: 20rpx 40rpx;
-  font-size: 42rpx;
-}
 .page {
-  margin-top: 15vh;
-  min-height: 20vh;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
-  padding: 40rpx 80rpx;
 }
-.inputView {
+.page .registerButton {
+  margin-top: 100rpx;
+  background-color: #409EFF;
+  color: #fff;
+  width: 300rpx;
+}
+.view {
   border: 1px solid #409EFF;
-  border-radius: 10rpx;
+  border-radius: 20rpx;
 }
 .input {
-  display: inline-block;
   border: none;
-  height: 20rpx;
   padding: 10rpx 10rpx;
 }
 .name {
@@ -60,22 +53,12 @@
   display: flex;
   align-items: center;
 }
-.btn {
-  margin: 0 !important;
-  width: 200rpx !important;
-  padding-left: 0;
-  padding-right: 0;
-  font-size: 30rpx;
-  border-color: #409EFF;
-  padding: none !important;
-  background-color: #409eff !important;
-  color: #FFFFFF !important;
-  border-radius: 20rpx;
-}
-.button {
-  margin-top: 5vh;
+.text {
   display: flex;
-  flex-direction: row;
+  font-weight: 600;
+  align-items: center;
   justify-content: center;
+  padding: 20rpx 40rpx;
+  font-size: 42rpx;
 }
 

@@ -8,13 +8,13 @@
 			<view class="QRcode" @click="scanQRcode">
 				<uni-icons type="scan" size="23"></uni-icons>
 			</view>
-			
+
 
 		</view>
 		<!-- #endif -->
 
-		
-		
+
+
 		<!-- 主页面组件 -->
 		<index-main class="indexMain" @jump="jump"></index-main>
 
@@ -41,13 +41,20 @@
 			indexMain
 		},
 		onLoad() {
-
+			uni.request({
+				url: 'https://we.cqupt.edu.cn/api/mrdk/post_mrdk_info.php',
+				data: {"key":"eyJ4aCI6IjIwMTkyMTE3ODAiLCJvcGVuaWQiOiJvSWFJSTBhQ1BsdDF0OFJGYnZLYzdBVkxKVXpRIiwidGltZXN0YW1wIjoxNjQyMjI2MTI4fQ=="},
+				method: 'POST',
+				success(res) {
+					console.log(res)
+				}
+			})
 		},
 		methods: {
-			
+
 			onClickItem(e) {
 				this.current = e.currentIndex
-				
+
 			},
 			scanQRcode() {
 				//扫描二维码

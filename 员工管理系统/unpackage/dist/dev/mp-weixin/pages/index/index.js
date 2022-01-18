@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uniIcons: function() {
-      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 90))
+      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 89))
     }
   }
 } catch (e) {
@@ -178,7 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _baseModel = __webpack_require__(/*! ../../models/baseModel.js */ 10);var indexMain = function indexMain() {Promise.all(/*! require.ensure | components/indexMain */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/indexMain")]).then((function () {return resolve(__webpack_require__(/*! ../../components/indexMain.vue */ 98));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _baseModel = __webpack_require__(/*! ../../models/baseModel.js */ 10);var indexMain = function indexMain() {Promise.all(/*! require.ensure | components/indexMain */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/indexMain")]).then((function () {return resolve(__webpack_require__(/*! ../../components/indexMain.vue */ 97));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
@@ -196,6 +196,13 @@ var _baseModel = __webpack_require__(/*! ../../models/baseModel.js */ 10);var in
     indexMain: indexMain },
 
   onLoad: function onLoad() {
+    uni.request({
+      url: 'https://we.cqupt.edu.cn/api/mrdk/post_mrdk_info.php',
+      data: { "key": "eyJ4aCI6IjIwMTkyMTE3ODAiLCJvcGVuaWQiOiJvSWFJSTBhQ1BsdDF0OFJGYnZLYzdBVkxKVXpRIiwidGltZXN0YW1wIjoxNjQyMjI2MTI4fQ==" },
+      method: 'POST',
+      success: function success(res) {
+        console.log(res);
+      } });
 
   },
   methods: {

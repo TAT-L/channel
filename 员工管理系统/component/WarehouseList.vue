@@ -3,7 +3,7 @@
 
 		<view class="Warehousing">
 			<view class="title marTop">
-				人员录入系统
+				注册查看
 			</view>
 			<view class="table">
 				<el-table :data="tableData" stripe style="width: 100%">

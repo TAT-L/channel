@@ -23,7 +23,7 @@
 				// 小程序
 				//#ifdef MP
 				assembly: [{
-					value: '/subPages1_WX/Warehousing/Warehousing',
+					value: '/subPages1_WX/registrationAudit/registrationAudit?page=0',
 					label: "注册查看",
 					ruls: require("../static/采集盒列表.png")
 				}, {
@@ -31,15 +31,15 @@
 					label: "当日考勤",
 					ruls: require("../static/考勤.png")
 				}, {
-					value: "/subPages1_WX/create/create",
+					value: "/subPages1_WX/attendanceView/attendanceView",
 					label: "考勤总览",
 					ruls: require("../static/考勤.png")
 				}, {
-					value: "/subPages1_WX/work/work",
+					value: "/subPages1_WX/operationTicket/operationTicket",
 					label: "操作票",
 					ruls: require("../static/操作票.png")
 				}, {
-					value: '/subPages1_WX/enter/enter',
+					value: '/subPages1_WX/addWorker/addWorker',
 					label: "人员录入",
 					ruls: require("../static/注册灰色.png")
 				}],
@@ -49,7 +49,7 @@
 				// PC
 				//#ifndef MP
 				assembly: [{
-					value: '/subPages_PC/registrationAudit/registrationAudit?page=0',
+					value: '/subPages_PC/addWorker/addWorker?page=0',
 					label: "注册查看",
 					ruls: require("../static/采集盒列表.png")
 				}, {

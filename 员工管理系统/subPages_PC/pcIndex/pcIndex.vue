@@ -27,7 +27,7 @@
 			userMain
 		},
 		onLoad() {
-			console.log(";;;")
+			
 		},
 		methods: {
 			onClickItem(e) {
