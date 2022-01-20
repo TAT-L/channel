@@ -97,8 +97,13 @@ __webpack_require__.r(__webpack_exports__);
 
 "use strict";
 /* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
 var _login = _interopRequireDefault(__webpack_require__(/*! ./units/login.js */ 9));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
+
+  globalData: {
+    identity: [] },
+
   onLaunch: function onLaunch() {
     console.log('App Launch');
 
@@ -115,18 +120,15 @@ var _login = _interopRequireDefault(__webpack_require__(/*! ./units/login.js */ 
 
         if (platform === 'windows') {
           console.log("跳转至pc登陆页面");
-          uni.reLaunch({
-            url: './subPage1/pcLogin/pcLogin' });
+          var status = uni.getStorageSync('status');
+          console.log(status);
+          if (status != 2) {
+            uni.navigateTo({
+              url: './subPages_PC/pcLogin/pcLogin' });
+
+          }
 
         } else {
-          (0, _login.default)().then(function (res) {
-            if (res.data.detail.status === 2) {
-              console.log("审核通过，跳转至首页");
-              uni.switchTab({
-                url: '/pages/index/index' });
-
-            }
-          });
 
         }
       },

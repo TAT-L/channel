@@ -41,6 +41,45 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
 var _default =
 {
   name: "indexMain",
@@ -48,27 +87,7 @@ var _default =
     return {
       // 小程序
 
-      assembly: [{
-        value: '/subPages1_WX/registrationAudit/registrationAudit?page=0',
-        label: "注册查看",
-        ruls: __webpack_require__(/*! ../static/采集盒列表.png */ 102) },
-      {
-        value: "/subPages1_WX/attendance/attendance",
-        label: "当日考勤",
-        ruls: __webpack_require__(/*! ../static/考勤.png */ 103) },
-      {
-        value: "/subPages1_WX/attendanceView/attendanceView",
-        label: "考勤总览",
-        ruls: __webpack_require__(/*! ../static/考勤.png */ 103) },
-      {
-        value: "/subPages1_WX/operationTicket/operationTicket",
-        label: "操作票",
-        ruls: __webpack_require__(/*! ../static/操作票.png */ 104) },
-      {
-        value: '/subPages1_WX/addWorker/addWorker',
-        label: "人员录入",
-        ruls: __webpack_require__(/*! ../static/注册灰色.png */ 105) }]
-
+      assembly: []
 
 
 
@@ -110,8 +129,42 @@ var _default =
   },
   onLoad: function onLoad() {
 
+    setAssembly();
+
   },
   methods: {
+    setAssembly: function setAssembly() {
+      if (getApp().globalData.identity.includes('manager')) {
+        this.assembly = [{
+          value: '/subPages1_WX/registrationAudit/registrationAudit?page=0',
+          label: "注册查看",
+          ruls: __webpack_require__(/*! ../static/采集盒列表.png */ 102) },
+        {
+          value: "/subPages1_WX/attendance/attendance",
+          label: "当日考勤",
+          ruls: __webpack_require__(/*! ../static/考勤.png */ 103) },
+        {
+          value: "/subPages1_WX/attendanceView/attendanceView",
+          label: "考勤总览",
+          ruls: __webpack_require__(/*! ../static/考勤.png */ 103) },
+        {
+          value: "/subPages1_WX/operationTicket/operationTicket",
+          label: "操作票",
+          ruls: __webpack_require__(/*! ../static/操作票.png */ 104) },
+        {
+          value: '/subPages1_WX/addWorker/addWorker',
+          label: "人员录入",
+          ruls: __webpack_require__(/*! ../static/注册灰色.png */ 105) }];
+
+      } else {
+        this.assembly = [{
+          value: '/subPages1_WX/timingRecords/',
+          label: "打卡记录",
+          ruls: __webpack_require__(/*! ../static/注册灰色.png */ 105) }];
+
+      }
+
+    },
     jump: function jump(e) {
       console.log(e.value);
       uni.navigateTo({

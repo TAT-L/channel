@@ -206,33 +206,36 @@ var _default = { name: "userMain", data: function data() {return { avartar: '', 
         success: function success(chooseImageRes) {
           var tempFilePaths = chooseImageRes.tempFilePaths;
           //压缩图片
-          uni.compressImage({
-            src: tempFilePaths[0],
-            quality: 50,
-            success: function success(compressImageRes) {
-              var tempFilePaths = chooseImageRes.tempFilePaths;
-              // console.log('compressImageRes',tempFilePaths)
-              uni.uploadFile({
-                url: 'https://static.torchcqs.cn/upload', //仅为示例，非真实的接口地址
-                filePath: tempFilePaths[0],
-                name: 'file',
-                formData: {},
-                success: function success(uploadFileRes) {
-                  var avatarUrl = JSON.parse(uploadFileRes.data).detail.file.path;
-                  (0, _userModel.postAvatar)({
-                    face: avatarUrl }).
-                  then(function (res) {
-                    console.log(res);
-                    // 获取头像
-                    _this2.getAvatar();
-                  });
+          // uni.compressImage({
+          // 	src: tempFilePaths[0],
+          // 	quality: 50,
+          // 	success: compressImageRes => {
+          // 		const tempFilePaths = chooseImageRes.tempFilePaths;
+          // 		console.log('compressImageRes',tempFilePaths)
+          uni.uploadFile({
+            url: 'https://static.torchcqs.cn/upload',
+            filePath: tempFilePaths[0],
+            name: 'file',
+            formData: {},
+            success: function success(uploadFileRes) {
+              var avatarUrl = JSON.parse(uploadFileRes.data).detail.file.path;
+              (0, _userModel.postAvatar)({
+                face: avatarUrl }).
+              then(function (res) {
+                console.log(res);
+                // 获取头像
+                _this2.getAvatar();
+              });
 
-                } });
-
-
-
+            },
+            fail: function fail(res) {
+              console.log(res);
             } });
 
+
+
+          // }
+          // })
 
         } });
 

@@ -137,9 +137,154 @@ __webpack_require__.r(__webpack_exports__);
   !*** ./node_modules/babel-loader/lib!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/webpack-preprocess-loader??ref--12-1!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js!./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib??vue-loader-options!./node_modules/@dcloudio/webpack-uni-mp-loader/lib/style.js!D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/pages/register/register.vue?vue&type=script&lang=js& ***!
   \******************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-throw new Error("Module build failed (from ./node_modules/@dcloudio/webpack-uni-mp-loader/lib/script.js):\nSyntaxError: Unexpected token, expected \",\" (35:3)\n    at Object._raise (D:\\software\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:746:17)\n    at Object.raiseWithData (D:\\software\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:739:17)\n    at Object.raise (D:\\software\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:733:17)\n    at Object.unexpected (D:\\software\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:8807:16)\n    at Object.expect (D:\\software\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:8793:28)\n    at Object.parseObj (D:\\software\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:10439:14)\n    at Object.parseExprAtom (D:\\software\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:10055:28)\n    at Object.parseExprSubscripts (D:\\software\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9656:23)\n    at Object.parseMaybeUnary (D:\\software\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9636:21)\n    at Object.parseMaybeUnary (D:\\software\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:6877:20)\n    at Object.parseExprOps (D:\\software\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9506:23)\n    at Object.parseMaybeConditional (D:\\software\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9479:23)\n    at Object.parseMaybeAssign (D:\\software\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9434:21)\n    at Object.parseMaybeAssign (D:\\software\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:6822:20)\n    at Object.parseExpression (D:\\software\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:9386:23)\n    at Object.parseReturnStatement (D:\\software\\HBuilderX\\plugins\\uniapp-cli\\node_modules\\@babel\\parser\\lib\\index.js:11523:28)");
+"use strict";
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _login = _interopRequireDefault(__webpack_require__(/*! ../../units/login.js */ 9));
+var _baseModel = __webpack_require__(/*! ../../models/baseModel.js */ 10);function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };} //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var _default = { data: function data() {return { userName: '', userPhoneNumber: '', status: uni.getStorageSync('status'), IDNumber: '', error: '', managerList: [{ name: "请选择管理员", id: 0 }], index: 0 };}, onPullDownRefresh: function onPullDownRefresh() {this.loginRegs();setTimeout(function () {uni.stopPullDownRefresh();}, 1000);}, onLoad: function onLoad() {this.loginRegs();}, methods: { loginRegs: function loginRegs() {var _this = this;(0, _login.default)().then(function (res) {
+        if (res.data.detail.status === 2) {
+          console.log("审核通过，跳转至首页");
+          uni.switchTab({
+            url: "/pages/index/index" });
+
+        } else {
+          _this.getManager();
+        }
+
+      });
+    },
+    pickerChange: function pickerChange(index) {
+      this.index = index.detail.value;
+    },
+    // 获取管理员列表
+    getManager: function getManager() {var _this2 = this;
+      (0, _baseModel.getManagerList)().
+      then(function (res) {
+        res.data.detail.managers.forEach(function (item) {
+          _this2.managerList.push({
+            name: item.user.name,
+            id: item.id });
+
+        });
+        console.log(res.data);
+      });
+    },
+    // 注册
+    register: function register() {var _this3 = this;
+      var regName = /^[\u4e00-\u9fa5]{2,6}$/;
+      var regPhoneNum = /^([1]\d{10}|([\(（]?0[0-9]{2,3}[）\)]?[-]?)?([2-9][0-9]{6,7})+(\-[0-9]{1,4})?)$/;
+      var regID18 =
+      /^([1-6][1-9]|50)\d{4}(18|19|20)\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}[0-9Xx]$/;
+      var regID15 = /^([1-6][1-9]|50)\d{4}\d{2}((0[1-9])|10|11|12)(([0-2][1-9])|10|20|30|31)\d{3}$/;
+      if (!regName.test(this.userName)) {
+        this.error = '请输入正确姓名!!!';
+      } else
+      if (!regPhoneNum.test(this.userPhoneNumber)) {
+        this.error = '请输入正确的手机号!!!';
+      } else if (!regID18.test(this.IDNumber) && !regID15.test(this.IDNumber)) {
+        this.error = '请输入正确的身份证!!!';
+      } else if (this.index <= 0) {
+        this.error = '请选择管理员!!!';
+      } else
+      {
+        (0, _baseModel.registerApi)({
+          name: this.userName,
+          phone: this.userPhoneNumber,
+          IDNumber: this.IDNumber,
+          manager: this.managerList[this.index].id }).
+        then(function (res) {
+          console.log(res);
+          // 注册成功弹窗
+          if (res.statusCode === 200) {
+            uni.showModal({
+              title: '注册成功',
+              content: '请等待管理员审核',
+              success: function success(res) {
+                _this3.status = 1;
+                if (res.confirm) {
+                  console.log('用户点击确定');
+                } else if (res.cancel) {
+                  console.log('用户点击取消');
+                }
+              } });
+
+          }
+        });
+      }
+
+    } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 /* 22 */

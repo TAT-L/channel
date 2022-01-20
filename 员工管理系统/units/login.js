@@ -33,6 +33,8 @@ export default  ()=>{
 					},
 					fail() {}
 				});
+				//存储身份
+				getApp().globalData.identity = res.data.detail.permissions
 			}).catch(err => {
 				console.log('登陆失败', err)
 			})

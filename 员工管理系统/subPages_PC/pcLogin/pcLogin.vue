@@ -21,6 +21,7 @@
 <script>
 	let QRcodeToken = ''
 	let timer = null
+	import login from '../../units/login.js'
 	import {
 		pcLogin
 	} from '../../models/baseModel.js'
@@ -91,9 +92,32 @@
 							if (res.data.detail.status === 2) {
 								clearInterval(timer)
 								console.log("登陆成功")
+								uni.setStorage({
+									key: 'cookie',
+									data: {
+										cookie: 'Bearer '+res.data.detail.token
+									},
+									success: function() {
+										// console.log(uni.getStorageSync('cookie'))
+									},
+									fail() {}
+								})
+								//存储登陆状态
+								uni.setStorage({
+									key: 'status',
+									data: res.data.detail.status,
+									success: function() {
+									},
+									fail() {}
+								});
 								this.resultTipsContent = '登陆成功'
-								uni.navigateTo({
-									url: '../../subPage2/pcIndex/pcIndex'
+								uni.redirectTo({
+									url: '../pcIndex/pcIndex',
+									success() {
+										window.location.hash="no-back";
+										// window.location.hash="Again-No-back-button";
+										// window.onhashchange=function(){window.location.hash="no-back";}
+									}
 								})
 							} else if (res.data.detail.status === 1) {
 								this.resultTipsContent = '请点击确认'

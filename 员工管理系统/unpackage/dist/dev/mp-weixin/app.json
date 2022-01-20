@@ -3,12 +3,14 @@
     "pages/register/register",
     "pages/index/index",
     "pages/user/user",
-    "pages/userInfoEdit/userInfoEdit"
+    "pages/userInfoEdit/userInfoEdit",
+    "pages/log/log"
   ],
   "subPackages": [
     {
       "root": "subPages1_WX",
       "pages": [
+        "timingRecords/timingRecords",
         "addWorker/addWorker",
         "attendance/attendance",
         "attendanceView/attendanceView",

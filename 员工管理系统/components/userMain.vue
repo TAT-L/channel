@@ -67,14 +67,14 @@
 					success: (chooseImageRes) => {
 						const tempFilePaths = chooseImageRes.tempFilePaths;
 						//压缩图片
-						uni.compressImage({
-							src: tempFilePaths[0],
-							quality: 50,
-							success: compressImageRes => {
-								const tempFilePaths = chooseImageRes.tempFilePaths;
-								// console.log('compressImageRes',tempFilePaths)
+						// uni.compressImage({
+						// 	src: tempFilePaths[0],
+						// 	quality: 50,
+						// 	success: compressImageRes => {
+						// 		const tempFilePaths = chooseImageRes.tempFilePaths;
+						// 		console.log('compressImageRes',tempFilePaths)
 								 uni.uploadFile({
-								            url: 'https://static.torchcqs.cn/upload', //仅为示例，非真实的接口地址
+								            url: 'https://static.torchcqs.cn/upload', 
 								            filePath: tempFilePaths[0],
 								            name: 'file',
 								            formData: {},
@@ -88,12 +88,15 @@
 															this.getAvatar()
 														})
 												
-								            }
+								            },
+											fail(res) {
+												console.log(res)
+											}
 								        });
 							
 								
-							}
-						})
+							// }
+						// })
 
 					}
 				});

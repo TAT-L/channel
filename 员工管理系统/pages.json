@@ -4,7 +4,7 @@
 	"pages": [{
 			"path": "pages/register/register",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "注册",
 				"enablePullDownRefresh": true
 			}
 		},
@@ -12,23 +12,30 @@
 		{
 			"path": "pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "首页"
 			}
 		},
 		{
 			"path": "pages/user/user",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "个人",
 				"enablePullDownRefresh": false
 			}
 		},
 		{
 			"path": "pages/userInfoEdit/userInfoEdit",
 			"style": {
-				"navigationBarTitleText": "",
+				"navigationBarTitleText": "信息修改",
 				"enablePullDownRefresh": false
 			}
-		
+
+		}, {
+			"path": "pages/log/log",
+			"style": {
+				"navigationBarTitleText": "日志查看",
+				"enablePullDownRefresh": false
+			}
+
 		}
 
 	],
@@ -37,14 +44,7 @@
 
 	// PC页面
 	//#ifdef H5
-	"pages": [
-		{
-			"path": "subPages_PC/pcLogin/pcLogin",
-			"style": {
-				"navigationBarTitleText": "",
-				"enablePullDownRefresh": false
-			}
-		},{
+	"pages": [{
 			"path": "subPages_PC/pcIndex/pcIndex",
 			"style": {
 				"navigationBarTitleText": "",
@@ -57,9 +57,18 @@
 				"navigationBarTitleText": "",
 				"enablePullDownRefresh": false
 			}
-		
+
 		}
 
+
+		, {
+			"path": "pages/log/log",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+
+		}
 	],
 	//#endif
 
@@ -68,35 +77,43 @@
 	"subPackages": [{
 			"root": "subPages1_WX",
 			"pages": [{
+					"path": "timingRecords/timingRecords",
+					"style": {
+						"navigationBarTitleText": "打卡记录",
+						"enablePullDownRefresh": false
+					}
+
+				},
+				{
 					"path": "addWorker/addWorker",
 					"style": {
-						"navigationBarTitleText": "",
+						"navigationBarTitleText": "人员录入",
 						"enablePullDownRefresh": false
 					}
 				},
-				
+
 				{
 					"path": "attendance/attendance",
 					"style": {
-						"navigationBarTitleText": "",
+						"navigationBarTitleText": "当日考勤",
 						"enablePullDownRefresh": false
 					}
 				}, {
 					"path": "attendanceView/attendanceView",
 					"style": {
-						"navigationBarTitleText": "",
+						"navigationBarTitleText": "考勤总览",
 						"enablePullDownRefresh": false
 					}
 				}, {
 					"path": "operationTicket/operationTicket",
 					"style": {
-						"navigationBarTitleText": "",
+						"navigationBarTitleText": "操作票管理",
 						"enablePullDownRefresh": false
 					}
 				}, {
 					"path": "registrationAudit/registrationAudit",
 					"style": {
-						"navigationBarTitleText": "",
+						"navigationBarTitleText": "注册审核",
 						"enablePullDownRefresh": false
 					}
 				}
@@ -115,7 +132,7 @@
 						"enablePullDownRefresh": false
 					}
 				},
-				 {
+				{
 					"path": "registrationAudit/registrationAudit",
 					"style": {
 						"navigationBarTitleText": "",

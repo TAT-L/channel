@@ -1,9 +1,14 @@
 <script>
+	
 	import login from './units/login.js'
 	export default {
+		
+		globalData: {  
+		            identity: []  
+		        },
 		onLaunch: function() {
 			console.log('App Launch')
-			
+
 			//获取设备类型
 			let platform = uni.getSystemInfoSync().platform
 			console.log(platform)
@@ -14,21 +19,18 @@
 					'platform': platform
 				},
 				success: function() {
-				
+
 					if (platform === 'windows') {
 						console.log("跳转至pc登陆页面")
-						uni.reLaunch({
-							url: './subPage1/pcLogin/pcLogin'
-						})
+						let status = uni.getStorageSync('status')
+						console.log(status)
+						if (status != 2) {
+							uni.navigateTo({
+								url: './subPages_PC/pcLogin/pcLogin'
+							})
+						}
+
 					} else {
-						login().then(res => {
-							if (res.data.detail.status === 2) {
-								console.log("审核通过，跳转至首页")
-								uni.switchTab({
-									url: '/pages/index/index'
-								});
-							}
-						})
 						
 					}
 				},

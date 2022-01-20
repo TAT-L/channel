@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "",
+  "navigationBarTitleText": "注册审核",
   "enablePullDownRefresh": false,
   "usingComponents": {
     "warehous-list": "/components/WarehousList"

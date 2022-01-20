@@ -79,13 +79,36 @@
 .main .abilitis .ability .title .text.data-v-d8367d00 {
   font-size: 25rpx;
 }
-.main .box.data-v-d8367d00 {
-  box-shadow: 3px 3px 7px 7px #eee;
-  border-radius: 10px;
-  background-color: #ffffff;
+.main .boxs.data-v-d8367d00 {
   margin-top: 40rpx;
   height: 600rpx;
   width: 90%;
+}
+.main .boxs .records .record.data-v-d8367d00 {
+  font-size: 30rpx;
+  padding: 0rpx 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.main .boxs .records .record .status.data-v-d8367d00 {
+  color: #4cd964;
+}
+.main .boxs .box.data-v-d8367d00 {
+  height: 100rpx;
+  margin-bottom: 20rpx;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 3px 3px 7px 7px #eee;
+}
+.main .boxs .top.data-v-d8367d00 {
+  height: 80rpx;
+  font-size: 35rpx;
+  margin: 10rpx auto;
+  border-bottom: 2px solid #eee;
+  width: 30%;
+  text-align: center;
+  line-height: 80rpx;
 }
 .img.data-v-d8367d00 {
   width: 100rpx;

@@ -4,7 +4,11 @@
 		<!-- #ifdef MP -->
 		<view class="top">
 			<!-- 微信扫码 -->
-			<uni-icons type="circle-filled" size="25"></uni-icons>
+			<view class="alarm" @click="triggerAlarm">
+				一键报警
+			</view>
+			//日志查看
+			<uni-icons type="circle-filled" size="25" v-if="identity === 'manager'" @click="goLogPage"></uni-icons>
 			<view class="QRcode" @click="scanQRcode">
 				<uni-icons type="scan" size="23"></uni-icons>
 			</view>
@@ -22,6 +26,7 @@
 </template>
 
 <script>
+	let identity = getApp().globalData.identity.includes('manager') ? 'manager' : 'worker'
 	import indexMain from '../../components/indexMain.vue'
 	import {
 		scanQRcode
@@ -34,24 +39,38 @@
 			return {
 				title: 'Hello',
 				current: 0,
-				items: ["首页", "个人"]
+				items: ["首页", "个人"],
+				identity:identity
 			}
 		},
+		
 		components: {
 			indexMain
 		},
 		onLoad() {
-			uni.request({
-				url: 'https://we.cqupt.edu.cn/api/mrdk/post_mrdk_info.php',
-				data: {"key":"eyJ4aCI6IjIwMTkyMTE3ODAiLCJvcGVuaWQiOiJvSWFJSTBhQ1BsdDF0OFJGYnZLYzdBVkxKVXpRIiwidGltZXN0YW1wIjoxNjQyMjI2MTI4fQ=="},
-				method: 'POST',
-				success(res) {
-					console.log(res)
-				}
-			})
+
 		},
 		methods: {
-
+			goLogPage(){
+				uni.navigateTo({
+					url:'../log/log'
+				})
+			},
+			triggerAlarm() {
+				uni.showModal({
+					title: '一键报警',
+					content: '是否确认报警？',
+					confirmText: '报警',
+					confirmColor: '#ff0000',
+					success(res) {
+						if (res.confirm) {
+							console.log('用户点击确定');
+						} else if (res.cancel) {
+							console.log('用户点击取消');
+						}
+					}
+				})
+			},
 			onClickItem(e) {
 				this.current = e.currentIndex
 
@@ -117,10 +136,22 @@
 	}
 
 	.top {
+		display: flex;
+		justify-content: flex-end;
+		align-items: center;
 		width: 100%;
 		height: 70rpx;
 		text-align: right;
 		background-color: #eee;
+
+		.alarm {
+			padding: 10rpx;
+			border-radius: 10rpx;
+			background-color: $uni-bg-color;
+			font-size: 30rpx;
+			color: $uni-color-error;
+
+		}
 
 		.QRcode {
 			width: 50rpx;

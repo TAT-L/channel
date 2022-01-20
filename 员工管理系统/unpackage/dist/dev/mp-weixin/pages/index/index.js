@@ -178,35 +178,54 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _baseModel = __webpack_require__(/*! ../../models/baseModel.js */ 10);var indexMain = function indexMain() {Promise.all(/*! require.ensure | components/indexMain */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/indexMain")]).then((function () {return resolve(__webpack_require__(/*! ../../components/indexMain.vue */ 97));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
 
 
-{
-  data: function data() {
-    return {
-      title: 'Hello',
-      current: 0,
-      items: ["首页", "个人"] };
+var _baseModel = __webpack_require__(/*! ../../models/baseModel.js */ 10); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var identity = getApp().globalData.identity.includes('manager') ? 'manager' : 'worker';var indexMain = function indexMain() {Promise.all(/*! require.ensure | components/indexMain */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/indexMain")]).then((function () {return resolve(__webpack_require__(/*! ../../components/indexMain.vue */ 97));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { data: function data() {return { title: 'Hello', current: 0, items: ["首页", "个人"], identity: identity };}, components: { indexMain: indexMain }, onLoad: function onLoad() {}, methods: { goLogPage: function goLogPage() {uni.navigateTo({ url: '../log/log' });},
+    triggerAlarm: function triggerAlarm() {
+      uni.showModal({
+        title: '一键报警',
+        content: '是否确认报警？',
+        confirmText: '报警',
+        confirmColor: '#ff0000',
+        success: function success(res) {
+          if (res.confirm) {
+            console.log('用户点击确定');
+          } else if (res.cancel) {
+            console.log('用户点击取消');
+          }
+        } });
 
-  },
-  components: {
-    indexMain: indexMain },
-
-  onLoad: function onLoad() {
-    uni.request({
-      url: 'https://we.cqupt.edu.cn/api/mrdk/post_mrdk_info.php',
-      data: { "key": "eyJ4aCI6IjIwMTkyMTE3ODAiLCJvcGVuaWQiOiJvSWFJSTBhQ1BsdDF0OFJGYnZLYzdBVkxKVXpRIiwidGltZXN0YW1wIjoxNjQyMjI2MTI4fQ==" },
-      method: 'POST',
-      success: function success(res) {
-        console.log(res);
-      } });
-
-  },
-  methods: {
-
+    },
     onClickItem: function onClickItem(e) {
       this.current = e.currentIndex;
 

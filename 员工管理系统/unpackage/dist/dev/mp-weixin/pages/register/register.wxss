@@ -42,6 +42,9 @@
   padding: 10rpx;
   width: 100%;
 }
+.page .box .label {
+  width: 35%;
+}
 .page .picker {
   background-color: #ffffff;
   text-align: center;
@@ -50,7 +53,11 @@
 .page .tips {
   font-size: 40rpx;
   margin-bottom: 30rpx;
-  color: #409EFF;
+  color: #dd524d;
+  text-align: center;
+}
+.page .regTip {
+  font-size: 25rpx;
 }
 .page .registerButton {
   margin-top: 100rpx;

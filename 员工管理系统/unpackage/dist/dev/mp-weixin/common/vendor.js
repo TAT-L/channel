@@ -2416,12 +2416,20 @@ var apiResquest = function apiResquest(prams) {//prams 为我们需要调用的�
           uni.hideLoading();
           if (res.statusCode === 401) {
             console.log("登陆过期");
+
             uni.showLoading({
               title: "正在重新登陆",
               mask: true,
               success: function success() {
                 (0, _login.default)();
               } });
+
+
+
+
+
+
+
 
 
 
@@ -9733,6 +9741,8 @@ var _default = function _default() {
             },
             fail: function fail() {} });
 
+          //存储身份
+          getApp().globalData.identity = res.data.detail.permissions;
         }).catch(function (err) {
           console.log('登陆失败', err);
         });
