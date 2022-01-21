@@ -2,31 +2,48 @@
 	<view class="page">
 		<view class="userInformation">
 			<view class="avatarBox">
-				<image class="avatar" :src="avartar" mode="aspectFill"></image>
+				<image class="avatar" :src="userInfo.avatarUrl" mode="aspectFill"></image>
 				<button size="mini" type="default" class="changeAvatarButton" @click="changeAvatar">修改</button>
 			</view>
 			<view class="otherBox">
 				<view class="name">
-					{{name}}
+					{{userInfo.name}}
 				</view>
-				<view class="age">
+				<!-- <view class="age">
 					年龄：{{age}}
 				</view>
 				<view class="birthday">
 					工号：{{birthday}}
-				</view>
+				</view> -->
 
 			</view>
 			<uni-icons class="rightIcon" type="right" size="30" @click="goUserInfoPage"></uni-icons>
 		</view>
-		<view class="box">
+		<!-- 工人打卡记录 -->
+		<!-- #ifdef MP -->
+		<view class="boxs" v-if="identity === 'worker'">
+			<view class="records">
+				<view class="record box" v-for="item in gateInfo" :key="uuid()">
+					<view class="time">
+						{{item.time}}
+					</view>
+					<!-- <view class="equipmentNumber">
+					{{item.gateName}}
+				</view> -->
+					<view class="status">
+						{{item.content}}
+					</view>
+				</view>
 
+			</view>
 		</view>
+		<!-- #endif -->
+
 	</view>
 </template>
 
 <script>
-
+	import uuid from '../units/net/uuid.js'
 	import {
 		postAvatar,
 		getAvatar
@@ -35,29 +52,52 @@
 		name: "userMain",
 		data() {
 			return {
-				avartar: '',
+				identity: getApp().globalData.identity.includes('manager') ? 'manager' : 'worker',
+				// avartar: '',
 				name: "小张",
-				age: '23',
-				birthday: '110'
+				gateInfo: [{
+					time: '2022-2-2',
+					name: '张三',
+					gateName: '一号入口',
+					content: '打卡成功'
+				}, {
+					time: '2022-2-3',
+					name: '张三',
+					gateName: '一号入口',
+					content: '打卡成功'
+				}, ],
 			};
 		},
+		props: ['userInfo'],
 		mounted() {
-
+			
 			this.getAvatar()
 		},
 		methods: {
+			uuid() {
+				return uuid()
+			},
 			goUserInfoPage() {
-
+				let userInfo = this.userInfo
 				uni.navigateTo({
 					url: '/pages/userInfoEdit/userInfoEdit',
-					success() {
-
+					// events:{
+					// 	fresh(res) => {
+					// 		if(res){
+								
+					// 		}
+					// 	}
+					// },
+					success(res) {
+						console.log(userInfo)
+						res.eventChannel.emit('userInfo', userInfo)
+						uni.$emit('userInfo', userInfo)
 					}
 				})
 			},
 			getAvatar() {
 				getAvatar().then(res => {
-					this.avartar = res.data.detail.worker.face
+					this.userInfo.avatarUrl = res.data.detail.worker.face
 					// console.log('touxiang', res)
 				})
 			},
@@ -73,29 +113,29 @@
 						// 	success: compressImageRes => {
 						// 		const tempFilePaths = chooseImageRes.tempFilePaths;
 						// 		console.log('compressImageRes',tempFilePaths)
-								 uni.uploadFile({
-								            url: 'https://static.torchcqs.cn/upload', 
-								            filePath: tempFilePaths[0],
-								            name: 'file',
-								            formData: {},
-								            success: (uploadFileRes) => {
-											let	avatarUrl = JSON.parse(uploadFileRes.data).detail.file.path
-												postAvatar({
-															face: avatarUrl
-														}).then(res => {
-															console.log(res)
-															// 获取头像
-															this.getAvatar()
-														})
-												
-								            },
-											fail(res) {
-												console.log(res)
-											}
-								        });
-							
-								
-							// }
+						uni.uploadFile({
+							url: 'https://static.torchcqs.cn/upload',
+							filePath: tempFilePaths[0],
+							name: 'file',
+							formData: {},
+							success: (uploadFileRes) => {
+								let avatarUrl = JSON.parse(uploadFileRes.data).detail.file.path
+								postAvatar({
+									face: avatarUrl
+								}).then(res => {
+									console.log(res)
+									// 获取头像
+									this.getAvatar()
+								})
+
+							},
+							fail(res) {
+								console.log(res)
+							}
+						});
+
+
+						// }
 						// })
 
 					}
@@ -112,9 +152,43 @@
 		height: 100vh;
 		display: flex;
 		flex-direction: column;
+
 		align-items: center;
 		background-color: $uni-bg-color-grey;
 		padding: 50rpx 40rpx;
+
+		.boxs {
+			margin-top: 40rpx;
+			height: 600rpx;
+			width: 90%;
+			padding: 10rpx;
+
+			.records {
+				width: 100%;
+
+				.record {
+					width: 100%;
+					box-sizing: border-box;
+					font-size: 30rpx;
+					padding: 0rpx 20rpx;
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+
+					.status {
+						color: $uni-color-success;
+					}
+				}
+			}
+
+			.box {
+				height: 100rpx;
+				margin-bottom: 20rpx;
+				background-color: $uni-bg-color;
+				border-radius: 10px;
+				box-shadow: 3px 3px 7px 7px #eee;
+			}
+		}
 
 		.userInformation {
 			display: flex;

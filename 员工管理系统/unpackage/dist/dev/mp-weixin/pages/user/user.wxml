@@ -1,1 +1,1 @@
-<view class="page data-v-80842834"><user-main class="userMain data-v-80842834" vue-id="380011e0-1" bind:__l="__l"></user-main></view>
+<view class="page data-v-80842834"><block wx:if="{{cover}}"><view data-event-opts="{{[['~tap',[['getWXInfo',['$event']]]]]}}" class="cover data-v-80842834" bindtap="__e"></view></block><user-main class="userMain data-v-80842834" vue-id="380011e0-1" userInfo="{{userInfo}}" bind:__l="__l"></user-main></view>

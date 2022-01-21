@@ -25,11 +25,16 @@
 /* 透明度 */
 /* 文章场景相关 */
 .page.data-v-80842834 {
-  height: 100vh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.page .cover.data-v-80842834 {
+  z-index: 2;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
 }
 .page .tabBar.data-v-80842834 {
   width: 90%;

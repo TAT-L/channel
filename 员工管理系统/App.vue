@@ -23,7 +23,6 @@
 					if (platform === 'windows') {
 						console.log("跳转至pc登陆页面")
 						let status = uni.getStorageSync('status')
-						console.log(status)
 						if (status != 2) {
 							uni.navigateTo({
 								url: './subPages_PC/pcLogin/pcLogin'

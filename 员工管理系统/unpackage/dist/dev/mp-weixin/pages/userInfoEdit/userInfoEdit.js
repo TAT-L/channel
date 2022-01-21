@@ -130,260 +130,117 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0; //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-
-// import editImage from '../../components/editImage.vue'
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
-var avatarImage = '';var _default =
-{
-  components: {
-    // schoolPicker,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var _userModel = __webpack_require__(/*! ../../models/userModel.js */ 127); //
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+var avatarImage = '';var _default = { components: {// schoolPicker,
     // editImage
-  },
-  data: function data() {
-    return {
-      // informationRight: false,
-      cityPickerValueDefault: [21, 0, 1], //学校默认值
-      eCode: '',
-      haveEmail: false,
-      emailButtonContent: '发送验证码',
-      countDown: '',
-      interval: null,
-      sentEmailButton: true,
-      // 用户信息
-      userInfo: {
-        phone: '1878668438' },
+  }, data: function data() {return { // 用户信息
+      userInfo: { phone: '', name: '' }, focusID: 'name', // 性别选择器
+      sexPick: ['男', '女'], sexIndex: 0, warning: '' };}, onLoad: function onLoad(res) {var _this = this;var eventChannel = this.getOpenerEventChannel();eventChannel.on('userInfo', function (data) {_this.userInfo = data;});}, onUnload: function onUnload() {uni.$off('userInfo');uni.$off('backBase64');}, methods: { changeWorkerInfo: function changeWorkerInfo() {var phoneReg = /^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/; //电话正则
+      var nicenameReg = /^[\u4e00-\u9fa5]{2,6}$/; //昵称规定为1到八位
+      if (!nicenameReg.test(this.userInfo.name)) {this.warning = '请输入2-6位姓名！';} else if (!phoneReg.test(this.userInfo.phone)) {this.warning = '电话格式错误！';} else {
+        this.warning = '';
+        delete this.userInfo.avatarUrl;
+        console.log(this.userInfo);
+        (0, _userModel.postWorkerInfo)(this.userInfo).then(function (postWorkerInfoRes) {
+          uni.$emit('refreshUserInfo', true);
+          uni.navigateBack({});
 
-      // 焦点状态
-      focusStatus: {
-        name: true,
-        nickname: false,
-        qq: false,
-        school: false,
-        grade: false,
-        phoneNumber: false,
-        volAccount: false,
-        email: false,
-        selfIntroduction: false,
-        verificationCode: false },
+        });
 
-      focusID: 'name',
-      // 性别选择器
-      sexPick: ['男', '女'],
-      sexIndex: 0,
-      warning: '' };
 
-  },
-
-  onLoad: function onLoad(res) {var _this = this;
-    // 接收修改后的图片
-    uni.$on('backBase64', function (res) {
-      _this.userInfo.avatarImage = res;
-      console.log('test');
-    });
-    var eventChannel = this.getOpenerEventChannel();
-    if (res.logined) {
-      // eventChannel.emit('test', 'test触发')
-      eventChannel.on('userInfo', function (res) {
-        console.log('传过来的数据', res);
-        if (res) {
-          avatarImage = res.avatarImage;
-          _this.userInfo = res;
-          if (res.email) {
-            _this.haveEmail = true;
-            // this.sentEmailButton = false
-            _this.emailButtonContent = "修改";
-          }
-        }
-
-      });
-    }
-
-  },
-  onUnload: function onUnload() {
-    uni.$off('backBase64');
-  },
-
-  methods: {
-    showPick: function showPick() {
-      this.$refs.schoolPicker.show();
-    },
-    onConfirm: function onConfirm(e) {
-
-      var school = e.label.split("-")[2];
-      if (school === '暂未收录') {
-        return;
-      } else {
-        this.$set(this.userInfo, 'school', school);
 
       }
-    },
-
-    // 修改性别
-    sexChange: function sexChange(e) {
-      this.sexIndex = e.target.value;
-      this.userInfo.sex = this.sexPick[this.sexIndex];
-      console.log(this.userInfo.sex);
-    },
-    // 获得焦点修改样式
-    getFocus: function getFocus(e) {
-      var id = e.target.id;
-      this.focusStatus[this.focusID] = false;
-      this.focusStatus[id] = true;
-      this.focusID = id;
-      // console.log(this.focusStatus)
 
     },
+
+
+
     // 上传保存信息
     postInfo: function postInfo() {
-      var phoneReg = /^(13[0-9]|14[01456879]|15[0-35-9]|16[2567]|17[0-8]|18[0-9]|19[0-35-9])\d{8}$/; //电话正则
-      var nicenameReg = /^([\u4e00-\u9fa5]|\w){1,8}$/; //昵称规定为1到八位
-      // let shoolReg = /^[\u4e00-\u9fa5]{2,4}$/
-      var gradeReg = /^20\d{2}$/; //年级正则
-      var qqReg = /^[1-9][0-9]\d{4,9}$/;
-      var emailReg = /^\w+@[a-zA-Z0-9]+((\.[a-z0-9A-Z]{1,})+)$/;
-      if (!nicenameReg.test(this.userInfo.nickName)) {
-        this.warning = '请输入1-8位昵称！';
-      } else if (!gradeReg.test(this.userInfo.grade)) {
-        this.warning = '请输入正确的年级！,例如"2019"';
-      } else if (!qqReg.test(this.userInfo.qq)) {
-        this.warning = '请输入正确的QQ！';
-      } else if (!phoneReg.test(this.userInfo.phone)) {
-        this.warning = '电话格式错误！';
-      } else {
-        if (this.userInfo.sex === '男') {
-          this.userInfo.sex = 1;
-        } else {
-          this.userInfo.sex = 2;
-        }
-        //从组件拿回图片
-
-        postUserImformation(this.userInfo).then(function (res) {
-          console.log("保存成功", res);
-          uni.showToast({
-            title: '保存成功',
-            duration: 2000,
-            icon: 'success',
-            success: function success(res) {
-              uni.navigateBack({
-                Number: 1 });
-
-              uni.$emit('updateUserInfo', '保存数据成功，更新数据');
-            } });
 
 
-        });
-
-      }
-
-    },
-    timer: function timer() {var _this2 = this;
-      this.countDown = 5;
-      this.interval = setInterval(function () {
-        _this2.countDown--;
-      }, 1000);
-    },
-    //发送验证码
-    sentEmail: function sentEmail() {var _this3 = this;
-      if (this.emailButtonContent === '修改') {
-        this.userInfo.email = '';
-        this.focusStatus.email = true;
-        this.emailButtonContent = '发送验证码';
-        this.haveEmail = false;
-      } else if (this.emailButtonContent == '发送验证码') {
-        postEmail({
-          'mail': this.email }).
-        then(function (res) {
-          console.log(res);
-          if (res.code === 2000) {
-            _this3.emailButtonContent = '发送成功 ';
-            _this3.timer();
-          } else if (res)
-          console.log(res);
-        });
-      }
-
-    },
-    verificationCode: function verificationCode() {var _this4 = this;
-      postEmailCode({
-        'code': this.eCode,
-        'mail': this.email }).
-      then(function (res) {
-        if (res.code === 2000) {
-          _this4.haveEmail = true;
-          _this4.emailButtonContent = '已验证';
-
-          uni.showToast({
-            title: '验证成功',
-            duration: 2000,
-            mask: true,
-            icon: 'success' });
-
-        } else {
-          uni.showToast({
-            title: '验证码错误',
-            duration: 2000,
-            mask: true,
-            icon: 'error' });
-
-          console.log("验证失败");
-        }
-        console.log(res);
-      });
     } },
 
-  watch: {
-    countDown: function countDown(value) {
-      console.log(value);
-      if (value <= 0) {
-        clearInterval(this.interval);
-        this.emailButtonContent = '重新发送';
-        this.countDown = '';
-      }
-    } } };exports.default = _default;
+
+
+
+  watch: {} };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),

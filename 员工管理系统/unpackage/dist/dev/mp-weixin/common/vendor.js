@@ -2323,47 +2323,1126 @@ var terminalSyncWorker = function terminalSyncWorker(query) {
 
 /***/ }),
 
-/***/ 102:
-/*!***********************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/采集盒列表.png ***!
-  \***********************************************************************************************/
+/***/ 108:
+/*!**********************************************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-icons/components/uni-icons/icons.js ***!
+  \**********************************************************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAF90lEQVR4nO3dz1EjORhA8Q7BIRACIRCCQ3AIhOCbSuqDQiAEQiAEh+AQHMLugZ5dZsCfbTCSGP9e1bs3SK/Uf9ytaQIA4Fuota5SSg8558d5nmsp5Yn8yeactznn9ZfDWII4lFL+If9Gc87bi+MopdyXUp57HzzZyF1K6e6sOFJKd8Wqwdv0/uRpVSnlZYADJXu4DwPJOT8OcJBkN49ekyyrh1Mr3ry11tVHq8e694GRg7hxekUe8cPTrPL6EKX7wZED+CwQ8rgCIQMFQgYKhAwUCBkoEDJQIGSgQMhAgZCB3xvI8ruue7KVV/4t4bevIPGLJ8CVWV70EwjwEQIBAgQCBAgECBAIECAQIEAgQIBAgACBAAECAQIEAgQIBAgQCBAgECBAIECAQIAAgQABAgECBAIECAQIEAgQIBAgQCBAgECAAIEAAQIBAgTySWqtq5zz4zzPldcx57zNOa9TSne9x/cXArmAJYptKWV3xb+Jx930HO9pEsjZ1FpXpZTnASbNrbnruaII5AzK66fw9wNMllv10CsSgZxBKeVlgEly6770GHuBnODKG6jwC+acH1uPv0AClusOF+TjeGg5/tMkkJDyeu3Re1Lwja2vRQQS4PRqPFufZgkkIOf82HtC8Hfnea4t54BAAuZ5rr0nBH8357xtOQcEEuAUazxzzuuWc0AgActdrO6Tgv+bUnpoOQcEcoLiNu9INn9YKJDT/6CHASYGS/vVYxl/gZzCxfoQvp9cDRDImRS/x+rpc6111WPcBXIBnou0t/Vt3T8RyIXUWlfLKZeL9+9zt7yY1n28BfJFSin3KaUHXsfRxlggQIBAgACBAAECAQIEAgQIBAgQCBAgECBAIECAQIAAgQABAgECBAIECAQIEAgQIJAvULwLcnV7j+mfCORCSin3tmH7dvellKc0wF6FArmA5Z30wwAT6Gb0TvoPCGT5wuI1/w5e5q7HuE+TQM7Cd7GG8KnH2Avk9D/IlxUHsfWHq5fxF0hE8cG4kbQF2wltwXbjtr6zJZD4n+P0ajw3jeeAQI7hU6PjaQu22NaBbHtPCP6uQGJbX4Nsek8IvnPTcg4IJMAWbONpj8LYHrd5970nBf9z33qfEIGcwIX6OOacH1uPv0DOoHhYOILNV49pEshZLNci+wEmya266/XTd4GcSXl9qv48wGS5NV967U84TQK5mPJ663c/wMT5233JOT/2jGOaBPJpUkp3Oed1znk7z3PldVxuigw1zgIBjiAQIEAgQIBAgACBAAECAQIEAgQIBAgQCBAgECBAIECAQIAAgQABAgECBAIECAQIEMgnSCk9vNmGzY5T1/U557ztsdXBRwjkAsrre+n2JmznrveYC+RMcs7rYrXoYs99CgVyBj4e199ep1wCOcHyTSwrR38PPb6NJZAT2AJhKJtv5CmQAKvHcNqj8IS2YLtxU0oPjeeAQI5RbKAznK3vaAkkwN2r8bQFW6w9CrlpOQcEEmALtvG0BVtsjy3Y3MUax+bPQgRygisfP79g6+uPaRLISewuNYwHW7CdtstvsTwP6e6hNL44fzP2AjmH4plILw893w0RyAUsp1vX/HsYhFFKeem1eecvBPIJlndDNvM81/K6RfSeV3FXlr0Je4fxC4EAAQIBAgQCBAgECBAIECAQIEAgQIBAgACBAAECAQIEAgQIBAgQCBAgECBAIECAQIAAgQABAgECBAIECAQIEAgQIBAgQCBAgECAAIEAAQIBAgQCBAgECBAIECAQIEAgQIBAgACBAAECAQIEAgQIBAgQCBAgECBAIEDAjwok57xOKd2RrSyl3P+YQMgfrkDIQIGQgQIhAwVCBgqEDBQIGSgQMlAgZOD7QOZ5rgMcGDmCT+8CyTlvBzgwsrvzPNePAln3PjByBHPO63eB1FpXvQ+MHMGU0t27QFyHkEdOr/64m7XrfZBkJ3e11lUYyPLb+t4HSrb2kFJ6CON4s4rcFysJb8dd+cxbsG798i/3MM9zPXladcaKsllieSqlPJM/2eVm1ObLYQAAcJR/AU/5lrl9c2zyAAAAAElFTkSuQmCC"
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
+  "id": "2852637",
+  "name": "uniui图标库",
+  "font_family": "uniicons",
+  "css_prefix_text": "uniui-",
+  "description": "",
+  "glyphs": [
+  {
+    "icon_id": "25027049",
+    "name": "yanse",
+    "font_class": "color",
+    "unicode": "e6cf",
+    "unicode_decimal": 59087 },
 
-/***/ }),
+  {
+    "icon_id": "25027048",
+    "name": "wallet",
+    "font_class": "wallet",
+    "unicode": "e6b1",
+    "unicode_decimal": 59057 },
 
-/***/ 103:
-/*!********************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/考勤.png ***!
-  \********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+  {
+    "icon_id": "25015720",
+    "name": "settings-filled",
+    "font_class": "settings-filled",
+    "unicode": "e6ce",
+    "unicode_decimal": 59086 },
 
-module.exports = "data:image/png;base64,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"
+  {
+    "icon_id": "25015434",
+    "name": "shimingrenzheng-filled",
+    "font_class": "auth-filled",
+    "unicode": "e6cc",
+    "unicode_decimal": 59084 },
 
-/***/ }),
+  {
+    "icon_id": "24934246",
+    "name": "shop-filled",
+    "font_class": "shop-filled",
+    "unicode": "e6cd",
+    "unicode_decimal": 59085 },
 
-/***/ 104:
-/*!*********************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/操作票.png ***!
-  \*********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+  {
+    "icon_id": "24934159",
+    "name": "staff-filled-01",
+    "font_class": "staff-filled",
+    "unicode": "e6cb",
+    "unicode_decimal": 59083 },
 
-module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAAJS0lEQVR4nO2dW3EzvRJFB0IgfBACIRACYSAEgt+mpvMwEAIhEAwhEAzBEHweLP/lk/LIF22pW/FaVfs1kUbeunTrMgwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA0Jxpmt7med6Y2Y+ZHRD6Y9qZ2beZjXcZY1mWl8/PzyVABRBqpZ9pmv7dZA4z2wYoMEKttb9qEEYO9OT6XjXHNE3/AhQQIVetTrXmeX73LhxC3prn+X3NIB/ehUPIW/M8b9YMsvEuHELewiAIZYRBEMoIgyCUEQZBKCMMglBGGAShjDAIQhm1Msh2nucNQq3UlUFW/wlAJTAIQAYMApABgwBkwCAAGTAIQAYMApABgwBkwCAAGTAIQAYMApABgwBkwCCdk26tfJ2P1yuN8/EWmXGaprebrr2ELBikI5ZleUkG2Nrx8u/9Hd9vZ2bf8zxvMM7tYJDgpNGhxm342/R3X73rGBkMEpA0UrxXMEVudBm96x0RDBKMaZreGhrjt34wyv+DQYKQjLF1MsYlozD1GjCIO2cPC92z4G6lL+/v4w0GcSSFaL8DGCGn215J+qNgECfM7NWOi2NvA9yivT3plKsrg5jZblmWl7afSE+KUEWcUl1r5A/vb9eSWfh0RyuDHMzsp+1n0qL86E4m2Xh/wxaY2WjCTixnkBovTG3bfi4NvZvjTKP3t6yJHae/6hF+vPjP0kK0RiN1FWGp9NE99SfXJOlNTXk7ZQMdVm8xOjb7cgWkTqLWN/DS/q9Ft1I71UjS5p+CTkmwKg01rz2OGIROQrmPquv14DmV22m8WgA7Lnpq/PPQPVnFN+L3dtyd+5E6oNdlWV5+b383sy+rO7VbfwO8IyoEkw5mdvj8/FzcC2FB1yMVRs69HXu513vD3ckwX5W+f9frkVrrjrvMcaKiScI1kmn3Vm0VdbRjsEBtlK6nWjVG+aJwuNWZboUK/QrD2/sa6ywTR9WirwXXqLE+luSKKhUsTCOZZvSoug9KHLXZ1SpnTUTtdK5RVrgKScR8OK0RonptW22rEf5IxhblVaFO3FbZZaB2cIT9QlbeK/+03nMmKHOYDupWTJubqtOhVci0uzaSHef2ReU3h4BDaofiNUnkkPs54tlL3TZTT7U8G6l02PZcRynWhb1sZjRhUrBJnU071XLLixTWwz0SJ/jhhJ9mifMebdaK4qmWSyOV1mGapjePcp+TfjxF3z/6NMuEaYambWbCRZNHIxVOr8Js2bDCRGKEQEkO002v2iZIlc72aKSSDx8phyNYE4Yx+yVUHXHz9ZZ4mtW8kQo+/D7aUWIrm6OHXYdYeZTxvzq6TCVNt0+oeSMV/KjC9bil7eBd/jWEEVOfNlOGfFv2yiWL24ihUSuc7kYbEU+osuduU2LxNKtZws0Khu5I648Tgo4q3O7qYdAt0F0jdaaLUY+tylySZIsQ3v1Nabg3oumHQZdv866EZIdpy0iWFUxJIuYNSkfyqKFe00SwfHcuq1zespFK5ratyngvhd9+413+S4gM4ntATHXCq2UjlczZI44gginWxrsOlzDN9N33iLfqWG5HBnlrVc5bsfJ8wehdh0soDPLQWXNxJb4UBmnZSIU9brNy3krpzt7Ai3TFCOKbtzJRKK5lI5UsaiMuaK0wDxJxVBwGWQDId9e16TYtNo3FF/ROETPpRZ1UxHXVMPyRk5Mqg7RupJJyR8s8F7ZB5L1YktmJWwUU5xG8KmFl4emxdXnXEJwsdD/4tYYqAOQ2QgqvA2qezLGyeXuYy9dKw+zuUZ4Mwr1+o0sFTBfBav6DE2Sf3SM/iuOoEeqxhnCvX/tciOpmDc9ezMrm7u6Xrwk6qHBnW36j+o01n2Ypt7p79WKl0xPPkK9oehsuIvcbQSfg01amu9nELYqiGMI9cgiqmz6i5j/OMd3R7nYjvumOQh7Mea+MlYepmx7nTKZWdE5hAg05lGeOmrWTaS/ycl0kinqoJtePph/Ll+i7b2qXV4WqztYipC2+RDjEItE0yc6qV1qKnx0L8d1vRdSJnTRWK2iF131CLBLF16mO6vKlBbnCxAezvkaPE8L615sSC3uwg1msRaJpX0yVvBWyLMtLirQpO6VdT6PHCdOOIvqplvp9BgsyepwwbeDhYHbM7zzSCUzT9FbBGCeN+q/XBnEnNioLNooby+XZgGtYxSeg0w9+nKbp7TS6LMvykqatr/M8v6e9RzXe/v5PPU6vTlR46WwsLlQaOaQ9WeRGqv0DDaKwGxSvYfpObHy4MDXMYcHnwMotNMHVpUkqPOL0WJa9wprj8cI0psajpUHV/Pk4BTWeJ7/rd1nLHNZRr1Xh0dKo2lnA9WAO8Yu/5xqv/vPUe9aYYnTXW9V4tD6oQgZNciST7NTf4mrUscY/7dEcJyqOpuEUKS91C8oTreedRet/KEmaeWLHHMkzLNwP1lmepMZ6cfX3WmHevevdHCdS5/EMIeAuAinnqE2yWn9xdODPmOMc0+0sDa3IuapLKKfCq3VXGqS3D3wPdpxy7bx/xHac9n2l8tQY3bqJOg5D2QXeGKQCdtyC42WUrZ1FniqGPrs4WDUMGCQslXYcXNLezLa5aJPV2U/WRRQSgwTnbMPhTv0Dned5c+uarlL+xv0Wl2tgkI6YpuktjSxbu3902ZvZd2qPhxJ4NbZjmPdbG1fAIJ0zTdO/ZJx3Mxvned4kE40pVPn6qCEuYdpDRgcLfI/vMGAQeABxjgCDYJC/h+l2AoReh2AQeBjT5G5C50UwCBQhyJWM3nXIgUGgmIKbGUOPHsOAQUCI3ZdQ7GJfHQYBKTcmFLswxzBgEKiA5feTffdijmHAIFCRs+Tlxylp6V2me8EgABkwCEAGDAKQAYMAZMAgABkwCECGrgxiZtt03gGhJurNIAh1KQyCUEYYBKGMMAhCGWEQhDLCIAhlhEEQygiDIJQRBkEoIwyCUEY5gzzLy64IrWqe5/eLBhmGYbDneYsPoYvKnsN/oqePEbqk71VznI0iT/FYJUK/tL/poaB0+95XgAIj1Eo/du9NLun6ly9jXYL+pvZ2PLf00cMTcwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAMH4H3Zq+h4o65lFAAAAAElFTkSuQmCC"
+  {
+    "icon_id": "24932461",
+    "name": "VIP-filled",
+    "font_class": "vip-filled",
+    "unicode": "e6c6",
+    "unicode_decimal": 59078 },
 
-/***/ }),
+  {
+    "icon_id": "24932462",
+    "name": "plus_circle_fill",
+    "font_class": "plus-filled",
+    "unicode": "e6c7",
+    "unicode_decimal": 59079 },
 
-/***/ 105:
-/*!**********************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/注册灰色.png ***!
-  \**********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
+  {
+    "icon_id": "24932463",
+    "name": "folder_add-filled",
+    "font_class": "folder-add-filled",
+    "unicode": "e6c8",
+    "unicode_decimal": 59080 },
 
-module.exports = "data:image/png;base64,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"
+  {
+    "icon_id": "24932464",
+    "name": "yanse-filled",
+    "font_class": "color-filled",
+    "unicode": "e6c9",
+    "unicode_decimal": 59081 },
+
+  {
+    "icon_id": "24932465",
+    "name": "tune-filled",
+    "font_class": "tune-filled",
+    "unicode": "e6ca",
+    "unicode_decimal": 59082 },
+
+  {
+    "icon_id": "24932455",
+    "name": "a-rilidaka-filled",
+    "font_class": "calendar-filled",
+    "unicode": "e6c0",
+    "unicode_decimal": 59072 },
+
+  {
+    "icon_id": "24932456",
+    "name": "notification-filled",
+    "font_class": "notification-filled",
+    "unicode": "e6c1",
+    "unicode_decimal": 59073 },
+
+  {
+    "icon_id": "24932457",
+    "name": "wallet-filled",
+    "font_class": "wallet-filled",
+    "unicode": "e6c2",
+    "unicode_decimal": 59074 },
+
+  {
+    "icon_id": "24932458",
+    "name": "paihangbang-filled",
+    "font_class": "medal-filled",
+    "unicode": "e6c3",
+    "unicode_decimal": 59075 },
+
+  {
+    "icon_id": "24932459",
+    "name": "gift-filled",
+    "font_class": "gift-filled",
+    "unicode": "e6c4",
+    "unicode_decimal": 59076 },
+
+  {
+    "icon_id": "24932460",
+    "name": "fire-filled",
+    "font_class": "fire-filled",
+    "unicode": "e6c5",
+    "unicode_decimal": 59077 },
+
+  {
+    "icon_id": "24928001",
+    "name": "refreshempty",
+    "font_class": "refreshempty",
+    "unicode": "e6bf",
+    "unicode_decimal": 59071 },
+
+  {
+    "icon_id": "24926853",
+    "name": "location-ellipse",
+    "font_class": "location-filled",
+    "unicode": "e6af",
+    "unicode_decimal": 59055 },
+
+  {
+    "icon_id": "24926735",
+    "name": "person-filled",
+    "font_class": "person-filled",
+    "unicode": "e69d",
+    "unicode_decimal": 59037 },
+
+  {
+    "icon_id": "24926703",
+    "name": "personadd-filled",
+    "font_class": "personadd-filled",
+    "unicode": "e698",
+    "unicode_decimal": 59032 },
+
+  {
+    "icon_id": "24923351",
+    "name": "back",
+    "font_class": "back",
+    "unicode": "e6b9",
+    "unicode_decimal": 59065 },
+
+  {
+    "icon_id": "24923352",
+    "name": "forward",
+    "font_class": "forward",
+    "unicode": "e6ba",
+    "unicode_decimal": 59066 },
+
+  {
+    "icon_id": "24923353",
+    "name": "arrowthinright",
+    "font_class": "arrow-right",
+    "unicode": "e6bb",
+    "unicode_decimal": 59067 },
+
+  {
+    "icon_id": "24923354",
+    "name": "arrowthinleft",
+    "font_class": "arrow-left",
+    "unicode": "e6bc",
+    "unicode_decimal": 59068 },
+
+  {
+    "icon_id": "24923355",
+    "name": "arrowthinup",
+    "font_class": "arrow-up",
+    "unicode": "e6bd",
+    "unicode_decimal": 59069 },
+
+  {
+    "icon_id": "24923356",
+    "name": "arrowthindown",
+    "font_class": "arrow-down",
+    "unicode": "e6be",
+    "unicode_decimal": 59070 },
+
+  {
+    "icon_id": "24923349",
+    "name": "arrowdown",
+    "font_class": "bottom",
+    "unicode": "e6b8",
+    "unicode_decimal": 59064 },
+
+  {
+    "icon_id": "24923346",
+    "name": "arrowright",
+    "font_class": "right",
+    "unicode": "e6b5",
+    "unicode_decimal": 59061 },
+
+  {
+    "icon_id": "24923347",
+    "name": "arrowup",
+    "font_class": "top",
+    "unicode": "e6b6",
+    "unicode_decimal": 59062 },
+
+  {
+    "icon_id": "24923348",
+    "name": "arrowleft",
+    "font_class": "left",
+    "unicode": "e6b7",
+    "unicode_decimal": 59063 },
+
+  {
+    "icon_id": "24923334",
+    "name": "eye",
+    "font_class": "eye",
+    "unicode": "e651",
+    "unicode_decimal": 58961 },
+
+  {
+    "icon_id": "24923335",
+    "name": "eye-filled",
+    "font_class": "eye-filled",
+    "unicode": "e66a",
+    "unicode_decimal": 58986 },
+
+  {
+    "icon_id": "24923336",
+    "name": "eye-slash",
+    "font_class": "eye-slash",
+    "unicode": "e6b3",
+    "unicode_decimal": 59059 },
+
+  {
+    "icon_id": "24923337",
+    "name": "eye-slash-filled",
+    "font_class": "eye-slash-filled",
+    "unicode": "e6b4",
+    "unicode_decimal": 59060 },
+
+  {
+    "icon_id": "24923305",
+    "name": "info-filled",
+    "font_class": "info-filled",
+    "unicode": "e649",
+    "unicode_decimal": 58953 },
+
+  {
+    "icon_id": "24923299",
+    "name": "reload-01",
+    "font_class": "reload",
+    "unicode": "e6b2",
+    "unicode_decimal": 59058 },
+
+  {
+    "icon_id": "24923195",
+    "name": "mic_slash_fill",
+    "font_class": "micoff-filled",
+    "unicode": "e6b0",
+    "unicode_decimal": 59056 },
+
+  {
+    "icon_id": "24923165",
+    "name": "map-pin-ellipse",
+    "font_class": "map-pin-ellipse",
+    "unicode": "e6ac",
+    "unicode_decimal": 59052 },
+
+  {
+    "icon_id": "24923166",
+    "name": "map-pin",
+    "font_class": "map-pin",
+    "unicode": "e6ad",
+    "unicode_decimal": 59053 },
+
+  {
+    "icon_id": "24923167",
+    "name": "location",
+    "font_class": "location",
+    "unicode": "e6ae",
+    "unicode_decimal": 59054 },
+
+  {
+    "icon_id": "24923064",
+    "name": "starhalf",
+    "font_class": "starhalf",
+    "unicode": "e683",
+    "unicode_decimal": 59011 },
+
+  {
+    "icon_id": "24923065",
+    "name": "star",
+    "font_class": "star",
+    "unicode": "e688",
+    "unicode_decimal": 59016 },
+
+  {
+    "icon_id": "24923066",
+    "name": "star-filled",
+    "font_class": "star-filled",
+    "unicode": "e68f",
+    "unicode_decimal": 59023 },
+
+  {
+    "icon_id": "24899646",
+    "name": "a-rilidaka",
+    "font_class": "calendar",
+    "unicode": "e6a0",
+    "unicode_decimal": 59040 },
+
+  {
+    "icon_id": "24899647",
+    "name": "fire",
+    "font_class": "fire",
+    "unicode": "e6a1",
+    "unicode_decimal": 59041 },
+
+  {
+    "icon_id": "24899648",
+    "name": "paihangbang",
+    "font_class": "medal",
+    "unicode": "e6a2",
+    "unicode_decimal": 59042 },
+
+  {
+    "icon_id": "24899649",
+    "name": "font",
+    "font_class": "font",
+    "unicode": "e6a3",
+    "unicode_decimal": 59043 },
+
+  {
+    "icon_id": "24899650",
+    "name": "gift",
+    "font_class": "gift",
+    "unicode": "e6a4",
+    "unicode_decimal": 59044 },
+
+  {
+    "icon_id": "24899651",
+    "name": "link",
+    "font_class": "link",
+    "unicode": "e6a5",
+    "unicode_decimal": 59045 },
+
+  {
+    "icon_id": "24899652",
+    "name": "notification",
+    "font_class": "notification",
+    "unicode": "e6a6",
+    "unicode_decimal": 59046 },
+
+  {
+    "icon_id": "24899653",
+    "name": "staff",
+    "font_class": "staff",
+    "unicode": "e6a7",
+    "unicode_decimal": 59047 },
+
+  {
+    "icon_id": "24899654",
+    "name": "VIP",
+    "font_class": "vip",
+    "unicode": "e6a8",
+    "unicode_decimal": 59048 },
+
+  {
+    "icon_id": "24899655",
+    "name": "folder_add",
+    "font_class": "folder-add",
+    "unicode": "e6a9",
+    "unicode_decimal": 59049 },
+
+  {
+    "icon_id": "24899656",
+    "name": "tune",
+    "font_class": "tune",
+    "unicode": "e6aa",
+    "unicode_decimal": 59050 },
+
+  {
+    "icon_id": "24899657",
+    "name": "shimingrenzheng",
+    "font_class": "auth",
+    "unicode": "e6ab",
+    "unicode_decimal": 59051 },
+
+  {
+    "icon_id": "24899565",
+    "name": "person",
+    "font_class": "person",
+    "unicode": "e699",
+    "unicode_decimal": 59033 },
+
+  {
+    "icon_id": "24899566",
+    "name": "email-filled",
+    "font_class": "email-filled",
+    "unicode": "e69a",
+    "unicode_decimal": 59034 },
+
+  {
+    "icon_id": "24899567",
+    "name": "phone-filled",
+    "font_class": "phone-filled",
+    "unicode": "e69b",
+    "unicode_decimal": 59035 },
+
+  {
+    "icon_id": "24899568",
+    "name": "phone",
+    "font_class": "phone",
+    "unicode": "e69c",
+    "unicode_decimal": 59036 },
+
+  {
+    "icon_id": "24899570",
+    "name": "email",
+    "font_class": "email",
+    "unicode": "e69e",
+    "unicode_decimal": 59038 },
+
+  {
+    "icon_id": "24899571",
+    "name": "personadd",
+    "font_class": "personadd",
+    "unicode": "e69f",
+    "unicode_decimal": 59039 },
+
+  {
+    "icon_id": "24899558",
+    "name": "chatboxes-filled",
+    "font_class": "chatboxes-filled",
+    "unicode": "e692",
+    "unicode_decimal": 59026 },
+
+  {
+    "icon_id": "24899559",
+    "name": "contact",
+    "font_class": "contact",
+    "unicode": "e693",
+    "unicode_decimal": 59027 },
+
+  {
+    "icon_id": "24899560",
+    "name": "chatbubble-filled",
+    "font_class": "chatbubble-filled",
+    "unicode": "e694",
+    "unicode_decimal": 59028 },
+
+  {
+    "icon_id": "24899561",
+    "name": "contact-filled",
+    "font_class": "contact-filled",
+    "unicode": "e695",
+    "unicode_decimal": 59029 },
+
+  {
+    "icon_id": "24899562",
+    "name": "chatboxes",
+    "font_class": "chatboxes",
+    "unicode": "e696",
+    "unicode_decimal": 59030 },
+
+  {
+    "icon_id": "24899563",
+    "name": "chatbubble",
+    "font_class": "chatbubble",
+    "unicode": "e697",
+    "unicode_decimal": 59031 },
+
+  {
+    "icon_id": "24881290",
+    "name": "upload-filled",
+    "font_class": "upload-filled",
+    "unicode": "e68e",
+    "unicode_decimal": 59022 },
+
+  {
+    "icon_id": "24881292",
+    "name": "upload",
+    "font_class": "upload",
+    "unicode": "e690",
+    "unicode_decimal": 59024 },
+
+  {
+    "icon_id": "24881293",
+    "name": "weixin",
+    "font_class": "weixin",
+    "unicode": "e691",
+    "unicode_decimal": 59025 },
+
+  {
+    "icon_id": "24881274",
+    "name": "compose",
+    "font_class": "compose",
+    "unicode": "e67f",
+    "unicode_decimal": 59007 },
+
+  {
+    "icon_id": "24881275",
+    "name": "qq",
+    "font_class": "qq",
+    "unicode": "e680",
+    "unicode_decimal": 59008 },
+
+  {
+    "icon_id": "24881276",
+    "name": "download-filled",
+    "font_class": "download-filled",
+    "unicode": "e681",
+    "unicode_decimal": 59009 },
+
+  {
+    "icon_id": "24881277",
+    "name": "pengyouquan",
+    "font_class": "pyq",
+    "unicode": "e682",
+    "unicode_decimal": 59010 },
+
+  {
+    "icon_id": "24881279",
+    "name": "sound",
+    "font_class": "sound",
+    "unicode": "e684",
+    "unicode_decimal": 59012 },
+
+  {
+    "icon_id": "24881280",
+    "name": "trash-filled",
+    "font_class": "trash-filled",
+    "unicode": "e685",
+    "unicode_decimal": 59013 },
+
+  {
+    "icon_id": "24881281",
+    "name": "sound-filled",
+    "font_class": "sound-filled",
+    "unicode": "e686",
+    "unicode_decimal": 59014 },
+
+  {
+    "icon_id": "24881282",
+    "name": "trash",
+    "font_class": "trash",
+    "unicode": "e687",
+    "unicode_decimal": 59015 },
+
+  {
+    "icon_id": "24881284",
+    "name": "videocam-filled",
+    "font_class": "videocam-filled",
+    "unicode": "e689",
+    "unicode_decimal": 59017 },
+
+  {
+    "icon_id": "24881285",
+    "name": "spinner-cycle",
+    "font_class": "spinner-cycle",
+    "unicode": "e68a",
+    "unicode_decimal": 59018 },
+
+  {
+    "icon_id": "24881286",
+    "name": "weibo",
+    "font_class": "weibo",
+    "unicode": "e68b",
+    "unicode_decimal": 59019 },
+
+  {
+    "icon_id": "24881288",
+    "name": "videocam",
+    "font_class": "videocam",
+    "unicode": "e68c",
+    "unicode_decimal": 59020 },
+
+  {
+    "icon_id": "24881289",
+    "name": "download",
+    "font_class": "download",
+    "unicode": "e68d",
+    "unicode_decimal": 59021 },
+
+  {
+    "icon_id": "24879601",
+    "name": "help",
+    "font_class": "help",
+    "unicode": "e679",
+    "unicode_decimal": 59001 },
+
+  {
+    "icon_id": "24879602",
+    "name": "navigate-filled",
+    "font_class": "navigate-filled",
+    "unicode": "e67a",
+    "unicode_decimal": 59002 },
+
+  {
+    "icon_id": "24879603",
+    "name": "plusempty",
+    "font_class": "plusempty",
+    "unicode": "e67b",
+    "unicode_decimal": 59003 },
+
+  {
+    "icon_id": "24879604",
+    "name": "smallcircle",
+    "font_class": "smallcircle",
+    "unicode": "e67c",
+    "unicode_decimal": 59004 },
+
+  {
+    "icon_id": "24879605",
+    "name": "minus-filled",
+    "font_class": "minus-filled",
+    "unicode": "e67d",
+    "unicode_decimal": 59005 },
+
+  {
+    "icon_id": "24879606",
+    "name": "micoff",
+    "font_class": "micoff",
+    "unicode": "e67e",
+    "unicode_decimal": 59006 },
+
+  {
+    "icon_id": "24879588",
+    "name": "closeempty",
+    "font_class": "closeempty",
+    "unicode": "e66c",
+    "unicode_decimal": 58988 },
+
+  {
+    "icon_id": "24879589",
+    "name": "clear",
+    "font_class": "clear",
+    "unicode": "e66d",
+    "unicode_decimal": 58989 },
+
+  {
+    "icon_id": "24879590",
+    "name": "navigate",
+    "font_class": "navigate",
+    "unicode": "e66e",
+    "unicode_decimal": 58990 },
+
+  {
+    "icon_id": "24879591",
+    "name": "minus",
+    "font_class": "minus",
+    "unicode": "e66f",
+    "unicode_decimal": 58991 },
+
+  {
+    "icon_id": "24879592",
+    "name": "image",
+    "font_class": "image",
+    "unicode": "e670",
+    "unicode_decimal": 58992 },
+
+  {
+    "icon_id": "24879593",
+    "name": "mic",
+    "font_class": "mic",
+    "unicode": "e671",
+    "unicode_decimal": 58993 },
+
+  {
+    "icon_id": "24879594",
+    "name": "paperplane",
+    "font_class": "paperplane",
+    "unicode": "e672",
+    "unicode_decimal": 58994 },
+
+  {
+    "icon_id": "24879595",
+    "name": "close",
+    "font_class": "close",
+    "unicode": "e673",
+    "unicode_decimal": 58995 },
+
+  {
+    "icon_id": "24879596",
+    "name": "help-filled",
+    "font_class": "help-filled",
+    "unicode": "e674",
+    "unicode_decimal": 58996 },
+
+  {
+    "icon_id": "24879597",
+    "name": "plus-filled",
+    "font_class": "paperplane-filled",
+    "unicode": "e675",
+    "unicode_decimal": 58997 },
+
+  {
+    "icon_id": "24879598",
+    "name": "plus",
+    "font_class": "plus",
+    "unicode": "e676",
+    "unicode_decimal": 58998 },
+
+  {
+    "icon_id": "24879599",
+    "name": "mic-filled",
+    "font_class": "mic-filled",
+    "unicode": "e677",
+    "unicode_decimal": 58999 },
+
+  {
+    "icon_id": "24879600",
+    "name": "image-filled",
+    "font_class": "image-filled",
+    "unicode": "e678",
+    "unicode_decimal": 59000 },
+
+  {
+    "icon_id": "24855900",
+    "name": "locked-filled",
+    "font_class": "locked-filled",
+    "unicode": "e668",
+    "unicode_decimal": 58984 },
+
+  {
+    "icon_id": "24855901",
+    "name": "info",
+    "font_class": "info",
+    "unicode": "e669",
+    "unicode_decimal": 58985 },
+
+  {
+    "icon_id": "24855903",
+    "name": "locked",
+    "font_class": "locked",
+    "unicode": "e66b",
+    "unicode_decimal": 58987 },
+
+  {
+    "icon_id": "24855884",
+    "name": "camera-filled",
+    "font_class": "camera-filled",
+    "unicode": "e658",
+    "unicode_decimal": 58968 },
+
+  {
+    "icon_id": "24855885",
+    "name": "chat-filled",
+    "font_class": "chat-filled",
+    "unicode": "e659",
+    "unicode_decimal": 58969 },
+
+  {
+    "icon_id": "24855886",
+    "name": "camera",
+    "font_class": "camera",
+    "unicode": "e65a",
+    "unicode_decimal": 58970 },
+
+  {
+    "icon_id": "24855887",
+    "name": "circle",
+    "font_class": "circle",
+    "unicode": "e65b",
+    "unicode_decimal": 58971 },
+
+  {
+    "icon_id": "24855888",
+    "name": "checkmarkempty",
+    "font_class": "checkmarkempty",
+    "unicode": "e65c",
+    "unicode_decimal": 58972 },
+
+  {
+    "icon_id": "24855889",
+    "name": "chat",
+    "font_class": "chat",
+    "unicode": "e65d",
+    "unicode_decimal": 58973 },
+
+  {
+    "icon_id": "24855890",
+    "name": "circle-filled",
+    "font_class": "circle-filled",
+    "unicode": "e65e",
+    "unicode_decimal": 58974 },
+
+  {
+    "icon_id": "24855891",
+    "name": "flag",
+    "font_class": "flag",
+    "unicode": "e65f",
+    "unicode_decimal": 58975 },
+
+  {
+    "icon_id": "24855892",
+    "name": "flag-filled",
+    "font_class": "flag-filled",
+    "unicode": "e660",
+    "unicode_decimal": 58976 },
+
+  {
+    "icon_id": "24855893",
+    "name": "gear-filled",
+    "font_class": "gear-filled",
+    "unicode": "e661",
+    "unicode_decimal": 58977 },
+
+  {
+    "icon_id": "24855894",
+    "name": "home",
+    "font_class": "home",
+    "unicode": "e662",
+    "unicode_decimal": 58978 },
+
+  {
+    "icon_id": "24855895",
+    "name": "home-filled",
+    "font_class": "home-filled",
+    "unicode": "e663",
+    "unicode_decimal": 58979 },
+
+  {
+    "icon_id": "24855896",
+    "name": "gear",
+    "font_class": "gear",
+    "unicode": "e664",
+    "unicode_decimal": 58980 },
+
+  {
+    "icon_id": "24855897",
+    "name": "smallcircle-filled",
+    "font_class": "smallcircle-filled",
+    "unicode": "e665",
+    "unicode_decimal": 58981 },
+
+  {
+    "icon_id": "24855898",
+    "name": "map-filled",
+    "font_class": "map-filled",
+    "unicode": "e666",
+    "unicode_decimal": 58982 },
+
+  {
+    "icon_id": "24855899",
+    "name": "map",
+    "font_class": "map",
+    "unicode": "e667",
+    "unicode_decimal": 58983 },
+
+  {
+    "icon_id": "24855825",
+    "name": "refresh-filled",
+    "font_class": "refresh-filled",
+    "unicode": "e656",
+    "unicode_decimal": 58966 },
+
+  {
+    "icon_id": "24855826",
+    "name": "refresh",
+    "font_class": "refresh",
+    "unicode": "e657",
+    "unicode_decimal": 58967 },
+
+  {
+    "icon_id": "24855808",
+    "name": "cloud-upload",
+    "font_class": "cloud-upload",
+    "unicode": "e645",
+    "unicode_decimal": 58949 },
+
+  {
+    "icon_id": "24855809",
+    "name": "cloud-download-filled",
+    "font_class": "cloud-download-filled",
+    "unicode": "e646",
+    "unicode_decimal": 58950 },
+
+  {
+    "icon_id": "24855810",
+    "name": "cloud-download",
+    "font_class": "cloud-download",
+    "unicode": "e647",
+    "unicode_decimal": 58951 },
+
+  {
+    "icon_id": "24855811",
+    "name": "cloud-upload-filled",
+    "font_class": "cloud-upload-filled",
+    "unicode": "e648",
+    "unicode_decimal": 58952 },
+
+  {
+    "icon_id": "24855813",
+    "name": "redo",
+    "font_class": "redo",
+    "unicode": "e64a",
+    "unicode_decimal": 58954 },
+
+  {
+    "icon_id": "24855814",
+    "name": "images-filled",
+    "font_class": "images-filled",
+    "unicode": "e64b",
+    "unicode_decimal": 58955 },
+
+  {
+    "icon_id": "24855815",
+    "name": "undo-filled",
+    "font_class": "undo-filled",
+    "unicode": "e64c",
+    "unicode_decimal": 58956 },
+
+  {
+    "icon_id": "24855816",
+    "name": "more",
+    "font_class": "more",
+    "unicode": "e64d",
+    "unicode_decimal": 58957 },
+
+  {
+    "icon_id": "24855817",
+    "name": "more-filled",
+    "font_class": "more-filled",
+    "unicode": "e64e",
+    "unicode_decimal": 58958 },
+
+  {
+    "icon_id": "24855818",
+    "name": "undo",
+    "font_class": "undo",
+    "unicode": "e64f",
+    "unicode_decimal": 58959 },
+
+  {
+    "icon_id": "24855819",
+    "name": "images",
+    "font_class": "images",
+    "unicode": "e650",
+    "unicode_decimal": 58960 },
+
+  {
+    "icon_id": "24855821",
+    "name": "paperclip",
+    "font_class": "paperclip",
+    "unicode": "e652",
+    "unicode_decimal": 58962 },
+
+  {
+    "icon_id": "24855822",
+    "name": "settings",
+    "font_class": "settings",
+    "unicode": "e653",
+    "unicode_decimal": 58963 },
+
+  {
+    "icon_id": "24855823",
+    "name": "search",
+    "font_class": "search",
+    "unicode": "e654",
+    "unicode_decimal": 58964 },
+
+  {
+    "icon_id": "24855824",
+    "name": "redo-filled",
+    "font_class": "redo-filled",
+    "unicode": "e655",
+    "unicode_decimal": 58965 },
+
+  {
+    "icon_id": "24841702",
+    "name": "list",
+    "font_class": "list",
+    "unicode": "e644",
+    "unicode_decimal": 58948 },
+
+  {
+    "icon_id": "24841489",
+    "name": "mail-open-filled",
+    "font_class": "mail-open-filled",
+    "unicode": "e63a",
+    "unicode_decimal": 58938 },
+
+  {
+    "icon_id": "24841491",
+    "name": "hand-thumbsdown-filled",
+    "font_class": "hand-down-filled",
+    "unicode": "e63c",
+    "unicode_decimal": 58940 },
+
+  {
+    "icon_id": "24841492",
+    "name": "hand-thumbsdown",
+    "font_class": "hand-down",
+    "unicode": "e63d",
+    "unicode_decimal": 58941 },
+
+  {
+    "icon_id": "24841493",
+    "name": "hand-thumbsup-filled",
+    "font_class": "hand-up-filled",
+    "unicode": "e63e",
+    "unicode_decimal": 58942 },
+
+  {
+    "icon_id": "24841494",
+    "name": "hand-thumbsup",
+    "font_class": "hand-up",
+    "unicode": "e63f",
+    "unicode_decimal": 58943 },
+
+  {
+    "icon_id": "24841496",
+    "name": "heart-filled",
+    "font_class": "heart-filled",
+    "unicode": "e641",
+    "unicode_decimal": 58945 },
+
+  {
+    "icon_id": "24841498",
+    "name": "mail-open",
+    "font_class": "mail-open",
+    "unicode": "e643",
+    "unicode_decimal": 58947 },
+
+  {
+    "icon_id": "24841488",
+    "name": "heart",
+    "font_class": "heart",
+    "unicode": "e639",
+    "unicode_decimal": 58937 },
+
+  {
+    "icon_id": "24839963",
+    "name": "loop",
+    "font_class": "loop",
+    "unicode": "e633",
+    "unicode_decimal": 58931 },
+
+  {
+    "icon_id": "24839866",
+    "name": "pulldown",
+    "font_class": "pulldown",
+    "unicode": "e632",
+    "unicode_decimal": 58930 },
+
+  {
+    "icon_id": "24813798",
+    "name": "scan",
+    "font_class": "scan",
+    "unicode": "e62a",
+    "unicode_decimal": 58922 },
+
+  {
+    "icon_id": "24813786",
+    "name": "bars",
+    "font_class": "bars",
+    "unicode": "e627",
+    "unicode_decimal": 58919 },
+
+  {
+    "icon_id": "24813788",
+    "name": "cart-filled",
+    "font_class": "cart-filled",
+    "unicode": "e629",
+    "unicode_decimal": 58921 },
+
+  {
+    "icon_id": "24813790",
+    "name": "checkbox",
+    "font_class": "checkbox",
+    "unicode": "e62b",
+    "unicode_decimal": 58923 },
+
+  {
+    "icon_id": "24813791",
+    "name": "checkbox-filled",
+    "font_class": "checkbox-filled",
+    "unicode": "e62c",
+    "unicode_decimal": 58924 },
+
+  {
+    "icon_id": "24813794",
+    "name": "shop",
+    "font_class": "shop",
+    "unicode": "e62f",
+    "unicode_decimal": 58927 },
+
+  {
+    "icon_id": "24813795",
+    "name": "headphones",
+    "font_class": "headphones",
+    "unicode": "e630",
+    "unicode_decimal": 58928 },
+
+  {
+    "icon_id": "24813796",
+    "name": "cart",
+    "font_class": "cart",
+    "unicode": "e631",
+    "unicode_decimal": 58929 }] };exports.default = _default;
 
 /***/ }),
 
@@ -2433,6 +3512,7 @@ var apiResquest = function apiResquest(prams) {//prams 为我们需要调用的�
 
 
 
+
           }
 
           resolve(res);
@@ -2456,32 +3536,47 @@ var apiResquest = function apiResquest(prams) {//prams 为我们需要调用的�
 
 /***/ }),
 
-/***/ 113:
-/*!**************************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/models/userModel.js ***!
-  \**************************************************************************************************/
+/***/ 116:
+/*!***********************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/采集盒列表.png ***!
+  \***********************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.getAvatar = exports.postAvatar = void 0;var _http = __webpack_require__(/*! ../units/net/http.js */ 11);
+module.exports = "data:image/png;base64,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"
 
+/***/ }),
 
+/***/ 117:
+/*!********************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/考勤.png ***!
+  \********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-var postAvatar = function postAvatar(query) {
-  return (0, _http.apiResquest)({
-    url: '/worker/face',
-    method: 'POST',
-    query: query });
+module.exports = "data:image/png;base64,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"
 
-};exports.postAvatar = postAvatar;
+/***/ }),
 
-var getAvatar = function getAvatar(query) {
-  return (0, _http.apiResquest)({
-    url: '/worker/face',
-    method: 'GET' });
+/***/ 118:
+/*!*********************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/操作票.png ***!
+  \*********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
 
-};exports.getAvatar = getAvatar;
+module.exports = "data:image/png;base64,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"
+
+/***/ }),
+
+/***/ 119:
+/*!**********************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/注册灰色.png ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,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"
 
 /***/ }),
 
@@ -2500,7 +3595,51 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.config = v
 
 /***/ }),
 
-/***/ 121:
+/***/ 127:
+/*!**************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/models/userModel.js ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.postWorkerInfo = exports.getWorkerInfo = exports.getAvatar = exports.postAvatar = void 0;var _http = __webpack_require__(/*! ../units/net/http.js */ 11);
+
+
+// 上传头像
+var postAvatar = function postAvatar(query) {
+  return (0, _http.apiResquest)({
+    url: '/worker/face',
+    method: 'POST',
+    query: query });
+
+};
+//获取头像
+exports.postAvatar = postAvatar;var getAvatar = function getAvatar(query) {
+  return (0, _http.apiResquest)({
+    url: '/worker/face',
+    method: 'GET' });
+
+};
+// 获取用户信息
+exports.getAvatar = getAvatar;var getWorkerInfo = function getWorkerInfo(query) {
+  return (0, _http.apiResquest)({
+    url: '/user/information',
+    method: 'GET' });
+
+};
+//长传用户信息
+exports.getWorkerInfo = getWorkerInfo;var postWorkerInfo = function postWorkerInfo(query) {
+  return (0, _http.apiResquest)({
+    url: '/user/information',
+    method: 'POST',
+    query: query });
+
+};exports.postWorkerInfo = postWorkerInfo;
+
+/***/ }),
+
+/***/ 135:
 /*!***********************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/index.js ***!
   \***********************************************************************************************************************************************************/
@@ -2508,9 +3647,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.config = v
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 122));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 123));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 124));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 136));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 137));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 138));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -2518,7 +3657,7 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 1
 
 /***/ }),
 
-/***/ 122:
+/***/ 136:
 /*!**********************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/en.json ***!
   \**********************************************************************************************************************************************************/
@@ -2529,7 +3668,7 @@ module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"select date\"
 
 /***/ }),
 
-/***/ 123:
+/***/ 137:
 /*!***************************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hans.json ***!
   \***************************************************************************************************************************************************************/
@@ -2540,7 +3679,7 @@ module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"选择日期\
 
 /***/ }),
 
-/***/ 124:
+/***/ 138:
 /*!***************************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hant.json ***!
   \***************************************************************************************************************************************************************/
@@ -2680,7 +3819,7 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 153:
+/***/ 167:
 /*!*****************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/util.js ***!
   \*****************************************************************************************************************************************************/
@@ -3129,6 +4268,24 @@ try {
 
 module.exports = g;
 
+
+/***/ }),
+
+/***/ 253:
+/*!************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/units/net/uuid.js ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = uuid;
+function uuid() {
+  function S4() {
+    return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
+  }
+  return S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4();
+}
 
 /***/ }),
 
@@ -9658,7 +10815,7 @@ function resolveLocaleChain(locale) {
 
 /***/ }),
 
-/***/ 62:
+/***/ 76:
 /*!************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/units/net/time.js ***!
   \************************************************************************************************/
@@ -9753,1129 +10910,6 @@ var _default = function _default() {
 
 };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
-
-/***/ }),
-
-/***/ 94:
-/*!**********************************************************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-icons/components/uni-icons/icons.js ***!
-  \**********************************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _default = {
-  "id": "2852637",
-  "name": "uniui图标库",
-  "font_family": "uniicons",
-  "css_prefix_text": "uniui-",
-  "description": "",
-  "glyphs": [
-  {
-    "icon_id": "25027049",
-    "name": "yanse",
-    "font_class": "color",
-    "unicode": "e6cf",
-    "unicode_decimal": 59087 },
-
-  {
-    "icon_id": "25027048",
-    "name": "wallet",
-    "font_class": "wallet",
-    "unicode": "e6b1",
-    "unicode_decimal": 59057 },
-
-  {
-    "icon_id": "25015720",
-    "name": "settings-filled",
-    "font_class": "settings-filled",
-    "unicode": "e6ce",
-    "unicode_decimal": 59086 },
-
-  {
-    "icon_id": "25015434",
-    "name": "shimingrenzheng-filled",
-    "font_class": "auth-filled",
-    "unicode": "e6cc",
-    "unicode_decimal": 59084 },
-
-  {
-    "icon_id": "24934246",
-    "name": "shop-filled",
-    "font_class": "shop-filled",
-    "unicode": "e6cd",
-    "unicode_decimal": 59085 },
-
-  {
-    "icon_id": "24934159",
-    "name": "staff-filled-01",
-    "font_class": "staff-filled",
-    "unicode": "e6cb",
-    "unicode_decimal": 59083 },
-
-  {
-    "icon_id": "24932461",
-    "name": "VIP-filled",
-    "font_class": "vip-filled",
-    "unicode": "e6c6",
-    "unicode_decimal": 59078 },
-
-  {
-    "icon_id": "24932462",
-    "name": "plus_circle_fill",
-    "font_class": "plus-filled",
-    "unicode": "e6c7",
-    "unicode_decimal": 59079 },
-
-  {
-    "icon_id": "24932463",
-    "name": "folder_add-filled",
-    "font_class": "folder-add-filled",
-    "unicode": "e6c8",
-    "unicode_decimal": 59080 },
-
-  {
-    "icon_id": "24932464",
-    "name": "yanse-filled",
-    "font_class": "color-filled",
-    "unicode": "e6c9",
-    "unicode_decimal": 59081 },
-
-  {
-    "icon_id": "24932465",
-    "name": "tune-filled",
-    "font_class": "tune-filled",
-    "unicode": "e6ca",
-    "unicode_decimal": 59082 },
-
-  {
-    "icon_id": "24932455",
-    "name": "a-rilidaka-filled",
-    "font_class": "calendar-filled",
-    "unicode": "e6c0",
-    "unicode_decimal": 59072 },
-
-  {
-    "icon_id": "24932456",
-    "name": "notification-filled",
-    "font_class": "notification-filled",
-    "unicode": "e6c1",
-    "unicode_decimal": 59073 },
-
-  {
-    "icon_id": "24932457",
-    "name": "wallet-filled",
-    "font_class": "wallet-filled",
-    "unicode": "e6c2",
-    "unicode_decimal": 59074 },
-
-  {
-    "icon_id": "24932458",
-    "name": "paihangbang-filled",
-    "font_class": "medal-filled",
-    "unicode": "e6c3",
-    "unicode_decimal": 59075 },
-
-  {
-    "icon_id": "24932459",
-    "name": "gift-filled",
-    "font_class": "gift-filled",
-    "unicode": "e6c4",
-    "unicode_decimal": 59076 },
-
-  {
-    "icon_id": "24932460",
-    "name": "fire-filled",
-    "font_class": "fire-filled",
-    "unicode": "e6c5",
-    "unicode_decimal": 59077 },
-
-  {
-    "icon_id": "24928001",
-    "name": "refreshempty",
-    "font_class": "refreshempty",
-    "unicode": "e6bf",
-    "unicode_decimal": 59071 },
-
-  {
-    "icon_id": "24926853",
-    "name": "location-ellipse",
-    "font_class": "location-filled",
-    "unicode": "e6af",
-    "unicode_decimal": 59055 },
-
-  {
-    "icon_id": "24926735",
-    "name": "person-filled",
-    "font_class": "person-filled",
-    "unicode": "e69d",
-    "unicode_decimal": 59037 },
-
-  {
-    "icon_id": "24926703",
-    "name": "personadd-filled",
-    "font_class": "personadd-filled",
-    "unicode": "e698",
-    "unicode_decimal": 59032 },
-
-  {
-    "icon_id": "24923351",
-    "name": "back",
-    "font_class": "back",
-    "unicode": "e6b9",
-    "unicode_decimal": 59065 },
-
-  {
-    "icon_id": "24923352",
-    "name": "forward",
-    "font_class": "forward",
-    "unicode": "e6ba",
-    "unicode_decimal": 59066 },
-
-  {
-    "icon_id": "24923353",
-    "name": "arrowthinright",
-    "font_class": "arrow-right",
-    "unicode": "e6bb",
-    "unicode_decimal": 59067 },
-
-  {
-    "icon_id": "24923354",
-    "name": "arrowthinleft",
-    "font_class": "arrow-left",
-    "unicode": "e6bc",
-    "unicode_decimal": 59068 },
-
-  {
-    "icon_id": "24923355",
-    "name": "arrowthinup",
-    "font_class": "arrow-up",
-    "unicode": "e6bd",
-    "unicode_decimal": 59069 },
-
-  {
-    "icon_id": "24923356",
-    "name": "arrowthindown",
-    "font_class": "arrow-down",
-    "unicode": "e6be",
-    "unicode_decimal": 59070 },
-
-  {
-    "icon_id": "24923349",
-    "name": "arrowdown",
-    "font_class": "bottom",
-    "unicode": "e6b8",
-    "unicode_decimal": 59064 },
-
-  {
-    "icon_id": "24923346",
-    "name": "arrowright",
-    "font_class": "right",
-    "unicode": "e6b5",
-    "unicode_decimal": 59061 },
-
-  {
-    "icon_id": "24923347",
-    "name": "arrowup",
-    "font_class": "top",
-    "unicode": "e6b6",
-    "unicode_decimal": 59062 },
-
-  {
-    "icon_id": "24923348",
-    "name": "arrowleft",
-    "font_class": "left",
-    "unicode": "e6b7",
-    "unicode_decimal": 59063 },
-
-  {
-    "icon_id": "24923334",
-    "name": "eye",
-    "font_class": "eye",
-    "unicode": "e651",
-    "unicode_decimal": 58961 },
-
-  {
-    "icon_id": "24923335",
-    "name": "eye-filled",
-    "font_class": "eye-filled",
-    "unicode": "e66a",
-    "unicode_decimal": 58986 },
-
-  {
-    "icon_id": "24923336",
-    "name": "eye-slash",
-    "font_class": "eye-slash",
-    "unicode": "e6b3",
-    "unicode_decimal": 59059 },
-
-  {
-    "icon_id": "24923337",
-    "name": "eye-slash-filled",
-    "font_class": "eye-slash-filled",
-    "unicode": "e6b4",
-    "unicode_decimal": 59060 },
-
-  {
-    "icon_id": "24923305",
-    "name": "info-filled",
-    "font_class": "info-filled",
-    "unicode": "e649",
-    "unicode_decimal": 58953 },
-
-  {
-    "icon_id": "24923299",
-    "name": "reload-01",
-    "font_class": "reload",
-    "unicode": "e6b2",
-    "unicode_decimal": 59058 },
-
-  {
-    "icon_id": "24923195",
-    "name": "mic_slash_fill",
-    "font_class": "micoff-filled",
-    "unicode": "e6b0",
-    "unicode_decimal": 59056 },
-
-  {
-    "icon_id": "24923165",
-    "name": "map-pin-ellipse",
-    "font_class": "map-pin-ellipse",
-    "unicode": "e6ac",
-    "unicode_decimal": 59052 },
-
-  {
-    "icon_id": "24923166",
-    "name": "map-pin",
-    "font_class": "map-pin",
-    "unicode": "e6ad",
-    "unicode_decimal": 59053 },
-
-  {
-    "icon_id": "24923167",
-    "name": "location",
-    "font_class": "location",
-    "unicode": "e6ae",
-    "unicode_decimal": 59054 },
-
-  {
-    "icon_id": "24923064",
-    "name": "starhalf",
-    "font_class": "starhalf",
-    "unicode": "e683",
-    "unicode_decimal": 59011 },
-
-  {
-    "icon_id": "24923065",
-    "name": "star",
-    "font_class": "star",
-    "unicode": "e688",
-    "unicode_decimal": 59016 },
-
-  {
-    "icon_id": "24923066",
-    "name": "star-filled",
-    "font_class": "star-filled",
-    "unicode": "e68f",
-    "unicode_decimal": 59023 },
-
-  {
-    "icon_id": "24899646",
-    "name": "a-rilidaka",
-    "font_class": "calendar",
-    "unicode": "e6a0",
-    "unicode_decimal": 59040 },
-
-  {
-    "icon_id": "24899647",
-    "name": "fire",
-    "font_class": "fire",
-    "unicode": "e6a1",
-    "unicode_decimal": 59041 },
-
-  {
-    "icon_id": "24899648",
-    "name": "paihangbang",
-    "font_class": "medal",
-    "unicode": "e6a2",
-    "unicode_decimal": 59042 },
-
-  {
-    "icon_id": "24899649",
-    "name": "font",
-    "font_class": "font",
-    "unicode": "e6a3",
-    "unicode_decimal": 59043 },
-
-  {
-    "icon_id": "24899650",
-    "name": "gift",
-    "font_class": "gift",
-    "unicode": "e6a4",
-    "unicode_decimal": 59044 },
-
-  {
-    "icon_id": "24899651",
-    "name": "link",
-    "font_class": "link",
-    "unicode": "e6a5",
-    "unicode_decimal": 59045 },
-
-  {
-    "icon_id": "24899652",
-    "name": "notification",
-    "font_class": "notification",
-    "unicode": "e6a6",
-    "unicode_decimal": 59046 },
-
-  {
-    "icon_id": "24899653",
-    "name": "staff",
-    "font_class": "staff",
-    "unicode": "e6a7",
-    "unicode_decimal": 59047 },
-
-  {
-    "icon_id": "24899654",
-    "name": "VIP",
-    "font_class": "vip",
-    "unicode": "e6a8",
-    "unicode_decimal": 59048 },
-
-  {
-    "icon_id": "24899655",
-    "name": "folder_add",
-    "font_class": "folder-add",
-    "unicode": "e6a9",
-    "unicode_decimal": 59049 },
-
-  {
-    "icon_id": "24899656",
-    "name": "tune",
-    "font_class": "tune",
-    "unicode": "e6aa",
-    "unicode_decimal": 59050 },
-
-  {
-    "icon_id": "24899657",
-    "name": "shimingrenzheng",
-    "font_class": "auth",
-    "unicode": "e6ab",
-    "unicode_decimal": 59051 },
-
-  {
-    "icon_id": "24899565",
-    "name": "person",
-    "font_class": "person",
-    "unicode": "e699",
-    "unicode_decimal": 59033 },
-
-  {
-    "icon_id": "24899566",
-    "name": "email-filled",
-    "font_class": "email-filled",
-    "unicode": "e69a",
-    "unicode_decimal": 59034 },
-
-  {
-    "icon_id": "24899567",
-    "name": "phone-filled",
-    "font_class": "phone-filled",
-    "unicode": "e69b",
-    "unicode_decimal": 59035 },
-
-  {
-    "icon_id": "24899568",
-    "name": "phone",
-    "font_class": "phone",
-    "unicode": "e69c",
-    "unicode_decimal": 59036 },
-
-  {
-    "icon_id": "24899570",
-    "name": "email",
-    "font_class": "email",
-    "unicode": "e69e",
-    "unicode_decimal": 59038 },
-
-  {
-    "icon_id": "24899571",
-    "name": "personadd",
-    "font_class": "personadd",
-    "unicode": "e69f",
-    "unicode_decimal": 59039 },
-
-  {
-    "icon_id": "24899558",
-    "name": "chatboxes-filled",
-    "font_class": "chatboxes-filled",
-    "unicode": "e692",
-    "unicode_decimal": 59026 },
-
-  {
-    "icon_id": "24899559",
-    "name": "contact",
-    "font_class": "contact",
-    "unicode": "e693",
-    "unicode_decimal": 59027 },
-
-  {
-    "icon_id": "24899560",
-    "name": "chatbubble-filled",
-    "font_class": "chatbubble-filled",
-    "unicode": "e694",
-    "unicode_decimal": 59028 },
-
-  {
-    "icon_id": "24899561",
-    "name": "contact-filled",
-    "font_class": "contact-filled",
-    "unicode": "e695",
-    "unicode_decimal": 59029 },
-
-  {
-    "icon_id": "24899562",
-    "name": "chatboxes",
-    "font_class": "chatboxes",
-    "unicode": "e696",
-    "unicode_decimal": 59030 },
-
-  {
-    "icon_id": "24899563",
-    "name": "chatbubble",
-    "font_class": "chatbubble",
-    "unicode": "e697",
-    "unicode_decimal": 59031 },
-
-  {
-    "icon_id": "24881290",
-    "name": "upload-filled",
-    "font_class": "upload-filled",
-    "unicode": "e68e",
-    "unicode_decimal": 59022 },
-
-  {
-    "icon_id": "24881292",
-    "name": "upload",
-    "font_class": "upload",
-    "unicode": "e690",
-    "unicode_decimal": 59024 },
-
-  {
-    "icon_id": "24881293",
-    "name": "weixin",
-    "font_class": "weixin",
-    "unicode": "e691",
-    "unicode_decimal": 59025 },
-
-  {
-    "icon_id": "24881274",
-    "name": "compose",
-    "font_class": "compose",
-    "unicode": "e67f",
-    "unicode_decimal": 59007 },
-
-  {
-    "icon_id": "24881275",
-    "name": "qq",
-    "font_class": "qq",
-    "unicode": "e680",
-    "unicode_decimal": 59008 },
-
-  {
-    "icon_id": "24881276",
-    "name": "download-filled",
-    "font_class": "download-filled",
-    "unicode": "e681",
-    "unicode_decimal": 59009 },
-
-  {
-    "icon_id": "24881277",
-    "name": "pengyouquan",
-    "font_class": "pyq",
-    "unicode": "e682",
-    "unicode_decimal": 59010 },
-
-  {
-    "icon_id": "24881279",
-    "name": "sound",
-    "font_class": "sound",
-    "unicode": "e684",
-    "unicode_decimal": 59012 },
-
-  {
-    "icon_id": "24881280",
-    "name": "trash-filled",
-    "font_class": "trash-filled",
-    "unicode": "e685",
-    "unicode_decimal": 59013 },
-
-  {
-    "icon_id": "24881281",
-    "name": "sound-filled",
-    "font_class": "sound-filled",
-    "unicode": "e686",
-    "unicode_decimal": 59014 },
-
-  {
-    "icon_id": "24881282",
-    "name": "trash",
-    "font_class": "trash",
-    "unicode": "e687",
-    "unicode_decimal": 59015 },
-
-  {
-    "icon_id": "24881284",
-    "name": "videocam-filled",
-    "font_class": "videocam-filled",
-    "unicode": "e689",
-    "unicode_decimal": 59017 },
-
-  {
-    "icon_id": "24881285",
-    "name": "spinner-cycle",
-    "font_class": "spinner-cycle",
-    "unicode": "e68a",
-    "unicode_decimal": 59018 },
-
-  {
-    "icon_id": "24881286",
-    "name": "weibo",
-    "font_class": "weibo",
-    "unicode": "e68b",
-    "unicode_decimal": 59019 },
-
-  {
-    "icon_id": "24881288",
-    "name": "videocam",
-    "font_class": "videocam",
-    "unicode": "e68c",
-    "unicode_decimal": 59020 },
-
-  {
-    "icon_id": "24881289",
-    "name": "download",
-    "font_class": "download",
-    "unicode": "e68d",
-    "unicode_decimal": 59021 },
-
-  {
-    "icon_id": "24879601",
-    "name": "help",
-    "font_class": "help",
-    "unicode": "e679",
-    "unicode_decimal": 59001 },
-
-  {
-    "icon_id": "24879602",
-    "name": "navigate-filled",
-    "font_class": "navigate-filled",
-    "unicode": "e67a",
-    "unicode_decimal": 59002 },
-
-  {
-    "icon_id": "24879603",
-    "name": "plusempty",
-    "font_class": "plusempty",
-    "unicode": "e67b",
-    "unicode_decimal": 59003 },
-
-  {
-    "icon_id": "24879604",
-    "name": "smallcircle",
-    "font_class": "smallcircle",
-    "unicode": "e67c",
-    "unicode_decimal": 59004 },
-
-  {
-    "icon_id": "24879605",
-    "name": "minus-filled",
-    "font_class": "minus-filled",
-    "unicode": "e67d",
-    "unicode_decimal": 59005 },
-
-  {
-    "icon_id": "24879606",
-    "name": "micoff",
-    "font_class": "micoff",
-    "unicode": "e67e",
-    "unicode_decimal": 59006 },
-
-  {
-    "icon_id": "24879588",
-    "name": "closeempty",
-    "font_class": "closeempty",
-    "unicode": "e66c",
-    "unicode_decimal": 58988 },
-
-  {
-    "icon_id": "24879589",
-    "name": "clear",
-    "font_class": "clear",
-    "unicode": "e66d",
-    "unicode_decimal": 58989 },
-
-  {
-    "icon_id": "24879590",
-    "name": "navigate",
-    "font_class": "navigate",
-    "unicode": "e66e",
-    "unicode_decimal": 58990 },
-
-  {
-    "icon_id": "24879591",
-    "name": "minus",
-    "font_class": "minus",
-    "unicode": "e66f",
-    "unicode_decimal": 58991 },
-
-  {
-    "icon_id": "24879592",
-    "name": "image",
-    "font_class": "image",
-    "unicode": "e670",
-    "unicode_decimal": 58992 },
-
-  {
-    "icon_id": "24879593",
-    "name": "mic",
-    "font_class": "mic",
-    "unicode": "e671",
-    "unicode_decimal": 58993 },
-
-  {
-    "icon_id": "24879594",
-    "name": "paperplane",
-    "font_class": "paperplane",
-    "unicode": "e672",
-    "unicode_decimal": 58994 },
-
-  {
-    "icon_id": "24879595",
-    "name": "close",
-    "font_class": "close",
-    "unicode": "e673",
-    "unicode_decimal": 58995 },
-
-  {
-    "icon_id": "24879596",
-    "name": "help-filled",
-    "font_class": "help-filled",
-    "unicode": "e674",
-    "unicode_decimal": 58996 },
-
-  {
-    "icon_id": "24879597",
-    "name": "plus-filled",
-    "font_class": "paperplane-filled",
-    "unicode": "e675",
-    "unicode_decimal": 58997 },
-
-  {
-    "icon_id": "24879598",
-    "name": "plus",
-    "font_class": "plus",
-    "unicode": "e676",
-    "unicode_decimal": 58998 },
-
-  {
-    "icon_id": "24879599",
-    "name": "mic-filled",
-    "font_class": "mic-filled",
-    "unicode": "e677",
-    "unicode_decimal": 58999 },
-
-  {
-    "icon_id": "24879600",
-    "name": "image-filled",
-    "font_class": "image-filled",
-    "unicode": "e678",
-    "unicode_decimal": 59000 },
-
-  {
-    "icon_id": "24855900",
-    "name": "locked-filled",
-    "font_class": "locked-filled",
-    "unicode": "e668",
-    "unicode_decimal": 58984 },
-
-  {
-    "icon_id": "24855901",
-    "name": "info",
-    "font_class": "info",
-    "unicode": "e669",
-    "unicode_decimal": 58985 },
-
-  {
-    "icon_id": "24855903",
-    "name": "locked",
-    "font_class": "locked",
-    "unicode": "e66b",
-    "unicode_decimal": 58987 },
-
-  {
-    "icon_id": "24855884",
-    "name": "camera-filled",
-    "font_class": "camera-filled",
-    "unicode": "e658",
-    "unicode_decimal": 58968 },
-
-  {
-    "icon_id": "24855885",
-    "name": "chat-filled",
-    "font_class": "chat-filled",
-    "unicode": "e659",
-    "unicode_decimal": 58969 },
-
-  {
-    "icon_id": "24855886",
-    "name": "camera",
-    "font_class": "camera",
-    "unicode": "e65a",
-    "unicode_decimal": 58970 },
-
-  {
-    "icon_id": "24855887",
-    "name": "circle",
-    "font_class": "circle",
-    "unicode": "e65b",
-    "unicode_decimal": 58971 },
-
-  {
-    "icon_id": "24855888",
-    "name": "checkmarkempty",
-    "font_class": "checkmarkempty",
-    "unicode": "e65c",
-    "unicode_decimal": 58972 },
-
-  {
-    "icon_id": "24855889",
-    "name": "chat",
-    "font_class": "chat",
-    "unicode": "e65d",
-    "unicode_decimal": 58973 },
-
-  {
-    "icon_id": "24855890",
-    "name": "circle-filled",
-    "font_class": "circle-filled",
-    "unicode": "e65e",
-    "unicode_decimal": 58974 },
-
-  {
-    "icon_id": "24855891",
-    "name": "flag",
-    "font_class": "flag",
-    "unicode": "e65f",
-    "unicode_decimal": 58975 },
-
-  {
-    "icon_id": "24855892",
-    "name": "flag-filled",
-    "font_class": "flag-filled",
-    "unicode": "e660",
-    "unicode_decimal": 58976 },
-
-  {
-    "icon_id": "24855893",
-    "name": "gear-filled",
-    "font_class": "gear-filled",
-    "unicode": "e661",
-    "unicode_decimal": 58977 },
-
-  {
-    "icon_id": "24855894",
-    "name": "home",
-    "font_class": "home",
-    "unicode": "e662",
-    "unicode_decimal": 58978 },
-
-  {
-    "icon_id": "24855895",
-    "name": "home-filled",
-    "font_class": "home-filled",
-    "unicode": "e663",
-    "unicode_decimal": 58979 },
-
-  {
-    "icon_id": "24855896",
-    "name": "gear",
-    "font_class": "gear",
-    "unicode": "e664",
-    "unicode_decimal": 58980 },
-
-  {
-    "icon_id": "24855897",
-    "name": "smallcircle-filled",
-    "font_class": "smallcircle-filled",
-    "unicode": "e665",
-    "unicode_decimal": 58981 },
-
-  {
-    "icon_id": "24855898",
-    "name": "map-filled",
-    "font_class": "map-filled",
-    "unicode": "e666",
-    "unicode_decimal": 58982 },
-
-  {
-    "icon_id": "24855899",
-    "name": "map",
-    "font_class": "map",
-    "unicode": "e667",
-    "unicode_decimal": 58983 },
-
-  {
-    "icon_id": "24855825",
-    "name": "refresh-filled",
-    "font_class": "refresh-filled",
-    "unicode": "e656",
-    "unicode_decimal": 58966 },
-
-  {
-    "icon_id": "24855826",
-    "name": "refresh",
-    "font_class": "refresh",
-    "unicode": "e657",
-    "unicode_decimal": 58967 },
-
-  {
-    "icon_id": "24855808",
-    "name": "cloud-upload",
-    "font_class": "cloud-upload",
-    "unicode": "e645",
-    "unicode_decimal": 58949 },
-
-  {
-    "icon_id": "24855809",
-    "name": "cloud-download-filled",
-    "font_class": "cloud-download-filled",
-    "unicode": "e646",
-    "unicode_decimal": 58950 },
-
-  {
-    "icon_id": "24855810",
-    "name": "cloud-download",
-    "font_class": "cloud-download",
-    "unicode": "e647",
-    "unicode_decimal": 58951 },
-
-  {
-    "icon_id": "24855811",
-    "name": "cloud-upload-filled",
-    "font_class": "cloud-upload-filled",
-    "unicode": "e648",
-    "unicode_decimal": 58952 },
-
-  {
-    "icon_id": "24855813",
-    "name": "redo",
-    "font_class": "redo",
-    "unicode": "e64a",
-    "unicode_decimal": 58954 },
-
-  {
-    "icon_id": "24855814",
-    "name": "images-filled",
-    "font_class": "images-filled",
-    "unicode": "e64b",
-    "unicode_decimal": 58955 },
-
-  {
-    "icon_id": "24855815",
-    "name": "undo-filled",
-    "font_class": "undo-filled",
-    "unicode": "e64c",
-    "unicode_decimal": 58956 },
-
-  {
-    "icon_id": "24855816",
-    "name": "more",
-    "font_class": "more",
-    "unicode": "e64d",
-    "unicode_decimal": 58957 },
-
-  {
-    "icon_id": "24855817",
-    "name": "more-filled",
-    "font_class": "more-filled",
-    "unicode": "e64e",
-    "unicode_decimal": 58958 },
-
-  {
-    "icon_id": "24855818",
-    "name": "undo",
-    "font_class": "undo",
-    "unicode": "e64f",
-    "unicode_decimal": 58959 },
-
-  {
-    "icon_id": "24855819",
-    "name": "images",
-    "font_class": "images",
-    "unicode": "e650",
-    "unicode_decimal": 58960 },
-
-  {
-    "icon_id": "24855821",
-    "name": "paperclip",
-    "font_class": "paperclip",
-    "unicode": "e652",
-    "unicode_decimal": 58962 },
-
-  {
-    "icon_id": "24855822",
-    "name": "settings",
-    "font_class": "settings",
-    "unicode": "e653",
-    "unicode_decimal": 58963 },
-
-  {
-    "icon_id": "24855823",
-    "name": "search",
-    "font_class": "search",
-    "unicode": "e654",
-    "unicode_decimal": 58964 },
-
-  {
-    "icon_id": "24855824",
-    "name": "redo-filled",
-    "font_class": "redo-filled",
-    "unicode": "e655",
-    "unicode_decimal": 58965 },
-
-  {
-    "icon_id": "24841702",
-    "name": "list",
-    "font_class": "list",
-    "unicode": "e644",
-    "unicode_decimal": 58948 },
-
-  {
-    "icon_id": "24841489",
-    "name": "mail-open-filled",
-    "font_class": "mail-open-filled",
-    "unicode": "e63a",
-    "unicode_decimal": 58938 },
-
-  {
-    "icon_id": "24841491",
-    "name": "hand-thumbsdown-filled",
-    "font_class": "hand-down-filled",
-    "unicode": "e63c",
-    "unicode_decimal": 58940 },
-
-  {
-    "icon_id": "24841492",
-    "name": "hand-thumbsdown",
-    "font_class": "hand-down",
-    "unicode": "e63d",
-    "unicode_decimal": 58941 },
-
-  {
-    "icon_id": "24841493",
-    "name": "hand-thumbsup-filled",
-    "font_class": "hand-up-filled",
-    "unicode": "e63e",
-    "unicode_decimal": 58942 },
-
-  {
-    "icon_id": "24841494",
-    "name": "hand-thumbsup",
-    "font_class": "hand-up",
-    "unicode": "e63f",
-    "unicode_decimal": 58943 },
-
-  {
-    "icon_id": "24841496",
-    "name": "heart-filled",
-    "font_class": "heart-filled",
-    "unicode": "e641",
-    "unicode_decimal": 58945 },
-
-  {
-    "icon_id": "24841498",
-    "name": "mail-open",
-    "font_class": "mail-open",
-    "unicode": "e643",
-    "unicode_decimal": 58947 },
-
-  {
-    "icon_id": "24841488",
-    "name": "heart",
-    "font_class": "heart",
-    "unicode": "e639",
-    "unicode_decimal": 58937 },
-
-  {
-    "icon_id": "24839963",
-    "name": "loop",
-    "font_class": "loop",
-    "unicode": "e633",
-    "unicode_decimal": 58931 },
-
-  {
-    "icon_id": "24839866",
-    "name": "pulldown",
-    "font_class": "pulldown",
-    "unicode": "e632",
-    "unicode_decimal": 58930 },
-
-  {
-    "icon_id": "24813798",
-    "name": "scan",
-    "font_class": "scan",
-    "unicode": "e62a",
-    "unicode_decimal": 58922 },
-
-  {
-    "icon_id": "24813786",
-    "name": "bars",
-    "font_class": "bars",
-    "unicode": "e627",
-    "unicode_decimal": 58919 },
-
-  {
-    "icon_id": "24813788",
-    "name": "cart-filled",
-    "font_class": "cart-filled",
-    "unicode": "e629",
-    "unicode_decimal": 58921 },
-
-  {
-    "icon_id": "24813790",
-    "name": "checkbox",
-    "font_class": "checkbox",
-    "unicode": "e62b",
-    "unicode_decimal": 58923 },
-
-  {
-    "icon_id": "24813791",
-    "name": "checkbox-filled",
-    "font_class": "checkbox-filled",
-    "unicode": "e62c",
-    "unicode_decimal": 58924 },
-
-  {
-    "icon_id": "24813794",
-    "name": "shop",
-    "font_class": "shop",
-    "unicode": "e62f",
-    "unicode_decimal": 58927 },
-
-  {
-    "icon_id": "24813795",
-    "name": "headphones",
-    "font_class": "headphones",
-    "unicode": "e630",
-    "unicode_decimal": 58928 },
-
-  {
-    "icon_id": "24813796",
-    "name": "cart",
-    "font_class": "cart",
-    "unicode": "e631",
-    "unicode_decimal": 58929 }] };exports.default = _default;
 
 /***/ })
 

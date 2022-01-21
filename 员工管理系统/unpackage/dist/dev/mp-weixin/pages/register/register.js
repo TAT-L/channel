@@ -261,7 +261,7 @@ var _default = { data: function data() {return { userName: '', userPhoneNumber: 
         (0, _baseModel.registerApi)({
           name: this.userName,
           phone: this.userPhoneNumber,
-          IDNumber: this.IDNumber,
+          // IDNumber: this.IDNumber,
           manager: this.managerList[this.index].id }).
         then(function (res) {
           console.log(res);

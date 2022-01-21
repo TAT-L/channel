@@ -7,19 +7,26 @@
 		</uni-segmented-control>
 		<!-- #endif -->
 		<index-main class="indexMain" v-if="current === 0"></index-main>
-		<user-main class="userMain" @jump="jump" v-else></user-main>
+		<user-main class="userMain" :userInfo = 'userInfo' @jump="jump" v-else></user-main>
 	</view>
 </template>
 
 <script>
 	import indexMain from '../../components/indexMain.vue'
 	import userMain from '../../components/userMain.vue'
+	import {
+		getWorkerInfo
+	} from '../../models/userModel.js'
 	export default {
 		data() {
 			return {
 				title: 'Hello',
 				current: 0,
-				items: ["首页", "个人"]
+				items: ["首页", "个人"],
+				userInfo:{
+					name:'张三',
+					phone:'12221222122'
+				}
 			}
 		},
 		components: {
@@ -27,9 +34,15 @@
 			userMain
 		},
 		onLoad() {
-			
+			this.getWorkerInfo()
 		},
 		methods: {
+			getWorkerInfo() {
+				getWorkerInfo().then((getWorkerInfoRes) => {
+					this.userInfo = getWorkerInfoRes.data.detail.user
+					console.log(getWorkerInfoRes)
+				})
+			},
 			onClickItem(e) {
 				console.log(e)
 				this.current = e.currentIndex

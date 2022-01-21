@@ -33,6 +33,34 @@
   background-color: #f8f8f8;
   padding: 50rpx 40rpx;
 }
+.page .boxs.data-v-71caca5f {
+  margin-top: 40rpx;
+  height: 600rpx;
+  width: 90%;
+  padding: 10rpx;
+}
+.page .boxs .records.data-v-71caca5f {
+  width: 100%;
+}
+.page .boxs .records .record.data-v-71caca5f {
+  width: 100%;
+  box-sizing: border-box;
+  font-size: 30rpx;
+  padding: 0rpx 20rpx;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.page .boxs .records .record .status.data-v-71caca5f {
+  color: #4cd964;
+}
+.page .boxs .box.data-v-71caca5f {
+  height: 100rpx;
+  margin-bottom: 20rpx;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 3px 3px 7px 7px #eee;
+}
 .page .userInformation.data-v-71caca5f {
   display: flex;
   justify-content: center;

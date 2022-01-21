@@ -114,7 +114,7 @@
 								uni.redirectTo({
 									url: '../pcIndex/pcIndex',
 									success() {
-										window.location.hash="no-back";
+										// window.location.hash="no-back";
 										// window.location.hash="Again-No-back-button";
 										// window.onhashchange=function(){window.location.hash="no-back";}
 									}

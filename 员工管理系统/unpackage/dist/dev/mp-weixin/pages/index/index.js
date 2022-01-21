@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uniIcons: function() {
-      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 89))
+      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 103))
     }
   }
 } catch (e) {
@@ -183,38 +183,38 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _baseModel = __webpack_require__(/*! ../../models/baseModel.js */ 10); //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-var identity = getApp().globalData.identity.includes('manager') ? 'manager' : 'worker';var indexMain = function indexMain() {Promise.all(/*! require.ensure | components/indexMain */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/indexMain")]).then((function () {return resolve(__webpack_require__(/*! ../../components/indexMain.vue */ 97));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { data: function data() {return { title: 'Hello', current: 0, items: ["首页", "个人"], identity: identity };}, components: { indexMain: indexMain }, onLoad: function onLoad() {}, methods: { goLogPage: function goLogPage() {uni.navigateTo({ url: '../log/log' });},
+var _baseModel = __webpack_require__(/*! ../../models/baseModel.js */ 10);var indexMain = function indexMain() {Promise.all(/*! require.ensure | components/indexMain */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/indexMain")]).then((function () {return resolve(__webpack_require__(/*! ../../components/indexMain.vue */ 111));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+
+
+
+
+
+{
+  data: function data() {
+    return {
+      title: 'Hello',
+      current: 0,
+      items: ["首页", "个人"],
+      identity: '' };
+
+  },
+
+  components: {
+    indexMain: indexMain },
+
+  onLoad: function onLoad() {
+    this.identity = getApp().globalData.identity.includes('manager') ? 'manager' : 'worker';
+  },
+  methods: {
+    goLogPage: function goLogPage() {
+      uni.navigateTo({
+        url: '../log/log' });
+
+    },
     triggerAlarm: function triggerAlarm() {
       uni.showModal({
         title: '一键报警',
-        content: '是否确认报警？',
+        content: '确认报警？',
         confirmText: '报警',
         confirmColor: '#ff0000',
         success: function success(res) {

@@ -121,7 +121,6 @@ var _login = _interopRequireDefault(__webpack_require__(/*! ./units/login.js */ 
         if (platform === 'windows') {
           console.log("跳转至pc登陆页面");
           var status = uni.getStorageSync('status');
-          console.log(status);
           if (status != 2) {
             uni.navigateTo({
               url: './subPages_PC/pcLogin/pcLogin' });

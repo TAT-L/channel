@@ -45,9 +45,10 @@
 .top .alarm.data-v-57280228 {
   padding: 10rpx;
   border-radius: 10rpx;
-  background-color: #ffffff;
+  background-color: #dd524d;
   font-size: 30rpx;
-  color: #dd524d;
+  color: #ffffff;
+  margin-right: 30rpx;
 }
 .top .QRcode.data-v-57280228 {
   width: 50rpx;

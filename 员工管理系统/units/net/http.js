@@ -51,8 +51,9 @@ export const apiResquest = (prams) => { //prams 为我们需要调用的接口AP
 						//#endif
 						//#ifdef H5
 						console.log("登陆过期，请重新扫码登陆")
+						
 						uni.reLaunch({
-							url: './subPages_PC/pcLogin/pcLogin'
+							url: '/subPages_PC/pcLogin/pcLogin'
 						})
 						//#endif
 						

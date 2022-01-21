@@ -13,12 +13,12 @@
 			</view>
 			<view class="phoneNumber box">
 				<label class="label">电话：</label>
-				<input class="phoneNumberInput input" type="text" v-model="userPhoneNumber" placeholder="请输入电话" />
+				<input class="phoneNumberInput input" type="number" v-model="userPhoneNumber" placeholder="请输入电话" />
 			</view>
-			<view class="phoneNumber box">
+			<!-- <view class="phoneNumber box">
 				<label class="label">身份证：</label>
-				<input class="phoneNumberInput input" type="text" v-model="IDNumber" placeholder="请输入身份证号" />
-			</view>
+				<input class="phoneNumberInput input" type="idcard" v-model="IDNumber" placeholder="请输入身份证号" />
+			</view> -->
 			<view class="picker box">
 				<picker @change="pickerChange" :value="index" :range="managerList" range-key='name'>
 					<view class="uni-input">{{managerList[index].name}}</view>
@@ -119,7 +119,7 @@
 					registerApi({
 						name: this.userName,
 						phone: this.userPhoneNumber,
-						IDNumber: this.IDNumber,
+						// IDNumber: this.IDNumber,
 						manager: this.managerList[this.index].id
 					}).then((res) => {
 						console.log(res)

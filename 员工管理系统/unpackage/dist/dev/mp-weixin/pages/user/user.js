@@ -130,7 +130,7 @@ __webpack_require__.r(__webpack_exports__);
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var userMain = function userMain() {Promise.all(/*! require.ensure | components/userMain */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/userMain")]).then((function () {return resolve(__webpack_require__(/*! ../../components/userMain.vue */ 108));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+/* WEBPACK VAR INJECTION */(function(uni) {Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;
 
 
 
@@ -139,21 +139,79 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 
-{
-  components: {
-    userMain: userMain },
 
-  data: function data() {
-    return {
-      title: 'Hello',
-      current: 0,
-      items: ["首页", "个人"] };
+var _userModel = __webpack_require__(/*! ../../models/userModel.js */ 127); //
+//
+//
+//
+//
+//
+//
+//
+//
+var userMain = function userMain() {Promise.all(/*! require.ensure | components/userMain */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/userMain")]).then((function () {return resolve(__webpack_require__(/*! ../../components/userMain.vue */ 122));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default = { components: { userMain: userMain }, data: function data() {return {
+      userInfo: {
+        name: '张三',
+        phone: '12221222122',
+        avatarUrl: '' },
+
+      cover: true
+      // title: 'Hello',
+      // current: 0,
+      // items: ["首页", "个人"]
+    };
+  },
+  onLoad: function onLoad() {var _this = this;
+    uni.$on('refreshUserInfo', function (res) {
+      if (res) {
+        _this.getWorkerInfo();
+      }
+    });
+    if (getApp().globalData.identity.includes('manager')) {
+
+    }
+    if (getApp().globalData.identity.includes('worker')) {
+
+      this.cover = false;
+      this.getWorkerInfo();
+    }
+
+
 
   },
   methods: {
-    onClickItem: function onClickItem(e) {
-      this.current = e.currentIndex;
+    // onClickItem(e) {
+    // 	this.current = e.currentIndex  
+    // },
+    getWXInfo: function getWXInfo() {var _this2 = this;
+
+      uni.getUserProfile({
+        desc: '用户管理',
+        success: function success(WXInfoRes) {
+
+          _this2.userInfo.avatarUrl = WXInfoRes.userInfo.avatarUrl;
+          _this2.userInfo.name = WXInfoRes.userInfo.nickName;
+          console.log(WXInfoRes);
+
+        },
+        fail: function fail(res) {
+          console.log(res);
+        },
+        complete: function complete() {
+          _this2.cover = false;
+        } });
+
+    },
+    getWorkerInfo: function getWorkerInfo() {var _this3 = this;
+      (0, _userModel.getWorkerInfo)().then(function (getWorkerInfoRes) {
+        if (getWorkerInfoRes.data.detail.user)
+        _this3.userInfo.phone = getWorkerInfoRes.data.detail.user.phone;
+        _this3.userInfo.name = getWorkerInfoRes.data.detail.user.name;
+
+        console.log(getWorkerInfoRes);
+      });
     } } };exports.default = _default;
+/* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
 
 /***/ }),
 

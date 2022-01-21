@@ -1,13 +1,13 @@
 <template>
 	<view class="content">
-
+		<!-- 微信顶部栏 -->
 		<!-- #ifdef MP -->
 		<view class="top">
 			<!-- 微信扫码 -->
 			<view class="alarm" @click="triggerAlarm">
 				一键报警
 			</view>
-			//日志查看
+			<!-- 日志查看 -->
 			<uni-icons type="circle-filled" size="25" v-if="identity === 'manager'" @click="goLogPage"></uni-icons>
 			<view class="QRcode" @click="scanQRcode">
 				<uni-icons type="scan" size="23"></uni-icons>
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-	let identity = getApp().globalData.identity.includes('manager') ? 'manager' : 'worker'
+	
 	import indexMain from '../../components/indexMain.vue'
 	import {
 		scanQRcode
@@ -40,7 +40,7 @@
 				title: 'Hello',
 				current: 0,
 				items: ["首页", "个人"],
-				identity:identity
+				identity:''
 			}
 		},
 		
@@ -48,7 +48,7 @@
 			indexMain
 		},
 		onLoad() {
-
+			this.identity = getApp().globalData.identity.includes('manager') ? 'manager' : 'worker'
 		},
 		methods: {
 			goLogPage(){
@@ -59,7 +59,7 @@
 			triggerAlarm() {
 				uni.showModal({
 					title: '一键报警',
-					content: '是否确认报警？',
+					content: '确认报警？',
 					confirmText: '报警',
 					confirmColor: '#ff0000',
 					success(res) {
@@ -147,10 +147,10 @@
 		.alarm {
 			padding: 10rpx;
 			border-radius: 10rpx;
-			background-color: $uni-bg-color;
+			background-color: $uni-color-error;
 			font-size: 30rpx;
-			color: $uni-color-error;
-
+			color: $uni-bg-color;
+			margin-right: 30rpx;
 		}
 
 		.QRcode {
