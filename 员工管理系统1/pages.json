@@ -1,0 +1,197 @@
+{
+	// 小程序进入注册页
+	//#ifdef MP-WEIXIN
+	"pages": [
+{
+			"path": "pages/register/register",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": true
+			}
+		},
+
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		},
+		{
+			"path": "pages/user/user",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/userInfoEdit/userInfoEdit",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		
+		}
+
+	],
+	//#endif
+
+
+	// PC页面
+	//#ifdef H5
+	"pages": [
+		{
+				"path": "subPages_PC/pcLogin/pcLogin",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": true
+				}
+			},{
+			"path": "subPages_PC/pcIndex/pcIndex",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		},
+		{
+			"path": "pages/userInfoEdit/userInfoEdit",
+			"style": {
+				"navigationBarTitleText": "",
+				"enablePullDownRefresh": false
+			}
+		
+		}
+
+	],
+	//#endif
+
+
+	//#ifdef MP
+	"subPackages": [{
+			"root": "subPages1_WX",
+			"pages": [{
+					"path": "addWorker/addWorker",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				},
+				
+				{
+					"path": "attendance/attendance",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "create/create",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "work/work",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "enter/enter",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}
+			]
+		}
+
+	],
+	//#endif
+	//#ifdef H5
+	"subPackages": [{
+			"root": "subPages_PC",
+			"pages": [{
+					"path": "pcIndex/pcIndex",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				},
+				 {
+					"path": "registrationAudit/registrationAudit",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "pcLogin/pcLogin",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "addWorker/addWorker",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "attendancePC/attendancePC",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "workerView/workerView",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "operationTicket/operationTicket",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}, {
+					"path": "equipmentManage/equipmentManage",
+					"style": {
+						"navigationBarTitleText": "",
+						"enablePullDownRefresh": false
+					}
+				}
+			]
+		}
+
+
+	],
+	//#endif
+	//#ifdef MP-WEIXIN
+	"tabBar": {
+		"list": [{
+			"pagePath": "pages/index/index",
+			"text": "首页",
+			"iconPath": "static/首页no.png",
+			"selectedIconPath": "static/首页.png"
+		}, {
+			"pagePath": "pages/user/user",
+			"text": "个人",
+			"iconPath": "static/个人(未选中).png",
+			"selectedIconPath": "static/个人.png"
+		}]
+	},
+	//#endif
+	"globalStyle": {
+
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		// "rpxCalcMaxDeviceWidth": 960, // rpx 计算所支持的最大设备宽度，单位 px，默认值为 960
+		// "rpxCalcBaseDeviceWidth": 500, // rpx 计算使用的基准设备宽度，设备实际宽度超出 rpx 计算所支持的最大设备宽度时将按基准宽度计算，单位 px，默认值为 375
+		// "rpxCalcIncludeWidth": 750, // rpx 计算特殊处理的值，始终按实际的设备宽度计算，单位 rpx，默认值为 750
+		"navigationBarBackgroundColor": "#409EFF",
+		//#ifndef MP-WEIXIN
+		"navigationStyle": "custom", //取消导航栏
+		//#endif
+		"backgroundColor": "#409EFF"
+
+	}
+}
