@@ -96,7 +96,7 @@ var components
 try {
   components = {
     uniIcons: function() {
-      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 90))
+      return Promise.all(/*! import() | uni_modules/uni-icons/components/uni-icons/uni-icons */[__webpack_require__.e("common/vendor"), __webpack_require__.e("uni_modules/uni-icons/components/uni-icons/uni-icons")]).then(__webpack_require__.bind(null, /*! @/uni_modules/uni-icons/components/uni-icons/uni-icons.vue */ 104))
     }
   }
 } catch (e) {
@@ -178,7 +178,7 @@ __webpack_require__.r(__webpack_exports__);
 
 
 
-var _baseModel = __webpack_require__(/*! ../../models/baseModel.js */ 10);var indexMain = function indexMain() {Promise.all(/*! require.ensure | components/indexMain */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/indexMain")]).then((function () {return resolve(__webpack_require__(/*! ../../components/indexMain.vue */ 98));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
+var _baseModel = __webpack_require__(/*! ../../models/baseModel.js */ 10);var indexMain = function indexMain() {Promise.all(/*! require.ensure | components/indexMain */[__webpack_require__.e("common/vendor"), __webpack_require__.e("components/indexMain")]).then((function () {return resolve(__webpack_require__(/*! ../../components/indexMain.vue */ 112));}).bind(null, __webpack_require__)).catch(__webpack_require__.oe);};var _default =
 
 
 
