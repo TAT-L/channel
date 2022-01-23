@@ -93,7 +93,7 @@
 								console.log("登陆成功")
 								this.resultTipsContent = '登陆成功'
 								uni.navigateTo({
-									url: '../../subPage2/pcIndex/pcIndex'
+									url: '../pcIndex/pcIndex'
 								})
 							} else if (res.data.detail.status === 1) {
 								this.resultTipsContent = '请点击确认'

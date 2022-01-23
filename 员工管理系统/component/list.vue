@@ -3,7 +3,7 @@
 		<popup v-if="show" @back="back" :show="show"></popup>
 		<operation v-if="flag" :id="whichId" @goBack="goBack"></operation>
 		<view class="title">
-			操作票处理
+			操作票管理
 		</view>
 		<view class="create">
 			<el-button type="primary" round @click="create">新建</el-button>
@@ -11,17 +11,23 @@
 		<el-divider></el-divider>
 		<view class="table">
 			<el-table :data="tableData" border style="width: 100%">
-				<el-table-column prop="created_at" label="创建时间" width="200">
+				<el-table-column prop="user.name" label="姓名" width="200">
+					<template slot-scope="scope">
+						{{scope.row.user.name}}
+					</template>
 				</el-table-column>
-				<el-table-column prop="start_time" label="开始时间" width="200">
+				<el-table-column prop="start_time" label="電話" width="200">
+					<template slot-scope="scope">
+						{{scope.row.user.phone}}
+					</template>
 				</el-table-column>
-				<el-table-column prop="end_time" label="截止时间" width="200">
+<!-- 				<el-table-column prop="end_time" label="截止时间" width="200">
 				</el-table-column>
 				<el-table-column prop="rule" label="操作票类型" width="200">
-				</el-table-column>
+				</el-table-column> -->
 				<el-table-column fixed="right" label="操作">
 					<template slot-scope="scope">
-						<el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+						<el-button @click="handleClick(scope.row)" type="text" size="small">查看操作票</el-button>
 					</template>
 				</el-table-column>
 			</el-table>
@@ -30,6 +36,9 @@
 </template>
 
 <script>
+	import {
+		workList
+	} from '../models/baseModel.js'
 	import {
 		ticketList
 	} from '../models/baseModel.js'
@@ -69,21 +78,26 @@
 			}
 		},
 		created() {
+			workList()
+			.then(res=>{
+				console.log(res)
+				this.tableData=res.data.detail.workers
+			})
 			console.log(work["weekly"])
 			// console.log(work.weekday())
-			ticketList()
-				.then(res => {
-					console.log(res.data.detail.tickets)
-					let data=res.data.detail.tickets
-					for(let item in data){
-						console.log(data[item])
-						data[item].rule=work[data[item].rule]
-					}
-					this.tableData=data
-				})
-				.catch(err => {
-					console.log(err)
-				})
+			// ticketList()
+			// 	.then(res => {
+			// 		console.log(res.data.detail.tickets)
+			// 		let data=res.data.detail.tickets
+			// 		for(let item in data){
+			// 			console.log(data[item])
+			// 			data[item].rule=work[data[item].rule]
+			// 		}
+			// 		this.tableData=data
+			// 	})
+			// 	.catch(err => {
+			// 		console.log(err)
+			// 	})
 		}
 	}
 </script>

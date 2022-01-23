@@ -17,24 +17,30 @@
 						</el-table-column>
 						<el-table-column prop="face_status" class="red" label="人脸状态" width="150">
 							<template slot-scope="scope">
-								<view :class="{ 'view': true, 'Success': scope.row.face_status==1,'Info':scope.row.face_status==0 ,'Danger':scope.row.face_status==-1||scope.row.face_status==2}">
-									
+								<view class="flex">
+									<view :class="{ 'view': true, 'Success': scope.row.face_status==1,'Info':scope.row.face_status==0||scope.row.face_status==2 ,'Danger':scope.row.face_status<0}">
+									</view>
+									<view class="text">
+										{{scope.row.text}}
+									</view>
 								</view>
 							</template>
 						</el-table-column>
-<!-- 						<el-table-column prop="face" label="人脸图像" width="200">
+						<el-table-column prop="face" label="人脸图像" >
 							<template slot-scope="scope">
-								<view class="imgs">
-									<image :src="scope.row.face" class="img" mode="widthFix"></image>
+								<view class="boxs">
+									<view class="imgs">
+										<image :src="scope.row.face" class="img" mode="widthFix"></image>
+									</view>
 								</view>
 							</template>
 
-						</el-table-column> -->
-						<el-table-column fixed="right" label="操作">
+						</el-table-column>
+<!-- 						<el-table-column fixed="right" label="操作">
 							<template slot-scope="scope">
 								<el-button @click="image(scope.row)" type="text" size="small">查看头像</el-button>
 							</template>
-						</el-table-column>
+						</el-table-column> -->
 						<!--            		<el-table-column fixed="right" label="电话">
 
             		</el-table-column> -->
@@ -51,6 +57,7 @@
 		terminalSyncWorker
 	} from '../models/baseModel.js'
     import images from './img.vue'
+	import code from '../models/code.js'
 	export default {
 		name: "popup",
 		components:{
@@ -69,8 +76,15 @@
 				.then(res => {
 					console.log(res.data.detail.workers)
 					this.tableData = res.data.detail.workers
+					if(res.data.detail.workers){
+						for(let i=0;i<res.data.detail.workers.length;i++){
+							res.data.detail.workers[i].text=code[res.data.detail.workers[i].face_status]
+						}
+					}
+					this.tableData = res.data.detail.workers
 				// 0未同步（灰色），1已同步(l绿色)，-1图片不符合规范,2 当天无值班
 				})
+				
 		},
 		data() {
 			return {
@@ -161,7 +175,11 @@
 		font-weight: 900;
 		font-size: 60rpx;
 	}
-
+	.boxs{
+		width: 100%;
+		display: flex;
+		justify-content: center;
+	}
 	.create {
 		width: 80%;
 		margin-left: 10%;
@@ -185,4 +203,25 @@
 	/deep/ .el-icon-success {
 		color: #67C23A;
 	}
+	.imgs{
+		width: 16%;
+	}
+	.img{
+		width: 100%;
+		height: 100%;
+	}
+	/deep/ .el-table{
+		font-size: 34rpx;
+	}
+	/deep/ .view{
+		width: 34rpx;
+		height: 34rpx;
+	}
+	.flex{
+		display: flex;
+		align-items: center;
+	}
+	.text{
+		margin-left: 10rpx;
+	}	
 </style>

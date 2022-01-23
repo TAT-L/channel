@@ -43,10 +43,10 @@
 
 <script>
 	// import editImage from '../../components/editImage.vue'
-	import {
-		pathToBase64,
-		base64ToPath
-	} from 'image-tools'
+	// import {
+	// 	pathToBase64,
+	// 	base64ToPath
+	// } from 'image-tools'
 
 	var avatarImage = ''
 	export default {

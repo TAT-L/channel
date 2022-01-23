@@ -4,7 +4,7 @@
 		
 		
 		<view class="title">
-			人员考勤系统
+			员工考勤模块
 		</view>
 		<view class="create">
 			<el-select v-model="value" placeholder="请选择" @change="change($event)">
@@ -103,8 +103,7 @@
 				whichId: -1,
 				flags: true,
 				endTime: '',
-				tableData: [{arrival_time:"2021-12-25",realname:"张三",phone:1526622622},{arrival_time:"2021-12-25",realname:"张三",phone:1526622622},
-				,{arrival_time:"2021-12-25",realname:"张三",phone:1526622622},{arrival_time:"2021-12-25",realname:"张三",phone:1526622622}],
+				tableData: [],
 				options: [{
 					value: 0,
 					label: '已考勤',

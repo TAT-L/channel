@@ -805,9 +805,15 @@ var customize = cached(function (str) {
 
 function initTriggerEvent(mpInstance) {
   var oldTriggerEvent = mpInstance.triggerEvent;
-  mpInstance.triggerEvent = function (event) {for (var _len3 = arguments.length, args = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {args[_key3 - 1] = arguments[_key3];}
+  var newTriggerEvent = function newTriggerEvent(event) {for (var _len3 = arguments.length, args = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {args[_key3 - 1] = arguments[_key3];}
     return oldTriggerEvent.apply(mpInstance, [customize(event)].concat(args));
   };
+  try {
+    // 京东小程序 triggerEvent 为只读
+    mpInstance.triggerEvent = newTriggerEvent;
+  } catch (error) {
+    mpInstance._triggerEvent = newTriggerEvent;
+  }
 }
 
 function initHook(name, options, isComponent) {
@@ -1981,17 +1987,17 @@ function createPlugin(vm) {
   var appOptions = parseApp(vm);
   if (isFn(appOptions.onShow) && wx.onAppShow) {
     wx.onAppShow(function () {for (var _len7 = arguments.length, args = new Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {args[_key7] = arguments[_key7];}
-      appOptions.onShow.apply(vm, args);
+      vm.__call_hook('onShow', args);
     });
   }
   if (isFn(appOptions.onHide) && wx.onAppHide) {
     wx.onAppHide(function () {for (var _len8 = arguments.length, args = new Array(_len8), _key8 = 0; _key8 < _len8; _key8++) {args[_key8] = arguments[_key8];}
-      appOptions.onHide.apply(vm, args);
+      vm.__call_hook('onHide', args);
     });
   }
   if (isFn(appOptions.onLaunch)) {
     var args = wx.getLaunchOptionsSync && wx.getLaunchOptionsSync();
-    appOptions.onLaunch.call(vm, args);
+    vm.__call_hook('onLaunch', args);
   }
   return vm;
 }
@@ -2093,7 +2099,7 @@ uni$1;exports.default = _default;
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.terminalSyncWorker = exports.registerReject = exports.registerApprove = exports.registerCheckedList = exports.registerUncheckList = exports.terminalDetail = exports.terminalRemove = exports.terminalAppend = exports.terminalUnbind = exports.terminalBind = exports.terminalList = exports.attendanceTimeWork = exports.invitationRemove = exports.invitationList = exports.invitationAppend = exports.tickeRemove = exports.tickeAppend = exports.tickeDetail = exports.tickeCreate = exports.ticketList = exports.workList = exports.confirmPcLogin = exports.scanQRcode = exports.pcLogin = exports.loginApi = exports.getManagerList = exports.registerApi = exports.workerTime = exports.attendanceTime = exports.attendanceList = void 0;var _http = __webpack_require__(/*! ../units/net/http.js */ 11);
+Object.defineProperty(exports, "__esModule", { value: true });exports.WorkersUpdate = exports.WorkerTicketPost = exports.WorkerTicket = exports.terminalSyncWorker = exports.registerReject = exports.registerApprove = exports.registerCheckedList = exports.registerUncheckList = exports.terminalDetail = exports.terminalRemove = exports.terminalAppend = exports.terminalUnbind = exports.terminalBind = exports.terminalList = exports.attendanceTimeWork = exports.invitationRemove = exports.invitationList = exports.invitationAppend = exports.tickeRemove = exports.tickeAppend = exports.tickeDetail = exports.tickeCreate = exports.ticketList = exports.workList = exports.confirmPcLogin = exports.scanQRcode = exports.pcLogin = exports.loginApi = exports.getManagerList = exports.registerApi = exports.workerTime = exports.attendanceTime = exports.attendanceList = void 0;var _http = __webpack_require__(/*! ../units/net/http.js */ 11);
 
 
 
@@ -2320,10 +2326,36 @@ var terminalSyncWorker = function terminalSyncWorker(query) {
     method: 'post' });
 
 };exports.terminalSyncWorker = terminalSyncWorker;
+var WorkerTicket = function WorkerTicket(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/worker/' + query.workerId + '/date',
+    method: 'get' });
+
+};exports.WorkerTicket = WorkerTicket;
+var WorkerTicketPost = function WorkerTicketPost(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/worker/' + query.workerId + '/date/update',
+    method: 'post',
+    query: query.data });
+
+};exports.WorkerTicketPost = WorkerTicketPost;
+var WorkersUpdate = function WorkersUpdate(query) {
+  return (0, _http.apiResquest)({
+    url: '/manager/workers/date/update',
+    method: 'post',
+    query: query.data });
+
+};
+// /api/manager/workers/date/update
+// // manager/worker/:workerID/date/update
+// // updata 覆盖式更新
+// // append 添加
+// // remove 移除
+exports.WorkersUpdate = WorkersUpdate;
 
 /***/ }),
 
-/***/ 103:
+/***/ 102:
 /*!***********************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/采集盒列表.png ***!
   \***********************************************************************************************/
@@ -2334,7 +2366,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 
 /***/ }),
 
-/***/ 104:
+/***/ 103:
 /*!********************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/考勤.png ***!
   \********************************************************************************************/
@@ -2345,7 +2377,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 
 /***/ }),
 
-/***/ 105:
+/***/ 104:
 /*!*********************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/操作票.png ***!
   \*********************************************************************************************/
@@ -2356,7 +2388,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 
 /***/ }),
 
-/***/ 106:
+/***/ 105:
 /*!**********************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/注册灰色.png ***!
   \**********************************************************************************************/
@@ -2385,7 +2417,8 @@ var apiResquest = function apiResquest(prams) {//prams 为我们需要调用的�
   var headerData = {
     'content-type': 'application/json',
 
-    'Authorization': uni.getStorageSync('cookie').cookie };
+    // 'Authorization': uni.getStorageSync('cookie').cookie
+    'Authorization': "Bearer eyJhbGciOiJFUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE2NDM3NzU1MDEsInVpZCI6MywidGFncyI6WyJtYW5hZ2VyIiwid29ya2VyIl19.PESuOGNLNRTAZAzVSKjbFmubUYw2_jHFMcrisOKh5yuUvoDihuOwoF7kB8GpOwDo-0L_uZBUMuSBRjX3w7BV2Q" };
 
 
   var dataObj = null;
@@ -2448,7 +2481,7 @@ var apiResquest = function apiResquest(prams) {//prams 为我们需要调用的�
 
 /***/ }),
 
-/***/ 114:
+/***/ 113:
 /*!**************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/models/userModel.js ***!
   \**************************************************************************************************/
@@ -2492,7 +2525,7 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.config = v
 
 /***/ }),
 
-/***/ 122:
+/***/ 128:
 /*!***********************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/index.js ***!
   \***********************************************************************************************************************************************************/
@@ -2500,9 +2533,9 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.config = v
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 123));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 124));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 125));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 129));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 130));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 131));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -2510,7 +2543,7 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 1
 
 /***/ }),
 
-/***/ 123:
+/***/ 129:
 /*!**********************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/en.json ***!
   \**********************************************************************************************************************************************************/
@@ -2521,7 +2554,7 @@ module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"select date\"
 
 /***/ }),
 
-/***/ 124:
+/***/ 130:
 /*!***************************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hans.json ***!
   \***************************************************************************************************************************************************************/
@@ -2532,7 +2565,7 @@ module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"选择日期\
 
 /***/ }),
 
-/***/ 125:
+/***/ 131:
 /*!***************************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hant.json ***!
   \***************************************************************************************************************************************************************/
@@ -2543,7 +2576,136 @@ module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"選擇日期\
 
 /***/ }),
 
-/***/ 147:
+/***/ 15:
+/*!**********************************************************************************************************!*\
+  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
+  \**********************************************************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
+/* globals __VUE_SSR_CONTEXT__ */
+
+// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
+// This module is a runtime utility for cleaner component module output and will
+// be included in the final webpack user bundle.
+
+function normalizeComponent (
+  scriptExports,
+  render,
+  staticRenderFns,
+  functionalTemplate,
+  injectStyles,
+  scopeId,
+  moduleIdentifier, /* server only */
+  shadowMode, /* vue-cli only */
+  components, // fixed by xxxxxx auto components
+  renderjs // fixed by xxxxxx renderjs
+) {
+  // Vue.extend constructor export interop
+  var options = typeof scriptExports === 'function'
+    ? scriptExports.options
+    : scriptExports
+
+  // fixed by xxxxxx auto components
+  if (components) {
+    if (!options.components) {
+      options.components = {}
+    }
+    var hasOwn = Object.prototype.hasOwnProperty
+    for (var name in components) {
+      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
+        options.components[name] = components[name]
+      }
+    }
+  }
+  // fixed by xxxxxx renderjs
+  if (renderjs) {
+    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
+      this[renderjs.__module] = this
+    });
+    (options.mixins || (options.mixins = [])).push(renderjs)
+  }
+
+  // render functions
+  if (render) {
+    options.render = render
+    options.staticRenderFns = staticRenderFns
+    options._compiled = true
+  }
+
+  // functional template
+  if (functionalTemplate) {
+    options.functional = true
+  }
+
+  // scopedId
+  if (scopeId) {
+    options._scopeId = 'data-v-' + scopeId
+  }
+
+  var hook
+  if (moduleIdentifier) { // server build
+    hook = function (context) {
+      // 2.3 injection
+      context =
+        context || // cached call
+        (this.$vnode && this.$vnode.ssrContext) || // stateful
+        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
+      // 2.2 with runInNewContext: true
+      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
+        context = __VUE_SSR_CONTEXT__
+      }
+      // inject component styles
+      if (injectStyles) {
+        injectStyles.call(this, context)
+      }
+      // register component module identifier for async chunk inferrence
+      if (context && context._registeredComponents) {
+        context._registeredComponents.add(moduleIdentifier)
+      }
+    }
+    // used by ssr in case component is cached and beforeCreate
+    // never gets called
+    options._ssrRegister = hook
+  } else if (injectStyles) {
+    hook = shadowMode
+      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
+      : injectStyles
+  }
+
+  if (hook) {
+    if (options.functional) {
+      // for template-only hot-reload because in that case the render fn doesn't
+      // go through the normalizer
+      options._injectStyles = hook
+      // register for functioal component in vue file
+      var originalRender = options.render
+      options.render = function renderWithStyleInjection (h, context) {
+        hook.call(context)
+        return originalRender(h, context)
+      }
+    } else {
+      // inject component registration as beforeCreate hook
+      var existing = options.beforeCreate
+      options.beforeCreate = existing
+        ? [].concat(existing, hook)
+        : [hook]
+    }
+  }
+
+  return {
+    exports: scriptExports,
+    options: options
+  }
+}
+
+
+/***/ }),
+
+/***/ 153:
 /*!*****************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/util.js ***!
   \*****************************************************************************************************************************************************/
@@ -2961,135 +3123,6 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
 
 Calendar;exports.default = _default;
-
-/***/ }),
-
-/***/ 15:
-/*!**********************************************************************************************************!*\
-  !*** ./node_modules/@dcloudio/vue-cli-plugin-uni/packages/vue-loader/lib/runtime/componentNormalizer.js ***!
-  \**********************************************************************************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "default", function() { return normalizeComponent; });
-/* globals __VUE_SSR_CONTEXT__ */
-
-// IMPORTANT: Do NOT use ES2015 features in this file (except for modules).
-// This module is a runtime utility for cleaner component module output and will
-// be included in the final webpack user bundle.
-
-function normalizeComponent (
-  scriptExports,
-  render,
-  staticRenderFns,
-  functionalTemplate,
-  injectStyles,
-  scopeId,
-  moduleIdentifier, /* server only */
-  shadowMode, /* vue-cli only */
-  components, // fixed by xxxxxx auto components
-  renderjs // fixed by xxxxxx renderjs
-) {
-  // Vue.extend constructor export interop
-  var options = typeof scriptExports === 'function'
-    ? scriptExports.options
-    : scriptExports
-
-  // fixed by xxxxxx auto components
-  if (components) {
-    if (!options.components) {
-      options.components = {}
-    }
-    var hasOwn = Object.prototype.hasOwnProperty
-    for (var name in components) {
-      if (hasOwn.call(components, name) && !hasOwn.call(options.components, name)) {
-        options.components[name] = components[name]
-      }
-    }
-  }
-  // fixed by xxxxxx renderjs
-  if (renderjs) {
-    (renderjs.beforeCreate || (renderjs.beforeCreate = [])).unshift(function() {
-      this[renderjs.__module] = this
-    });
-    (options.mixins || (options.mixins = [])).push(renderjs)
-  }
-
-  // render functions
-  if (render) {
-    options.render = render
-    options.staticRenderFns = staticRenderFns
-    options._compiled = true
-  }
-
-  // functional template
-  if (functionalTemplate) {
-    options.functional = true
-  }
-
-  // scopedId
-  if (scopeId) {
-    options._scopeId = 'data-v-' + scopeId
-  }
-
-  var hook
-  if (moduleIdentifier) { // server build
-    hook = function (context) {
-      // 2.3 injection
-      context =
-        context || // cached call
-        (this.$vnode && this.$vnode.ssrContext) || // stateful
-        (this.parent && this.parent.$vnode && this.parent.$vnode.ssrContext) // functional
-      // 2.2 with runInNewContext: true
-      if (!context && typeof __VUE_SSR_CONTEXT__ !== 'undefined') {
-        context = __VUE_SSR_CONTEXT__
-      }
-      // inject component styles
-      if (injectStyles) {
-        injectStyles.call(this, context)
-      }
-      // register component module identifier for async chunk inferrence
-      if (context && context._registeredComponents) {
-        context._registeredComponents.add(moduleIdentifier)
-      }
-    }
-    // used by ssr in case component is cached and beforeCreate
-    // never gets called
-    options._ssrRegister = hook
-  } else if (injectStyles) {
-    hook = shadowMode
-      ? function () { injectStyles.call(this, this.$root.$options.shadowRoot) }
-      : injectStyles
-  }
-
-  if (hook) {
-    if (options.functional) {
-      // for template-only hot-reload because in that case the render fn doesn't
-      // go through the normalizer
-      options._injectStyles = hook
-      // register for functioal component in vue file
-      var originalRender = options.render
-      options.render = function renderWithStyleInjection (h, context) {
-        hook.call(context)
-        return originalRender(h, context)
-      }
-    } else {
-      // inject component registration as beforeCreate hook
-      var existing = options.beforeCreate
-      options.beforeCreate = existing
-        ? [].concat(existing, hook)
-        : [hook]
-    }
-  }
-
-  return {
-    exports: scriptExports,
-    options: options
-  }
-}
-
 
 /***/ }),
 
@@ -8651,7 +8684,7 @@ function type(obj) {
 
 function flushCallbacks$1(vm) {
     if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
@@ -8672,14 +8705,14 @@ function nextTick$1(vm, cb) {
     //1.nextTick 之前 已 setData 且 setData 还未回调完成
     //2.nextTick 之前存在 render watcher
     if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
                 ']:nextVueTick');
         }
         return nextTick(cb, vm)
     }else{
-        if(Object({"VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG){
+        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
             var mpInstance$1 = vm.$scope;
             console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
                 ']:nextMPTick');
@@ -8765,7 +8798,7 @@ var patch = function(oldVnode, vnode) {
     });
     var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
     if (Object.keys(diffData).length) {
-      if (Object({"VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","NODE_ENV":"development","BASE_URL":"/"}).VUE_APP_DEBUG) {
+      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
         console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
           ']差量更新',
           JSON.stringify(diffData));
@@ -8951,7 +8984,7 @@ function internalMixin(Vue) {
 
   Vue.prototype.$emit = function(event) {
     if (this.$scope && event) {
-      this.$scope['triggerEvent'](event, {
+      (this.$scope['_triggerEvent'] || this.$scope['triggerEvent'])(event, {
         __args__: toArray(arguments, 1)
       });
     }
@@ -9297,7 +9330,6 @@ function include(str, parts) {
 function startsWith(str, parts) {
   return parts.find(function (part) {return str.indexOf(part) === 0;});
 }
-<<<<<<< Updated upstream
 function normalizeLocale(locale, messages) {
   if (!locale) {
     return;
@@ -9313,46 +9345,6 @@ function normalizeLocale(locale, messages) {
     }
     if (locale.indexOf('-hant') > -1) {
       return LOCALE_ZH_HANT;
-=======
-
-/*  */
-
-function flushCallbacks$1(vm) {
-    if (vm.__next_tick_callbacks && vm.__next_tick_callbacks.length) {
-        if (Object({"NODE_ENV":"development","VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
-            var mpInstance = vm.$scope;
-            console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
-                ']:flushCallbacks[' + vm.__next_tick_callbacks.length + ']');
-        }
-        var copies = vm.__next_tick_callbacks.slice(0);
-        vm.__next_tick_callbacks.length = 0;
-        for (var i = 0; i < copies.length; i++) {
-            copies[i]();
-        }
-    }
-}
-
-function hasRenderWatcher(vm) {
-    return queue.find(function (watcher) { return vm._watcher === watcher; })
-}
-
-function nextTick$1(vm, cb) {
-    //1.nextTick 之前 已 setData 且 setData 还未回调完成
-    //2.nextTick 之前存在 render watcher
-    if (!vm.__next_tick_pending && !hasRenderWatcher(vm)) {
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
-            var mpInstance = vm.$scope;
-            console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + vm._uid +
-                ']:nextVueTick');
-        }
-        return nextTick(cb, vm)
-    }else{
-        if(Object({"NODE_ENV":"development","VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG){
-            var mpInstance$1 = vm.$scope;
-            console.log('[' + (+new Date) + '][' + (mpInstance$1.is || mpInstance$1.route) + '][' + vm._uid +
-                ']:nextMPTick');
-        }
->>>>>>> Stashed changes
     }
     if (include(locale, ['-tw', '-hk', '-mo', '-cht'])) {
       return LOCALE_ZH_HANT;
@@ -9461,40 +9453,9 @@ function getDefaultLocale() {
   if (typeof uni !== 'undefined' && uni.getLocale) {
     return uni.getLocale();
   }
-<<<<<<< Updated upstream
   // 小程序平台，uni 和 uni-i18n 互相引用，导致访问不到 uni，故在 global 上挂了 getLocale
   if (typeof global !== 'undefined' && global.getLocale) {
     return global.getLocale();
-=======
-  if (this.mpType === 'page' || this.mpType === 'component') {
-    var mpInstance = this.$scope;
-    var data = Object.create(null);
-    try {
-      data = cloneWithData(this);
-    } catch (err) {
-      console.error(err);
-    }
-    data.__webviewId__ = mpInstance.data.__webviewId__;
-    var mpData = Object.create(null);
-    Object.keys(data).forEach(function (key) { //仅同步 data 中有的数据
-      mpData[key] = mpInstance.data[key];
-    });
-    var diffData = this.$shouldDiffData === false ? data : diff(data, mpData);
-    if (Object.keys(diffData).length) {
-      if (Object({"NODE_ENV":"development","VUE_APP_NAME":"smartTunnelManagementSystem","VUE_APP_PLATFORM":"mp-weixin","BASE_URL":"/"}).VUE_APP_DEBUG) {
-        console.log('[' + (+new Date) + '][' + (mpInstance.is || mpInstance.route) + '][' + this._uid +
-          ']差量更新',
-          JSON.stringify(diffData));
-      }
-      this.__next_tick_pending = true;
-      mpInstance.setData(diffData, function () {
-        this$1.__next_tick_pending = false;
-        flushCallbacks$1(this$1);
-      });
-    } else {
-      flushCallbacks$1(this);
-    }
->>>>>>> Stashed changes
   }
   return LOCALE_EN;
 }
@@ -9711,213 +9672,6 @@ function resolveLocaleChain(locale) {
 
 /***/ }),
 
-/***/ 46:
-/*!****************************************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/node_modules/image-tools/index.js ***!
-  \****************************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.pathToBase64 = pathToBase64;exports.base64ToPath = base64ToPath;function getLocalFilePath(path) {
-  if (path.indexOf('_www') === 0 || path.indexOf('_doc') === 0 || path.indexOf('_documents') === 0 || path.indexOf('_downloads') === 0) {
-    return path;
-  }
-  if (path.indexOf('file://') === 0) {
-    return path;
-  }
-  if (path.indexOf('/storage/emulated/0/') === 0) {
-    return path;
-  }
-  if (path.indexOf('/') === 0) {
-    var localFilePath = plus.io.convertAbsoluteFileSystem(path);
-    if (localFilePath !== path) {
-      return localFilePath;
-    } else {
-      path = path.substr(1);
-    }
-  }
-  return '_www/' + path;
-}
-
-function dataUrlToBase64(str) {
-  var array = str.split(',');
-  return array[array.length - 1];
-}
-
-var index = 0;
-function getNewFileId() {
-  return Date.now() + String(index++);
-}
-
-function biggerThan(v1, v2) {
-  var v1Array = v1.split('.');
-  var v2Array = v2.split('.');
-  var update = false;
-  for (var index = 0; index < v2Array.length; index++) {
-    var diff = v1Array[index] - v2Array[index];
-    if (diff !== 0) {
-      update = diff > 0;
-      break;
-    }
-  }
-  return update;
-}
-
-function pathToBase64(path) {
-  return new Promise(function (resolve, reject) {
-    if (typeof window === 'object' && 'document' in window) {
-      if (typeof FileReader === 'function') {
-        var xhr = new XMLHttpRequest();
-        xhr.open('GET', path, true);
-        xhr.responseType = 'blob';
-        xhr.onload = function () {
-          if (this.status === 200) {
-            var fileReader = new FileReader();
-            fileReader.onload = function (e) {
-              resolve(e.target.result);
-            };
-            fileReader.onerror = reject;
-            fileReader.readAsDataURL(this.response);
-          }
-        };
-        xhr.onerror = reject;
-        xhr.send();
-        return;
-      }
-      var canvas = document.createElement('canvas');
-      var c2x = canvas.getContext('2d');
-      var img = new Image();
-      img.onload = function () {
-        canvas.width = img.width;
-        canvas.height = img.height;
-        c2x.drawImage(img, 0, 0);
-        resolve(canvas.toDataURL());
-        canvas.height = canvas.width = 0;
-      };
-      img.onerror = reject;
-      img.src = path;
-      return;
-    }
-    if (typeof plus === 'object') {
-      plus.io.resolveLocalFileSystemURL(getLocalFilePath(path), function (entry) {
-        entry.file(function (file) {
-          var fileReader = new plus.io.FileReader();
-          fileReader.onload = function (data) {
-            resolve(data.target.result);
-          };
-          fileReader.onerror = function (error) {
-            reject(error);
-          };
-          fileReader.readAsDataURL(file);
-        }, function (error) {
-          reject(error);
-        });
-      }, function (error) {
-        reject(error);
-      });
-      return;
-    }
-    if (typeof wx === 'object' && wx.canIUse('getFileSystemManager')) {
-      wx.getFileSystemManager().readFile({
-        filePath: path,
-        encoding: 'base64',
-        success: function success(res) {
-          resolve('data:image/png;base64,' + res.data);
-        },
-        fail: function fail(error) {
-          reject(error);
-        } });
-
-      return;
-    }
-    reject(new Error('not support'));
-  });
-}
-
-function base64ToPath(base64) {
-  return new Promise(function (resolve, reject) {
-    if (typeof window === 'object' && 'document' in window) {
-      base64 = base64.split(',');
-      var type = base64[0].match(/:(.*?);/)[1];
-      var str = atob(base64[1]);
-      var n = str.length;
-      var array = new Uint8Array(n);
-      while (n--) {
-        array[n] = str.charCodeAt(n);
-      }
-      return resolve((window.URL || window.webkitURL).createObjectURL(new Blob([array], { type: type })));
-    }
-    var extName = base64.split(',')[0].match(/data\:\S+\/(\S+);/);
-    if (extName) {
-      extName = extName[1];
-    } else {
-      reject(new Error('base64 error'));
-    }
-    var fileName = getNewFileId() + '.' + extName;
-    if (typeof plus === 'object') {
-      var basePath = '_doc';
-      var dirPath = 'uniapp_temp';
-      var filePath = basePath + '/' + dirPath + '/' + fileName;
-      if (!biggerThan(plus.os.name === 'Android' ? '1.9.9.80627' : '1.9.9.80472', plus.runtime.innerVersion)) {
-        plus.io.resolveLocalFileSystemURL(basePath, function (entry) {
-          entry.getDirectory(dirPath, {
-            create: true,
-            exclusive: false },
-          function (entry) {
-            entry.getFile(fileName, {
-              create: true,
-              exclusive: false },
-            function (entry) {
-              entry.createWriter(function (writer) {
-                writer.onwrite = function () {
-                  resolve(filePath);
-                };
-                writer.onerror = reject;
-                writer.seek(0);
-                writer.writeAsBinary(dataUrlToBase64(base64));
-              }, reject);
-            }, reject);
-          }, reject);
-        }, reject);
-        return;
-      }
-      var bitmap = new plus.nativeObj.Bitmap(fileName);
-      bitmap.loadBase64Data(base64, function () {
-        bitmap.save(filePath, {}, function () {
-          bitmap.clear();
-          resolve(filePath);
-        }, function (error) {
-          bitmap.clear();
-          reject(error);
-        });
-      }, function (error) {
-        bitmap.clear();
-        reject(error);
-      });
-      return;
-    }
-    if (typeof wx === 'object' && wx.canIUse('getFileSystemManager')) {
-      var filePath = wx.env.USER_DATA_PATH + '/' + fileName;
-      wx.getFileSystemManager().writeFile({
-        filePath: filePath,
-        data: dataUrlToBase64(base64),
-        encoding: 'base64',
-        success: function success() {
-          resolve(filePath);
-        },
-        fail: function fail(error) {
-          reject(error);
-        } });
-
-      return;
-    }
-    reject(new Error('not support'));
-  });
-}
-
-/***/ }),
-
 /***/ 5:
 /*!*****************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/pages.json ***!
@@ -9929,7 +9683,7 @@ function base64ToPath(base64) {
 
 /***/ }),
 
-/***/ 63:
+/***/ 62:
 /*!************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/units/net/time.js ***!
   \************************************************************************************************/
@@ -9950,6 +9704,18 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.default = 
 
     var strDate = Y + M + D + h + m + s;
     console.log(strDate); //2020-05-08 17:44:56　
+    return strDate;
+  },
+  formatTime: function formatTime(timestamp) {
+    var date = new Date(timestamp); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
+    var Y = date.getFullYear() + '-';
+    var M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1) + '-';
+    var D = date.getDate() < 10 ? '0' + date.getDate() : date.getDate();
+    var h = (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) + ':';
+    var m = (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) + ':';
+    var s = date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds();
+
+    var strDate = Y + M + D;
     return strDate;
   },
   transformTo: function transformTo(time) {
@@ -10025,7 +9791,7 @@ var _default = function _default() {
 
 /***/ }),
 
-/***/ 95:
+/***/ 94:
 /*!**********************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \**********************************************************************************************************************************/

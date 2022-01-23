@@ -8,7 +8,7 @@
 		</view>
 		<view class="Warehousing">
 			<view class="title marTop">
-				人员录入系统
+				员工邀请模块
 			</view>
 			<view class="table">
 				<el-table :data="Data[page]" stripe style="width: 100%">
@@ -40,6 +40,7 @@
 				</view>
 				<view class="btn button">
 					<el-button type="primary" plain :disabled="flag" @click="adopt">{{text}}</el-button>
+					<el-button type="primary" plain  @click="adopts">下载模板</el-button>
 				</view>
 			</view>
 		</view>
@@ -161,6 +162,23 @@
 			},
 			handleUpload(file) {
 				this.readExcel(file) // 如果在这里接收导出的 json 数据的话，会拿不到预期结果
+			},
+			adopts(){
+			const arr = [
+			    ["name", "phone"],
+			    ["请填写名字", "请填写电话"]
+			];
+			// 将数组转为sheet
+			const sheet = xlsx.utils.aoa_to_sheet(arr);
+			
+			// 先组装wookbook数据格式
+			let workbook = {
+			    SheetNames: ['test'], // 总表名
+			    Sheets: {test: sheet}, // test是表名
+			};
+			// 下载表格
+			xlsx.writeFile(workbook, '录入模板.xlsx');
+
 			},
 			adopt() {
 				console.log(this.tableData)

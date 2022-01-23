@@ -1,7 +1,8 @@
 {
 	// 小程序进入注册页
 	//#ifdef MP-WEIXIN
-	"pages": [{
+	"pages": [
+{
 			"path": "pages/register/register",
 			"style": {
 				"navigationBarTitleText": "",
@@ -37,7 +38,14 @@
 
 	// PC页面
 	//#ifdef H5
-	"pages": [{
+	"pages": [
+		{
+				"path": "subPages_PC/pcLogin/pcLogin",
+				"style": {
+					"navigationBarTitleText": "",
+					"enablePullDownRefresh": true
+				}
+			},{
 			"path": "subPages_PC/pcIndex/pcIndex",
 			"style": {
 				"navigationBarTitleText": "",

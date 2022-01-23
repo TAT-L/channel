@@ -3,7 +3,7 @@
 
 		<view class="Warehousing">
 			<view class="title marTop">
-				人员录入系统
+				查看邀请
 			</view>
 			<view class="table">
 				<el-table :data="tableData" stripe style="width: 100%">
@@ -60,10 +60,7 @@
 		data() {
 			return {
 				width: 0,
-				tableData: [{
-					name: "1111",
-					phone: "8888"
-				}],
+				tableData: [],
 				flag: true,
 				loading: true,
 				page: 0

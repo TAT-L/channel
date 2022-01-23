@@ -225,5 +225,32 @@ export const terminalSyncWorker = (query) => {
 		method: 'post'
 	})
 }
+export const WorkerTicket = (query) => {
+	return apiResquest({
+		url: '/manager/worker/'+query.workerId+'/date',
+		method: 'get'
+	})
+}
+export const WorkerTicketPost = (query) => {
+	return apiResquest({
+		url: '/manager/worker/'+query.workerId+'/date/update',
+		method: 'post',
+		query:query.data
+	})
+}
+export const WorkersUpdate = (query) => {
+	return apiResquest({
+		url: '/manager/workers/date/update',
+		method: 'post',
+		query:query.data
+	})
+}
+// /api/manager/workers/date/update
+// // manager/worker/:workerID/date/update
+// // updata 覆盖式更新
+// // append 添加
+// // remove 移除
+
+
 
 

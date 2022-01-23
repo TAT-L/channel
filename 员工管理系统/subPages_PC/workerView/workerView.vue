@@ -4,7 +4,7 @@
 
 			<view class="Warehousing">
 				<view class="title marTop">
-					人员总览系统
+					员工总览模块
 				</view>
 				<view class="table">
 					<el-table :data="tableData" stripe style="width: 100%">
@@ -63,11 +63,7 @@
 		data() {
 			return {
 				width: 0,
-				tableData: [{
-					name: "滕林江",
-					phone: "17723948634",
-					register_time:"2021-01-06"
-				}],
+				tableData: [],
 				flag: true,
 				loading: true,
 				page: 0

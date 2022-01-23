@@ -2,34 +2,30 @@
 	<view class="  popup" v-loading="loading" element-loading-text="数据上传中" element-loading-spinner="el-icon-loading"
 		element-loading-background="rgba(0, 0, 0, 0.8)">
 		<view class="box">
-			<el-transfer filterable filter-placeholder="请输入人名" v-model="user" :props="{
-					      key: 'id',
-					      label: 'description'
-					    }" :titles="['待选名单', '已选名单']" :button-texts="['移除', '添加']" :data="workers" @change="change"
-				@left-check-change="leftCheckChange" @right-check-change="rightCheckChange">
-			</el-transfer>
+		<view>
+		    <uni-calendar 
+		    ref="calendar"
+		    :insert="true"
+			:date="data"
+			:dateArr="dataArr"
+		    @confirm="confirm"
+			@ArrChange="ArrChange"
+		     />
+		</view>
 			<view class="btn button">
 				<el-button type="primary" round @click="back">返回</el-button>
 			</view>
 		</view>
-
-		<!-- </el-tab-pane> -->
-		<!-- </el-tabs> -->
 	</view>
 </template>
 <script>
 	import {
-		workList
+		WorkerTicket
 	} from '../models/baseModel.js'
 	import {
-		tickeDetail
+		WorkerTicketPost
 	} from '../models/baseModel.js'
-	import {
-		tickeAppend
-	} from '../models/baseModel.js'
-	import {
-		tickeRemove
-	} from '../models/baseModel.js'
+	import Time from '../units/net/time.js'
 	export default {
 		name: "operation",
 		props: {
@@ -43,176 +39,221 @@
 			}
 		},
 		created() {
-			console.log("去去去")
-			workList()
-				.then(res => {
-					if(res.data.detail.workers){
-						console.log(res.data.detail.workers)
-						console.log(this.workers)
-						this.workers = res.data.detail.workers
-					}
+				WorkerTicket({
+					workerId:this.id
+				})
+				.then(res=>{
+					console.log(res)
+					this.dataArr=res.data.detail.date
 					
-				})
-				.catch(err => {
-					console.log(err)
-				})
-			tickeDetail({
-					id: this.id
-				})
-				.then(res => {
-					// console.log(res.data.detail.users[0].id)
-					if (res.data.detail.workers) {
-						for (let i = 0; i < res.data.detail.workers.length; i++) {
-							this.user.push(res.data.detail.workers[i].id)
-						}
-					}
-
-
-				})
-				.catch(err => {
-					console.log(err)
 				})
 		},
 		data() {
 			return {
-				value: [],
-				workers: [],
-				checkedCities: [],
-				show: false,
-				activeName: 'first',
-				user: [],
-				leftData: [],
-				rightData: [],
-				loading: false
+				// value:[],
+				// workers: [],
+				// checkedCities: [],
+				// show: false,
+				// activeName: 'first',
+				// user: ['2022-1-19'],
+				// leftData: [],
+				// rightData: [],
+				loading: false,
+				data:["2022-01-01"],
+				dataArr:["2021-01-01","2021-01-02","2021-01-03","2021-02-04"]
 			};
 		},
 		methods: {
+			ArrChange(e){
+				console.log(e)
+				WorkerTicketPost({
+					workerId:this.id,
+					data:{
+						date:e
+					}
+				})
+				.then(res=>{
+					console.log(res)
+					if(res.statusCode==403){
+						this.$message({
+							message: res.data.detail,
+							type: "error"
+						})
+					}
+				})
+				.catch(err=>{
+					console.log(err)
+				})
+			},
+			 open(){
+			            this.$refs.calendar.open();
+			        },
+			        confirm(e) {
+			            console.log(e);
+			        },
 			back() {
 				this.$emit("goBack", false);
 			},
-			change(e1, e2, e3) {
-				console.log(e1)
-				console.log(e2)
-				console.log(e3)
-				console.log(this.leftData)
-				console.log(this.rightData)
-				this.loading = true
-				if (e2 == "right") {
-					tickeAppend({
-							id: this.id,
-							data: {
-								workers: e3
-							}
-						})
-						.then(res => {
-							this.loading = false
-						})
-						.catch(err => {
-							this.loading = false
-							reData()
-							this.$message({
-								message: '服务器错误',
-								type: "error"
-								})
-					})
-				} else {
-					tickeRemove({
-							id: this.id,
-							data: {
-								workers: e3
-							}
-						})
-						.then(res => {
-							this.loading = false
-						})
-						.catch(err => {
-							this.loading = false
-							reData()
-							this.$message({
-								message: '服务器错误',
-								type: "error"
-							})
-						})
-					console.log("left")
-				}
+			mooths(){
+				this.$refs.picker.$refs.reference.$refs.input.focus()
 			},
-			leftCheckChange(e) {
+			mooth(e) {
+				// this.$refs.saveDateInput.$refs.reference.$refs.input.focus()
 				console.log(e)
-				this.leftData = e
 				console.log(this.user)
+				let list=[];
+				for(let i=0;i<this.user.length;i++){
+					list.push(Time.formatTime(this.user[i]))
+				}
+				console.log(list)
+				WorkerTicketPost({
+					workerId:this.id,
+					data:{
+						dateLis:list
+					}
+				})
+				.then(res=>{
+					console.log(res)
+				})
+				.catch(err=>{
+					console.log(err)
+				})
+				// console.log(Time.formatTime(e))
+				// console.log(this.getCountDays(e))
+				// console.log(this.getweekday(e))
+				// // console.log(Time.parseTime(Time.transformTo(e)))			
+				// console.log(Time.formatTime(e),"www")
+				// e.setDate(1)
+				// console.log(Time.formatTime(e),"www")
+				// for(let i=0;i<this.getCountDays(e);i++){
+				// 		e.setDate(i+1)
+				// 	console.log(Time.formatTime(e)+this.getweekday(e))
+				// }
+				// console.log(this.getweekday(e))
 			},
-			rightCheckChange(e) {
-				this.rightData = e
-				console.log(this.user)
-			},
-			// DataCange(data, index) {
-			// 	for (let item in data) {
-			// 		this.data[index].people.push(this.workers[item])
+			// change(e1, e2, e3) {
+			// 	console.log(e1)
+			// 	console.log(e2)
+			// 	console.log(e3)
+			// 	console.log(this.leftData)
+			// 	console.log(this.rightData)
+			// 	this.loading = true
+			// 	if (e2 == "right") {
+			// 		tickeAppend({
+			// 				id: this.id,
+			// 				data: {
+			// 					workers: e3
+			// 				}
+			// 			})
+			// 			.then(res => {
+			// 				this.loading = false
+			// 			})
+			// 			.catch(err => {
+			// 				this.loading = false
+			// 				reData()
+			// 				this.$message({
+			// 					message: '服务器错误',
+			// 					type: "error"
+			// 					})
+			// 		})
+			// 	} else {
+			// 		tickeRemove({
+			// 				id: this.id,
+			// 				data: {
+			// 					workers: e3
+			// 				}
+			// 			})
+			// 			.then(res => {
+			// 				this.loading = false
+			// 			})
+			// 			.catch(err => {
+			// 				this.loading = false
+			// 				reData()
+			// 				this.$message({
+			// 					message: '服务器错误',
+			// 					type: "error"
+			// 				})
+			// 			})
+			// 		console.log("left")
 			// 	}
-			// 	this.data[index].len = data.length
 			// },
-			handleClick(tab, event) {
-				console.log(tab, event);
-			},
-		    reData(){
-				 workList()
-				 	.then(res => {
-				 		console.log(res.data.detail.workers)
-				 		console.log(this.workers)
-				 		this.workers = res.data.detail.workers
-				 	})
-				 	.catch(err => {
-				 		console.log(err)
-				 	})
-				 tickeDetail({
-				 		id: this.id
-				 	})
-				 	.then(res => {
-				 		console.log(res.data.detail.users[0].id)
-				 		if (res.data.detail.users) {
-				 			for (let i = 0; i < res.data.detail.users.length; i++) {
-				 				this.user.push(res.data.detail.users[i].id)
-				 			}
-				 		}
+			// leftCheckChange(e) {
+			// 	console.log(e)
+			// 	this.leftData = e
+			// 	console.log(this.user)
+			// },
+			// rightCheckChange(e) {
+			// 	this.rightData = e
+			// 	console.log(this.user)
+			// },
+			// // DataCange(data, index) {
+			// // 	for (let item in data) {
+			// // 		this.data[index].people.push(this.workers[item])
+			// // 	}
+			// // 	this.data[index].len = data.length
+			// // },
+			// handleClick(tab, event) {
+			// 	console.log(tab, event);
+			// },
+		 //    reData(){
+			// 	 workList()
+			// 	 	.then(res => {
+			// 	 		console.log(res.data.detail.workers)
+			// 	 		console.log(this.workers)
+			// 	 		this.workers = res.data.detail.workers
+			// 	 	})
+			// 	 	.catch(err => {
+			// 	 		console.log(err)
+			// 	 	})
+			// 	 tickeDetail({
+			// 	 		id: this.id
+			// 	 	})
+			// 	 	.then(res => {
+			// 	 		console.log(res.data.detail.users[0].id)
+			// 	 		if (res.data.detail.users) {
+			// 	 			for (let i = 0; i < res.data.detail.users.length; i++) {
+			// 	 				this.user.push(res.data.detail.users[i].id)
+			// 	 			}
+			// 	 		}
 				 
 				 
-				 	})
-				 	.catch(err => {
-				 		console.log(err)
-				 	})
-			},
-			btns() {
-				let data = this.data
-				let flag = true;
-				for (let i = 0; i < data.length; i++) {
-					let string = ''
-					if (data[i].people.length == 0) {
-						this.$message({
-							message: data[i].name + '信息未填写完整',
-							type: "error"
-						})
-						flag = false;
-						break;
-					}
-					for (let j = 0; j < data[i].people.length; j++) {
-						if (j != data[i].people.length - 1) {
-							string += data[i].people[j] + "、"
-						} else {
-							string += data[i].people[j]
-						}
-					}
-					data[i].strings = string
-				}
-				if (flag) {
-					this.data = data
-					this.show = true
-				}
-			}
+			// 	 	})
+			// 	 	.catch(err => {
+			// 	 		console.log(err)
+			// 	 	})
+			// },
+			// btns() {
+			// 	let data = this.data
+			// 	let flag = true;
+			// 	for (let i = 0; i < data.length; i++) {
+			// 		let string = ''
+			// 		if (data[i].people.length == 0) {
+			// 			this.$message({
+			// 				message: data[i].name + '信息未填写完整',
+			// 				type: "error"
+			// 			})
+			// 			flag = false;
+			// 			break;
+			// 		}
+			// 		for (let j = 0; j < data[i].people.length; j++) {
+			// 			if (j != data[i].people.length - 1) {
+			// 				string += data[i].people[j] + "、"
+			// 			} else {
+			// 				string += data[i].people[j]
+			// 			}
+			// 		}
+			// 		data[i].strings = string
+			// 	}
+			// 	if (flag) {
+			// 		this.data = data
+			// 		this.show = true
+			// 	}
+			// }
 		},
 	}
 </script>
 
-<style>
+<style scoped>
 	.box {
 		/* width: 100%; */
 		min-height: 80vh;
@@ -335,5 +376,11 @@
 
 	/deep/ .el-transfer-panel {
 		width: 650rpx;
+	}
+	/deep/ .el-picker-panel{
+		margin: 40rpx 0;
+	}
+	#picker{
+		width: 8000rpx;
 	}
 </style>

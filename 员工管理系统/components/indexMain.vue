@@ -49,7 +49,7 @@
 				// PC
 				//#ifndef MP
 				assembly: [{
-					value: '/subPages_PC/registrationAudit/registrationAudit?page=0',
+					value: '/subPages_PC/addWorker/addWorker?page=0',
 					label: "注册查看",
 					ruls: require("../static/采集盒列表.png")
 				}, {

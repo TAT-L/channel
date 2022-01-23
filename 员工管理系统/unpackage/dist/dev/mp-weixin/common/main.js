@@ -113,22 +113,22 @@ var _login = _interopRequireDefault(__webpack_require__(/*! ./units/login.js */ 
 
       success: function success() {
 
-        // if (platform === 'windows') {
-        // 	console.log("跳转至pc登陆页面")
-        // 	uni.reLaunch({
-        // 		url: './subPage1/pcLogin/pcLogin'
-        // 	})
-        // } else {
-        // 	login().then(res => {
-        // 		if (res.data.detail.status === 2) {
-        // 			console.log("审核通过，跳转至首页")
-        // 			uni.switchTab({
-        // 				url: '/pages/index/index'
-        // 			});
-        // 		}
-        // 	})
+        if (platform === 'windows') {
+          console.log("跳转至pc登陆页面");
+          uni.reLaunch({
+            url: './subPage1/pcLogin/pcLogin' });
 
-        // }
+        } else {
+          (0, _login.default)().then(function (res) {
+            if (res.data.detail.status === 2) {
+              console.log("审核通过，跳转至首页");
+              uni.switchTab({
+                url: '/pages/index/index' });
+
+            }
+          });
+
+        }
       },
       fail: function fail() {} });
 
