@@ -110,9 +110,11 @@
 				}
 				else if (!regPhoneNum.test(this.userPhoneNumber)) {
 					this.error = '请输入正确的手机号!!!'
-				} else if (!regID18.test(this.IDNumber) && !regID15.test(this.IDNumber)) {
-					this.error = '请输入正确的身份证!!!'
-				}else if(this.index <= 0){
+				} 
+				// else if (!regID18.test(this.IDNumber) && !regID15.test(this.IDNumber)) {
+				// 	this.error = '请输入正确的身份证!!!'
+				// }
+				else if(this.index <= 0){
 					this.error = '请选择管理员!!!'
 				} 
 				else {

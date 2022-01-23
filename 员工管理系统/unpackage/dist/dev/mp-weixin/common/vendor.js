@@ -805,9 +805,15 @@ var customize = cached(function (str) {
 
 function initTriggerEvent(mpInstance) {
   var oldTriggerEvent = mpInstance.triggerEvent;
-  mpInstance.triggerEvent = function (event) {for (var _len3 = arguments.length, args = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {args[_key3 - 1] = arguments[_key3];}
+  var newTriggerEvent = function newTriggerEvent(event) {for (var _len3 = arguments.length, args = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {args[_key3 - 1] = arguments[_key3];}
     return oldTriggerEvent.apply(mpInstance, [customize(event)].concat(args));
   };
+  try {
+    // 京东小程序 triggerEvent 为只读
+    mpInstance.triggerEvent = newTriggerEvent;
+  } catch (error) {
+    mpInstance._triggerEvent = newTriggerEvent;
+  }
 }
 
 function initHook(name, options, isComponent) {
@@ -1981,17 +1987,17 @@ function createPlugin(vm) {
   var appOptions = parseApp(vm);
   if (isFn(appOptions.onShow) && wx.onAppShow) {
     wx.onAppShow(function () {for (var _len7 = arguments.length, args = new Array(_len7), _key7 = 0; _key7 < _len7; _key7++) {args[_key7] = arguments[_key7];}
-      appOptions.onShow.apply(vm, args);
+      vm.__call_hook('onShow', args);
     });
   }
   if (isFn(appOptions.onHide) && wx.onAppHide) {
     wx.onAppHide(function () {for (var _len8 = arguments.length, args = new Array(_len8), _key8 = 0; _key8 < _len8; _key8++) {args[_key8] = arguments[_key8];}
-      appOptions.onHide.apply(vm, args);
+      vm.__call_hook('onHide', args);
     });
   }
   if (isFn(appOptions.onLaunch)) {
     var args = wx.getLaunchOptionsSync && wx.getLaunchOptionsSync();
-    appOptions.onLaunch.call(vm, args);
+    vm.__call_hook('onLaunch', args);
   }
   return vm;
 }
@@ -2323,7 +2329,7 @@ var terminalSyncWorker = function terminalSyncWorker(query) {
 
 /***/ }),
 
-/***/ 108:
+/***/ 109:
 /*!**********************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-icons/components/uni-icons/icons.js ***!
   \**********************************************************************************************************************************/
@@ -3536,7 +3542,25 @@ var apiResquest = function apiResquest(prams) {//prams 为我们需要调用的�
 
 /***/ }),
 
-/***/ 116:
+/***/ 117:
+/*!************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/units/net/uuid.js ***!
+  \************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = uuid;
+function uuid() {
+  function S4() {
+    return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
+  }
+  return S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4();
+}
+
+/***/ }),
+
+/***/ 118:
 /*!***********************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/采集盒列表.png ***!
   \***********************************************************************************************/
@@ -3547,7 +3571,7 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 
 /***/ }),
 
-/***/ 117:
+/***/ 119:
 /*!********************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/考勤.png ***!
   \********************************************************************************************/
@@ -3555,28 +3579,6 @@ module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACt
 /***/ (function(module, exports) {
 
 module.exports = "data:image/png;base64,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"
-
-/***/ }),
-
-/***/ 118:
-/*!*********************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/操作票.png ***!
-  \*********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,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"
-
-/***/ }),
-
-/***/ 119:
-/*!**********************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/注册灰色.png ***!
-  \**********************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "data:image/png;base64,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"
 
 /***/ }),
 
@@ -3595,51 +3597,29 @@ Object.defineProperty(exports, "__esModule", { value: true });exports.config = v
 
 /***/ }),
 
-/***/ 127:
-/*!**************************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/models/userModel.js ***!
-  \**************************************************************************************************/
+/***/ 120:
+/*!*********************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/操作票.png ***!
+  \*********************************************************************************************/
 /*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
+/***/ (function(module, exports) {
 
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.postWorkerInfo = exports.getWorkerInfo = exports.getAvatar = exports.postAvatar = void 0;var _http = __webpack_require__(/*! ../units/net/http.js */ 11);
-
-
-// 上传头像
-var postAvatar = function postAvatar(query) {
-  return (0, _http.apiResquest)({
-    url: '/worker/face',
-    method: 'POST',
-    query: query });
-
-};
-//获取头像
-exports.postAvatar = postAvatar;var getAvatar = function getAvatar(query) {
-  return (0, _http.apiResquest)({
-    url: '/worker/face',
-    method: 'GET' });
-
-};
-// 获取用户信息
-exports.getAvatar = getAvatar;var getWorkerInfo = function getWorkerInfo(query) {
-  return (0, _http.apiResquest)({
-    url: '/user/information',
-    method: 'GET' });
-
-};
-//长传用户信息
-exports.getWorkerInfo = getWorkerInfo;var postWorkerInfo = function postWorkerInfo(query) {
-  return (0, _http.apiResquest)({
-    url: '/user/information',
-    method: 'POST',
-    query: query });
-
-};exports.postWorkerInfo = postWorkerInfo;
+module.exports = "data:image/png;base64,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"
 
 /***/ }),
 
-/***/ 135:
+/***/ 121:
+/*!**********************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/static/注册灰色.png ***!
+  \**********************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMgAAADICAYAAACtWK6eAAALVklEQVR4nO2dPY4ruRWFtYReQi+hN2BAS+glVOyol9AZwVNBLaGXoNBhDeDAdmAoMIwx4MEIEzkyCoYX0A7qyqNpSGreS5b4dz6AyUsexa7D+0tytyOEEEIIIYQQQghpnWmanpxzzwBeALx471+9968ABgCD9/7VObcH8OKce849X0I2YZqmJxHBMI7jBOAIYAHwaRgnAIdxHCfv/Ztzbp/79xGixjm3996/R4pBMw7y/73k/u2EXOWLKLYWxL2xjOM40S0j2XHOPYvbdMosiltjBjDkXifSGQBeRBiPcJ+SjHEcp9zrRhrHObevTRjXhEL3iyRF0rEfNQuDFoVsAta6RDPC+DKO3vvX3GtMKgRr7eJQwEf8EGsyTdNT7jUnFTBN05P3/q1hq3FrLCw8krtI1TuH1ViwpoqPWFOz53GUf3+YWL33b7n/DqRAsLpUpwcIYT63igB40bg2zrln6dl6FwFtNd95y7UmlSFNgVvt0kdJre638PMvXMI59bwZl5DdRvHGgjUt/NDeqA3Esjz6N5CCEFclqTC8928l7LxiFT8oEmJCdtqkFqPECjXW2CqFUCiSXkgsjrmGjwfxSQhakh6QDyVFzDHXWDeI3ByWEtxHshGpxFF75VnWwXpu5Zh7/mQDpOEwxsU4uxlD7t+SCulMNlnP3HMnCZEK+RwrjhYb+6yZPFbcGyJBUH4sMUOVCkkJW9aFQXvtJIg75prjjVCM67TknjeJIIFr9dGDOM6ISNRrlHvexEhkpbzLXiSju0VXqzYiXauui2Jyw6NmvU6550yURLhWTWartBis75B7ziSQiKwM05cXKDeZpeVMX1NYrQdv+vgtkuTQbC7vuedMviHCepx6DMq/QxmPMO1bOhGxx5B77qUCxTl9uqgFE2E92Ft0B6WrRStSKpqd7nLU2Lb+aJSNjUPu+ZIvyC5nqXsccs+9BpRWhGtaGobiFq2HEiiO7jLlWxhG94o7nQKNFWGwXhAR7lW37SRWFFaE7SelYHSvaD0MQNHxSzerECzuFV0AOwg/ujzknivZqf5g58G+oQgUKV+eFcmNxuTTvUqDXIARtBHlnmv3YH0BSuteveeed+2EWm1a6sxYTg2y9hFPqJvFszWZMQToNPsJCL0phsmQzBgCdDYmJkCRWme8lwtLgM5DUWlQVNV5VWkujO3tQ+55t0Kg9aZLmwuLQBg0piM0/uNJzUzAkOJl2jEdCOzLokAyYblzlwJJh6KizqbQHFgEwt0sHYoaFAWSA8v7Frnn3BKhGxQLs5kI9YGZUdmG0BiQiZFM0ILkRVFNp0ByYOnDYgySDrpYhcMgPS+hFpyZw0xYjtryj5WO0BiQa54Jo0D2uefdCmAlvWyMrSZsv04E2ItVNtrr+UUg77nn3QLs5q0E6O/D4vmEBCD8qAEvbsgJgKNSIDT5CQjNIPL8TWYsxUJmVeJBYAaLRcLMWDJZDNTjCQzQuRnlxhKoMw6JQxF/8H7eEjAE6oxDIlC0+DBALwHY3iUccs+7VkLdK65xIcBw9JZulg2Fe8X4oxSMcQj/gAYU7hULhCUB2wtT9JEVaB4qYsdCYRjdLFoRBZrzN1zXwrC6WYxFwlA+c8c1LRHoz6ifB2/d+AaN9WAhtlBge0znE7zQ+i5K67Hw/EfBQN+8eN712DN0A41lZnBeOMYXbz/BtoirQJf8oPWoAasVYWv2b9G+P0/rUQkRVoSu1gXQ1Zb4cnBNWK2IjO6zWtorlWg9KsP4uA596d3/4w5Nh/Sp5/WqFstpw4vRZS8R1lS56vgAr1KqGOgf+bwcXVWELeLobY2aI9LV6uYDEHFoNxO6Vi0Q6Wp9Aji2/CHIJqK1HMz4tQTislqfsrs2l92SbJVaHKwZNYZz7tnyIXwdLQWklucjZMwtW9RuSRCPnF2LqrtVpUJuOWD2CeDEgmDDpBIJgLnGDwX6GsflWFp0M8kXLA/v3PPFaxAK1iyV1Wp8AlgYlHcE7Ierbgol92+6hnPuWbJ4MfEXxdEjCdK/11yQIffv2u1WVzKBMCiO3onI5BTnek3T9CQx1kcCYVAcZCVh4H5tzCLCTYLbaZqepL3/kEgU58FsFfkV2PqQLOPgvX93zu21H+DZQnjv38R9Om405yozdGRjpD4QW3G3jH977/8J4CcAf5c5/Cj/9guAnwH8y3v/363nMo7jxCIguctWcUnho5gEA6kArC5XDmuSY9ClIjZSFhULHLQaJB4AvwPwtwI+6JTjF+/97xlvEBMb1BRKHufM2nPudScFcxZFogp0rWOuvVuZJGaapicRxamAD7SYUWp/GXkQF8Lo1VoEC4XuV0dQGObxQaE0DIWRbBxaOnrcPYUK4z/SSvIzgD+P4/hHAD+M4zgD+BOAvwD4K9Zi5RHAP7C2nZT0G3g2vWYyC2MBcBzHcfLev0nK+GWapqcUH5Vz7tl7/yptMR/IV/XnMdwakQ/y9MAP5QSpJ5yFkON3Y22RGWQe86NEwtikEh5oNRasQeu+dDdDzot8bLkerJ1UgFiNLV2NBWsh7bV0UdzCe/+60QbSxRWtVbKx1TiL4q1WUdxCDl+9I40r2uVt+MWD7drSmxTFLaRrOUYotCAlIWexTffKBgij24sKJF5Rbzg9r1lxRF6dSYsRwEUn87drx2O6BSGXUM8UxmMQF/aeUD64doUA2yMvt8aRwgjn4obGWVywA9evIKyPvFwZC/+wpCkkcEwhDl5OQNoiUaaKVoO0R6L7qWawmY60hKRxg1KMtBqkO1K8SkurUT/c3K6Q4KI2HuKpHKzPxF1ezH1gt/Au+v08VnQrJ6BDot+GSEQ+P8ArauonMCnTX1Nk5BvmC81v/Wg2yK5qWZFvcvDy5UaQYnDQ372bDTGyK5fv5zWEJjnjvX/PPd+HAHutg+/nNYamKNxFvBmRzl14aVl7UCAXaAIyulV9QIEIEnfMFuvRTXDWIRSIYG1AbHpRCAWy20W5VjzW2TgUyG63M7pWR4qjfboXiDFrdaI4+qBrgRhbSZjO7YiuBWJxrbqplpLdbtexQIyuFeOOzuhSIFLzoGtFvqVLgVhqHs38eKKiO4EYrQddq07pTiAW60HXql+6EohYjxNdKxJKVwIxWA8WBDunG4FYrAe7dEk3AjHUPWg9SB8CMVqP99zzJvnpQiBYL36j9SBqehGI6voeWo96mKbpSZ6NfttiAPiD4tv5Yat5OOf2m2zaWA9DaazHQutRPhdv0Gv+ti2MtIf0tKldWo/yscSUjY0l2fVSyoWk9aiATi3H1zFHLySU7hWtR/mI9cj9cRYxoq2I1r3irYjlI68KZ/84CxlD1GJC5171+8ZDRWguk+5gDOaFBN2rJqGL9euI8njoXrUL7M9StDROsYt4UvxndK8qQm6jyf2BZh1RZ5RA96p55G+s2QRbGfEXpWs7d+le1QuAQdzpw0bjR8W39NNW8xjHcfLevyWp00H3OhTdK3KTJpsVoTC9dK/IPZoTiCGAe8k9Z1IuzQlEW0hi7xW5R4sC0QTojD/IXZoTiCZAr+IHkay0KJDgAB2xzV6keZoSCAN0kpqmBMIAnaSmNYEwQCdJaUogDNBJaloTyMwAnaSkNYEEZ7CiOyJJF7QmkOAAnW9+kBCaEQhTvGQLmhEIlIekeAaEhNCMQLTXwbAGQkLoViC550vqoBmBKKvocTdCkG6gQAi5QzMCge6RHLaZkCB6FUj8zdikC5oRiMbFKvqHkKLQbLxFXwCivLN1yD1fUgeaAnTx7UsI6+blA51EBcLuAj4W/12JFVnu/Ij4axtJdwRYkaWa3j4RyTVLcqQ4iBWsrUzXLMmMGvv6nHPP3vtXOWX4Urz5I1Ug1mTgd0UIIYQQQgghhJBv+R889UFFi9Q3tQAAAABJRU5ErkJggg=="
+
+/***/ }),
+
+/***/ 136:
 /*!***********************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/index.js ***!
   \***********************************************************************************************************************************************************/
@@ -3647,9 +3627,9 @@ exports.getWorkerInfo = getWorkerInfo;var postWorkerInfo = function postWorkerIn
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 136));
-var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 137));
-var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 138));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
+Object.defineProperty(exports, "__esModule", { value: true });exports.default = void 0;var _en = _interopRequireDefault(__webpack_require__(/*! ./en.json */ 137));
+var _zhHans = _interopRequireDefault(__webpack_require__(/*! ./zh-Hans.json */ 138));
+var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 139));function _interopRequireDefault(obj) {return obj && obj.__esModule ? obj : { default: obj };}var _default =
 {
   en: _en.default,
   'zh-Hans': _zhHans.default,
@@ -3657,7 +3637,7 @@ var _zhHant = _interopRequireDefault(__webpack_require__(/*! ./zh-Hant.json */ 1
 
 /***/ }),
 
-/***/ 136:
+/***/ 137:
 /*!**********************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/en.json ***!
   \**********************************************************************************************************************************************************/
@@ -3668,7 +3648,7 @@ module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"select date\"
 
 /***/ }),
 
-/***/ 137:
+/***/ 138:
 /*!***************************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hans.json ***!
   \***************************************************************************************************************************************************************/
@@ -3679,7 +3659,7 @@ module.exports = JSON.parse("{\"uni-datetime-picker.selectDate\":\"选择日期\
 
 /***/ }),
 
-/***/ 138:
+/***/ 139:
 /*!***************************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/i18n/zh-Hant.json ***!
   \***************************************************************************************************************************************************************/
@@ -3819,7 +3799,7 @@ function normalizeComponent (
 
 /***/ }),
 
-/***/ 167:
+/***/ 168:
 /*!*****************************************************************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/uni_modules/uni-datetime-picker/components/uni-datetime-picker/util.js ***!
   \*****************************************************************************************************************************************************/
@@ -4268,24 +4248,6 @@ try {
 
 module.exports = g;
 
-
-/***/ }),
-
-/***/ 253:
-/*!************************************************************************************************!*\
-  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/units/net/uuid.js ***!
-  \************************************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });exports.default = uuid;
-function uuid() {
-  function S4() {
-    return ((1 + Math.random()) * 0x10000 | 0).toString(16).substring(1);
-  }
-  return S4() + S4() + "-" + S4() + "-" + S4() + "-" + S4() + "-" + S4() + S4() + S4();
-}
 
 /***/ }),
 
@@ -10116,7 +10078,7 @@ function internalMixin(Vue) {
 
   Vue.prototype.$emit = function(event) {
     if (this.$scope && event) {
-      this.$scope['triggerEvent'](event, {
+      (this.$scope['_triggerEvent'] || this.$scope['triggerEvent'])(event, {
         __args__: toArray(arguments, 1)
       });
     }
@@ -10337,6 +10299,50 @@ internalMixin(Vue);
 /* harmony default export */ __webpack_exports__["default"] = (Vue);
 
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./../../../../../webpack/buildin/global.js */ 2)))
+
+/***/ }),
+
+/***/ 38:
+/*!**************************************************************************************************!*\
+  !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/models/userModel.js ***!
+  \**************************************************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });exports.postWorkerInfo = exports.getWorkerInfo = exports.getAvatar = exports.postAvatar = void 0;var _http = __webpack_require__(/*! ../units/net/http.js */ 11);
+
+
+// 上传头像
+var postAvatar = function postAvatar(query) {
+  return (0, _http.apiResquest)({
+    url: '/worker/face',
+    method: 'POST',
+    query: query });
+
+};
+//获取头像
+exports.postAvatar = postAvatar;var getAvatar = function getAvatar(query) {
+  return (0, _http.apiResquest)({
+    url: '/worker/face',
+    method: 'GET' });
+
+};
+// 获取用户信息
+exports.getAvatar = getAvatar;var getWorkerInfo = function getWorkerInfo(query) {
+  return (0, _http.apiResquest)({
+    url: '/user/information',
+    method: 'GET' });
+
+};
+//长传用户信息
+exports.getWorkerInfo = getWorkerInfo;var postWorkerInfo = function postWorkerInfo(query) {
+  return (0, _http.apiResquest)({
+    url: '/user/information',
+    method: 'POST',
+    query: query });
+
+};exports.postWorkerInfo = postWorkerInfo;
 
 /***/ }),
 
@@ -10815,7 +10821,7 @@ function resolveLocaleChain(locale) {
 
 /***/ }),
 
-/***/ 76:
+/***/ 77:
 /*!************************************************************************************************!*\
   !*** D:/Code/front_end/小程序/工地管理系统联合开发/smart-tunnel-management-system/员工管理系统/units/net/time.js ***!
   \************************************************************************************************/

@@ -252,36 +252,38 @@ var _default = { data: function data() {return { userName: '', userPhoneNumber: 
       } else
       if (!regPhoneNum.test(this.userPhoneNumber)) {
         this.error = '请输入正确的手机号!!!';
-      } else if (!regID18.test(this.IDNumber) && !regID15.test(this.IDNumber)) {
-        this.error = '请输入正确的身份证!!!';
-      } else if (this.index <= 0) {
-        this.error = '请选择管理员!!!';
-      } else
-      {
-        (0, _baseModel.registerApi)({
-          name: this.userName,
-          phone: this.userPhoneNumber,
-          // IDNumber: this.IDNumber,
-          manager: this.managerList[this.index].id }).
-        then(function (res) {
-          console.log(res);
-          // 注册成功弹窗
-          if (res.statusCode === 200) {
-            uni.showModal({
-              title: '注册成功',
-              content: '请等待管理员审核',
-              success: function success(res) {
-                _this3.status = 1;
-                if (res.confirm) {
-                  console.log('用户点击确定');
-                } else if (res.cancel) {
-                  console.log('用户点击取消');
-                }
-              } });
-
-          }
-        });
       }
+      // else if (!regID18.test(this.IDNumber) && !regID15.test(this.IDNumber)) {
+      // 	this.error = '请输入正确的身份证!!!'
+      // }
+      else if (this.index <= 0) {
+          this.error = '请选择管理员!!!';
+        } else
+        {
+          (0, _baseModel.registerApi)({
+            name: this.userName,
+            phone: this.userPhoneNumber,
+            // IDNumber: this.IDNumber,
+            manager: this.managerList[this.index].id }).
+          then(function (res) {
+            console.log(res);
+            // 注册成功弹窗
+            if (res.statusCode === 200) {
+              uni.showModal({
+                title: '注册成功',
+                content: '请等待管理员审核',
+                success: function success(res) {
+                  _this3.status = 1;
+                  if (res.confirm) {
+                    console.log('用户点击确定');
+                  } else if (res.cancel) {
+                    console.log('用户点击取消');
+                  }
+                } });
+
+            }
+          });
+        }
 
     } } };exports.default = _default;
 /* WEBPACK VAR INJECTION */}.call(this, __webpack_require__(/*! ./node_modules/@dcloudio/uni-mp-weixin/dist/index.js */ 1)["default"]))
