@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "个人",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "user-main": "/components/userMain"
-  }
-}

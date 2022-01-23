@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "操作票管理",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "tab": "/components/tab"
-  }
-}
